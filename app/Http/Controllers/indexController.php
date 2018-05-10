@@ -21,4 +21,11 @@ class indexController extends Controller
 
     }
 
+    public function indexX()
+    {
+
+        return view('welcome');
+
+    }
+
 }

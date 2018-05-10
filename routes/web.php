@@ -1,6 +1,8 @@
 <?php
 
-Route::get('/', 'indexController@index')->name('index');
+Route::get('/', 'indexController@indexX')->name('index');
+
+Route::get('/test', 'indexController@index')->name('index');
 
 Auth::routes();
 
