@@ -129,7 +129,7 @@
                                         <span class="l4"></span>
                                         {{ $project->services->name }}
                                     </div>
-                                    <p>{{ $project->name }}</p>
+                                    <p class="project-id">{{ $project->name }}</p>
                                 </div>
                                 @endforeach
                             </div>
@@ -154,7 +154,7 @@
                                         <span class="l3"></span>
                                         <span class="l4"></span>
                                         <img src="images/{{ $team->photo->name }}" width="">
-                                        <div class="red"></div>
+                                        <div class="parent-red"><div class="red"></div></div>
                                     </div>
                                     <h2>{{ $team->name }}</h2>
                                     <p>{{ $team->position->name }}</p>

@@ -452,20 +452,16 @@ else
 }, 400);
 });
 
-$( ".red" ).hover(
+$( ".parent-red" ).hover(
   function() {
-  	
- //  	var g = $(this).css('width');
- //    var tltt = new TimelineLite();
-	// tltt.fromTo(this, 4, {width:g}, {width:0})
 
-	// tltt.timeScale(4) //play faster
-	$(this).animate({
+
+    $($(this).children()).animate({
         width: "0"
     }, 300 );
 
   }, function() {
-    $(this).animate({
+    $($(this).children()).animate({
         width: "200px"
     }, 300 );
   }

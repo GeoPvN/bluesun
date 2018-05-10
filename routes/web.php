@@ -62,7 +62,7 @@ Route::group(['middleware' => 'auth:web'], function() {
 
     Route::post('/admin/team/update', 'adminTeamController@update')->name('team-update');
 
-    Route::post('/admin/news/delete', 'adminNewsController@delete')->name('team-delete');
+    Route::post('/admin/team/delete', 'adminTeamController@delete')->name('team-delete');
 
     // Positions
 

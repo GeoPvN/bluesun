@@ -16,6 +16,12 @@ html,body{
 	position: relative;
 	z-index: 2;
 	cursor: pointer;
+    width: 35%;
+}
+.project-id{
+    position: relative;
+    z-index: 2;
+    cursor: pointer;
 }
 .no-p{
 	padding: 0;
@@ -262,13 +268,19 @@ html,body{
 	margin: 0;
 }
 
-.red{
+.parent-red{
     position: absolute;
-    width: 200px;
-    height: 35px;
-    background-color: red;
     top: 125px;
     left: 65px;
+    width: 200px;
+    height: 35px;
+}
+
+.red{
+    position: relative;
+    width: 200px;
+    height: 100%;
+    background-color: red;
 }
 
 .scroll{
@@ -380,8 +392,21 @@ html,body{
 
 /* START HOVERS */
 
-.logo:hover{
+.logo:hover,.imgmail:hover,.imgphone:hover{
 	opacity: 0.7;
+}
+
+.mail:hover,.tel-1:hover,.tel-2:hover{
+    color: #000;
+}
+
+.button:hover{
+    background-color: rgb(65, 106, 224);
+    color: #fff;
+}
+
+.service-id:hover{
+    background-color: rgb(65, 106, 224);
 }
 
 /* END HOVERS */
@@ -389,6 +414,7 @@ html,body{
 .service-item,.project-item,.team-item{
 	position: relative;
 	display: block;
+    cursor: pointer;
 }
 
 /* START 1600x900 */
@@ -543,7 +569,7 @@ html,body{
     	font-size: 29.17px;
     }
 
-	.red {
+	.parent-red {
     	top: 104px;
     	left: 30px;
     	height: 30px;
@@ -715,7 +741,7 @@ html,body{
     	font-size: 24.89px;
     }
 
-	.red {
+	.parent-red {
 		top: 89px;
 		left: 13px;
     	height: 25px;
