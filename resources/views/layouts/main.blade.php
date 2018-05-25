@@ -173,7 +173,7 @@
         </div>
     </div>
     <!-- custom script -->
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js'></script>
+    <script type="text/javascript" src="{{ asset('js/main/TweenMax.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/main/typed.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/main/custom.js') }}"></script>
 
