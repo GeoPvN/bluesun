@@ -414,7 +414,7 @@ $('.container-fluid').bind('mousewheel', function(e){
 
 if(delta > 0){
 
-  	if (show_int == 5){show_int=4}
+  	if (show_int == 6){show_int=5}
   	if (show_int > 0){show_int--}
     //go up
     if(show_int == 1){
@@ -422,6 +422,7 @@ if(delta > 0){
 		$('.project').css('display','none');
 		$('.team').css('display','none');
 		$('.about').css('display','block');
+		$('.touch').css('display','none');
 		about();
     }else
     if(show_int == 2){
@@ -429,6 +430,7 @@ if(delta > 0){
 		$('.service').css('display','block');
 		$('.project').css('display','none');
 		$('.team').css('display','none');
+		$('.touch').css('display','none');
 		service();
     }else
     if(show_int == 3){
@@ -436,6 +438,7 @@ if(delta > 0){
 		$('.service').css('display','none');
 		$('.project').css('display','block');
 		$('.team').css('display','none');
+		$('.touch').css('display','none');
 		project();
     }else
     if(show_int == 4){
@@ -443,7 +446,16 @@ if(delta > 0){
 		$('.service').css('display','none');
 		$('.project').css('display','none');
 		$('.team').css('display','block');
+		$('.touch').css('display','none');
 		team();
+    }else
+    if(show_int == 5){
+    	$('.about').css('display','none');
+		$('.service').css('display','none');
+		$('.project').css('display','none');
+		$('.team').css('display','none');
+		$('.touch').css('display','block');
+		touch();
     }
 
 
@@ -452,12 +464,13 @@ if(delta > 0){
 }
 else
 {
-  	if (show_int < 5) {if(show_int==0){show_int=2}else{show_int++}}
+  	if (show_int < 6) {if(show_int==0){show_int=2}else{show_int++}}
     if(show_int == 1){
 		$('.service').css('display','none');
 		$('.project').css('display','none');
 		$('.team').css('display','none');
 		$('.about').css('display','block');
+		$('.touch').css('display','none');
 		about();
     }else
     if(show_int == 2){
@@ -465,6 +478,7 @@ else
 		$('.service').css('display','block');
 		$('.project').css('display','none');
 		$('.team').css('display','none');
+		$('.touch').css('display','none');
 		service();
     }else
     if(show_int == 3){
@@ -472,6 +486,7 @@ else
 		$('.service').css('display','none');
 		$('.project').css('display','block');
 		$('.team').css('display','none');
+		$('.touch').css('display','none');
 		project();
     }else
     if(show_int == 4){
@@ -479,7 +494,16 @@ else
 		$('.service').css('display','none');
 		$('.project').css('display','none');
 		$('.team').css('display','block');
+		$('.touch').css('display','none');
 		team();
+    }else
+    if(show_int == 5){
+    	$('.about').css('display','none');
+		$('.service').css('display','none');
+		$('.project').css('display','none');
+		$('.team').css('display','none');
+		$('.touch').css('display','block');
+		touch();
     }
 }
 }, 400);
