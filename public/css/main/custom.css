@@ -390,6 +390,36 @@ html,body{
 
 /* END service */
 
+/* START get to touch */
+
+.touch{
+	padding: 4.13% 5% 0% 14.2%;
+	overflow: hidden;
+	display: none;
+}
+.touch-h1{
+	font-family: RCB;
+	font-size: 67px;
+	display: inline-block;
+	margin-left: -158px;
+    margin-top: 26px;
+    vertical-align: top;
+}
+.touch-p{
+	font-family: RCR;
+	font-size: 22px;
+	display: inline-block;
+    vertical-align: top;
+    margin-top: 118px;
+    margin-left: -48px;
+    letter-spacing: 0.2px;
+}
+.touch-section{
+	margin-top: 62px;
+}
+
+/* END get to touch */
+
 /* START HOVERS */
 
 .logo:hover,.imgmail:hover,.imgphone:hover{
@@ -407,6 +437,10 @@ html,body{
 
 .service-id:hover{
     background-color: rgb(65, 106, 224);
+}
+
+.item-list:hover{
+	color: #4169E0;
 }
 
 /* END HOVERS */
@@ -518,16 +552,15 @@ html,body{
 	    margin-left: -98px;
 	    margin-top: 21px;
 	}
+	.touch-h1 {
+	    font-size: 55.87px;
+	    margin-left: -171px;
+	    margin-top: 21px;
+	}
 	.project-p {
 		font-size: 18.74px;
 		margin-top: 98px;
 	    margin-left: -38px;
-	    letter-spacing: 0;
-	}
-	.team-p {
-		font-size: 18.74px;
-		margin-top: 98px;
-	    margin-left: -5px;
 	    letter-spacing: 0;
 	}
 	.service-p {
@@ -536,7 +569,19 @@ html,body{
 	    margin-left: -41px;
 	    letter-spacing: 0;
 	}
-	.service-section,.project-section,.team-section {
+	.team-p {
+		font-size: 18.74px;
+		margin-top: 98px;
+	    margin-left: -5px;
+	    letter-spacing: 0;
+	}
+	.touch-p {
+		font-size: 18.74px;
+		margin-top: 98px;
+	    margin-left: -79px;
+	    letter-spacing: 0;
+	}
+	.service-section,.project-section,.team-section,.touch-section {
     	margin-top: 46px;
 	}
 	.service-section img,.project-section img,.team-section img{
@@ -690,16 +735,15 @@ html,body{
 	    margin-left: -98px;
 	    margin-top: 21px;
 	}
+	.touch-h1 {
+	    font-size: 47.67px;
+	    margin-left: -98px;
+	    margin-top: 21px;
+	}
 	.project-p {
 		font-size: 15.99px;
 		margin-top: 98px;
 	    margin-left: -38px;
-	    letter-spacing: 0;
-	}
-	.team-p {
-		font-size: 15.99px;
-		margin-top: 98px;
-	    margin-left: -5px;
 	    letter-spacing: 0;
 	}
 	.service-p {
@@ -708,7 +752,20 @@ html,body{
     	margin-left: -35px;
 	    letter-spacing: 0;
 	}
-	.service-section,.project-section,.team-section {
+	.team-p {
+		font-size: 15.99px;
+		margin-top: 98px;
+	    margin-left: -5px;
+	    letter-spacing: 0;
+	}
+	.touch-p {
+		font-size: 15.99px;
+		margin-top: 98px;
+	    margin-left: -5px;
+	    letter-spacing: 0;
+	}
+	
+	.service-section,.project-section,.team-section,.touch-section {
     	margin-top: 21px;
 	}
 	.service-section img,.project-section img,.team-section img{

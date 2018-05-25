@@ -8,7 +8,7 @@
     <meta name="description" content="jQuery: The Write Less, Do More, JavaScript Library">
     <meta name="keywords" content="HTML,CSS,XML,JavaScript">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=contain">
-    <link rel="shortcut icon" href="img/bs.ico">
+    <link rel="shortcut icon" href="img/BS.ico">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/main/bootstrap-grid.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/main/font-awesome.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/main/custom.css') }}">
@@ -29,7 +29,7 @@
                             <div class="item-list" url="service">Services</div>
                             <div class="item-list" url="project">Projects</div>
                             <div class="item-list" url="team">Team</div>
-                            <div class="item-list" url="get">Get It Touch</div>
+                            <div class="item-list" url="touch">Get It Touch</div>
                         </div>
                         <div class="footer">
                             <img src="img/phone.png" class="imgphone">
@@ -160,6 +160,25 @@
                                     <p>{{ $team->position->name }}</p>
                                 </div>
                                 @endforeach
+                            </div>
+                            <div class="row scroll">
+                                <img width="" src="img/scroll.png">
+                                <p>scroll for more</p>
+                            </div>
+                        </div> <!-- END Team -->
+
+                        <div class="touch">
+                            <div class="rel">
+                                <div class="blue-box-section"></div>
+                                <h1 class="touch-h1">Get in touch</h1>
+                                <p class="touch-p">contact us, for your success</p>
+                            </div>
+                            <div class="row touch-section">
+                                
+                                <div class="col-md-4">
+                                    
+                                </div>
+                                
                             </div>
                             <div class="row scroll">
                                 <img width="" src="img/scroll.png">

@@ -3,6 +3,7 @@ $(document).on('click','.item-list',function(){
 	$('.service').css('display','none');
 	$('.project').css('display','none');
 	$('.team').css('display','none');
+	$('.touch').css('display','none');
 	$('.'+$(this).attr('url')).css('display','block');
 	if($(this).attr('url')=='about'){
 		about();
@@ -12,6 +13,8 @@ $(document).on('click','.item-list',function(){
 		project();
 	}else if($(this).attr('url')=='team'){
 		team();
+	}else{
+		touch();
 	}
 });
 
@@ -203,6 +206,36 @@ function team(){
 		$('.team-p').css('visibility', 'visible').hide().fadeIn('slow');
 
 	}, 850);
+}
+
+function touch(){
+	$('.touch-section .col-md-4').hide().slice(0, 3).show();
+	$('.touch-h1').text('');
+	$('.touch-p').css('visibility', 'hidden');
+	
+	//$('.btn-txt').css({visibility: "hidden"});
+	TweenLite.defaultEase = Linear.easeNone;
+
+	var h = $('.blue-box').css('height');
+	var oh = $('.blue-box-section').css('height');
+	var tl = new TimelineLite();
+	tl.fromTo(".blue-box-section", 1, {height:h,marginTop:'143px'}, {height:oh,marginTop:'0px'})
+
+	tl.timeScale(2) //play faster
+
+	setTimeout(function(){
+
+		new Typed('.touch-h1', {
+		  strings: ["Get in touch"],
+		  typeSpeed: 35
+		});
+	}, 600);
+
+	setTimeout(function(){
+
+		$('.touch-p').css('visibility', 'visible').hide().fadeIn('slow');
+
+	}, 1180);
 }
 
 var show_int = 1;
