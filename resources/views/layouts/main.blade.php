@@ -15,7 +15,7 @@
     <script type="text/javascript" src="{{ asset('js/main/jquery-3.3.1.min.js') }}"></script>
 </head>
 <body>
-    <div class="container-fluid no-p h-100">
+    <div class="container-fluid no-p h-100" >
         <div class="row no-m h-100">
             <div class="col-md-2 no-p rel">
                 <div class="section-1">
@@ -175,8 +175,21 @@
                             </div>
                             <div class="row touch-section">
                                 
-                                <div class="col-md-4">
-                                    
+                                <div class="col-md-12">
+                                    <div class="touch-contact">
+                                        <div class="touch-input">
+                                            <input type="text" name="yourname" placeholder="YOUR NAME">
+                                            <input type="text" name="subject" placeholder="SUBJECT">
+                                            <input type="mail" name="mail" placeholder="YOUR E-MAIL">
+                                        </div>
+                                        <div class="touch-textarea">
+                                            <textarea></textarea>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="touch-button">
+                                        <button type="submit">SEND</button>
+                                    </div>
                                 </div>
                                 
                             </div>
