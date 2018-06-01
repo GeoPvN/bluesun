@@ -466,6 +466,22 @@ html,body{
     width: 133px;
     background: #4169E0;
     border: 0;
+	cursor: pointer;
+}
+.fa{
+	border: 1px solid #ccc;
+	padding: 10px 10px;
+	margin-right: 8px;
+	font-size: 18px;
+	margin-bottom: 10px;
+}
+.touch-info{
+	font-family: RCR;
+	font-size: 18px;
+	font-weight: bold;
+}
+.touch-t{
+	margin-top: 45px;
 }
 
 /* END get to touch */
@@ -707,7 +723,16 @@ html,body{
         padding: 17.3px;
         width: 111px;
     }
-
+	.fa{
+		padding: 10px 10px;
+		font-size: 15px;
+	}
+	.touch-info{
+		font-size: 15px;
+	}
+	.touch-t{
+		margin-top: 65px;
+	}
 }
 
 /* END 1600x900 */
@@ -921,4 +946,14 @@ html,body{
         padding: 14.3px;
         width: 95px;
     }
+	.fa{
+		padding: 10px 10px;
+		font-size: 12.8px;
+	}
+	.touch-info{
+		font-size: 12.8px;
+	}
+	.touch-t{
+		margin-top: 95px;
+	}
 }

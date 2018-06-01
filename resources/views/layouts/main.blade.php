@@ -14,8 +14,8 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('css/main/custom.css') }}">
     <script type="text/javascript" src="{{ asset('js/main/jquery-3.3.1.min.js') }}"></script>
 </head>
-<body style="width: 1366px; height: 768px; background: url('img/1366x768.png');">
-    <div class="container-fluid no-p h-100" style="opacity: 0.5">
+<body>
+    <div class="container-fluid no-p h-100">
         <div class="row no-m h-100">
             <div class="col-md-2 no-p rel">
                 <div class="section-1">
@@ -189,6 +189,11 @@
                                     </div>
                                     <div class="touch-button">
                                         <button type="submit">SEND</button>
+                                    </div>
+                                    <div class="row touch-t">
+                                        <div class="col-md-4"><i class="fa fa-map-marker" aria-hidden="true"></i><span class="touch-info">Tbilisi, Tamarashvili Str. 45</span></div>
+                                        <div class="col-md-4"><i class="fa fa-envelope" aria-hidden="true"></i><span class="touch-info">info@bluesun.ge</span></div>
+                                        <div class="col-md-4"><i class="fa fa-phone" aria-hidden="true"></i><span class="touch-info">+995 558 58 58 58; +995 577 77 88 99</span></div>
                                     </div>
                                 </div>
                                 
