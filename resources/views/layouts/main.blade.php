@@ -14,8 +14,8 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('css/main/custom.css') }}">
     <script type="text/javascript" src="{{ asset('js/main/jquery-3.3.1.min.js') }}"></script>
 </head>
-<body>
-    <div class="container-fluid no-p h-100" >
+<body style="width: 1366px; height: 768px; background: url('img/1366x768.png');">
+    <div class="container-fluid no-p h-100" style="opacity: 0.5">
         <div class="row no-m h-100">
             <div class="col-md-2 no-p rel">
                 <div class="section-1">

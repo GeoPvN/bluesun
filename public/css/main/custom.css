@@ -14,7 +14,6 @@ html,body{
 	margin: 0;
 	padding: 0;
 	height: 100%;
-	overflow: hidden;
 }
 .service-id{
 	position: relative;
@@ -504,7 +503,7 @@ html,body{
 
 /* START 1600x900 */
 
-@media only screen and (max-width: 1500px) {
+@media only screen and (max-width: 1600px) {
 	.section-1,.section-2{
 	    padding-top: 41px;
 	}
@@ -678,6 +677,37 @@ html,body{
 	.team-section p {
     	font-size: 12.5px;
 	}
+
+    .touch-input{
+        width: 294px;
+    }
+    .touch-textarea{
+        width: 420px;
+    }
+    .touch-input input{
+        width: 264px;
+        padding: 11px 19px;
+        font-size: 12.5px;
+        margin-bottom: 21px;
+    }
+    .touch-input input:last-child{
+        margin-bottom: 13px;
+    }
+    .touch-textarea textarea{
+        width: 100%;
+        height: 161px;
+        font-size: 12.5px;
+        margin-bottom: 13px;
+    }
+    .touch-button{
+        width: 714px;
+    }
+    .touch-button button{
+        font-size: 12.5px;
+        padding: 17.3px;
+        width: 111px;
+    }
+
 }
 
 /* END 1600x900 */
@@ -788,7 +818,7 @@ html,body{
 	}
 	.touch-h1 {
 	    font-size: 47.67px;
-	    margin-left: -98px;
+	    margin-left: -146px;
 	    margin-top: 21px;
 	}
 	.project-p {
@@ -812,7 +842,7 @@ html,body{
 	.touch-p {
 		font-size: 15.99px;
 		margin-top: 98px;
-	    margin-left: -5px;
+	    margin-left: -68px;
 	    letter-spacing: 0;
 	}
 	
@@ -862,4 +892,33 @@ html,body{
 	.team-section p {
     	font-size: 10.67px;
 	}
+
+    .touch-input{
+        width: 251px;
+    }
+    .touch-textarea{
+        width: 358px;
+    }
+    .touch-input input{
+        width: 225px;
+        padding: 9.7px 13px;
+        font-size: 10.67px;
+        margin-bottom: 16px;
+    }
+    .touch-input input:last-child{
+        margin-bottom: 11px;
+    }
+    .touch-textarea textarea{
+        height: 138px;
+        font-size: 10.67px;
+        margin-bottom: 11px;
+    }
+    .touch-button{
+        width: 610px;
+    }
+    .touch-button button{
+        font-size: 10.67px;
+        padding: 14.3px;
+        width: 95px;
+    }
 }
