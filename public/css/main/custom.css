@@ -205,10 +205,8 @@ html,body{
 	margin: auto;
 	margin-top: 16px;
 }
-.btn-txt{
-	visibility: hidden;
-}
 .button{
+	visibility: hidden;
 	position: relative;
 	text-transform: uppercase;
 	cursor: pointer;
@@ -216,7 +214,7 @@ html,body{
 	font-size: 15px;
 	text-align: center;
 	display: inline-block;
-
+	border: 1px solid #4169E0;
 	padding: 18.5px 25.5px;;
 }
 .btn-last{
@@ -285,26 +283,6 @@ html,body{
     width: 200px;
     height: 100%;
     background-color: red;
-}
-
-.scroll{
-	padding-top: 50px; 
-	position: absolute;
-    bottom: 70px;
-}
-.scroll img{
-
-	margin-left: 468px;
-}
-.scroll p{
-    width: 100%;
-    padding-left: 431px;
-    padding-top: 9px;
-    margin: 0;
-    color: #C8C8C8;
-    text-transform: uppercase;
-    font-family: RCB;
-    font-size: 15px;
 }
 
 /* END team */
@@ -662,18 +640,6 @@ html,body{
 	    font-size: 12.5px;
 	    padding: 18px 0px 19px 21px;
 	}
-	.scroll img {
-	    margin-left: 394px;
-	    width: 31px;
-	    height: 42px;
-	}
-	.scroll p {
-    	padding-left: 361px;
-    	font-size: 12.5px;
-	}
-	.scroll {
-		bottom: 59px;
-	}
 	.project-section .button {
     	margin: 12px 0 5px;
 	}
@@ -885,18 +851,6 @@ html,body{
 	.service-section p {
 	    font-size: 10.67px;
 	    padding: 16px 0px 13px 18px;
-	}
-	.scroll img {
-	    margin-left: 338px;
-   		width: 26px;
-		height: 34px;
-	}
-	.scroll p {
-    	padding-left: 311px;
-    	font-size: 10.67px;
-	}
-	.scroll {
-		bottom: 50px;
 	}
 	.project-section .button {
     	margin: 9px 0 5px;

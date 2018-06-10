@@ -27,7 +27,6 @@ about();
 function about(){
 	$('.about-h1').text('');
 	$('.about-p').css('display', 'none');
-	$('.btn-txt').css({visibility: "hidden"});
 	TweenLite.defaultEase = Linear.easeNone;
 
 
@@ -39,7 +38,7 @@ function about(){
 
 	var tl = new TimelineLite();
 	tl.fromTo(".about .l3", 1, {height:0}, {height:'100%'})
-		.fromTo(".about .l2", 4, {width:0}, {width:'100%'})
+		.fromTo(".about .l2", 1, {width:0}, {width:'100%'})
 	  	.fromTo(".about .l1", 1, {height:0}, {height:'100%'})
 	  	.fromTo(".about .l4", 1, {width:0}, {width:'100%'})
 	  	.fromTo(".blue-box", 1, {backgroundColor:"none"}, {backgroundColor:"#416AE0"})
@@ -52,14 +51,22 @@ function about(){
 		  strings: ["Hi, There"],
 		  typeSpeed: 35
 		});
-		$('.btn-txt').css({opacity: 0, visibility: "visible"}).animate({opacity: 1}, 200);
-	}, 1700);
+
+	}, 800);
 
 	setTimeout(function(){
 
 		$('.about-p').css('display', 'inline-block').hide().fadeIn('slow');
+        $('.button').css({visibility: "visible"})
+			.animate({marginTop: "10px"},200)
+			.animate({marginTop: "-10px"},200)
+            .animate({marginTop: "5px"},200)
+            .animate({marginTop: "-5px"},200)
+			.animate({marginTop: "0px"},200);
 
-	}, 2100);
+
+
+	}, 1200);
 }
 
 function service(){
@@ -84,8 +91,8 @@ function service(){
 
 
 	var tlt = new TimelineLite();
-	tlt.fromTo(".service-item .l3", 1, {height:0}, {height:'100%'})
-		.fromTo(".service-item .l2", 4, {width:0}, {width:'100%'})
+	tlt.fromTo(".service-item .l3 ", 1, {height:0}, {height:'100%'})
+		.fromTo(".service-item .l2", 1, {width:0}, {width:'100%'})
 	  	.fromTo(".service-item .l1", 1, {height:0}, {height:'100%'})
 	  	.fromTo(".service-item .l4", 1, {width:0}, {width:'100%'})
 	  	.fromTo(".service-section p", 1, {visibility:"hidden"}, {visibility:"visible"})
@@ -134,7 +141,7 @@ function project(){
 
 	var tlt = new TimelineLite();
 	tlt.fromTo(".project-section .l3", 1, {height:0}, {height:'100%'})
-		.fromTo(".project-section .l2", 4, {width:0}, {width:'100%'})
+		.fromTo(".project-section .l2", 1, {width:0}, {width:'100%'})
 	  	.fromTo(".project-section .l1", 1, {height:0}, {height:'100%'})
 	  	.fromTo(".project-section .l4", 1, {width:0}, {width:'100%'})
 	  	.fromTo(".project-section p", 1, {visibility:"hidden"}, {visibility:"visible"})
@@ -182,7 +189,7 @@ function team(){
 
 	var tlt = new TimelineLite();
 	tlt.fromTo(".team-item .l3", 1, {height:0}, {height:'100%'})
-		.fromTo(".team-item .l2", 4, {width:0}, {width:'100%'})
+		.fromTo(".team-item .l2", 1, {width:0}, {width:'100%'})
 	  	.fromTo(".team-item .l1", 1, {height:0}, {height:'100%'})
 	  	.fromTo(".team-item .l4", 1, {width:0}, {width:'100%'})
 	  	.fromTo(".team-section h2", 1, {visibility:"hidden"}, {visibility:"visible"})

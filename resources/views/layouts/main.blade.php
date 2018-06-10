@@ -60,22 +60,13 @@
                                 <p class="about-p">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.</p>
                                 <div class="about-btn">
                                     <div class="button">
-                                        <span class="l1"></span>
-                                        <span class="l2"></span>
-                                        <span class="l3"></span>
-                                        <span class="l4"></span>
                                         <span class="btn-txt">What we do</span>
                                     </div>
                                     <div class="button btn-last">
-                                        <span class="l1"></span>
-                                        <span class="l2"></span>
-                                        <span class="l3"></span>
-                                        <span class="l4"></span>
                                         <span class="btn-txt">who we ara</span>
                                   </div>
                                 </div>
                             </div>
-                            
                         </div> <!-- END About -->
 
                         <div class="service">
@@ -99,10 +90,6 @@
                                     <p class="service-id" data-value="{{ $service->id }}">View Works</p>
                                 </div>
                                 @endforeach
-                            </div>
-                            <div class="row scroll">
-                                <img width="" src="img/scroll.png">
-                                <p>scroll for more</p>
                             </div>
                         </div> <!-- END Services -->
 
@@ -133,10 +120,6 @@
                                 </div>
                                 @endforeach
                             </div>
-                            <div class="row scroll">
-                                <img width="" src="img/scroll.png">
-                                <p>scroll for more</p>
-                            </div>
                         </div> <!-- END project -->
 
                         <div class="team">
@@ -160,10 +143,6 @@
                                     <p>{{ $team->position->name }}</p>
                                 </div>
                                 @endforeach
-                            </div>
-                            <div class="row scroll">
-                                <img width="" src="img/scroll.png">
-                                <p>scroll for more</p>
                             </div>
                         </div> <!-- END Team -->
 
@@ -197,10 +176,6 @@
                                     </div>
                                 </div>
                                 
-                            </div>
-                            <div class="row scroll">
-                                <img width="" src="img/scroll.png">
-                                <p>scroll for more</p>
                             </div>
                         </div> <!-- END Team -->
 
