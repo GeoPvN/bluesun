@@ -1,8 +1,12 @@
 <?php
 
-Route::get('/', 'indexController@indexX')->name('index');
+Route::get('/', 'indexController@indexX')->name('/');
 
 Route::get('/test', 'indexController@index')->name('index');
+
+Route::post('paypal', 'PaymentController@payWithpaypal');
+
+Route::get('status', 'PaymentController@getPaymentStatus')->name('status');
 
 Auth::routes();
 
