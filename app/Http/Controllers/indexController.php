@@ -24,7 +24,7 @@ class indexController extends Controller
     public function indexX()
     {
 
-        return view('welcome');
+        return view('layouts.index');
 
     }
 

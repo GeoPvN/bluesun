@@ -19,6 +19,40 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <script src="{{ asset('js/lib/jquery.min.js') }}"></script>
+    <script>
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        $(document).on('submit','#login-form', function (e) {
+            e.preventDefault();
+
+            var url = $(this).attr('action');
+            var post = $(this).attr('method');
+            $.ajax({
+                type: post,
+                url: url,
+                data: new FormData(this),
+                contentType: false,
+                cache: false,
+                dataType: 'JSON',
+                processData:false,
+                beforeSend: function(){
+                    // $('.submitBtn').attr("disabled","disabled");
+                    // $('#fupForm').css("opacity",".5");
+                },
+                success: function(msg){
+                    alert('NICE')
+                },
+                error: function (error) {
+
+                    alert(error.responseJSON.message);
+                }
+            });
+        });
+    </script>
 </head>
 <body>
     <div id="app">

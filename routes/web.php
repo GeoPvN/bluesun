@@ -10,6 +10,10 @@ Route::get('status', 'PaymentController@getPaymentStatus')->name('status');
 
 Auth::routes();
 
+Route::get('refresh-csrf', function(){
+    return csrf_token();
+});
+
 Route::group(['middleware' => 'auth:web'], function() {
 
     Route::get('/admin', 'adminIndexController@index')->name('admin');
