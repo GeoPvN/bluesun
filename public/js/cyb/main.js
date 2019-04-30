@@ -97,6 +97,7 @@ void function Init() {
                 url: url,
                 data: { email: email, password: password},
                 dataType: 'JSON',
+                headers: { 'X-CSRF-TOKEN': $('[name="csrf-token"]').attr('content') },
                 beforeSend: function(){
                     $('#for-user .preloader').addClass('visible').fadeIn('fast').delay(1400).fadeOut("fast")
                     $('#for-user .auth').hide()
@@ -128,6 +129,7 @@ void function Init() {
                 method: "POST",
                 url: "logout",
                 dataType: 'JSON',
+                headers: { 'X-CSRF-TOKEN': $('[name="csrf-token"]').attr('content') },
                 beforeSend: function(){
 
                 },
@@ -136,14 +138,14 @@ void function Init() {
                 },
                 error: function (error) {
                     console.log(error);
+                    $.get('refresh-csrf').done(function(data){
+                        $('[name="csrf-token"]').attr('content',data);
+                    });
                 }
             });
             $('#for-user .preloader').fadeIn('fast').delay(1400).fadeOut("fast");
             $('#for-user .authorized').hide();
             $('#for-user .auth').show();
-            $.get('refresh-csrf').done(function(data){
-                $('[name="csrf-token"]').attr('content',data);
-            });
         })
 
 

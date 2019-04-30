@@ -533,9 +533,9 @@
 <script src='{{ asset('js/cyb/jquery-3.4.0.min.js') }}' type='text/javascript'></script>
 <script>
     $.ajaxSetup({
-        headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        }
+        // headers: {
+        //     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        // }
     });
 </script>
 <script src='{{ asset('js/cyb/main.js') }}' type='text/javascript'></script>
