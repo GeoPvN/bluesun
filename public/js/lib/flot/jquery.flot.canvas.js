@@ -123,7 +123,7 @@ browser, but needs to redraw with canvas text when exporting as an image.
 		// {
 		//     width: Width of the text's bounding box.
 		//     height: Height of the text's bounding box.
-		//     positions: Array of positions at which this text is drawn.
+		//     gallery: Array of gallery at which this text is drawn.
 		//     lines: [{
 		//         height: Height of this line.
 		//         widths: Width of this line.
@@ -135,7 +135,7 @@ browser, but needs to redraw with canvas text when exporting as an image.
 		//     },
 		// }
 		//
-		// The positions array contains objects that look like this:
+		// The gallery array contains objects that look like this:
 		//
 		// {
 		//     active: Flag indicating whether the text should be visible.
@@ -319,7 +319,7 @@ browser, but needs to redraw with canvas text when exporting as an image.
 
 			positions.push(position);
 
-			// Fill in the x & y positions of each line, adjusting them
+			// Fill in the x & y gallery of each line, adjusting them
 			// individually for horizontal alignment.
 
 			for (var i = 0, line; line = lines[i]; i++) {

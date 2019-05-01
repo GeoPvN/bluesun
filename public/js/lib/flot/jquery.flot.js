@@ -283,10 +283,10 @@ Licensed under the MIT license.
 	//     width: Width of the text's wrapper div.
 	//     height: Height of the text's wrapper div.
 	//     element: The jQuery-wrapped HTML div containing the text.
-	//     positions: Array of positions at which this text is drawn.
+	//     gallery: Array of gallery at which this text is drawn.
 	// }
 	//
-	// The positions array contains objects that look like this:
+	// The gallery array contains objects that look like this:
 	//
 	// {
 	//     active: Flag indicating whether the text should be visible.

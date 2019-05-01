@@ -2,28 +2,24 @@
 
 namespace App\Http\Controllers;
 
-use App\Photo;
 use App\Gallery;
-use App\Team;
-use Illuminate\Http\Request;
+use App\Photo;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
-class adminTeamController extends Controller
+class adminGalleryController extends Controller
 {
 
     public function index()
     {
 
-        $teams = DB::table('teams')
-            ->leftJoin('photos', 'teams.photo_id', '=', 'photos.id')
-            ->leftJoin('gallery', 'teams.position_id', '=', 'gallery.id')
-            ->select('teams.*', 'photos.name as p_name', 'gallery.name as position_name')
+        $gallerys = DB::table('gallerys')
+            ->leftJoin('photos', 'gallerys.photo_id', '=', 'photos.id')
+            ->select('gallerys.*', 'photos.name as p_name')
             ->get();
 
-        $positions = Gallery::all();
-
-        return view('admin.team.index', compact('teams','positions'));
+        return view('admin.gallery.index', compact('gallerys'));
 
     }
 
@@ -32,8 +28,7 @@ class adminTeamController extends Controller
 
         $validator = Validator::make($request->all(),[
 
-            'name' => 'required|string',
-            'photo_id' => 'required'
+            'name' => 'required|string'
 
         ]);
 
@@ -44,7 +39,6 @@ class adminTeamController extends Controller
             {
 
                 $input = $request->all();
-
 
                 if($file = $request->file('photo_id')){
 
@@ -58,10 +52,10 @@ class adminTeamController extends Controller
 
                 }
 
-                $user = Team::create($input);
+                $gallery = Gallery::create($input);
 
 
-                return response($user);
+                return response($gallery);
 
             }
 
@@ -74,7 +68,7 @@ class adminTeamController extends Controller
     public  function  update(Request $request)
     {
 
-        $team = Team::findOrFail($request->hidden_id);
+        $gallery = Gallery::findOrFail($request->hidden_id);
 
 
         $validator = Validator::make($request->all(),[
@@ -92,13 +86,13 @@ class adminTeamController extends Controller
 
                 if ($file = $request->file('photo_id')) {
 
-                    if ($team->photo_id != 0) {
+                    if ($gallery->photo_id != 0) {
 
-                        $old_photo = Photo::findOrFail($team->photo_id);
+                        $old_photo = Photo::findOrFail($gallery->photo_id);
 
                         unlink(public_path() .'/images/'. $old_photo->name);
 
-                        Photo::findOrFail($team->photo_id)->delete();
+                        Photo::findOrFail($gallery->photo_id)->delete();
 
                     }
 
@@ -112,9 +106,9 @@ class adminTeamController extends Controller
 
                 }
 
-                $team->update($input);
+                $gallery->update($input);
 
-                return response($team);
+                return response($gallery);
 
             }
         }
@@ -126,34 +120,33 @@ class adminTeamController extends Controller
     public function loadTable()
     {
 
-        $aervices = DB::table('teams')
-            ->leftJoin('photos', 'teams.photo_id', '=', 'photos.id')
-            ->leftJoin('gallery', 'teams.position_id', '=', 'gallery.id')
-            ->select('teams.*', 'photos.name as p_name', 'gallery.name as position_name')
-            ->orderBy('teams.id','desc')
+        $gallerys = DB::table('gallerys')
+            ->leftJoin('photos', 'gallerys.photo_id', '=', 'photos.id')
+            ->select('gallerys.*', 'photos.name as p_name')
+            ->orderBy('gallerys.id','desc')
             ->get();
 
-        return response($aervices);
+        return response($gallerys);
 
     }
 
     public function edit(Request $request)
     {
 
-        $aervices = DB::table('teams')
-            ->leftJoin('photos', 'teams.photo_id', '=', 'photos.id')
-            ->select('teams.*', 'photos.name as p_name')
-            ->where('teams.id', '=', $request->id)
+        $gallerys = DB::table('gallerys')
+            ->leftJoin('photos', 'gallerys.photo_id', '=', 'photos.id')
+            ->select('gallerys.*', 'photos.name as p_name')
+            ->where('gallerys.id', '=', $request->id)
             ->first();
 
-        return response()->json($aervices);
+        return response()->json($gallerys);
 
     }
 
     public function delete(Request $request)
     {
         if($request->ajax()) {
-            DB::table('teams')
+            DB::table('gallerys')
                 ->whereIn('id', $request->id)
                 ->delete();
 

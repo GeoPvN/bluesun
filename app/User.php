@@ -29,7 +29,10 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    public function admin()    {
+    public function admin()
+    {
+
         return $this->admin === 1;
+
     }
 }

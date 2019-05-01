@@ -21,7 +21,7 @@ class Team extends Model
     public function position()
     {
 
-        return $this->belongsTo('App\Position');
+        return $this->belongsTo('App\Gallery');
 
     }
 
