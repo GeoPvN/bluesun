@@ -14,10 +14,7 @@ class adminGalleryController extends Controller
     public function index()
     {
 
-        $gallerys = DB::table('gallerys')
-            ->leftJoin('photos', 'gallerys.photo_id', '=', 'photos.id')
-            ->select('gallerys.*', 'photos.name as p_name')
-            ->get();
+        $gallerys = Gallery::all();
 
         return view('admin.gallery.index', compact('gallerys'));
 

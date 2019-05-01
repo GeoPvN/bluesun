@@ -144,7 +144,7 @@
                                 </div>
                                 @endforeach
                             </div>
-                        </div> <!-- END Team -->
+                        </div> <!-- END Inbox -->
 
                         <div class="touch">
                             <div class="rel">
@@ -177,7 +177,7 @@
                                 </div>
                                 
                             </div>
-                        </div> <!-- END Team -->
+                        </div> <!-- END Inbox -->
 
                     </div>
                 </div>

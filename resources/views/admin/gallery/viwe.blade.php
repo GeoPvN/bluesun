@@ -15,7 +15,7 @@
             <tr id="{{ $gallery->id }}">
                 <td>{{ $gallery->id }}</td>
                 <td>
-                    <img height="50" src="{{$gallery->p_name ? URL::to('images') .'/'. $gallery->p_name : URL::to('images') .'/'.'400x400.png'}}" alt="img">
+                    <img height="50" src="{{$gallery->photo->name ? URL::to('images') .'/'. $gallery->photo->name : URL::to('images') .'/'.'400x400.png'}}" alt="img">
                 </td>
                 <td>{{ $gallery->name }}</td>
                 <td>{{ $gallery->created_at }}</td>

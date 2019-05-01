@@ -82,10 +82,6 @@ Route::group(['middleware' => 'admin'], function() {
 
     Route::get('/admin/inbox/edit', 'adminInboxController@edit')->name('inbox-edit');
 
-    Route::post('/admin/inbox/store', 'adminInboxController@store')->name('inbox-store');
-
-    Route::post('/admin/inbox/update', 'adminInboxController@update')->name('inbox-update');
-
     Route::post('/admin/inbox/delete', 'adminInboxController@delete')->name('inbox-delete');
 
 });

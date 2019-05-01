@@ -2,7 +2,7 @@ $(document).on('click','.item-list',function(){
 	$('.about').css('display','none');
 	$('.service').css('display','none');
 	$('.project').css('display','none');
-	$('.team').css('display','none');
+	$('.inbox').css('display','none');
 	$('.touch').css('display','none');
 	$('.'+$(this).attr('url')).css('display','block');
 	if($(this).attr('url')=='about'){
@@ -154,7 +154,7 @@ function project(){
 	setTimeout(function(){
 
 		new Typed('.project-h1', {
-		  strings: ["Projects"],
+		  strings: ["Faq"],
 		  typeSpeed: 35
 		});
 	}, 600);
@@ -167,15 +167,15 @@ function project(){
 }
 
 function team(){
-	$('.team-section .col-md-4').hide().slice(0, 3).show();
-	$('.team-h1').text('');
-	$('.team-p').css('visibility', 'hidden');
+	$('.inbox-section .col-md-4').hide().slice(0, 3).show();
+	$('.inbox-h1').text('');
+	$('.inbox-p').css('visibility', 'hidden');
 	//$('.btn-txt').css({visibility: "hidden"});
 	TweenLite.defaultEase = Linear.easeNone;
 
-	var w = $('.team-item img').css('width');
-	var jh = $('.team-item img').css('height');
-	$('.team-item').css({"width": w, "height": jh});
+	var w = $('.inbox-item img').css('width');
+	var jh = $('.inbox-item img').css('height');
+	$('.inbox-item').css({"width": w, "height": jh});
 	var h = $('.blue-box').css('height');
 	var oh = $('.blue-box-section').css('height');
 	var tl = new TimelineLite();
@@ -183,18 +183,18 @@ function team(){
 
 	tl.timeScale(2) //play faster
 
-	TweenLite.set(".team-item", {visibility:"visible"});
+	TweenLite.set(".inbox-item", {visibility:"visible"});
 
 
 
 	var tlt = new TimelineLite();
-	tlt.fromTo(".team-item .l3", 1, {height:0}, {height:'100%'})
-		.fromTo(".team-item .l2", 1, {width:0}, {width:'100%'})
-	  	.fromTo(".team-item .l1", 1, {height:0}, {height:'100%'})
-	  	.fromTo(".team-item .l4", 1, {width:0}, {width:'100%'})
-	  	.fromTo(".team-section h2", 1, {visibility:"hidden"}, {visibility:"visible"})
-	  	.fromTo(".team-section p", 1, {visibility:"hidden"}, {visibility:"visible"})
-	  	.fromTo(".team-item img, .red", 1, {visibility:"hidden"}, {visibility:"visible"})
+	tlt.fromTo(".inbox-item .l3", 1, {height:0}, {height:'100%'})
+		.fromTo(".inbox-item .l2", 1, {width:0}, {width:'100%'})
+	  	.fromTo(".inbox-item .l1", 1, {height:0}, {height:'100%'})
+	  	.fromTo(".inbox-item .l4", 1, {width:0}, {width:'100%'})
+	  	.fromTo(".inbox-section h2", 1, {visibility:"hidden"}, {visibility:"visible"})
+	  	.fromTo(".inbox-section p", 1, {visibility:"hidden"}, {visibility:"visible"})
+	  	.fromTo(".inbox-item img, .red", 1, {visibility:"hidden"}, {visibility:"visible"})
 
 	  	
 
@@ -202,15 +202,15 @@ function team(){
 
 	setTimeout(function(){
 
-		new Typed('.team-h1', {
-		  strings: ["Team"],
+		new Typed('.inbox-h1', {
+		  strings: ["Inbox"],
 		  typeSpeed: 35
 		});
 	}, 600);
 
 	setTimeout(function(){
 
-		$('.team-p').css('visibility', 'visible').hide().fadeIn('slow');
+		$('.inbox-p').css('visibility', 'visible').hide().fadeIn('slow');
 
 	}, 850);
 }
@@ -360,7 +360,7 @@ $('.project-section').bind('mousewheel', function(a){
 
 });
 
-$('.team-section').bind('mousewheel', function(a){
+$('.inbox-section').bind('mousewheel', function(a){
 	var upDown = a.originalEvent.wheelDelta;
 
 	if ( timer ) clearTimeout(timer);
@@ -374,7 +374,7 @@ $('.team-section').bind('mousewheel', function(a){
   			end -= 3;
 		
 	  		console.log(start);console.log(end);
-	  		$('.team-section .col-md-4').hide().slice(start, end).show('slow');
+	  		$('.inbox-section .col-md-4').hide().slice(start, end).show('slow');
 		
   		}
 
@@ -385,7 +385,7 @@ $('.team-section').bind('mousewheel', function(a){
   		start += 3;
   		end += 3;
 
-  		var allNews = $( ".team-section .col-md-4" ).length;
+  		var allNews = $( ".inbox-section .col-md-4" ).length;
   		var a;
 
 		if(allNews%3 != 0)
@@ -398,7 +398,7 @@ $('.team-section').bind('mousewheel', function(a){
 	  		end -= 3;
 		}else{
 			console.log(end);
-	  		$('.team-section .col-md-4').hide().slice(start, end).show('slow');
+	  		$('.inbox-section .col-md-4').hide().slice(start, end).show('slow');
 		}
 
   	}
@@ -427,7 +427,7 @@ if(delta > 0){
     if(show_int == 1){
 		$('.service').css('display','none');
 		$('.project').css('display','none');
-		$('.team').css('display','none');
+		$('.inbox').css('display','none');
 		$('.about').css('display','block');
 		$('.touch').css('display','none');
 		about();
@@ -436,7 +436,7 @@ if(delta > 0){
     	$('.about').css('display','none');
 		$('.service').css('display','block');
 		$('.project').css('display','none');
-		$('.team').css('display','none');
+		$('.inbox').css('display','none');
 		$('.touch').css('display','none');
 		service();
     }else
@@ -444,7 +444,7 @@ if(delta > 0){
     	$('.about').css('display','none');
 		$('.service').css('display','none');
 		$('.project').css('display','block');
-		$('.team').css('display','none');
+		$('.inbox').css('display','none');
 		$('.touch').css('display','none');
 		project();
     }else
@@ -452,7 +452,7 @@ if(delta > 0){
     	$('.about').css('display','none');
 		$('.service').css('display','none');
 		$('.project').css('display','none');
-		$('.team').css('display','block');
+		$('.inbox').css('display','block');
 		$('.touch').css('display','none');
 		team();
     }else
@@ -460,7 +460,7 @@ if(delta > 0){
     	$('.about').css('display','none');
 		$('.service').css('display','none');
 		$('.project').css('display','none');
-		$('.team').css('display','none');
+		$('.inbox').css('display','none');
 		$('.touch').css('display','block');
 		touch();
     }
@@ -475,7 +475,7 @@ else
     if(show_int == 1){
 		$('.service').css('display','none');
 		$('.project').css('display','none');
-		$('.team').css('display','none');
+		$('.inbox').css('display','none');
 		$('.about').css('display','block');
 		$('.touch').css('display','none');
 		about();
@@ -484,7 +484,7 @@ else
     	$('.about').css('display','none');
 		$('.service').css('display','block');
 		$('.project').css('display','none');
-		$('.team').css('display','none');
+		$('.inbox').css('display','none');
 		$('.touch').css('display','none');
 		service();
     }else
@@ -492,7 +492,7 @@ else
     	$('.about').css('display','none');
 		$('.service').css('display','none');
 		$('.project').css('display','block');
-		$('.team').css('display','none');
+		$('.inbox').css('display','none');
 		$('.touch').css('display','none');
 		project();
     }else
@@ -500,7 +500,7 @@ else
     	$('.about').css('display','none');
 		$('.service').css('display','none');
 		$('.project').css('display','none');
-		$('.team').css('display','block');
+		$('.inbox').css('display','block');
 		$('.touch').css('display','none');
 		team();
     }else
@@ -508,7 +508,7 @@ else
     	$('.about').css('display','none');
 		$('.service').css('display','none');
 		$('.project').css('display','none');
-		$('.team').css('display','none');
+		$('.inbox').css('display','none');
 		$('.touch').css('display','block');
 		touch();
     }

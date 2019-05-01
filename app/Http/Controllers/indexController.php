@@ -2,10 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Projects;
-use App\Services;
-use App\Team;
-use Illuminate\Http\Request;
+use App\Faq;
+use App\Gallery;
 
 class indexController extends Controller
 {
@@ -13,18 +11,19 @@ class indexController extends Controller
     public function index()
     {
 
-    	$services = Services::all();
-        $projects = Projects::all();
-        $teams = Team::all();
+        $gallerys = Gallery::all();
 
-        return view('layouts.main', compact('services','projects','teams'));
+        return view('layouts.main', compact('gallerys'));
 
     }
 
     public function indexX()
     {
+        $gallerys = Gallery::all();
 
-        return view('layouts.index');
+        $faqs = Faq::all();
+
+        return view('layouts.index', compact('gallerys','faqs'));
 
     }
 

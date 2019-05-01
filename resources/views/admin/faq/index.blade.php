@@ -1,13 +1,13 @@
 @extends('layouts.admin')
 
 @section('title')
-    Admin Panel - Projects
+    Admin Panel - Faq
 @stop
 
 @section('content')
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header">Projects</h1>
+            <h1 class="page-header">Faq</h1>
         </div>
         <!-- /.col-lg-12 -->
     </div>
@@ -17,24 +17,24 @@
         <div class="col-lg-12">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    Project List (Add/Edit/Delet)
+                    Faq List (Add/Edit/Delet)
                 </div>
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-lg-12">
 
                             <!-- Button trigger modal -->
-                            <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#project-dialog">Add</button>
+                            <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#faq-dialog">Add</button>
 
-                            <button class="btn btn-danger btn-sm" id="delete-project">Delete</button>
+                            <button class="btn btn-danger btn-sm" id="delete-faq">Delete</button>
 
-                            <button class="btn btn-success btn-sm pull-right" id="project-load-data">Refresh</button>
+                            <button class="btn btn-success btn-sm pull-right" id="faq-load-data">Refresh</button>
 
-                            @include('admin.projects.add')
+                            @include('admin.faq.add')
 
-                            @include('admin.projects.edit')
+                            @include('admin.faq.edit')
 
-                            @include('admin.projects.viwe')
+                            @include('admin.faq.viwe')
 
                         </div>
                         <!-- /.col-lg-12 -->
@@ -59,7 +59,7 @@
     <script>
         $(document).ready(function() {
 
-            $('#project-table').DataTable({
+            $('#faq-table').DataTable({
                 responsive: true
             });
 
@@ -70,34 +70,24 @@
             });
 
             $(".modal").on("hidden.bs.modal", function(){
-                document.getElementById('project-form').reset();
+                document.getElementById('faq-form').reset();
             });
         });
 
         //------------ Load Table ----------------
-        $('#project-load-data').on('click',function (e) {
+        $('#faq-load-data').on('click',function (e) {
 
-            $.get("{{ route('projects-load-data') }}", function (data) {
+            $.get("{{ route('faq-load-data') }}", function (data) {
                 $('#table-data').empty();
                 $.each(data, function (i, value) {
 
-                    if(value.p_name != null){
-                        img_url = '{{ URL::to('images') .'/' }}' + value.p_name;
-                    }else{
-                        img_url = 'http://placehold.it/400x400';
-                    }
-                    var img = '<img height="50" src="' + img_url + '" alt="img">';
                     var tr = $('<tr/>',{
                         id : value.id
                     });
                     tr.append($('<td/>',{
                         text : value.id
                     })).append($('<td/>',{
-                        html : img
-                    })).append($('<td/>',{
                         text : value.name
-                    })).append($('<td/>',{
-                        text : value.s_name
                     })).append($('<td/>',{
                         text : value.description
                     })).append($('<td/>',{
@@ -113,8 +103,8 @@
 
         });
 
-        //------------ Add Project ------------------
-        $("#project-form").on('submit', function(e){
+        //------------ Add Faq ------------------
+        $("#faq-form").on('submit', function(e){
             e.preventDefault();
             var url = $(this).attr('action');
             var post = $(this).attr('method');
@@ -132,26 +122,26 @@
                 success: function(msg){
                     if(msg.error)
                     {
-                        $('#project-error ul').empty();
-                        $('#project-error').css('display','block');
+                        $('#faq-error ul').empty();
+                        $('#faq-error').css('display','block');
                         $.each(msg.error, function (i, value) {
-                            $('#project-error ul').append("<li>"+value+"</li>") ;
+                            $('#faq-error ul').append("<li>"+value+"</li>") ;
                         })
                         //console.log(msg.error);
                     }
                     else
                     {
-                        document.getElementById('project-form').reset();
-                        $('#project-dialog').modal('toggle');
-                        $('#project-load-data').click();
+                        document.getElementById('faq-form').reset();
+                        $('#faq-dialog').modal('toggle');
+                        $('#faq-load-data').click();
                     }
 
                 }
             });
         });
 
-        //----------- Update Project ------------------
-        $("#project-form-edit").on('submit', function(e){
+        //----------- Update Faq ------------------
+        $("#faq-form-edit").on('submit', function(e){
             e.preventDefault();
             var url = $(this).attr('action');
             var post = $(this).attr('method');
@@ -169,17 +159,17 @@
                 success: function(msg){
                     if(msg.error)
                     {
-                        $('#project-error-edit ul').empty();
-                        $('#project-error-edit').css('display','block');
+                        $('#faq-error-edit ul').empty();
+                        $('#faq-error-edit').css('display','block');
                         $.each(msg.error, function (i, value) {
-                            $('#project-error-edit ul').append("<li>"+value+"</li>") ;
+                            $('#faq-error-edit ul').append("<li>"+value+"</li>") ;
                         });
                     }
                     else
                     {
-                        document.getElementById('project-form-edit').reset();
-                        $('#project-dialog-edit').modal('toggle');
-                        $('#project-load-data').click();
+                        document.getElementById('faq-form-edit').reset();
+                        $('#faq-dialog-edit').modal('toggle');
+                        $('#faq-load-data').click();
                     }
 
                 }
@@ -198,30 +188,21 @@
             }
         });
 
-        //------------ Edit Project Viwe -----------------
-        $(document).on('dblclick','#project-table #table-data tr',function (e) {
+        //------------ Edit Faq Viwe -----------------
+        $(document).on('dblclick','#faq-table #table-data tr',function (e) {
             var hidden_id = $(this).attr('id');
 
-            $.get("{{ route('projects-edit') }}",{id:hidden_id},function (data) {
-                $('#project-dialog-edit').modal();
-                $('#project-form-edit #hidden_id').val(hidden_id);
-                $('#project-form-edit select[name="services_id"] option[value="'+data.sex_id+'"]').prop('selected', true);
-                $('#project-form-edit input[name="name"]').val(data.name);
-                $('#project-form-edit textarea[name="description"]').val(data.description);
-                if(data.p_name != null)
-                {
-                    $('#project-form-edit img[name="p_name"]').attr('src','{{ URL::to('images') .'/' }}' + data.p_name);
-                }
-                else
-                {
-                    $('#project-form-edit img[name="p_name"]').attr('src','{{ URL::to('images') .'/' }}400x400.png');
-                }
+            $.get("{{ route('faq-edit') }}",{id:hidden_id},function (data) {
+                $('#faq-dialog-edit').modal();
+                $('#faq-form-edit #hidden_id').val(hidden_id);
+                $('#faq-form-edit input[name="name"]').val(data.name);
+                $('#faq-form-edit textarea[name="description"]').val(data.description);
 
             })
         });
 
-        //------------ Delete Project ----------------------
-        $(document).on('click','#delete-project',function (e) {
+        //------------ Delete Faq ----------------------
+        $(document).on('click','#delete-faq',function (e) {
             if ($('input[name="delete"]').is(':checked')) {
                 var sList = [];
                 $('input[name=delete]:checked').each(function (e,v) {
@@ -230,14 +211,14 @@
                 console.log(sList)
                 $.ajax({
                     type: 'POST',
-                    url: "{{ URL::to('admin/projects/delete') }}",
+                    url: "{{ URL::to('admin/faq/delete') }}",
                     data: {id:sList},
                     beforeSend: function(){
                         // $('.submitBtn').attr("disabled","disabled");
                         // $('#fupForm').css("opacity",".5");
                     },
                     success: function(msg){
-                        $('#project-load-data').click();
+                        $('#faq-load-data').click();
                     }
                 });
 

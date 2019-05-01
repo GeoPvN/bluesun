@@ -427,38 +427,13 @@
             <h1 class='wow fadeInDown' data-wow-delay='0.2s'>Cyberacademy Gallery</h1>
             <div class='photos'>
                 <ul class='wow fadeInDown' data-wow-delay='0.7s'>
+                    @foreach($gallerys as $gallery)
                     <li>
-                        <div class='img'></div>
-                        <div class='inf'>text here</div>
+                        <div class='img' style="background-image: url({{$gallery->photo->name ? URL::to('images') .'/'. $gallery->photo->name : URL::to('images') .'/'.'400x400.png'}});"></div>
+                        <div class='inf'>{{ $gallery->name }}</div>
                     </li>
-                    <li>
-                        <div class='img'></div>
-                        <div class='inf'>text here</div>
-                    </li>
-                    <li>
-                        <div class='img'></div>
-                        <div class='inf'>text here</div>
-                    </li>
-                    <li>
-                        <div class='img'></div>
-                        <div class='inf'>text here</div>
-                    </li>
-                    <li>
-                        <div class='img'></div>
-                        <div class='inf'>text here</div>
-                    </li>
-                    <li>
-                        <div class='img'></div>
-                        <div class='inf'>text here</div>
-                    </li>
-                    <li>
-                        <div class='img'></div>
-                        <div class='inf'>text here</div>
-                    </li>
-                    <li>
-                        <div class='img'></div>
-                        <div class='inf'>text here</div>
-                    </li>
+                    @endforeach
+
                 </ul>
                 <div class='btn wow fadeInUp' data-wow-delay='1s'>Show More</div>
             </div>
@@ -472,8 +447,26 @@
 
             <div class='faq-wrapper'>
                 <ul class='half wow fadeInUp' data-wow-delay='0.7s'>
+                    @foreach($faqs as $faq)
+                        <li>
+                            <div class="control">
+                                <p>{{ $faq->name }}</p>
+                                <i class="fas fa-plus"></i>
+                            </div>
+                            <div class='answer'>{{ $faq->description }}</div>
+                        </li>
+                    @endforeach
                 </ul>
                 <ul class='half wow fadeInUp' data-wow-delay='0.9s'>
+                    @foreach($faqs as $faq)
+                        <li>
+                            <div class="control">
+                                <p>{{ $faq->name }}</p>
+                                <i class="fas fa-plus"></i>
+                            </div>
+                            <div class='answer'>{{ $faq->description }}</div>
+                        </li>
+                    @endforeach
                 </ul>
             </div>
         </div>

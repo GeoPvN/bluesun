@@ -164,19 +164,19 @@
                         <a href="{{route('news')}}"><i class="fa fa-wrench fa-fw"></i> Services</a>
                     </li>
                     <li>
-                        <a href="{{route('gallery')}}"><i class="fa fa-lock fa-fw"></i> Gallery</a>
+                        <a href="{{route('gallery')}}"><i class="fa fa-file-image-o fa-fw"></i> Gallery</a>
                     </li>
                     <li>
-                        <a href="{{route('faq')}}"><i class="fa fa-lock fa-fw"></i> FAQ</a>
+                        <a href="{{route('faq')}}"><i class="fa fa-question-circle-o fa-fw"></i> FAQ</a>
                     </li>
                     <li>
-                        <a href="{{route('inbox')}}"><i class="fa fa-lock fa-fw"></i> Inbox</a>
+                        <a href="{{route('inbox')}}"><i class="fa fa-inbox fa-fw"></i> Inbox</a>
                     </li>
                     <!--li>
-                        <a href="#"><i class="fa fa-users fa-fw"></i> Team Components</a>
+                        <a href="#"><i class="fa fa-users fa-fw"></i> Inbox Components</a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="">Team</a>
+                                <a href="">Inbox</a>
                             </li>
                             <li>
                                 <a href="">Positions</a>
