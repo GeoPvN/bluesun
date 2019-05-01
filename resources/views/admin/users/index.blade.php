@@ -81,29 +81,11 @@
                 $('#table-data').empty();
                 $.each(data, function (i, value) {
 
-                    if(value.p_name != null){
-                        img_url = '{{ URL::to('images') .'/' }}' + value.p_name;
-                    }else{
-                        img_url = 'http://placehold.it/400x400';
-                    }
-                    var img = '<img height="50" src="' + img_url + '" alt="img">';
                     var tr = $('<tr/>',{
                         id : value.id
                     });
                         tr.append($('<td/>',{
                             text : value.id
-                        })).append($('<td/>',{
-                            text : value.fname
-                        })).append($('<td/>',{
-                            text : value.lname
-                        })).append($('<td/>',{
-                            text : value.date
-                        })).append($('<td/>',{
-                            text : value.s_name
-                        })).append($('<td/>',{
-                            text : value.m_name
-                        })).append($('<td/>',{
-                            html : img
                         })).append($('<td/>',{
                             text : value.name
                         })).append($('<td/>',{
@@ -213,21 +195,8 @@
             $.get("{{ route('edit') }}",{id:hidden_id},function (data) {
                 $('#user-dialog-edit').modal();
                 $('#user-form-edit #hidden_id').val(hidden_id);
-                $('#user-form-edit input[name="fname"]').val(data.fname);
-                $('#user-form-edit input[name="lname"]').val(data.lname);
-                $('#user-form-edit input[name="date"]').val(data.date);
-                $('#user-form-edit select[name="sex_id"] option[value="'+data.sex_id+'"]').prop('selected', true);
-                $('#user-form-edit select[name="member_id"] option[value="'+data.member_id+'"]').prop('selected', true);
                 $('#user-form-edit input[name="name"]').val(data.name);
                 $('#user-form-edit input[name="email"]').val(data.email);
-                if(data.p_name != null)
-                {
-                    $('#user-form-edit img[name="p_name"]').attr('src','{{ URL::to('images') .'/' }}' + data.p_name);
-                }
-                else
-                {
-                    $('#user-form-edit img[name="p_name"]').attr('src','{{ URL::to('images') .'/' }}400x400.png');
-                }
 
             })
         });
@@ -244,10 +213,6 @@
                     type: 'POST',
                     url: "{{ URL::to('admin/users/delete') }}",
                     data: {id:sList},
-                    beforeSend: function(){
-                        // $('.submitBtn').attr("disabled","disabled");
-                        // $('#fupForm').css("opacity",".5");
-                    },
                     success: function(msg){
                         $('#users-load-data').click();
                     }

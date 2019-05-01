@@ -17,14 +17,7 @@ class User extends Authenticatable
     protected $fillable = [
         'name',
         'email',
-        'password',
-        'fname',
-        'lname',
-        'sex_id',
-        'member_id',
-        'photo_id',
-        'date',
-        'active_id'
+        'password'
     ];
 
     /**
@@ -35,4 +28,8 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function admin()    {
+        return $this->admin === 1;
+    }
 }

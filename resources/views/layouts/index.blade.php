@@ -227,25 +227,25 @@
         <div class='popup'>
             <img src='{{ asset('css/assets/images/close.svg') }}' class='close'>
             <div class='title'>Registration Form</div>
-            <form>
+            <form method="POST" action="{{ route('register') }}">
                 <ul>
                     <li>
-                        <input type='text' name='summonerName' autocomplete='off' required>
+                        <input type='text' name='name' id="reg_name" autocomplete='off' required>
                         <label>Summoner Name</label>
                         <span class='border'></span>
                     </li>
                     <li>
-                        <input type='email' name='email' autocomplete='off' required>
+                        <input type='email' name='email' id="reg_email" autocomplete='off' required>
                         <label>E-mail</label>
                         <span class='border'></span>
                     </li>
                     <li>
-                        <input type='password' name='password' autocomplete='off' required>
+                        <input type='password' name='password' id="reg_pass" autocomplete='off' required>
                         <label>password</label>
                         <span class='border'></span>
                     </li>
                     <li>
-                        <input type='password' name='confirmPassword' autocomplete='off' required>
+                        <input type='password' name='password_confirmation' id="reg_pass_con" autocomplete='off' required>
                         <label>Confirm password</label>
                         <span class='border'></span>
                     </li>

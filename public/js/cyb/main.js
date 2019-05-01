@@ -37,10 +37,12 @@ void function Init() {
 
         $('header #login').on('click', function() {
             $('.popup-overlay.signin').css('transform', 'translateY(0%)');
+            $('#login_email,#login_password').val('');
         })
 
         $('header #registration').on('click', function() {
             $('.popup-overlay.signup').css('transform', 'translateY(0%)');
+            $('#reg_name,#reg_email,#reg_pass,#reg_pass_con').val('');
         })
 
         $('header #profile').on('click', function() {
@@ -122,7 +124,47 @@ void function Init() {
             });
 
 
-        })
+        });
+
+        $('.signup form').on('submit', function(ev) {
+            ev.preventDefault();
+            var url = $(this).attr('action');
+            var post = $(this).attr('method');
+
+            sum_name = $('#reg_name').val();
+            email = $('#reg_email').val();
+            password = $('#reg_pass').val();
+            password_confirmation = $('#reg_pass_con').val();
+
+            $.ajax({
+                method: post,
+                url: url,
+                data: { name: sum_name, email: email, password: password, password_confirmation: password_confirmation },
+                dataType: 'JSON',
+                headers: { 'X-CSRF-TOKEN': $('[name="csrf-token"]').attr('content') },
+                beforeSend: function(){
+                    $('#for-user .preloader').addClass('visible').fadeIn('fast').delay(1400).fadeOut("fast")
+                    $('#for-user .auth').hide()
+                },
+                success: function(msg){
+                    console.log(msg);
+                    $('#for-user .authorized').show()
+                    $('#for-user .authorized span.user, .my-profile li:first-child .info, .my-profile .half:first-child h1 span').text('test')
+                    $('.popup-overlay').css('transform', 'translateY(-100%)');
+
+                    $('.profile_name,.user').html(msg.name);
+                    $('.profile_email').html(msg.email);
+                    $.get('refresh-csrf').done(function(data){
+                        $('[name="csrf-token"]').attr('content',data);
+                    });
+                },
+                error: function (error) {
+                    console.log(error);
+                    $('#for-user .authorized').hide()
+                    $('#for-user .auth').show()
+                }
+            });
+        });
 
         $('#for-user .authorized .signout').on('click', function(ev) {
             $.ajax({

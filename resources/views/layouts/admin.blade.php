@@ -56,7 +56,7 @@
         </button>
 
         <ul class="nav navbar-nav navbar-left navbar-top-links">
-            <li><a href="{{route('index')}}"><i class="fa fa-home fa-fw"></i> Blue Sun</a></li>
+            <li><a href="{{route('index')}}"><i class="fa fa-home fa-fw"></i> Elounion</a></li>
         </ul>
 
         <ul class="nav navbar-right navbar-top-links">
@@ -164,20 +164,26 @@
                         <a href="{{route('news')}}"><i class="fa fa-wrench fa-fw"></i> Services</a>
                     </li>
                     <li>
-                        <a href="{{route('projects')}}"><i class="fa fa-lock fa-fw"></i> Projects</a>
+                        <a href="{{route('gallery')}}"><i class="fa fa-lock fa-fw"></i> Gallery</a>
                     </li>
                     <li>
+                        <a href="{{route('faq')}}"><i class="fa fa-lock fa-fw"></i> FAQ</a>
+                    </li>
+                    <li>
+                        <a href="{{route('inbox')}}"><i class="fa fa-lock fa-fw"></i> Inbox</a>
+                    </li>
+                    <!--li>
                         <a href="#"><i class="fa fa-users fa-fw"></i> Team Components</a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="{{route('team')}}">Team</a>
+                                <a href="">Team</a>
                             </li>
                             <li>
-                                <a href="{{route('positions')}}">Positions</a>
+                                <a href="">Positions</a>
                             </li>
 
                         </ul>
-                    </li>
+                    </li-->
                 </ul>
             </div>
         </div>

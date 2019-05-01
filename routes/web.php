@@ -14,7 +14,7 @@ Route::get('refresh-csrf', function(){
     return csrf_token();
 });
 
-Route::group(['middleware' => 'auth:web'], function() {
+Route::group(['middleware' => 'admin'], function() {
 
     Route::get('/admin', 'adminIndexController@index')->name('admin');
 
@@ -46,46 +46,46 @@ Route::group(['middleware' => 'auth:web'], function() {
 
     Route::post('/admin/news/delete', 'adminNewsController@delete')->name('news-delete');
 
-    // Projects
+    // Gallery
 
-    Route::get('/admin/projects', 'adminProjectsController@index')->name('projects');
+    Route::get('/admin/gallery', 'adminGalleryController@index')->name('gallery');
 
-    Route::get('/admin/projects/load-data', 'adminProjectsController@loadTable')->name('projects-load-data');
+    Route::get('/admin/gallery/load-data', 'adminGalleryController@loadTable')->name('gallery-load-data');
 
-    Route::get('/admin/projects/edit', 'adminProjectsController@edit')->name('projects-edit');
+    Route::get('/admin/gallery/edit', 'adminGalleryController@edit')->name('gallery-edit');
 
-    Route::post('/admin/projects/store', 'adminProjectsController@store')->name('projects-store');
+    Route::post('/admin/gallery/store', 'adminGalleryController@store')->name('gallery-store');
 
-    Route::post('/admin/projects/update', 'adminProjectsController@update')->name('projects-update');
+    Route::post('/admin/gallery/update', 'adminGalleryController@update')->name('gallery-update');
 
-    Route::post('/admin/projects/delete', 'adminProjectsController@delete')->name('projects-delete');
+    Route::post('/admin/gallery/delete', 'adminGalleryController@delete')->name('gallery-delete');
 
-    // Team
+    // Faq
 
-    Route::get('/admin/team', 'adminTeamController@index')->name('team');
+    Route::get('/admin/faq', 'adminFaqController@index')->name('faq');
 
-    Route::get('/admin/team/load-data', 'adminTeamController@loadTable')->name('team-load-data');
+    Route::get('/admin/faq/load-data', 'adminFaqController@loadTable')->name('faq-load-data');
 
-    Route::get('/admin/team/edit', 'adminTeamController@edit')->name('team-edit');
+    Route::get('/admin/faq/edit', 'adminFaqController@edit')->name('faq-edit');
 
-    Route::post('/admin/team/store', 'adminTeamController@store')->name('team-store');
+    Route::post('/admin/faq/store', 'adminFaqController@store')->name('faq-store');
 
-    Route::post('/admin/team/update', 'adminTeamController@update')->name('team-update');
+    Route::post('/admin/faq/update', 'adminFaqController@update')->name('faq-update');
 
-    Route::post('/admin/team/delete', 'adminTeamController@delete')->name('team-delete');
+    Route::post('/admin/faq/delete', 'adminFaqController@delete')->name('faq-delete');
 
-    // Positions
+    // Inbox
 
-    Route::get('/admin/positions', 'adminPositionsController@index')->name('positions');
+    Route::get('/admin/inbox', 'adminInboxController@index')->name('inbox');
 
-    Route::get('/admin/positions/load-data', 'adminPositionsController@loadTable')->name('positions-load-data');
+    Route::get('/admin/inbox/load-data', 'adminInboxController@loadTable')->name('inbox-load-data');
 
-    Route::get('/admin/positions/edit', 'adminPositionsController@edit')->name('positions-edit');
+    Route::get('/admin/inbox/edit', 'adminInboxController@edit')->name('inbox-edit');
 
-    Route::post('/admin/positions/store', 'adminPositionsController@store')->name('positions-store');
+    Route::post('/admin/inbox/store', 'adminInboxController@store')->name('inbox-store');
 
-    Route::post('/admin/positions/update', 'adminPositionsController@update')->name('positions-update');
+    Route::post('/admin/inbox/update', 'adminInboxController@update')->name('inbox-update');
 
-    Route::post('/admin/positions/delete', 'adminPositionsController@delete')->name('positions-delete');
+    Route::post('/admin/inbox/delete', 'adminInboxController@delete')->name('inbox-delete');
 
 });

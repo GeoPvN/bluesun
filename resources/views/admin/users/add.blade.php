@@ -14,54 +14,15 @@
 
                     <div class="row">
                         <div class="col-sm-4">
-                            <div class="form-group">
-                                <img class="img-responsive" src="{{ URL::to('images') }}/400x400.png" alt="img" name="p_name">
-                            </div>
-                            <div class="form-group">
-                                <label>Chosse Photo</label>
-                                <input type="file" name="photo_id">
-                            </div>
-                        </div>
-                        <div class="col-sm-4">
-                            <div class="form-group">
-                                <label>First Name</label>
-                                <input type="text" name="fname" class="form-control" placeholder="Enter first name" required="required">
-                            </div>
-                            <div class="form-group">
-                                <label>Born Date</label>
-                                <input type="date" name="date" class="form-control" placeholder="Enter date" required="required">
-                            </div>
-                            <div class="form-group">
-                                <label>Member</label>
-                                <select class="form-control" name="member_id" required="required">
-                                    @foreach($member as $val)
-                                        <option value="{{$val->id}}">{{$val->name}}</option>
-                                    @endforeach
-                                </select>
-                            </div>
+
                             <div class="form-group">
                                 <label>E-mail</label>
                                 <input type="email" name="email" class="form-control" placeholder="Enter e-mail" required="required">
                             </div>
-                        </div>
-                        <div class="col-sm-4">
                             <div class="form-group">
-                                <label>Last Nmae</label>
-                                <input type="text" name="lname" class="form-control" placeholder="Enter last name" required="required">
-                            </div>
-                            <div class="form-group">
-                                <label>Sex</label>
-                                <select class="form-control" name="sex_id" required="required">
-                                    @foreach($sex as $val)
-                                        <option value="{{$val->id}}">{{$val->name}}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label>Username</label>
+                                <label>Summoner Name</label>
                                 <input type="text" name="name" class="form-control" placeholder="Enter username" required="required">
                             </div>
-
                             <div class="form-group">
                                 <label>Password</label>
                                 <input type="password" name="password" class="form-control" placeholder="Enter password" required="required">
@@ -70,7 +31,6 @@
                                 <label>Confirm Password</label>
                                 <input type="password" name="password_confirmation" class="form-control" placeholder="Enter confirm password" required="required">
                             </div>
-
 
                         </div>
                         <div class="col-sm-12">
