@@ -10,15 +10,6 @@ class indexController extends Controller
 
     public function index()
     {
-
-        $gallerys = Gallery::all();
-
-        return view('layouts.main', compact('gallerys'));
-
-    }
-
-    public function indexX()
-    {
         $gallerys = Gallery::all();
 
         $faqs = Faq::all();

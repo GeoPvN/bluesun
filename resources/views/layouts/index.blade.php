@@ -476,22 +476,22 @@
         <div class='middle'>
             <h1 class='wow fadeInDown' data-wow-delay='0.2s'>Contact</h1>
 
-            <form class='wow fadeInUp' data-wow-delay='0.7s'>
+            <form class='wow fadeInUp' data-wow-delay='0.7s' method="POST" action="{{ route('contact') }}">
                 <p>If you have any questions you can email us</p>
 
                 <ul>
                     <li>
-                        <input type='text' name='subject' autocomplete='off' required>
+                        <input type='text' name='subject' id="cont_subject" autocomplete='off' required>
                         <label>Subject</label>
                         <span class='border'></span>
                     </li>
                     <li>
-                        <input type='email' name='contactEmail' autocomplete='off' required>
+                        <input type='email' name='contactEmail' id="cont_email" autocomplete='off' required>
                         <label>E-mail</label>
                         <span class='border'></span>
                     </li>
                     <li>
-                        <textarea name='message' rows='8' cols='80' required></textarea>
+                        <textarea name='message' id="cont_message" rows='8' cols='80' required></textarea>
                         <label>Message</label>
                         <span class='border'></span>
                     </li>

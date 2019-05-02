@@ -85,6 +85,35 @@ void function Init() {
             $('.select').removeClass('active')
         })
 
+        $('#contact form').on('submit', function(ev) {
+            ev.preventDefault();
+            var url = $(this).attr('action');
+            var post = $(this).attr('method');
+
+            subject = $('#cont_subject').val();
+            email = $('#cont_email').val();
+            description = $('#cont_message').val();
+
+            $.ajax({
+                method: post,
+                url: url,
+                data: { subject: subject, email: email, description: description},
+                dataType: 'JSON',
+                headers: { 'X-CSRF-TOKEN': $('[name="csrf-token"]').attr('content') },
+                beforeSend: function(){
+
+                },
+                success: function(msg){
+                    console.log(msg);
+                    $.get('refresh-csrf').done(function(data){
+                        $('[name="csrf-token"]').attr('content',data);
+                    });
+                },
+                error: function (error) {
+                    console.log(error);
+                }
+            });
+        });
 
         $('.signin form').on('submit', function(ev) {
             ev.preventDefault();

@@ -1,8 +1,8 @@
 <?php
 
-Route::get('/', 'indexController@indexX')->name('/');
+Route::get('/', 'indexController@index')->name('/');
 
-Route::get('/test', 'indexController@index')->name('index');
+Route::post('contact', 'adminInboxController@store')->name('contact');
 
 Route::post('paypal', 'PaymentController@payWithpaypal');
 
