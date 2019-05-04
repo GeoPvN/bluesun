@@ -4,14 +4,14 @@
     <meta charset='UTF-8'>
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
     <meta http-equiv='X-UA-Compatible' content='ie=edge'>
-    <meta name="author" content="Davit Papalashvili">
-    <meta name="description" content="Trusted by Gamers. Proven Boosters. Track Progress, Spectate, Chat, Schedule & Pause Boost. Select Lines, Champions, Summoners & Stream Games. Choose between Regular and Premium Duo. Select Between Solo/Duo. Encrypted VPN Connection. 24/7 Qualified Support.">
-    <meta name="keywords" content="lol boost, lol boosting, boost, cheap boost, league boosting">
+    <meta name='author' content='Davit Papalashvili'>
+    <meta name='description' content='Trusted by Gamers. Proven Boosters. Track Progress, Spectate, Chat, Schedule & Pause Boost. Select Lines, Champions, Summoners & Stream Games. Choose between Regular and Premium Duo. Select Between Solo/Duo. Encrypted VPN Connection. 24/7 Qualified Support.'>
+    <meta name='keywords' content='lol boost, lol boosting, boost, cheap boost, league boosting'>
 
     <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta name='csrf-token' content='{{ csrf_token() }}'>
 
-    <title>Cyberacademy</title>
+    <title>Elounion</title>
     <link rel='stylesheet' href='{{ asset('css/cyb/style.css') }}'>
     <link rel='stylesheet' href='{{ asset('css/cyb/all.min.css') }}'>
     <link rel='stylesheet' href='{{ asset('css/cyb/animate.css') }}' type='text/css'>
@@ -19,7 +19,7 @@
 <body>
 <div class='preloader-wrapper'>
     <div class='preloader'>
-        <div class='name'>Cyberacademy</div>
+        <div class='name'>Elounion</div>
         <div class='spinner'>
             <div class='bounce1'></div>
             <div class='bounce2'></div>
@@ -30,7 +30,7 @@
 <header>
     <div class='middle'>
         <a href='#' class='logo wow fadeInLeft' data-wow-delay='0.4s'>
-            <h1>Cyberacademy</h1>
+            <h1>Elounion</h1>
         </a>
 
         <div class='right'>
@@ -44,7 +44,7 @@
                 </ul>
             </nav>
 
-            <div id="for-user">
+            <div id='for-user'>
                 <div class='auth' @if (Auth::check()) style='display:none;' @endif>
                     <div class='btn wow fadeInRight' id='login' data-wow-delay='1.8s'>Login</div>
                     <div class='btn wow fadeInRight' id='registration' data-wow-delay='2s'>Registration</div>
@@ -52,7 +52,7 @@
 
                 <div class='authorized' @if (!Auth::check()) style='display:none;' @endif>
                     <ul>
-                        <li class='wow fadeInRight' data-wow-delay='1.8s'>Welcome, <span class="user">@if (Auth::check()) {{Auth::user()->name}} @endif</span></li>
+                        <li class='wow fadeInRight' data-wow-delay='1.8s'>Welcome, <span class='user'>@if (Auth::check()) {{Auth::user()->name}} @endif</span></li>
                         <li class='wow fadeInRight' data-wow-delay='2s'><div class='btn' id='profile' >My Profile</div></li>
                         <li class='signout wow fadeInRight' data-wow-delay='2.2s'><i class='fas fa-sign-out-alt'></i></li>
                     </ul>
@@ -73,31 +73,31 @@
         <div class='popup'>
             <img src='{{ asset('css/assets/images/close.svg') }}' class='close'>
 
-            <div class="bar">
+            <div class='bar'>
                 <ul>
-                    <li class="active">My Profile</li>
+                    <li class='active'>My Profile</li>
                     <li>My Orders</li>
                 </ul>
             </div>
 
-            <div class="body">
-                <div class="controler">
-                    <div class="my-profile">
-                        <div class="half">
-                            <h1><span class="profile_name">@if (Auth::check()) {{Auth::user()->name}} @endif</span>'s Profile</h1>
-                            <ul class="infos">
+            <div class='body'>
+                <div class='controler'>
+                    <div class='my-profile'>
+                        <div class='half'>
+                            <h1><span class='profile_name'>@if (Auth::check()) {{Auth::user()->name}} @endif</span>'s Profile</h1>
+                            <ul class='infos'>
                                 <li>
-                                    <div class="desc">Summoner Name</div>
-                                    <div class="info profile_name">@if (Auth::check()) {{Auth::user()->name}} @endif</div>
+                                    <div class='desc'>Summoner Name</div>
+                                    <div class='info profile_name'>@if (Auth::check()) {{Auth::user()->name}} @endif</div>
                                 </li>
                                 <li>
-                                    <div class="desc">Email</div>
-                                    <div class="info profile_email">@if (Auth::check()) {{Auth::user()->email}} @endif</div>
+                                    <div class='desc'>Email</div>
+                                    <div class='info profile_email'>@if (Auth::check()) {{Auth::user()->email}} @endif</div>
                                 </li>
                             </ul>
                         </div>
-                        <div class="half">
-                            <form method="POST" action="{{ route('changePassword') }}">
+                        <div class='half'>
+                            <form method='POST' action='{{ route('changePassword') }}'>
                                 <h1>Change Password</h1>
                                 <ul>
                                     <li>
@@ -118,12 +118,13 @@
                                     <li>
                                         <input class='btn' type='submit' value='Change Password'>
                                     </li>
+                                    <li class='err-txt'></li>
                                 </ul>
                             </form>
                         </div>
                     </div>
 
-                    <div class="my-orders">
+                    <div class='my-orders'>
                         <h1>My Orders</h1>
                         <table>
                             <thead>
@@ -135,48 +136,6 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr>
-                                <td>test text</td>
-                                <td>test text</td>
-                                <td>test text</td>
-                                <td>test text</td>
-                            </tr>
-                            <tr>
-                                <td>test text</td>
-                                <td>test text</td>
-                                <td>test text</td>
-                                <td>test text</td>
-                            </tr>
-                            <tr>
-                                <td>test text</td>
-                                <td>test text</td>
-                                <td>test text</td>
-                                <td>test text</td>
-                            </tr>
-                            <tr>
-                                <td>test text</td>
-                                <td>test text</td>
-                                <td>test text</td>
-                                <td>test text</td>
-                            </tr>
-                            <tr>
-                                <td>test text</td>
-                                <td>test text</td>
-                                <td>test text</td>
-                                <td>test text</td>
-                            </tr>
-                            <tr>
-                                <td>test text</td>
-                                <td>test text</td>
-                                <td>test text</td>
-                                <td>test text</td>
-                            </tr>
-                            <tr>
-                                <td>test text</td>
-                                <td>test text</td>
-                                <td>test text</td>
-                                <td>test text</td>
-                            </tr>
                             <tr>
                                 <td>test text</td>
                                 <td>test text</td>
@@ -201,24 +160,45 @@
     <div class='popup-overlay signin'>
         <div class='popup'>
             <img src='{{ asset('css/assets/images/close.svg') }}' class='close'>
-            <div class='title'>Login Form</div>
-            <form method="POST" action="{{ route('login') }}">
+            <form class="login-dialog" method='POST' action='{{ route('login') }}'>
+                <div class='title'>Login Form</div>
                 <ul>
                     <li>
-                        <input type='email' name='email' id="login_email" autocomplete='off' required>
+                        <input type='email' name='email' id='login_email' autocomplete='off' required>
                         <label>E-mail</label>
                         <span class='border'></span>
                     </li>
                     <li>
-                        <input type='password' name='password' id="login_password" autocomplete='off' required>
+                        <input type='password' name='password' id='login_password' autocomplete='off' required>
                         <label>password</label>
-                        <a href='#'>Forgot?</a>
+                        <div class="forgot">Forgot?</div>
                         <span class='border'></span>
                     </li>
                     <li>
                         <input class='btn' type='submit' value='Login'>
                     </li>
+                    <li class='err-txt'></li>
                 </ul>
+            </form>
+
+            <form method="POST" class="forgot-dialog">
+                <div class='title'>Forgot Password?</div>
+                <ul>
+                    <li>
+                        <input type='email' name='email' id='forgot_email' autocomplete='off' required>
+                        <label>E-mail</label>
+                        <span class='border'></span>
+                    </li>
+                    <li>
+                        <input class='btn' type='submit' value='Send'>
+                    </li>
+                    <li class='err-txt'></li>
+                </ul>
+
+                <div class='success-dialog'>
+                    <div class='title'>Check Email</div>
+                    <p>In order to help maintain the security of your Elounion account, please check your email address!</p>
+                </div>
             </form>
         </div>
     </div>
@@ -226,34 +206,41 @@
     <div class='popup-overlay signup'>
         <div class='popup'>
             <img src='{{ asset('css/assets/images/close.svg') }}' class='close'>
-            <div class='title'>Registration Form</div>
-            <form method="POST" action="{{ route('register') }}">
+            <form method='POST' action='{{ route('register') }}'>
+                <div class='title'>Registration Form</div>
                 <ul>
                     <li>
-                        <input type='text' name='name' id="reg_name" autocomplete='off' required>
+                        <input type='text' name='name' id='reg_name' autocomplete='off' required>
                         <label>Summoner Name</label>
                         <span class='border'></span>
                     </li>
                     <li>
-                        <input type='email' name='email' id="reg_email" autocomplete='off' required>
+                        <input type='email' name='email' id='reg_email' autocomplete='off' required>
                         <label>E-mail</label>
                         <span class='border'></span>
                     </li>
                     <li>
-                        <input type='password' name='password' id="reg_pass" autocomplete='off' required>
+                        <input type='password' name='password' id='reg_pass' autocomplete='off' required>
                         <label>password</label>
+                        <i class='far fa-question-circle' information='The password must be at least 6 characters.'></i>
                         <span class='border'></span>
                     </li>
                     <li>
-                        <input type='password' name='password_confirmation' id="reg_pass_con" autocomplete='off' required>
+                        <input type='password' name='password_confirmation' id='reg_pass_con' autocomplete='off' required>
                         <label>Confirm password</label>
                         <span class='border'></span>
                     </li>
                     <li>
                         <input class='btn' type='submit' value='Registration'>
                     </li>
+                    <li class='err-txt'></li>
                 </ul>
             </form>
+
+            <div class='success-dialog'>
+                <div class='title'>verify your email address</div>
+                <p>In order to help maintain the security of your Elounion account, please verify your email address!</p>
+            </div>
         </div>
     </div>
 </header>
@@ -270,7 +257,7 @@
             </div>
             <div class='container'>
                 <div class='text'>
-                    <h1 class='logo wow zoomIn' data-wow-delay='2s'>Cyberacademy</h1>
+                    <h1 class='logo wow zoomIn' data-wow-delay='2s'>Elounion</h1>
                     <h1 class='wow fadeInUp' data-wow-delay='2.2s'>The Future of Brand Name</h1>
                     <p class='wow zoomInUp' data-wow-delay='2.4s'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Numquam iste, officia totam deserunt, delectus quasi similique necessitatibus ex nesciunt doloribus mollitia, quas,
                         error! Labore doloribus ex praesentium, perferendis
@@ -424,12 +411,12 @@
 
     <section id='gallery'>
         <div class='middle'>
-            <h1 class='wow fadeInDown' data-wow-delay='0.2s'>Cyberacademy Gallery</h1>
+            <h1 class='wow fadeInDown' data-wow-delay='0.2s'>Elounion Gallery</h1>
             <div class='photos'>
                 <ul class='wow fadeInDown' data-wow-delay='0.7s'>
                     @foreach($gallerys as $gallery)
                     <li>
-                        <div class='img' style="background-image: url({{$gallery->photo->name ? URL::to('images') .'/'. $gallery->photo->name : URL::to('images') .'/'.'400x400.png'}});"></div>
+                        <div class='img' style='background-image: url({{$gallery->photo->name ? URL::to('images') .'/'. $gallery->photo->name : URL::to('images') .'/'.'400x400.png'}});'></div>
                         <div class='inf'>{{ $gallery->name }}</div>
                     </li>
                     @endforeach
@@ -446,23 +433,12 @@
             <h1 class='wow fadeInDown' data-wow-delay='0.2s'>Faq</h1>
 
             <div class='faq-wrapper'>
-                <ul class='half wow fadeInUp' data-wow-delay='0.7s'>
+                <ul class='wow fadeInUp' data-wow-delay='0.7s'>
                     @foreach($faqs as $faq)
                         <li>
-                            <div class="control">
+                            <div class='control'>
                                 <p>{{ $faq->name }}</p>
-                                <i class="fas fa-plus"></i>
-                            </div>
-                            <div class='answer'>{{ $faq->description }}</div>
-                        </li>
-                    @endforeach
-                </ul>
-                <ul class='half wow fadeInUp' data-wow-delay='0.9s'>
-                    @foreach($faqs as $faq)
-                        <li>
-                            <div class="control">
-                                <p>{{ $faq->name }}</p>
-                                <i class="fas fa-plus"></i>
+                                <i class='fas fa-plus'></i>
                             </div>
                             <div class='answer'>{{ $faq->description }}</div>
                         </li>
@@ -476,22 +452,22 @@
         <div class='middle'>
             <h1 class='wow fadeInDown' data-wow-delay='0.2s'>Contact</h1>
 
-            <form class='wow fadeInUp' data-wow-delay='0.7s' method="POST" action="{{ route('contact') }}">
+            <form class='wow fadeInUp' data-wow-delay='0.7s' method='POST' action='{{ route('contact') }}'>
                 <p>If you have any questions you can email us</p>
 
                 <ul>
                     <li>
-                        <input type='text' name='subject' id="cont_subject" autocomplete='off' required>
+                        <input type='text' name='subject' id='cont_subject' autocomplete='off' required>
                         <label>Subject</label>
                         <span class='border'></span>
                     </li>
                     <li>
-                        <input type='email' name='contactEmail' id="cont_email" autocomplete='off' required>
+                        <input type='email' name='contactEmail' id='cont_email' autocomplete='off' required>
                         <label>E-mail</label>
                         <span class='border'></span>
                     </li>
                     <li>
-                        <textarea name='message' id="cont_message" rows='8' cols='80' required></textarea>
+                        <textarea name='message' id='cont_message' rows='8' cols='80' required></textarea>
                         <label>Message</label>
                         <span class='border'></span>
                     </li>
@@ -505,6 +481,7 @@
                             </div>
                         </div>
                     </li>
+                    <li class='err-txt'></li>
                 </ul>
             </form>
         </div>
@@ -517,7 +494,7 @@
         <ul>
             <li><i class='fas fa-map-marked-alt'></i><a href='#'>Tbilis, Georgia</a></li>
             <li><i class='fas fa-phone'></i> <a href='#'>+995 555 555 555</a></li>
-            <li><i class='fas fa-envelope'></i> <a href='#'>support@cyberacademy.com</a></li>
+            <li><i class='fas fa-envelope'></i> <a href='#'>support@Elounion.com</a></li>
         </ul>
     </div>
 </footer>
@@ -527,7 +504,7 @@
 <script>
     $.ajaxSetup({
         // headers: {
-        //     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        //     'X-CSRF-TOKEN': $('meta[name='csrf-token']').attr('content')
         // }
     });
 </script>

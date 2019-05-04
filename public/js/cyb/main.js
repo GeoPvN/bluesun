@@ -51,6 +51,8 @@ void function Init() {
 
         $('header .popup .close').on('click', function() {
             $(this).parents('.popup-overlay').css('transform', 'translateY(100%)');
+
+            if( $('.signin .popup').hasClass('forgot-password') ) $('.signin .popup').removeClass('forgot-password')
         })
 
         $('input, textarea, select').on('focus', function() {
@@ -172,9 +174,37 @@ void function Init() {
                     refresh_token();
                 }
             });
-
-
         });
+
+        $('form.forgot-dialog').on('submit', function(ev) {
+            ev.preventDefault();
+            var url = $(this).attr('action');
+            var post = $(this).attr('method');
+
+            email = $('#forgot_email').val();
+
+            $.ajax({
+                method: post,
+                url: url,
+                data: { email: email, password: password},
+                dataType: 'JSON',
+                headers: { 'X-CSRF-TOKEN': $('[name="csrf-token"]').attr('content') },
+                beforeSend: function(){
+                    $('#for-user .preloader').addClass('visible').fadeIn('fast').delay(1400).fadeOut("fast");
+                    $('#for-user .auth').hide();
+                },
+                success: function(msg){
+                    $(this).addClass('success')
+                },
+                error: function (error) {
+
+                }
+            });
+        });
+
+        $('.signin li .forgot').on('click', function() {
+            $(this).parents('.popup').addClass('forgot-password');
+        })
 
         $('.signup form').on('submit', function(ev) {
             ev.preventDefault();
@@ -200,8 +230,8 @@ void function Init() {
                     console.log(msg);
                     $('#for-user .authorized').show();
                     $('#for-user .authorized span.user, .my-profile li:first-child .info, .my-profile .half:first-child h1 span').text('test');
-                    $('.popup-overlay').css('transform', 'translateY(-100%)');
-
+                    // $('.popup-overlay').css('transform', 'translateY(-100%)');
+                    $('.signup .popup').addClass('success');
                     $('.profile_name,.user').html(msg.name);
                     $('.profile_email').html(msg.email);
                     refresh_token();
@@ -258,11 +288,11 @@ void function Init() {
 
 
 
-
-        $('.faq-wrapper ul').on('click', 'li', function() {
-            $(this).find('i').toggleClass('active')
-            $(this).find('.answer').slideToggle()
-        })
+        //
+        // $('.faq-wrapper ul').on('click', 'li', function() {
+        //     $(this).find('i').toggleClass('active')
+        //     $(this).find('.answer').slideToggle()
+        // })
 
     }()
 
