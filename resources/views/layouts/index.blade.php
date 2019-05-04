@@ -115,7 +115,7 @@
                                         <label>Confirm password</label>
                                         <span class='border'></span>
                                     </li>
-                                    <li>
+                                    <li class="submit">
                                         <input class='btn' type='submit' value='Change Password'>
                                     </li>
                                     <li class='err-txt'></li>
@@ -174,7 +174,7 @@
                         <div class="forgot">Forgot?</div>
                         <span class='border'></span>
                     </li>
-                    <li>
+                    <li class="submit">
                         <input class='btn' type='submit' value='Login'>
                     </li>
                     <li class='err-txt'></li>
@@ -189,7 +189,7 @@
                         <label>E-mail</label>
                         <span class='border'></span>
                     </li>
-                    <li>
+                    <li class="submit">
                         <input class='btn' type='submit' value='Send'>
                     </li>
                     <li class='err-txt'></li>
@@ -230,7 +230,7 @@
                         <label>Confirm password</label>
                         <span class='border'></span>
                     </li>
-                    <li>
+                    <li class="submit">
                         <input class='btn' type='submit' value='Registration'>
                     </li>
                     <li class='err-txt'></li>
@@ -471,7 +471,7 @@
                         <label>Message</label>
                         <span class='border'></span>
                     </li>
-                    <li>
+                    <li class="submit">
                         <input class='btn' type='submit' value='Send'>
                         <div class='preloader'>
                             <div class='spinner'>

@@ -91,6 +91,7 @@ body.preloader-site {
   align-items: center;
 }
 .preloader-wrapper .preloader .name {
+  letter-spacing: 3px;
   font-size: 70px;
   text-transform: uppercase;
   font-family: "Roboto-Black";
@@ -179,6 +180,7 @@ header .middle {
   align-items: center;
 }
 header .middle .logo {
+  letter-spacing: 1px;
   background: linear-gradient(90deg, #0072ff 0%, #00d4ff 100%);
   background-clip: text;
   -webkit-background-clip: text;
@@ -388,7 +390,8 @@ header .popup-overlay.signin .popup .success-dialog {
 header .popup-overlay.signin .popup form.forgot-dialog {
   display: none;
 }
-header .popup-overlay.signin .popup form.forgot-dialog.success .title, header .popup-overlay.signin .popup form.forgot-dialog.success ul {
+header .popup-overlay.signin .popup form.forgot-dialog.success .title,
+header .popup-overlay.signin .popup form.forgot-dialog.success ul {
   display: none;
 }
 header .popup-overlay.signin .popup form.forgot-dialog.success .success-dialog {
@@ -711,24 +714,31 @@ form ul li span.border.fucused {
   background: linear-gradient(90deg, #0072ff 0%, #00d4ff 100%);
   width: 100%;
 }
-form ul li.not-valid input,
-form ul li.not-valid textarea {
+form ul li.not-valid:not(.submit) {
+  animation-duration: 0.7s;
+}
+form ul li.not-valid:not(.submit) input,
+form ul li.not-valid:not(.submit) textarea {
   border-bottom: 2px solid #da4c4c;
 }
-form ul li.not-valid input + label,
-form ul li.not-valid textarea + label {
-  color: #da4c4c;
-}
-form ul li.not-valid span.border {
+form ul li.not-valid:not(.submit) input + label,
+form ul li.not-valid:not(.submit) textarea + label {
   background: #da4c4c;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
-form ul li.not-valid span.border.fucused {
+form ul li.not-valid:not(.submit) span.border {
+  background: #da4c4c !important;
+}
+form ul li.not-valid:not(.submit) span.border.fucused {
   background: linear-gradient(90deg, #0072ff 0%, #00d4ff 100%);
 }
 form .err-txt {
   color: #da4c4c;
   text-align: center;
   margin-top: -10px;
+  animation: none;
 }
 
 section {

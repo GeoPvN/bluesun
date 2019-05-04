@@ -6,12 +6,30 @@ void function Init() {
         var Body = $('body');
         Body.addClass('preloader-site');
     });
-    $(window).on('load',function() {
-        $('.preloader-wrapper').fadeOut();
-        $('body').removeClass('preloader-site').css('overflow', 'unset');
-    });
+
+    function refresh_token(){
+        $.get('refresh-csrf').done(function(data){
+            $('[name="csrf-token"]').attr('content',data);
+        });
+    }
+    var thisForm = ''
+
+    // function notValid() {
+    //     $('.signin form li').removeClass('shake') //beforeSend
+    //
+    //
+    //     thisForm.addClass('not-valid shake');
+    //     setTimeout(function() {
+    //         $('.signin form li').removeClass('not-valid');
+    //     }, 200);
+    // }
+
     void function InitDomEvents() {
 
+        $(window).on('load',function() {
+            $('.preloader-wrapper').fadeOut();
+            $('body').removeClass('preloader-site').css('overflow', 'unset');
+        });
 
         $('nav a, .scroll, .scroll-to-service').click(function() {
             if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
@@ -111,6 +129,7 @@ void function Init() {
                 },
                 error: function (error) {
                     console.log(error);
+                    notValid()
                     refresh_token();
                 }
             });
@@ -142,6 +161,7 @@ void function Init() {
                 },
                 error: function (error) {
                     console.log(error);
+                    notValid()
                     refresh_token();
                 }
             });
@@ -149,6 +169,10 @@ void function Init() {
 
         $('.signin form').on('submit', function(ev) {
             ev.preventDefault();
+
+            // thisForm = $(this).children('li')
+            // thisForm.addClass('not-valid shake');
+
             var url = $(this).attr('action');
             var post = $(this).attr('method');
 
@@ -180,6 +204,7 @@ void function Init() {
                     $('#for-user .authorized').hide();
                     $('#for-user .auth').show();
                     refresh_token();
+
                     $('.signin .err-txt').html(error.responseJSON.message);
                 }
             });
@@ -206,7 +231,7 @@ void function Init() {
                     $(this).addClass('success')
                 },
                 error: function (error) {
-
+                    notValid()
                 }
             });
         });
@@ -249,16 +274,13 @@ void function Init() {
                     console.log(error);
                     $('#for-user .authorized').hide();
                     $('#for-user .auth').show();
+
+                    notValid()
+
                     refresh_token()
                 }
             });
         });
-
-        function refresh_token(){
-            $.get('refresh-csrf').done(function(data){
-                $('[name="csrf-token"]').attr('content',data);
-            });
-        }
 
         $('#for-user .authorized .signout').on('click', function(ev) {
             $.ajax({
@@ -294,7 +316,6 @@ void function Init() {
                 $('.controler').addClass('show-orders')
             }
         })
-
 
 
         //

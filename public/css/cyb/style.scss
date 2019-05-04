@@ -94,6 +94,7 @@ body.preloader-site {
         align-items: center;
 
         .name {
+            letter-spacing: 3px;
             font-size: 70px;
             text-transform: uppercase;
             font-family: 'Roboto-Black';
@@ -199,6 +200,7 @@ header {
         align-items: center;
 
         .logo {
+            letter-spacing: 1px;
             background: $btnColor;
             background-clip: text;
             -webkit-background-clip: text;
@@ -436,7 +438,6 @@ header {
 
         &.signin {
             .popup {
-
                 .success-dialog {
                     display: none;
                 }
@@ -445,13 +446,14 @@ header {
                     display: none;
 
                     &.success {
-                        .title, ul {
+                        .title,
+                        ul {
                             display: none;
                         }
 
                         .success-dialog {
                             display: block;
-                            
+
                             .title {
                                 display: block;
                             }
@@ -665,7 +667,6 @@ header {
                 }
             }
         }
-
     }
 }
 
@@ -826,18 +827,23 @@ form {
                 }
             }
 
-            &.not-valid {
+            &.not-valid:not(.submit) {
+                animation-duration: 0.7s;
+
                 input,
                 textarea {
                     border-bottom: 2px solid $notValidColor;
 
                     & + label {
-                        color: $notValidColor;
+                        background: $notValidColor;
+                        background-clip: text;
+                        -webkit-background-clip: text;
+                        -webkit-text-fill-color: transparent;
                     }
                 }
 
                 span.border {
-                    background: $notValidColor;
+                    background: $notValidColor !important;
 
                     &.fucused {
                         background: $btnColor;
@@ -851,6 +857,7 @@ form {
         color: $notValidColor;
         text-align: center;
         margin-top: -10px;
+        animation: none;
     }
 }
 
