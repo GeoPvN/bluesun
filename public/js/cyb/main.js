@@ -38,6 +38,7 @@ void function Init() {
         $('header #login').on('click', function() {
             $('.popup-overlay.signin').css('transform', 'translateY(0%)');
             $('#login_email,#login_password').val('');
+            $('.signin .err-txt').html('');
         })
 
         $('header #registration').on('click', function() {
@@ -47,6 +48,8 @@ void function Init() {
 
         $('header #profile').on('click', function() {
             $('.popup-overlay.my-account').css('transform', 'translateY(0%)');
+            $('input[name="oldPassword"],.half input[name="password"],.half input[name="password_confirmation"]').val('');
+            $('.half .err-txt').html('');
         })
 
         $('header .popup .close').on('click', function() {
@@ -131,6 +134,11 @@ void function Init() {
                 success: function(msg){
                     console.log(msg);
                     refresh_token();
+                    var d = '';
+                    $.each(msg.error, function (i) {
+                        d += '<p>'+msg.error[i]+'</p>';
+                    });
+                    $('.half .err-txt').html(d);
                 },
                 error: function (error) {
                     console.log(error);
@@ -158,13 +166,13 @@ void function Init() {
                     $('#for-user .auth').hide();
                 },
                 success: function(msg){
-                    console.log(msg);
                     $('#for-user .authorized').show();
                     $('#for-user .authorized span.user, .my-profile li:first-child .info, .my-profile .half:first-child h1 span').text('test');
                     $('.popup-overlay').css('transform', 'translateY(-100%)');
 
                     $('.profile_name,.user').html(msg.name);
                     $('.profile_email').html(msg.email);
+
                     refresh_token();
                 },
                 error: function (error) {
@@ -172,6 +180,7 @@ void function Init() {
                     $('#for-user .authorized').hide();
                     $('#for-user .auth').show();
                     refresh_token();
+                    $('.signin .err-txt').html(error.responseJSON.message);
                 }
             });
         });
