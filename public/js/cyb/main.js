@@ -100,17 +100,39 @@ void function Init() {
                 data: { subject: subject, email: email, description: description},
                 dataType: 'JSON',
                 headers: { 'X-CSRF-TOKEN': $('[name="csrf-token"]').attr('content') },
-                beforeSend: function(){
-
-                },
                 success: function(msg){
                     console.log(msg);
-                    $.get('refresh-csrf').done(function(data){
-                        $('[name="csrf-token"]').attr('content',data);
-                    });
+                    refresh_token();
                 },
                 error: function (error) {
                     console.log(error);
+                    refresh_token();
+                }
+            });
+        });
+
+        $('.half form').on('submit', function(ev) {
+            ev.preventDefault();
+            var url = $(this).attr('action');
+            var post = $(this).attr('method');
+
+            oldPassword = $('input[name="oldPassword"]').val();
+            password = $('.half input[name="password"]').val();
+            password_confirmation = $('.half input[name="password_confirmation"]').val();
+
+            $.ajax({
+                method: post,
+                url: url,
+                data: { oldPassword: oldPassword, password: password, password_confirmation: password_confirmation},
+                dataType: 'JSON',
+                headers: { 'X-CSRF-TOKEN': $('[name="csrf-token"]').attr('content') },
+                success: function(msg){
+                    console.log(msg);
+                    refresh_token();
+                },
+                error: function (error) {
+                    console.log(error);
+                    refresh_token();
                 }
             });
         });
@@ -130,25 +152,24 @@ void function Init() {
                 dataType: 'JSON',
                 headers: { 'X-CSRF-TOKEN': $('[name="csrf-token"]').attr('content') },
                 beforeSend: function(){
-                    $('#for-user .preloader').addClass('visible').fadeIn('fast').delay(1400).fadeOut("fast")
-                    $('#for-user .auth').hide()
+                    $('#for-user .preloader').addClass('visible').fadeIn('fast').delay(1400).fadeOut("fast");
+                    $('#for-user .auth').hide();
                 },
                 success: function(msg){
                     console.log(msg);
-                    $('#for-user .authorized').show()
-                    $('#for-user .authorized span.user, .my-profile li:first-child .info, .my-profile .half:first-child h1 span').text('test')
+                    $('#for-user .authorized').show();
+                    $('#for-user .authorized span.user, .my-profile li:first-child .info, .my-profile .half:first-child h1 span').text('test');
                     $('.popup-overlay').css('transform', 'translateY(-100%)');
 
                     $('.profile_name,.user').html(msg.name);
                     $('.profile_email').html(msg.email);
-                    $.get('refresh-csrf').done(function(data){
-                        $('[name="csrf-token"]').attr('content',data);
-                    });
+                    refresh_token();
                 },
                 error: function (error) {
                     console.log(error);
-                    $('#for-user .authorized').hide()
-                    $('#for-user .auth').show()
+                    $('#for-user .authorized').hide();
+                    $('#for-user .auth').show();
+                    refresh_token();
                 }
             });
 
@@ -172,28 +193,33 @@ void function Init() {
                 dataType: 'JSON',
                 headers: { 'X-CSRF-TOKEN': $('[name="csrf-token"]').attr('content') },
                 beforeSend: function(){
-                    $('#for-user .preloader').addClass('visible').fadeIn('fast').delay(1400).fadeOut("fast")
-                    $('#for-user .auth').hide()
+                    $('#for-user .preloader').addClass('visible').fadeIn('fast').delay(1400).fadeOut("fast");
+                    $('#for-user .auth').hide();
                 },
                 success: function(msg){
                     console.log(msg);
-                    $('#for-user .authorized').show()
-                    $('#for-user .authorized span.user, .my-profile li:first-child .info, .my-profile .half:first-child h1 span').text('test')
+                    $('#for-user .authorized').show();
+                    $('#for-user .authorized span.user, .my-profile li:first-child .info, .my-profile .half:first-child h1 span').text('test');
                     $('.popup-overlay').css('transform', 'translateY(-100%)');
 
                     $('.profile_name,.user').html(msg.name);
                     $('.profile_email').html(msg.email);
-                    $.get('refresh-csrf').done(function(data){
-                        $('[name="csrf-token"]').attr('content',data);
-                    });
+                    refresh_token();
                 },
                 error: function (error) {
                     console.log(error);
-                    $('#for-user .authorized').hide()
-                    $('#for-user .auth').show()
+                    $('#for-user .authorized').hide();
+                    $('#for-user .auth').show();
+                    refresh_token()
                 }
             });
         });
+
+        function refresh_token(){
+            $.get('refresh-csrf').done(function(data){
+                $('[name="csrf-token"]').attr('content',data);
+            });
+        }
 
         $('#for-user .authorized .signout').on('click', function(ev) {
             $.ajax({

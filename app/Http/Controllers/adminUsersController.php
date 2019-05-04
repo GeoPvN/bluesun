@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
 class adminUsersController extends Controller
@@ -37,7 +38,7 @@ class adminUsersController extends Controller
 
                 $input = $request->all();
 
-                $input['password'] = bcrypt($request->password);
+                $input['password'] = Hash::make($request->password);
 
                 $user = User::create($input);
 
@@ -91,7 +92,7 @@ class adminUsersController extends Controller
 
             $input = $request->all();
 
-            $input['password'] = bcrypt($request->password);
+            $input['password'] = Hash::make($request->password);
 
             if($validator->passes())
             {

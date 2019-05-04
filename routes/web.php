@@ -4,6 +4,8 @@ Route::get('/', 'indexController@index')->name('/');
 
 Route::post('contact', 'adminInboxController@store')->name('contact');
 
+Route::post('changePassword', 'changePasswordController@update')->name('changePassword');
+
 Route::post('paypal', 'PaymentController@payWithpaypal');
 
 Route::get('status', 'PaymentController@getPaymentStatus')->name('status');

@@ -97,7 +97,7 @@
                             </ul>
                         </div>
                         <div class="half">
-                            <form>
+                            <form method="POST" action="{{ route('changePassword') }}">
                                 <h1>Change Password</h1>
                                 <ul>
                                     <li>
@@ -106,12 +106,12 @@
                                         <span class='border'></span>
                                     </li>
                                     <li>
-                                        <input type='password' name='newPassword' autocomplete='off' required>
+                                        <input type='password' name='password' autocomplete='off' required>
                                         <label>New Password</label>
                                         <span class='border'></span>
                                     </li>
                                     <li>
-                                        <input type='password' name='confirmpassword' autocomplete='off' required>
+                                        <input type='password' name='password_confirmation' autocomplete='off' required>
                                         <label>Confirm password</label>
                                         <span class='border'></span>
                                     </li>
