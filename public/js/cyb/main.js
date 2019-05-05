@@ -12,17 +12,15 @@ void function Init() {
             $('[name="csrf-token"]').attr('content',data);
         });
     }
-    var thisForm = ''
 
-    // function notValid() {
-    //     $('.signin form li').removeClass('shake') //beforeSend
-    //
-    //
-    //     thisForm.addClass('not-valid shake');
-    //     setTimeout(function() {
-    //         $('.signin form li').removeClass('not-valid');
-    //     }, 200);
-    // }
+    function notValid(li) {
+        li.removeClass('shake');
+
+        li.addClass('not-valid shake');
+        setTimeout(function() {
+            li.removeClass('not-valid');
+        }, 1300);
+    }
 
     void function InitDomEvents() {
 
@@ -108,70 +106,9 @@ void function Init() {
             $('.select').removeClass('active')
         })
 
-        $('#contact form').on('submit', function(ev) {
-            ev.preventDefault();
-            var url = $(this).attr('action');
-            var post = $(this).attr('method');
-
-            subject = $('#cont_subject').val();
-            email = $('#cont_email').val();
-            description = $('#cont_message').val();
-
-            $.ajax({
-                method: post,
-                url: url,
-                data: { subject: subject, email: email, description: description},
-                dataType: 'JSON',
-                headers: { 'X-CSRF-TOKEN': $('[name="csrf-token"]').attr('content') },
-                success: function(msg){
-                    console.log(msg);
-                    refresh_token();
-                },
-                error: function (error) {
-                    console.log(error);
-                    notValid()
-                    refresh_token();
-                }
-            });
-        });
-
-        $('.half form').on('submit', function(ev) {
-            ev.preventDefault();
-            var url = $(this).attr('action');
-            var post = $(this).attr('method');
-
-            oldPassword = $('input[name="oldPassword"]').val();
-            password = $('.half input[name="password"]').val();
-            password_confirmation = $('.half input[name="password_confirmation"]').val();
-
-            $.ajax({
-                method: post,
-                url: url,
-                data: { oldPassword: oldPassword, password: password, password_confirmation: password_confirmation},
-                dataType: 'JSON',
-                headers: { 'X-CSRF-TOKEN': $('[name="csrf-token"]').attr('content') },
-                success: function(msg){
-                    console.log(msg);
-                    refresh_token();
-                    var d = '';
-                    $.each(msg.error, function (i) {
-                        d += '<p>'+msg.error[i]+'</p>';
-                    });
-                    $('.half .err-txt').html(d);
-                },
-                error: function (error) {
-                    console.log(error);
-                    notValid()
-                    refresh_token();
-                }
-            });
-        });
-
         $('.signin form').on('submit', function(ev) {
             ev.preventDefault();
-
-            // thisForm = $(this).children('li')
-            // thisForm.addClass('not-valid shake');
+            var thisLi = $(this).find('li')
 
             var url = $(this).attr('action');
             var post = $(this).attr('method');
@@ -204,14 +141,16 @@ void function Init() {
                     $('#for-user .authorized').hide();
                     $('#for-user .auth').show();
                     refresh_token();
-
-                    $('.signin .err-txt').html(error.responseJSON.message);
+                    notValid(thisLi);
+                    $('.login-dialog .err-txt').html(error.responseJSON.message);
                 }
             });
         });
 
         $('form.forgot-dialog').on('submit', function(ev) {
             ev.preventDefault();
+            var thisLi = $(this).find('li')
+
             var url = $(this).attr('action');
             var post = $(this).attr('method');
 
@@ -231,17 +170,15 @@ void function Init() {
                     $(this).addClass('success')
                 },
                 error: function (error) {
-                    notValid()
+                    notValid(thisLi);
                 }
             });
         });
 
-        $('.signin li .forgot').on('click', function() {
-            $(this).parents('.popup').addClass('forgot-password');
-        })
-
         $('.signup form').on('submit', function(ev) {
             ev.preventDefault();
+            var thisLi = $(this).find('li')
+
             var url = $(this).attr('action');
             var post = $(this).attr('method');
 
@@ -275,12 +212,81 @@ void function Init() {
                     $('#for-user .authorized').hide();
                     $('#for-user .auth').show();
 
-                    notValid()
+                    notValid(thisLi);
 
                     refresh_token()
+                    $('.signup .err-txt').html(error.responseJSON.message);
                 }
             });
         });
+
+        $('.half form').on('submit', function(ev) {
+            ev.preventDefault();
+            var thisLi = $(this).find('li')
+
+            var url = $(this).attr('action');
+            var post = $(this).attr('method');
+
+            oldPassword = $('input[name="oldPassword"]').val();
+            password = $('.half input[name="password"]').val();
+            password_confirmation = $('.half input[name="password_confirmation"]').val();
+
+            $.ajax({
+                method: post,
+                url: url,
+                data: { oldPassword: oldPassword, password: password, password_confirmation: password_confirmation},
+                dataType: 'JSON',
+                headers: { 'X-CSRF-TOKEN': $('[name="csrf-token"]').attr('content') },
+                success: function(msg){
+                    console.log(msg);
+                    refresh_token();
+                    var d = '';
+                    $.each(msg.error, function (i) {
+                        d += '<p>'+msg.error[i]+'</p>';
+                    });
+                    $('.half .err-txt').html(d);
+                },
+                error: function (error) {
+                    console.log(error);
+                    refresh_token();
+                }
+            });
+        });
+
+        $('#contact form').on('submit', function(ev) {
+            ev.preventDefault();
+            var thisLi = $(this).find('li')
+
+            var url = $(this).attr('action');
+            var post = $(this).attr('method');
+
+            subject = $('#cont_subject').val();
+            email = $('#cont_email').val();
+            description = $('#cont_message').val();
+
+            $.ajax({
+                method: post,
+                url: url,
+                data: { subject: subject, email: email, description: description},
+                dataType: 'JSON',
+                headers: { 'X-CSRF-TOKEN': $('[name="csrf-token"]').attr('content') },
+                success: function(msg){
+                    console.log(msg);
+                    refresh_token();
+                },
+                error: function (error) {
+                    console.log(error);
+                    notValid(thisLi);
+                    refresh_token();
+                }
+            });
+        });
+
+        $('.signin li .forgot').on('click', function() {
+            $(this).parents('.popup').addClass('forgot-password');
+        })
+
+
 
         $('#for-user .authorized .signout').on('click', function(ev) {
             $.ajax({
