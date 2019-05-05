@@ -22,6 +22,12 @@ void function Init() {
         }, 1300);
     }
 
+    function checkInput(li) {
+        if( li.find('input').val() == '' ) {
+            li.find('label').removeClass('active').siblings('span.border').removeClass('fucused');
+        }
+    }
+
     void function InitDomEvents() {
 
         $(window).on('load',function() {
@@ -130,7 +136,8 @@ void function Init() {
                     $('#for-user .authorized').show();
                     $('#for-user .authorized span.user, .my-profile li:first-child .info, .my-profile .half:first-child h1 span').text('test');
                     $('.popup-overlay').css('transform', 'translateY(-100%)');
-
+                    
+                    $(thisForm.find('li.err-txt')).html('');
                     $('.profile_name,.user').html(msg.name);
                     $('.profile_email').html(msg.email);
 
@@ -256,9 +263,8 @@ void function Init() {
                         thisForm.addClass('success')
                         setTimeout(function() {
                             thisForm.removeClass('success');
-                            $('input[name="oldPassword"]').val('');
-                            $('.half input[name="password"]').val('');
-                            $('.half input[name="password_confirmation"]').val('');
+                            thisForm.find('input:not([type="submit"])').val('');
+                            checkInput(thisForm)
                             $(thisForm.find('li.err-txt')).html('');
                         }, 2000);
                     }
