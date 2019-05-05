@@ -106,7 +106,7 @@ void function Init() {
             $('.select').removeClass('active')
         })
 
-        $('.signin form').on('submit', function(ev) {
+        $('.login-dialog').on('submit', function(ev) {
             ev.preventDefault();
             var thisForm = $(this)
 
@@ -147,7 +147,7 @@ void function Init() {
             });
         });
 
-        $('form.forgot-dialog').on('submit', function(ev) {
+        $('.forgot-dialog').on('submit', function(ev) {
             ev.preventDefault();
             var thisForm = $(this)
 
@@ -159,19 +159,22 @@ void function Init() {
             $.ajax({
                 method: post,
                 url: url,
-                data: { email: email, password: password},
+                data: { email: email},
                 dataType: 'JSON',
                 headers: { 'X-CSRF-TOKEN': $('[name="csrf-token"]').attr('content') },
                 beforeSend: function(){
-                    $('#for-user .preloader').addClass('visible').fadeIn('fast').delay(1400).fadeOut("fast");
-                    $('#for-user .auth').hide();
+                    $(thisForm.find('li.err-txt')).html('');
                 },
                 success: function(msg){
-                    $(this).addClass('success')
+                    if(msg.error){
+                        notValid(thisForm.find('li'));
+                        $(thisForm.find('li.err-txt')).html(msg.error);
+                    }else{
+                        thisForm.addClass('success')
+                    }
                 },
                 error: function (error) {
-                    notValid(thisForm.find('li'));
-                    $(thisForm.find('li.err-txt')).html(error.responseJSON.message);
+
                 }
             });
         });

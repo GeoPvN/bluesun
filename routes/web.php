@@ -2,9 +2,13 @@
 
 Route::get('/', 'indexController@index')->name('/');
 
+Route::get('/{id}', 'indexController@index')->name('index');
+
 Route::post('contact', 'adminInboxController@store')->name('contact');
 
 Route::post('changePassword', 'changePasswordController@update')->name('changePassword');
+
+Route::post('resetMail', 'ResetPasswordController@resetMail')->name('resetMail');
 
 Route::post('paypal', 'PaymentController@payWithpaypal');
 

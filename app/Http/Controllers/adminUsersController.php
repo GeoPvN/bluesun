@@ -139,7 +139,7 @@ class adminUsersController extends Controller
         if($request->ajax()) {
             $user = User::find($request->id)->delete();
 
-            return response()->json($request);
+            return response()->json($user);
         }
 
     }

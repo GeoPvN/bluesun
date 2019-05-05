@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Mail\SendVerification;
 use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
@@ -63,10 +65,21 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+
+        $active_url = Hash::make(rand(10000000,99999999));
+
+        $data_v = array(
+            'name'      => $data['name'],
+            'active_url'  =>  $active_url
+        );
+
+        Mail::to($data['email'])->send(new SendVerification($data_v));
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
+            'active_url' => $active_url,
             'password' => Hash::make($data['password']),
         ]);
+
     }
 }

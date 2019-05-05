@@ -186,7 +186,7 @@
                 </ul>
             </form>
 
-            <form method="POST" class="forgot-dialog">
+            <form method="POST" class="forgot-dialog" action='{{ route('resetMail') }}'>
                 <div class='title'>Forgot Password?</div>
                 <ul>
                     <li>
