@@ -258,11 +258,8 @@
             <div class='container'>
                 <div class='text'>
                     <h1 class='logo wow zoomIn' data-wow-delay='2s'>Elounion</h1>
-                    <h1 class='wow fadeInUp' data-wow-delay='2.2s'>The Future of Brand Name</h1>
-                    <p class='wow zoomInUp' data-wow-delay='2.4s'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Numquam iste, officia totam deserunt, delectus quasi similique necessitatibus ex nesciunt doloribus mollitia, quas,
-                        error! Labore doloribus ex praesentium, perferendis
-                        natus a.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Numquam iste, officia totam deserunt, delectus quasi similique necessitatibus ex nesciunt doloribus mollitia, quas, error! Labore doloribus ex praesentium,
-                        perferendis natus a.</p>
+                    <h1 class='wow fadeInUp' data-wow-delay='2.2s'>{{ $about->name }}</h1>
+                    <p class='wow zoomInUp' data-wow-delay='2.4s'>{{ $about->text }}</p>
                 </div>
                 <div class='scroll-down'>
                     <a href='#service' class='btn scroll-to-service wow fadeInDown' data-wow-delay='2.8s'>Let's Go</a>

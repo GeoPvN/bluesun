@@ -2,18 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Faq;
+use App\About;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
-class adminFaqController extends Controller
+class AboutController extends Controller
 {
-
     public function index(){
 
-        $faqs = Faq::get();
+        $abouts = About::get();
 
-        return view('admin.faq.index', compact('faqs'));
+        return view('admin.about.index', compact('abouts'));
 
     }
 
@@ -22,7 +21,8 @@ class adminFaqController extends Controller
 
         $validator = Validator::make($request->all(),[
 
-            'name' => 'required|string'
+            'name' => 'required|string',
+            'text' => 'required|string'
 
         ]);
 
@@ -34,9 +34,9 @@ class adminFaqController extends Controller
 
                 $input = $request->all();
 
-                $project = Faq::create($input);
+                $about = About::create($input);
 
-                return response($project);
+                return response($about);
 
             }
 
@@ -49,12 +49,13 @@ class adminFaqController extends Controller
     public  function  update(Request $request)
     {
 
-        $faq = Faq::findOrFail($request->hidden_id);
+        $about = About::findOrFail($request->hidden_id);
 
 
         $validator = Validator::make($request->all(),[
 
-            'name' => 'required|string'
+            'name' => 'required|string',
+            'text' => 'required|string'
 
         ]);
 
@@ -65,9 +66,9 @@ class adminFaqController extends Controller
 
             if($request->ajax()) {
 
-                $faq->update($input);
+                $about->update($input);
 
-                return response($faq);
+                return response($about);
 
             }
         }
@@ -79,18 +80,18 @@ class adminFaqController extends Controller
     public function loadTable()
     {
 
-        $faq = Faq::get();
+        $about = About::get();
 
-        return response($faq);
+        return response($about);
 
     }
 
     public function edit(Request $request)
     {
 
-        $faq = Faq::where('id', '=', $request->id)->first();
+        $about = About::where('id', '=', $request->id)->first();
 
-        return response()->json($faq);
+        return response()->json($about);
 
     }
 
@@ -98,11 +99,10 @@ class adminFaqController extends Controller
     {
         if($request->ajax()) {
 
-            Faq::whereIn('id', $request->id)->delete();
+            About::whereIn('id', $request->id)->delete();
 
             return response()->json($request);
         }
 
     }
-
 }

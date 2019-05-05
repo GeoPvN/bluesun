@@ -161,6 +161,9 @@
                         <a href="{{route('users')}}"><i class="fa fa-user fa-fw"></i> Users</a>
                     </li>
                     <li>
+                        <a href="{{route('about')}}"><i class="fa fa-font fa-fw"></i> About Us</a>
+                    </li>
+                    <li>
                         <a href="{{route('news')}}"><i class="fa fa-wrench fa-fw"></i> Services</a>
                     </li>
                     <li>

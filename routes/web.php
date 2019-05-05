@@ -86,4 +86,18 @@ Route::group(['middleware' => 'admin'], function() {
 
     Route::post('/admin/inbox/delete', 'adminInboxController@delete')->name('inbox-delete');
 
+    // About
+
+    Route::get('/admin/about', 'AboutController@index')->name('about');
+
+    Route::get('/admin/about/load-data', 'AboutController@loadTable')->name('about-load-data');
+
+    Route::post('/admin/about/store', 'AboutController@store')->name('about-store');
+
+    Route::post('/admin/about/update', 'AboutController@update')->name('about-update');
+
+    Route::get('/admin/about/edit', 'AboutController@edit')->name('about-edit');
+
+    Route::post('/admin/about/delete', 'AboutController@delete')->name('about-delete');
+
 });
