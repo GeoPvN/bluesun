@@ -121,6 +121,11 @@
                                     <li class='err-txt'></li>
                                 </ul>
                             </form>
+
+                            <div class='success-dialog'>
+                                <div class='title'>Password Changed Successfully</div>
+                            </div>
+
                         </div>
                     </div>
 

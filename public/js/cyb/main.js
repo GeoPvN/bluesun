@@ -108,7 +108,7 @@ void function Init() {
 
         $('.signin form').on('submit', function(ev) {
             ev.preventDefault();
-            var thisLi = $(this).find('li')
+            var thisForm = $(this)
 
             var url = $(this).attr('action');
             var post = $(this).attr('method');
@@ -141,15 +141,15 @@ void function Init() {
                     $('#for-user .authorized').hide();
                     $('#for-user .auth').show();
                     refresh_token();
-                    notValid(thisLi);
-                    $('.login-dialog .err-txt').html(error.responseJSON.message);
+                    notValid(thisForm.find('li'));
+                    $(thisForm.find('li.err-txt')).html(error.responseJSON.message);
                 }
             });
         });
 
         $('form.forgot-dialog').on('submit', function(ev) {
             ev.preventDefault();
-            var thisLi = $(this).find('li')
+            var thisForm = $(this)
 
             var url = $(this).attr('action');
             var post = $(this).attr('method');
@@ -170,14 +170,15 @@ void function Init() {
                     $(this).addClass('success')
                 },
                 error: function (error) {
-                    notValid(thisLi);
+                    notValid(thisForm.find('li'));
+                    $(thisForm.find('li.err-txt')).html(error.responseJSON.message);
                 }
             });
         });
 
         $('.signup form').on('submit', function(ev) {
             ev.preventDefault();
-            var thisLi = $(this).find('li')
+            var thisForm = $(this)
 
             var url = $(this).attr('action');
             var post = $(this).attr('method');
@@ -212,17 +213,17 @@ void function Init() {
                     $('#for-user .authorized').hide();
                     $('#for-user .auth').show();
 
-                    notValid(thisLi);
+                    notValid(thisForm.find('li'));
 
                     refresh_token()
-                    $('.signup .err-txt').html(error.responseJSON.message);
+                    $(thisForm.find('li.err-txt')).html(error.responseJSON.message);
                 }
             });
         });
 
         $('.half form').on('submit', function(ev) {
             ev.preventDefault();
-            var thisLi = $(this).find('li')
+            var thisForm = $(this)
 
             var url = $(this).attr('action');
             var post = $(this).attr('method');
@@ -238,13 +239,24 @@ void function Init() {
                 dataType: 'JSON',
                 headers: { 'X-CSRF-TOKEN': $('[name="csrf-token"]').attr('content') },
                 success: function(msg){
-                    console.log(msg);
-                    refresh_token();
-                    var d = '';
-                    $.each(msg.error, function (i) {
-                        d += '<p>'+msg.error[i]+'</p>';
-                    });
-                    $('.half .err-txt').html(d);
+                    if(msg.error) {
+                        console.log(msg);
+                        refresh_token();
+                        var d = '';
+                        $.each(msg.error, function (i) {
+                            d += '<p>'+msg.error[i]+'</p>';
+                        });
+
+                        $(thisForm.find('li.err-txt')).html(d);
+                        notValid(thisForm.find('li'));
+                    } else {
+                        thisForm.addClass('success')
+                        setTimeout(function() {
+                            thisForm.removeClass('success')
+                        }, 4000);
+                    }
+
+
                 },
                 error: function (error) {
                     console.log(error);
@@ -255,7 +267,7 @@ void function Init() {
 
         $('#contact form').on('submit', function(ev) {
             ev.preventDefault();
-            var thisLi = $(this).find('li')
+            var thisForm = $(this)
 
             var url = $(this).attr('action');
             var post = $(this).attr('method');
@@ -276,7 +288,7 @@ void function Init() {
                 },
                 error: function (error) {
                     console.log(error);
-                    notValid(thisLi);
+                    notValid(thisForm.find('li'));
                     refresh_token();
                 }
             });

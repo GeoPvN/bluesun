@@ -618,6 +618,24 @@ header {
                                             @include gradientHover(380px);
                                         }
                                     }
+
+                                    &.success {
+                                        display: none;
+
+                                        & + .success-dialog {
+                                            display: flex;
+                                        }
+                                    }
+                                }
+
+                                .success-dialog {
+                                    display: none;
+                                    height: 180px;
+                                    align-items: center;
+
+                                    &.visible {
+                                        display: flex;
+                                    }
                                 }
 
                                 &:last-child {

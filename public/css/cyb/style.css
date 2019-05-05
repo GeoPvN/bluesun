@@ -535,6 +535,20 @@ header .popup-overlay.my-account .popup .body .controler .my-profile .half form 
 header .popup-overlay.my-account .popup .body .controler .my-profile .half form ul li .btn:hover {
   box-shadow: inset calc(405px) 0 10px #0072ff;
 }
+header .popup-overlay.my-account .popup .body .controler .my-profile .half form.success {
+  display: none;
+}
+header .popup-overlay.my-account .popup .body .controler .my-profile .half form.success + .success-dialog {
+  display: flex;
+}
+header .popup-overlay.my-account .popup .body .controler .my-profile .half .success-dialog {
+  display: none;
+  height: 180px;
+  align-items: center;
+}
+header .popup-overlay.my-account .popup .body .controler .my-profile .half .success-dialog.visible {
+  display: flex;
+}
 header .popup-overlay.my-account .popup .body .controler .my-profile .half:last-child {
   padding-left: 70px;
   box-sizing: border-box;
