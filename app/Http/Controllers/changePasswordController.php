@@ -36,7 +36,7 @@ class changePasswordController extends Controller
 
                     return response($user);
                 } else {
-                    return response()->json(['error'=>'Old password does not match!']);
+                    return response()->json(['error'=>['Old password does not match!']]);
                 }
             }
 

@@ -218,13 +218,13 @@ void function Init() {
 
                     notValid(thisForm.find('li'));
 
-                    refresh_token()
+                    refresh_token();
                     $(thisForm.find('li.err-txt')).html(error.responseJSON.message);
                 }
             });
         });
 
-        $('.half form').on('submit', function(ev) {
+        $('.changePassword').on('submit', function(ev) {
             ev.preventDefault();
             var thisForm = $(this)
 
@@ -255,8 +255,12 @@ void function Init() {
                     } else {
                         thisForm.addClass('success')
                         setTimeout(function() {
-                            thisForm.removeClass('success')
-                        }, 4000);
+                            thisForm.removeClass('success');
+                            $('input[name="oldPassword"]').val('');
+                            $('.half input[name="password"]').val('');
+                            $('.half input[name="password_confirmation"]').val('');
+                            $(thisForm.find('li.err-txt')).html('');
+                        }, 2000);
                     }
 
 
@@ -314,12 +318,11 @@ void function Init() {
                 },
                 success: function(msg){
                     console.log(msg);
+                    refresh_token();
                 },
                 error: function (error) {
                     console.log(error);
-                    $.get('refresh-csrf').done(function(data){
-                        $('[name="csrf-token"]').attr('content',data);
-                    });
+                    refresh_token();
                 }
             });
             $('#for-user .preloader').fadeIn('fast').delay(1400).fadeOut("fast");

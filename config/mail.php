@@ -72,7 +72,7 @@ return [
     */
 
     'encryption' => env('MAIL_ENCRYPTION', 'tls'),
-    
+
     'stream' => [
         'ssl' => [
             'allow_self_signed' => true,

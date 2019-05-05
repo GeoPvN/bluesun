@@ -2,7 +2,7 @@
 
 Route::get('/', 'indexController@index')->name('/');
 
-Route::get('/{id}', 'indexController@index')->name('index');
+Route::get('active/{id}', 'indexController@index')->name('active');
 
 Route::post('contact', 'adminInboxController@store')->name('contact');
 
@@ -14,11 +14,11 @@ Route::post('paypal', 'PaymentController@payWithpaypal');
 
 Route::get('status', 'PaymentController@getPaymentStatus')->name('status');
 
-Auth::routes();
-
 Route::get('refresh-csrf', function(){
     return csrf_token();
 });
+
+Auth::routes();
 
 Route::group(['middleware' => 'admin'], function() {
 

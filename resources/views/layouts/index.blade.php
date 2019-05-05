@@ -97,7 +97,7 @@
                             </ul>
                         </div>
                         <div class='half'>
-                            <form method='POST' action='{{ route('changePassword') }}'>
+                            <form method='POST' action='{{ route('changePassword') }}' class="changePassword">
                                 <h1>Change Password</h1>
                                 <ul>
                                     <li>
