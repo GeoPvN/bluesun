@@ -78,6 +78,7 @@ void function Init() {
             $(this).parents('.popup-overlay').css('transform', 'translateY(100%)');
 
             if( $('.signin .popup').hasClass('forgot-password') ) $('.signin .popup').removeClass('forgot-password')
+            if( $('.forgot-dialog').hasClass('success') ) $('.forgot-dialog').removeClass('success')
 
             if( $('.signup .popup').hasClass('success') ) {
                 $('.signup .popup').removeClass('success')
@@ -185,6 +186,9 @@ void function Init() {
                         $(thisForm.find('li.err-txt')).html(msg.error);
                     }else{
                         thisForm.addClass('success')
+                        thisForm.find('input:not([type="submit"])').val('');
+                        checkInput(thisForm)
+                        $(thisForm.find('li.err-txt')).html('');
                     }
                 },
                 error: function (error) {

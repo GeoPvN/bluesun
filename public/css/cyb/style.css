@@ -1063,7 +1063,7 @@ section .middle {
 
 #gallery {
   background-color: #cecece;
-  background-image: url("../assets/images/gallery-cover.png");
+  background-image: url("../assets/images/gallery-cover.jpg");
   background-position: top;
   height: auto;
   color: #fff;
