@@ -485,6 +485,9 @@
                     </li>
                     <li class='err-txt'></li>
                 </ul>
+                <div class='success-dialog'>
+                    <div class='title'>Message Sent Successfully</div>
+                </div>
             </form>
         </div>
     </section>

@@ -19,7 +19,7 @@ void function Init() {
         li.addClass('not-valid shake');
         setTimeout(function() {
             li.removeClass('not-valid');
-        }, 1300);
+        }, 1500);
     }
 
     function checkInput(li) {
@@ -78,6 +78,13 @@ void function Init() {
             $(this).parents('.popup-overlay').css('transform', 'translateY(100%)');
 
             if( $('.signin .popup').hasClass('forgot-password') ) $('.signin .popup').removeClass('forgot-password')
+
+            if( $('.signup .popup').hasClass('success') ) {
+                $('.signup .popup').removeClass('success')
+                $('.signup .popup').find('input:not([type="submit"])').val('');
+                checkInput($('.signup .popup'))
+            }
+
         })
 
         $('input, textarea, select').on('focus', function() {
@@ -136,7 +143,7 @@ void function Init() {
                     $('#for-user .authorized').show();
                     $('#for-user .authorized span.user, .my-profile li:first-child .info, .my-profile .half:first-child h1 span').text('test');
                     $('.popup-overlay').css('transform', 'translateY(-100%)');
-                    
+
                     $(thisForm.find('li.err-txt')).html('');
                     $('.profile_name,.user').html(msg.name);
                     $('.profile_email').html(msg.email);
@@ -297,6 +304,12 @@ void function Init() {
                 headers: { 'X-CSRF-TOKEN': $('[name="csrf-token"]').attr('content') },
                 success: function(msg){
                     console.log(msg);
+                    thisForm.addClass('success')
+                    setTimeout(function() {
+                        thisForm.removeClass('success');
+                    }, 1500);
+                    thisForm.find('input:not([type="submit"]), textarea').val('');
+                    checkInput(thisForm)
                     refresh_token();
                 },
                 error: function (error) {
