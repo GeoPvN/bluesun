@@ -55,8 +55,8 @@ void function Init() {
             } else {
                 $("header").removeClass("fixed");
             }
-
-            if (scroll <= window.innerHeight - 100) {
+            scrol = 0
+            if (scroll < window.innerHeight) {
                 $(".scroll-top").fadeOut();
             } else {
                 $(".scroll-top").fadeIn();

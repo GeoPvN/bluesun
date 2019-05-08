@@ -491,9 +491,7 @@
             </form>
         </div>
     </section>
-    <a href='#aboutus' class="scroll scroll-top"><i class="material-icons">
-arrow_upward
-</i></a>
+    <a href='#aboutus' class="scroll scroll-top"><i class="material-icons">arrow_upward</i></a>
 </main>
 
 <footer>

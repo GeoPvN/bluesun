@@ -1486,6 +1486,7 @@ section {
     transition: 120ms ease-in;
     border-radius: 5px;
     cursor: pointer;
+    display: none;
 
     &:active {
         transform: scale(0.9);
