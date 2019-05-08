@@ -1243,6 +1243,31 @@ section .middle {
   display: flex;
 }
 
+.scroll-top {
+  position: fixed;
+  right: 110px;
+  bottom: 100px;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  background: linear-gradient(90deg, #0072ff 0%, #00d4ff 100%);
+  text-align: center;
+  color: #fff;
+  font-size: 24px;
+  font-weight: 700;
+  border-radius: 3px;
+  box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.1);
+  transition: 120ms ease-in;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.scroll-top:active {
+  transform: scale(0.9);
+}
+.scroll-top:hover {
+  filter: brightness(1.2);
+}
+
 footer {
   padding: 30px 0;
   box-sizing: border-box;

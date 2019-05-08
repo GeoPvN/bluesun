@@ -1469,6 +1469,33 @@ section {
 
 }
 
+.scroll-top {
+    position: fixed;
+    right: 110px;
+    bottom: 100px;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    background: $btnColor;
+    text-align: center;
+    color: #fff;
+    font-size: 24px;
+    font-weight: 700;
+    border-radius: 3px;
+    box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.1);
+    transition: 120ms ease-in;
+    border-radius: 5px;
+    cursor: pointer;
+
+    &:active {
+        transform: scale(0.9);
+    }
+
+    &:hover {
+        filter: brightness(1.2);
+    }
+}
+
 footer {
     padding: 30px 0;
     box-sizing: border-box;
@@ -1526,6 +1553,7 @@ footer {
         }
     }
 }
+
 @media screen and (max-width: 1300px) {
     .middle {
         width: 100%;

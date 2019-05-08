@@ -55,6 +55,12 @@ void function Init() {
             } else {
                 $("header").removeClass("fixed");
             }
+
+            if (scroll <= window.innerHeight - 100) {
+                $(".scroll-top").fadeOut();
+            } else {
+                $(".scroll-top").fadeIn();
+            }
         });
 
         $('header #login').on('click', function() {
