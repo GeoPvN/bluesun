@@ -1,32 +1,28 @@
 
 <!-- Modal -->
-<div class="modal fade bd-example-modal-lg" id="about-dialog-edit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel-edit" aria-hidden="true" style="display: none;">
+<div class="modal fade bd-example-modal-lg" id="queue-dialog-edit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel-edit" aria-hidden="true" style="display: none;">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h4 class="modal-title" id="myModalLabel-edit">Edit About</h4>
+                <h4 class="modal-title" id="myModalLabel-edit">Edit Queue</h4>
             </div>
 
-            <form action="{{ URL::to('admin/about/update') }}" method="POST" role="form" id="about-form-edit" enctype="multipart/form-data">
+            <form action="{{ URL::to('admin/queues/update') }}" method="POST" role="form" id="queue-form-edit" enctype="multipart/form-data">
 
                 <div class="modal-body">
 
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="form-group">
-                                <label>Name</label>
+                                <label>Queue Name</label>
                                 <input type="hidden" name="hidden_id" value="" id="hidden_id">
-                                <input type="text" name="name" class="form-control" placeholder="Enter name" required="required">
-                            </div>
-                            <div class="form-group">
-                                <label>Description</label>
-                                <textarea class="form-control" name="text" rows="3"></textarea>
+                                <input type="text" name="name" class="form-control" placeholder="Enter queue name" required="required">
                             </div>
                         </div>
 
                         <div class="col-sm-12">
-                            <div class="alert alert-danger" id="about-error-edit" style="display: none;">
+                            <div class="alert alert-danger" id="queue-error-edit" style="display: none;">
                                 <ul>
 
                                 </ul>

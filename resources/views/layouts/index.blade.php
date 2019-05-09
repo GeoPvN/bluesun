@@ -263,8 +263,8 @@
             <div class='container'>
                 <div class='text'>
                     <h1 class='logo wow zoomIn' data-wow-delay='2s'>Elounion</h1>
-                    <h1 class='wow fadeInUp' data-wow-delay='2.2s'>{{ $about->name }}</h1>
-                    <p class='wow zoomInUp' data-wow-delay='2.4s'>{{ $about->text }}</p>
+                    <h1 class='wow fadeInUp' data-wow-delay='2.2s'>@if($about->name) {{ $about->name }} @endif</h1>
+                    <p class='wow zoomInUp' data-wow-delay='2.4s'>@if($about->text) {{ $about->text }} @endif</p>
                 </div>
                 <div class='scroll-down'>
                     <a href='#service' class='btn scroll-to-service wow fadeInDown' data-wow-delay='2.8s'>Let's Go</a>
@@ -418,8 +418,8 @@
                 <ul class='wow fadeInDown' data-wow-delay='0.7s'>
                     @foreach($gallerys as $gallery)
                     <li>
-                        <div class='img' style='background-image: url({{$gallery->photo->name ? URL::to('images') .'/'. $gallery->photo->name : URL::to('images') .'/'.'400x400.png'}});'></div>
-                        <div class='inf'>{{ $gallery->name }}</div>
+                        @if($gallery->photo) <div class='img' style='background-image: url({{$gallery->photo->name ? URL::to('images') .'/'. $gallery->photo->name : URL::to('images') .'/'.'400x400.png'}});'></div> @endif
+                        <div class='inf'>@if($gallery->name) {{ $gallery->name }} @endif</div>
                     </li>
                     @endforeach
 
@@ -439,10 +439,10 @@
                     @foreach($faqs as $faq)
                         <li>
                             <div class='control'>
-                                <p>{{ $faq->name }}</p>
+                                <p>@if($faq->name) {{ $faq->name }} @endif</p>
                                 <i class='fas fa-plus'></i>
                             </div>
-                            <div class='answer'>{{ $faq->description }}</div>
+                            <div class='answer'>@if($faq->description) {{ $faq->description }} @endif</div>
                         </li>
                     @endforeach
                 </ul>

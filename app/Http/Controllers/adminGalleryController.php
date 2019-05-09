@@ -25,7 +25,8 @@ class adminGalleryController extends Controller
 
         $validator = Validator::make($request->all(),[
 
-            'name' => 'required|string'
+            'name' => 'required|string',
+            'photo_id' => 'required'
 
         ]);
 

@@ -38,20 +38,66 @@ Route::group(['middleware' => 'admin'], function() {
 
     Route::post('/admin/users/delete', 'adminUsersController@delete')->name('delete');
 
-    // Services
+    // Start Service Components
 
-    Route::get('/admin/news', 'adminNewsController@index')->name('news');
+    // Leagues
 
-    Route::get('/admin/news/load-data', 'adminNewsController@loadTable')->name('news-load-data');
+    Route::get('/admin/leagues', 'adminLeaguesController@index')->name('leagues');
 
-    Route::get('/admin/news/edit', 'adminNewsController@edit')->name('news-edit');
+    Route::get('/admin/leagues/load-data', 'adminLeaguesController@loadTable')->name('leagues-load-data');
 
-    Route::post('/admin/news/store', 'adminNewsController@store')->name('news-store');
+    Route::get('/admin/leagues/edit', 'adminLeaguesController@edit')->name('leagues-edit');
 
-    Route::post('/admin/news/update', 'adminNewsController@update')->name('news-update');
+    Route::post('/admin/leagues/store', 'adminLeaguesController@store')->name('leagues-store');
 
-    Route::post('/admin/news/delete', 'adminNewsController@delete')->name('news-delete');
+    Route::post('/admin/leagues/update', 'adminLeaguesController@update')->name('leagues-update');
 
+    Route::post('/admin/leagues/delete', 'adminLeaguesController@delete')->name('leagues-delete');
+
+    // Servers
+
+    Route::get('/admin/servers', 'adminServersController@index')->name('servers');
+
+    Route::get('/admin/servers/load-data', 'adminServersController@loadTable')->name('servers-load-data');
+
+    Route::get('/admin/servers/edit', 'adminServersController@edit')->name('servers-edit');
+
+    Route::post('/admin/servers/store', 'adminServersController@store')->name('servers-store');
+
+    Route::post('/admin/servers/update', 'adminServersController@update')->name('servers-update');
+
+    Route::post('/admin/servers/delete', 'adminServersController@delete')->name('servers-delete');
+
+    // Queues
+
+    Route::get('/admin/queues', 'adminQueuesController@index')->name('queues');
+
+    Route::get('/admin/queues/load-data', 'adminQueuesController@loadTable')->name('queues-load-data');
+
+    Route::get('/admin/queues/edit', 'adminQueuesController@edit')->name('queues-edit');
+
+    Route::post('/admin/queues/store', 'adminQueuesController@store')->name('queues-store');
+
+    Route::post('/admin/queues/update', 'adminQueuesController@update')->name('queues-update');
+
+    Route::post('/admin/queues/delete', 'adminQueuesController@delete')->name('queues-delete');
+
+    // Prices
+
+    Route::get('/admin/prices', 'adminPricesController@index')->name('prices');
+
+    Route::get('/admin/prices/load-data', 'adminPricesController@loadTable')->name('prices-load-data');
+
+    Route::get('/admin/prices/edit', 'adminPricesController@edit')->name('prices-edit');
+
+    Route::post('/admin/prices/store', 'adminPricesController@store')->name('prices-store');
+
+    Route::post('/admin/prices/update', 'adminPricesController@update')->name('prices-update');
+
+    Route::post('/admin/prices/delete', 'adminPricesController@delete')->name('prices-delete');
+
+    // End Service Components
+    
     // Gallery
 
     Route::get('/admin/gallery', 'adminGalleryController@index')->name('gallery');

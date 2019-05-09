@@ -1,13 +1,13 @@
 @extends('layouts.admin')
 
 @section('title')
-    Admin Panel - Gallery
+    Admin Panel - Server
 @stop
 
 @section('content')
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header">Gallery</h1>
+            <h1 class="page-header">Server</h1>
         </div>
         <!-- /.col-lg-12 -->
     </div>
@@ -17,24 +17,24 @@
         <div class="col-lg-12">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    Gallery List (Add/Edit/Delet)
+                    Server List (Add/Edit/Delet)
                 </div>
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-lg-12">
 
                             <!-- Button trigger modal -->
-                            <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#gallery-dialog">Add</button>
+                            <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#server-dialog">Add</button>
 
-                            <button class="btn btn-danger btn-sm" id="delete-gallery">Delete</button>
+                            <button class="btn btn-danger btn-sm" id="delete-server">Delete</button>
 
-                            <button class="btn btn-success btn-sm pull-right" id="gallery-load-data">Refresh</button>
+                            <button class="btn btn-success btn-sm pull-right" id="server-load-data">Refresh</button>
 
-                            @include('admin.gallery.add')
+                            @include('admin.server.add')
 
-                            @include('admin.gallery.edit')
+                            @include('admin.server.edit')
 
-                            @include('admin.gallery.viwe')
+                            @include('admin.server.viwe')
 
                         </div>
                         <!-- /.col-lg-12 -->
@@ -59,7 +59,7 @@
     <script>
         $(document).ready(function() {
 
-            $('#gallery-table').DataTable({
+            $('#server-table').DataTable({
                 responsive: true
             });
 
@@ -70,47 +70,39 @@
             });
 
             $(".modal").on("hidden.bs.modal", function(){
-                document.getElementById('gallery-form').reset();
+                document.getElementById('server-form').reset();
             });
         });
 
         //------------ Load Table ----------------
-        $('#gallery-load-data').on('click',function (e) {
+        $('#server-load-data').on('click',function (e) {
 
-            $.get("{{ route('gallery-load-data') }}", function (data) {
+            $.get("{{ route('servers-load-data') }}", function (data) {
                 $('#table-data').empty();
                 $.each(data, function (i, value) {
 
-                    if (value.p_name != null) {
-                        img_url = '{{ URL::to('images') .'/' }}' + value.p_name;
-                    } else {
-                        img_url = 'http://placehold.it/400x400';
-                    }
-                    var img = '<img height="50" src="' + img_url + '" alt="img">';
-                    var tr = $('<tr/>', {
-                        id: value.id
+                    var tr = $('<tr/>',{
+                        id : value.id
                     });
-                    tr.append($('<td/>', {
-                        text: value.id
-                    })).append($('<td/>', {
-                        html: img
-                    })).append($('<td/>', {
-                        text: value.name
-                    })).append($('<td/>', {
-                        text: value.created_at
-                    })).append($('<td/>', {
-                        text: value.updated_at
-                    })).append($('<td/>', {
-                        html: '<input type="checkbox" name="delete" value="' + value.id + '">'
+                    tr.append($('<td/>',{
+                        text : value.id
+                    })).append($('<td/>',{
+                        text : value.name
+                    })).append($('<td/>',{
+                        text : value.created_at
+                    })).append($('<td/>',{
+                        text : value.updated_at
+                    })).append($('<td/>',{
+                        html : '<input type="checkbox" name="delete" value="'+value.id+'">'
                     }));
                     $('#table-data').append(tr);
-                });
+                })
             });
 
         });
 
-        //------------ Add Gallery ------------------
-        $("#gallery-form").on('submit', function(e){
+        //------------ Add Server ------------------
+        $("#server-form").on('submit', function(e){
             e.preventDefault();
             var url = $(this).attr('action');
             var post = $(this).attr('method');
@@ -128,26 +120,26 @@
                 success: function(msg){
                     if(msg.error)
                     {
-                        $('#gallery-error ul').empty();
-                        $('#gallery-error').css('display','block');
+                        $('#server-error ul').empty();
+                        $('#server-error').css('display','block');
                         $.each(msg.error, function (i, value) {
-                            $('#gallery-error ul').append("<li>"+value+"</li>") ;
+                            $('#server-error ul').append("<li>"+value+"</li>") ;
                         })
                         //console.log(msg.error);
                     }
                     else
                     {
-                        document.getElementById('gallery-form').reset();
-                        $('#gallery-dialog').modal('toggle');
-                        $('#gallery-load-data').click();
+                        document.getElementById('server-form').reset();
+                        $('#server-dialog').modal('toggle');
+                        $('#server-load-data').click();
                     }
 
                 }
             });
         });
 
-        //----------- Update Gallery ------------------
-        $("#gallery-form-edit").on('submit', function(e){
+        //----------- Update Server ------------------
+        $("#server-form-edit").on('submit', function(e){
             e.preventDefault();
             var url = $(this).attr('action');
             var post = $(this).attr('method');
@@ -165,17 +157,17 @@
                 success: function(msg){
                     if(msg.error)
                     {
-                        $('#gallery-error-edit ul').empty();
-                        $('#gallery-error-edit').css('display','block');
+                        $('#server-error-edit ul').empty();
+                        $('#server-error-edit').css('display','block');
                         $.each(msg.error, function (i, value) {
-                            $('#gallery-error-edit ul').append("<li>"+value+"</li>") ;
+                            $('#server-error-edit ul').append("<li>"+value+"</li>") ;
                         });
                     }
                     else
                     {
-                        document.getElementById('gallery-form-edit').reset();
-                        $('#gallery-dialog-edit').modal('toggle');
-                        $('#gallery-load-data').click();
+                        document.getElementById('server-form-edit').reset();
+                        $('#server-dialog-edit').modal('toggle');
+                        $('#server-load-data').click();
                     }
 
                 }
@@ -194,28 +186,21 @@
             }
         });
 
-        //------------ Edit Gallery Viwe -----------------
-        $(document).on('dblclick','#gallery-table #table-data tr',function (e) {
+        //------------ Edit Server Viwe -----------------
+        $(document).on('dblclick','#server-table #table-data tr',function (e) {
             var hidden_id = $(this).attr('id');
 
-            $.get("{{ route('gallery-edit') }}",{id:hidden_id},function (data) {
-                $('#gallery-dialog-edit').modal();
-                $('#gallery-form-edit #hidden_id').val(hidden_id);
-                $('#gallery-form-edit input[name="name"]').val(data.name);
-                if(data.p_name != null)
-                {
-                    $('#gallery-form-edit img[name="p_name"]').attr('src','{{ URL::to('images') .'/' }}' + data.p_name);
-                }
-                else
-                {
-                    $('#gallery-form-edit img[name="p_name"]').attr('src','{{ URL::to('images') .'/' }}400x400.png');
-                }
+            $.get("{{ route('servers-edit') }}",{id:hidden_id},function (data) {
+                $('#server-dialog-edit').modal();
+                $('#server-form-edit #hidden_id').val(hidden_id);
+                $('#server-form-edit input[name="name"]').val(data.name);
+                $('#server-form-edit textarea[name="description"]').val(data.description);
 
             })
         });
 
-        //------------ Delete Gallery ----------------------
-        $(document).on('click','#delete-gallery',function (e) {
+        //------------ Delete Server ----------------------
+        $(document).on('click','#delete-server',function (e) {
             if ($('input[name="delete"]').is(':checked')) {
                 var sList = [];
                 $('input[name=delete]:checked').each(function (e,v) {
@@ -224,14 +209,14 @@
                 console.log(sList)
                 $.ajax({
                     type: 'POST',
-                    url: "{{ URL::to('admin/gallery/delete') }}",
+                    url: "{{ URL::to('admin/servers/delete') }}",
                     data: {id:sList},
                     beforeSend: function(){
                         // $('.submitBtn').attr("disabled","disabled");
                         // $('#fupForm').css("opacity",".5");
                     },
                     success: function(msg){
-                        $('#gallery-load-data').click();
+                        $('#server-load-data').click();
                     }
                 });
 

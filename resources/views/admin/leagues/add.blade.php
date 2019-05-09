@@ -1,14 +1,14 @@
 
 <!-- Modal -->
-<div class="modal fade" id="service-dialog" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+<div class="modal fade" id="league-dialog" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h4 class="modal-title" id="myModalLabel">Add Service</h4>
+                <h4 class="modal-title" id="myModalLabel">Add League</h4>
             </div>
 
-            <form action="{{ URL::to('admin/news/store') }}" method="POST" role="form" id="service-form" enctype="multipart/form-data">
+            <form action="{{ URL::to('admin/leagues/store') }}" method="POST" role="form" id="league-form" enctype="multipart/form-data">
 
                 <div class="modal-body">
 
@@ -24,13 +24,17 @@
                         </div>
                         <div class="col-sm-8">
                             <div class="form-group">
-                                <label>Name</label>
-                                <input type="text" name="name" class="form-control" placeholder="Enter name" required="required">
+                                <label>League</label>
+                                <input type="text" name="name" class="form-control" placeholder="Enter league" required="required">
+                            </div>
+                            <div class="form-group">
+                                <label>Division</label>
+                                <input type="text" name="division" class="form-control" placeholder="Enter division" required="required">
                             </div>
                         </div>
 
                         <div class="col-sm-12">
-                            <div class="alert alert-danger" id="service-error" style="display: none;">
+                            <div class="alert alert-danger" id="league-error" style="display: none;">
                                 <ul>
 
                                 </ul>

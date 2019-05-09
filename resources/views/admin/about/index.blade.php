@@ -17,16 +17,13 @@
         <div class="col-lg-12">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    About List (Add/Edit/Delet)
+                    About List (Edit)
                 </div>
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-lg-12">
 
                             <!-- Button trigger modal -->
-                            <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#about-dialog">Add</button>
-
-                            <button class="btn btn-danger btn-sm" id="delete-about">Delete</button>
 
                             <button class="btn btn-success btn-sm pull-right" id="about-load-data">Refresh</button>
 
@@ -103,43 +100,6 @@
 
         });
 
-        //------------ Add About ------------------
-        $("#about-form").on('submit', function(e){
-            e.preventDefault();
-            var url = $(this).attr('action');
-            var post = $(this).attr('method');
-            $.ajax({
-                type: post,
-                url: url,
-                data: new FormData(this),
-                contentType: false,
-                cache: false,
-                processData:false,
-                beforeSend: function(){
-                    // $('.submitBtn').attr("disabled","disabled");
-                    // $('#fupForm').css("opacity",".5");
-                },
-                success: function(msg){
-                    if(msg.error)
-                    {
-                        $('#about-error ul').empty();
-                        $('#about-error').css('display','block');
-                        $.each(msg.error, function (i, value) {
-                            $('#about-error ul').append("<li>"+value+"</li>") ;
-                        })
-                        //console.log(msg.error);
-                    }
-                    else
-                    {
-                        document.getElementById('about-form').reset();
-                        $('#about-dialog').modal('toggle');
-                        $('#about-load-data').click();
-                    }
-
-                }
-            });
-        });
-
         //----------- Update About ------------------
         $("#about-form-edit").on('submit', function(e){
             e.preventDefault();
@@ -176,7 +136,6 @@
             });
         });
 
-
         //------------ Edit About Viwe -----------------
         $(document).on('dblclick','#about-table #table-data tr',function (e) {
             var hidden_id = $(this).attr('id');
@@ -189,31 +148,6 @@
 
             })
         });
-
-        //------------ Delete About ----------------------
-        $(document).on('click','#delete-about',function (e) {
-            if ($('input[name="delete"]').is(':checked')) {
-                var sList = [];
-                $('input[name=delete]:checked').each(function (e,v) {
-                    sList.push(v.value);
-                });
-                console.log(sList)
-                $.ajax({
-                    type: 'POST',
-                    url: "{{ URL::to('admin/about/delete') }}",
-                    data: {id:sList},
-                    beforeSend: function(){
-                        // $('.submitBtn').attr("disabled","disabled");
-                        // $('#fupForm').css("opacity",".5");
-                    },
-                    success: function(msg){
-                        $('#about-load-data').click();
-                    }
-                });
-
-            }
-        });
-
 
     </script>
 

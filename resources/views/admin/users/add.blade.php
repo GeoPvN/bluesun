@@ -13,7 +13,7 @@
                 <div class="modal-body">
 
                     <div class="row">
-                        <div class="col-sm-4">
+                        <div class="col-sm-12">
 
                             <div class="form-group">
                                 <label>E-mail</label>

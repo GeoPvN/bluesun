@@ -3,23 +3,20 @@
 namespace App\Http\Controllers;
 
 use App\Photo;
-use App\Services;
+use App\Leagues;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 
-class adminNewsController extends Controller
+class adminLeaguesController extends Controller
 {
 
     public function index()
     {
 
-        $services = DB::table('services')
-            ->leftJoin('photos', 'services.photo_id', '=', 'photos.id')
-            ->select('services.*', 'photos.name as p_name')
-            ->get();
+        $leagues = Leagues::all();
 
-        return view('admin.news.index', compact('services'));
+        return view('admin.leagues.index', compact('leagues'));
 
     }
 
@@ -29,6 +26,7 @@ class adminNewsController extends Controller
         $validator = Validator::make($request->all(),[
 
             'name' => 'required|string',
+            'division' => 'required|string',
             'photo_id' => 'required'
 
         ]);
@@ -54,7 +52,7 @@ class adminNewsController extends Controller
 
                 }
 
-                $user = Services::create($input);
+                $user = Leagues::create($input);
 
 
                 return response($user);
@@ -70,12 +68,13 @@ class adminNewsController extends Controller
     public  function  update(Request $request)
     {
 
-        $service = Services::findOrFail($request->hidden_id);
+        $league = Leagues::findOrFail($request->hidden_id);
 
 
         $validator = Validator::make($request->all(),[
 
-            'name' => 'required|string'
+            'name' => 'required|string',
+            'division' => 'required|string'
 
         ]);
 
@@ -88,13 +87,13 @@ class adminNewsController extends Controller
 
                 if ($file = $request->file('photo_id')) {
 
-                    if ($service->photo_id != 0) {
+                    if ($league->photo_id != 0) {
 
-                        $old_photo = Photo::findOrFail($service->photo_id);
+                        $old_photo = Photo::findOrFail($league->photo_id);
 
                         unlink(public_path() .'/images/'. $old_photo->name);
 
-                        Photo::findOrFail($service->photo_id)->delete();
+                        Photo::findOrFail($league->photo_id)->delete();
 
                     }
 
@@ -108,9 +107,9 @@ class adminNewsController extends Controller
 
                 }
 
-                $service->update($input);
+                $league->update($input);
 
-                return response($service);
+                return response($league);
 
             }
         }
@@ -122,33 +121,33 @@ class adminNewsController extends Controller
     public function loadTable()
     {
 
-        $aervices = DB::table('services')
-            ->leftJoin('photos', 'services.photo_id', '=', 'photos.id')
-            ->select('services.*', 'photos.name as p_name')
-            ->orderBy('services.id','desc')
+        $leagues = DB::table('leagues')
+            ->leftJoin('photos', 'leagues.photo_id', '=', 'photos.id')
+            ->select('leagues.*', 'photos.name as p_name')
+            ->orderBy('leagues.id','desc')
             ->get();
 
-        return response($aervices);
+        return response($leagues);
 
     }
 
     public function edit(Request $request)
     {
 
-        $aervices = DB::table('services')
-            ->leftJoin('photos', 'services.photo_id', '=', 'photos.id')
-            ->select('services.*', 'photos.name as p_name')
-            ->where('services.id', '=', $request->id)
+        $leagues = DB::table('leagues')
+            ->leftJoin('photos', 'leagues.photo_id', '=', 'photos.id')
+            ->select('leagues.*', 'photos.name as p_name')
+            ->where('leagues.id', '=', $request->id)
             ->first();
 
-        return response()->json($aervices);
+        return response()->json($leagues);
 
     }
 
     public function delete(Request $request)
     {
         if($request->ajax()) {
-            DB::table('services')
+            DB::table('leagues')
                 ->whereIn('id', $request->id)
                 ->delete();
 

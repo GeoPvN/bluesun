@@ -4,12 +4,12 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Services extends Model
+class Leagues extends Model
 {
 
-    protected $table = 'services';
+    protected $table = 'leagues';
 
-    protected $fillable = ['name','photo_id'];
+    protected $fillable = ['name','division','photo_id'];
 
     public function photo()
     {

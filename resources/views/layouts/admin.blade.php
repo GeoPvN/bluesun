@@ -164,7 +164,21 @@
                         <a href="{{route('about')}}"><i class="fa fa-font fa-fw"></i> About Us</a>
                     </li>
                     <li>
-                        <a href="{{route('news')}}"><i class="fa fa-wrench fa-fw"></i> Services</a>
+                        <a href="#"><i class="fa fa-wrench fa-fw"></i> Service Components</a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="{{route('leagues')}}">Leagues</a>
+                            </li>
+                            <li>
+                                <a href="{{route('servers')}}">Servers</a>
+                            </li>
+                            <li>
+                                <a href="{{route('queues')}}">Queues</a>
+                            </li>
+                            <li>
+                                <a href="{{route('prices')}}">Price</a>
+                            </li>
+                        </ul>
                     </li>
                     <li>
                         <a href="{{route('gallery')}}"><i class="fa fa-file-image-o fa-fw"></i> Gallery</a>
@@ -175,18 +189,7 @@
                     <li>
                         <a href="{{route('inbox')}}"><i class="fa fa-inbox fa-fw"></i> Inbox</a>
                     </li>
-                    <!--li>
-                        <a href="#"><i class="fa fa-users fa-fw"></i> Inbox Components</a>
-                        <ul class="nav nav-second-level">
-                            <li>
-                                <a href="">Inbox</a>
-                            </li>
-                            <li>
-                                <a href="">Positions</a>
-                            </li>
 
-                        </ul>
-                    </li-->
                 </ul>
             </div>
         </div>
