@@ -157,6 +157,11 @@ void function Init() {
                     $(thisForm.find('li.err-txt')).html('');
                     $('.profile_name,.user').html(msg.name);
                     $('.profile_email').html(msg.email);
+                    active = 'Deactive';
+                    if(msg.active == 1){
+                        active = 'Active';
+                    }
+                    $('.profile_active').html(active);
 
                     refresh_token();
                 },
@@ -236,6 +241,11 @@ void function Init() {
                     $('.signup .popup').addClass('success');
                     $('.profile_name,.user').html(msg.name);
                     $('.profile_email').html(msg.email);
+                    active = 'Deactive';
+                    if(msg.active == 1){
+                        active = 'Active';
+                    }
+                    $('.profile_active').html(active);
                     refresh_token();
                 },
                 error: function (error) {
