@@ -971,17 +971,116 @@ section .middle {
 }
 #service .league-service .choose ul {
   display: flex;
-  width: calc(100% - 150px);
+  justify-content: flex-end;
+  width: 1060px;
+  flex-wrap: wrap;
+}
+#service .league-service .choose ul > li {
+  flex-shrink: 0;
+}
+#service .league-service .choose ul > li:nth-child(1), #service .league-service .choose ul > li:nth-child(2) {
+  width: 30%;
+}
+#service .league-service .choose ul > li.not-badges:nth-child(3), #service .league-service .choose ul > li.not-badges:nth-child(4) {
+  width: 20%;
+}
+#service .league-service .choose ul > li.not-badges:nth-child(3) .list-wrapper, #service .league-service .choose ul > li.not-badges:nth-child(4) .list-wrapper {
+  width: calc(100% - 30px);
+}
+#service .league-service .choose ul > li .inc-dec {
+  font-size: 16px;
+  margin-top: 30px;
+  font-family: "Roboto-Medium";
+  display: flex;
   justify-content: space-between;
 }
-#service .league-service .choose ul li .name {
+#service .league-service .choose ul > li .inc-dec .inc, #service .league-service .choose ul > li .inc-dec .dec, #service .league-service .choose ul > li .inc-dec .val {
+  height: 48px;
+  width: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+  border-radius: 5px;
+  border: 2px solid transparent;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.1);
+  transition: 120ms ease-in-out;
+}
+#service .league-service .choose ul > li .inc-dec .inc.inc, #service .league-service .choose ul > li .inc-dec .inc.dec, #service .league-service .choose ul > li .inc-dec .dec.inc, #service .league-service .choose ul > li .inc-dec .dec.dec, #service .league-service .choose ul > li .inc-dec .val.inc, #service .league-service .choose ul > li .inc-dec .val.dec {
+  user-select: none;
+  cursor: pointer;
+  font-size: 22px;
+}
+#service .league-service .choose ul > li .inc-dec .inc.inc:active, #service .league-service .choose ul > li .inc-dec .inc.dec:active, #service .league-service .choose ul > li .inc-dec .dec.inc:active, #service .league-service .choose ul > li .inc-dec .dec.dec:active, #service .league-service .choose ul > li .inc-dec .val.inc:active, #service .league-service .choose ul > li .inc-dec .val.dec:active {
+  background: #0072ff;
+  color: #fff;
+}
+#service .league-service .choose ul > li .inc-dec .inc.inc:hover, #service .league-service .choose ul > li .inc-dec .inc.dec:hover, #service .league-service .choose ul > li .inc-dec .dec.inc:hover, #service .league-service .choose ul > li .inc-dec .dec.dec:hover, #service .league-service .choose ul > li .inc-dec .val.inc:hover, #service .league-service .choose ul > li .inc-dec .val.dec:hover {
+  border: 2px solid #0072ff;
+}
+#service .league-service .choose ul > li .inc-dec .inc.val, #service .league-service .choose ul > li .inc-dec .dec.val, #service .league-service .choose ul > li .inc-dec .val.val {
+  width: 50%;
+}
+#service .league-service .choose ul > li.type-of-service {
+  width: 40%;
+}
+#service .league-service .choose ul > li.type-of-service .services-wrapper {
+  margin-top: 30px;
+  text-align: left;
+  display: flex;
+  justify-content: space-between;
+}
+#service .league-service .choose ul > li.type-of-service .services-wrapper .service {
+  position: relative;
+  width: 48%;
+  cursor: pointer;
+  font-size: 14px;
+  user-select: none;
+  height: 47px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  background: #fff;
+  border: 2px solid transparent;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.1);
+  padding: 0 10px;
+  box-sizing: border-box;
+  font-family: "Roboto-Medium";
+  transition: 120ms ease-in-out;
+}
+#service .league-service .choose ul > li.type-of-service .services-wrapper .service img.icon {
+  position: absolute;
+  bottom: 5px;
+  left: 5px;
+}
+#service .league-service .choose ul > li.type-of-service .services-wrapper .service span {
+  font-family: "Roboto-Medium";
+  font-size: 14px;
+}
+#service .league-service .choose ul > li.type-of-service .services-wrapper .service:hover {
+  opacity: 0.9;
+  border: 2px solid #0072ff;
+}
+#service .league-service .choose ul > li.type-of-service .services-wrapper .service.active {
+  border: 2px solid #fff;
+  background: #0072ff;
+  color: #fff;
+}
+#service .league-service .choose ul > li.type-of-service .services-wrapper .service.active:hover {
+  opacity: 1;
+}
+#service .league-service .choose ul > li.type-of-service .services-wrapper .service:active {
+  transform: scale(0.95);
+}
+#service .league-service .choose ul > li .name {
   height: 40px;
   display: flex;
   align-items: center;
   font-family: "Roboto-Black";
   font-size: 15px;
 }
-#service .league-service .choose ul li .name span {
+#service .league-service .choose ul > li .name span {
   height: 40px;
   width: 40px;
   display: inline-block;
@@ -994,22 +1093,26 @@ section .middle {
   margin-right: 15px;
   font-weight: bold;
 }
-#service .league-service .choose ul li .list-wrapper {
+#service .league-service .choose ul > li .list-wrapper {
+  position: relative;
   text-align: left;
   margin-top: 30px;
+  padding-right: 22px;
+  width: calc(100% - 128px);
+  margin-bottom: 36px;
 }
-#service .league-service .choose ul li .list-wrapper .list {
+#service .league-service .choose ul > li .list-wrapper .list {
   position: relative;
-  width: 200px;
+  width: 100%;
   margin-bottom: 10px;
 }
-#service .league-service .choose ul li .list-wrapper .list .select {
+#service .league-service .choose ul > li .list-wrapper .list .select {
   position: relative;
 }
-#service .league-service .choose ul li .list-wrapper .list .select.active i {
+#service .league-service .choose ul > li .list-wrapper .list .select.active i {
   transform: rotateX(180deg);
 }
-#service .league-service .choose ul li .list-wrapper .list .select .control {
+#service .league-service .choose ul > li .list-wrapper .list .select .control {
   width: 100%;
   height: 40px;
   display: flex;
@@ -1022,10 +1125,10 @@ section .middle {
   cursor: pointer;
   transition: opacity 120ms ease-in-out;
 }
-#service .league-service .choose ul li .list-wrapper .list .select .control:hover {
+#service .league-service .choose ul > li .list-wrapper .list .select .control:hover {
   opacity: 0.8;
 }
-#service .league-service .choose ul li .list-wrapper .list .select i {
+#service .league-service .choose ul > li .list-wrapper .list .select i {
   position: absolute;
   right: 10px;
   top: 0;
@@ -1036,7 +1139,7 @@ section .middle {
   cursor: pointer;
   transition: transform 0.2s;
 }
-#service .league-service .choose ul li .list-wrapper .list .options {
+#service .league-service .choose ul > li .list-wrapper .list .options {
   display: none;
   position: absolute;
   top: 37px;
@@ -1047,7 +1150,7 @@ section .middle {
   background: #fff;
   z-index: 9;
 }
-#service .league-service .choose ul li .list-wrapper .list .options .option {
+#service .league-service .choose ul > li .list-wrapper .list .options .option {
   height: 43px;
   padding: 0 10px;
   display: flex;
@@ -1057,8 +1160,32 @@ section .middle {
   cursor: pointer;
   transition: background 0.3s ease-out;
 }
-#service .league-service .choose ul li .list-wrapper .list .options .option.active, #service .league-service .choose ul li .list-wrapper .list .options .option:hover {
+#service .league-service .choose ul > li .list-wrapper .list .options .option.active, #service .league-service .choose ul > li .list-wrapper .list .options .option:hover {
   background: #f1f1f1;
+}
+#service .league-service .choose ul > li .list-wrapper .badges {
+  position: absolute;
+  right: -70px;
+  top: 0;
+  width: 90px;
+}
+#service .league-service .choose ul > li .list-wrapper .badges img {
+  width: 100%;
+}
+#service .league-service #coaching .choose ul > li {
+  width: calc(100%/4);
+  padding-right: 30px;
+  box-sizing: border-box;
+}
+#service .league-service #coaching .choose ul > li .services-wrapper {
+  flex-wrap: wrap;
+}
+#service .league-service #coaching .choose ul > li .services-wrapper .service {
+  width: 100%;
+  margin-bottom: 28px;
+}
+#service .league-service #coaching .choose ul > li .list-wrapper {
+  width: 100%;
 }
 
 #gallery {
@@ -1084,6 +1211,7 @@ section .middle {
   border-radius: 5px;
   cursor: pointer;
   overflow: hidden;
+  z-index: 9;
 }
 #gallery .photos ul li .img {
   background-image: url("../assets/images/bg.jpg");
@@ -1108,12 +1236,67 @@ section .middle {
   box-sizing: border-box;
 }
 #gallery .photos .btn {
+  display: none;
   margin: 50px auto 0;
   width: 140px;
   transition: 0.3s;
 }
 #gallery .photos .btn:hover {
   box-shadow: inset calc(165px) 0 10px #0072ff;
+}
+#gallery .popup-overlay {
+  display: none;
+  overflow: hidden;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(23, 129, 254, 0.35);
+  transition: transform 0.4s;
+  z-index: 99;
+}
+#gallery .popup-overlay .popup {
+  position: relative;
+  max-height: 70%;
+  width: 70%;
+  background-color: #fff;
+  overflow: hidden;
+  border-radius: 5px;
+  color: #333;
+  box-sizing: border-box;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+  z-index: 99;
+}
+#gallery .popup-overlay .popup img.close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  cursor: pointer;
+  opacity: 0.6;
+  transition: opacity 0.2s ease-in-out;
+  filter: invert(1);
+}
+#gallery .popup-overlay .popup img.close:hover {
+  opacity: 1;
+}
+#gallery .popup-overlay .popup .photo img {
+  width: 100%;
+  vertical-align: middle;
+}
+#gallery .popup-overlay.visible {
+  display: flex;
+  animation: 0.3s fade ease-out;
+}
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 #gallery .overlay {
   position: absolute;

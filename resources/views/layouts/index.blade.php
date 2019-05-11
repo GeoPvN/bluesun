@@ -5,7 +5,7 @@
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
     <meta http-equiv='X-UA-Compatible' content='ie=edge'>
     <meta name='author' content='Davit Papalashvili'>
-    <meta name='description' content='Trusted by Gamers. Proven Boosters. Track Progress, Spectate, Chat, Schedule & Pause Boost. Select Lines, Champions, Summoners & Stream Games. Choose between Regular and Premium Duo. Select Between Solo/Duo. Encrypted VPN Connection. 24/7 Qualified Support.'>
+    <meta name='description' content='Trusted by Gamers. Proven Boosters. Track Progress, Spectate, Chat, Schedule & Pause Boost. Select Lines, Champions, Summoners & Stream Games. Choose between Regular and Test Text Duo. Select Between Solo/Duo. Encrypted VPN Connection. 24/7 Qualified Support.'>
     <meta name='keywords' content='lol boost, lol boosting, boost, cheap boost, league boosting'>
 
     <!-- CSRF Token -->
@@ -306,111 +306,431 @@
             </div>
 
             <div class='league-service'>
-                <h1 class='wow fadeIn' data-wow-delay='0.8s'>League service</h1>
-                <span class='wow fadeInUp' data-wow-delay='1s'>The booster will log on your account and will play in your account until reaching your desired division.</span>
+                <div id="coaching">
+                    <h1 class='wow fadeIn' data-wow-delay='0.8s'>Coaching</h1>
+                    <span class='wow fadeInUp' data-wow-delay='1s'>The booster will log on your account and will play in your account until reaching your desired division.</span>
 
-                <div class='choose'>
-                    <ul>
-                        <li class='wow fadeInRight' data-wow-delay='1.2s'>
-                            <div class='name'><span>1</span>YOUR CURRENT LEAGUE</div>
-
-                            <div class='list-wrapper'>
-                                <div class='list'>
-                                    <div class='select wow fadeInUp' data-wow-delay='1.8s'>
-                                        <div class='control'>Choose</div>
-                                        <i class='material-icons'>keyboard_arrow_down</i>
+                    <div class='choose'>
+                        <ul>
+                            <li class='wow fadeInRight type-of-service' data-wow-delay='2s'>
+                                <div class='name'><span>1</span>TYPE OF SERVICE</div>
+                                
+                                <div class="services-wrapper">
+                                    <div class="service">
+                                        <img class='icon' src="https://eloboost24.eu/images/pages/boosting/duo_opt_regular.png">
+                                        <span>Test Text</span>
                                     </div>
-
-                                    <div class='options'>
-
-                                    </div>
-                                </div>
-
-                                <div class='list'>
-                                    <div class='select wow fadeInUp' data-wow-delay='2s'>
-                                        <div class='control'>Choose</div>
-                                        <i class='material-icons'>keyboard_arrow_down</i>
-                                    </div>
-
-                                    <div class='options'>
-
+                                    <div class="service">
+                                        <img class='icon' src="https://eloboost24.eu/images/pages/boosting/duo_opt_regular.png">
+                                        <span>Test Text</span>
                                     </div>
                                 </div>
+                            </li>
 
-                                <div class='list'>
-                                    <div class='select wow fadeInUp' data-wow-delay='2.2s'>
-                                        <div class='control'>Choose</div>
-                                        <i class='material-icons'>keyboard_arrow_down</i>
+                            <li class='wow fadeInRight type-of-service specific' data-wow-delay='2s'>
+                                <div class='name'><span>2</span>SPECIFIC LINES</div>
+                                
+                                <div class="services-wrapper">
+                                    <div class="service">
+                                        <img class='icon' src="https://eloboost24.eu/images/pages/boosting/duo_opt_regular.png">
+                                        <span>Test Text</span>
                                     </div>
-
-                                    <div class='options'>
-
+                                    <div class="service">
+                                        <img class='icon' src="https://eloboost24.eu/images/pages/boosting/duo_opt_regular.png">
+                                        <span>Test Text</span>
                                     </div>
-                                </div>
-
-                            </div>
-                        </li>
-                        <li class='wow fadeInRight' data-wow-delay='1.4s'>
-                            <div class='name'><span>2</span>YOUR DESIRE LEAGUE</div>
-                            <div class='list-wrapper'>
-                                <div class='list'>
-                                    <div class='select wow fadeInUp' data-wow-delay='2.4s'>
-                                        <div class='control'>Choose</div>
-                                        <i class='material-icons'>keyboard_arrow_down</i>
+                                    <div class="service">
+                                        <img class='icon' src="https://eloboost24.eu/images/pages/boosting/duo_opt_regular.png">
+                                        <span>Test Text</span>
                                     </div>
-
-                                    <div class='options'>
-
+                                    <div class="service">
+                                        <img class='icon' src="https://eloboost24.eu/images/pages/boosting/duo_opt_regular.png">
+                                        <span>Test Text</span>
                                     </div>
-                                </div>
-                                <div class='list'>
-                                    <div class='select wow fadeInUp' data-wow-delay='2.6s'>
-                                        <div class='control'>Choose</div>
-                                        <i class='material-icons'>keyboard_arrow_down</i>
-                                    </div>
-
-                                    <div class='options'>
-
+                                    <div class="service">
+                                        <img class='icon' src="https://eloboost24.eu/images/pages/boosting/duo_opt_regular.png">
+                                        <span>Test Text</span>
                                     </div>
                                 </div>
-                            </div>
-                        </li>
-                        <li class='wow fadeInRight' data-wow-delay='1.6s'>
-                            <div class='name'><span>3</span>YOUR SERVER</div>
-                            <div class='list-wrapper'>
-                                <div class='list'>
-                                    <div class='select wow fadeInUp' data-wow-delay='2.8s'>
-                                        <div class='control'>Choose</div>
-                                        <i class='material-icons'>keyboard_arrow_down</i>
+                            </li>
+
+                            <li class='wow fadeInRight type-of-service' data-wow-delay='2s'>
+                                <div class='name'><span>3</span>RANK OF COACH</div>
+                                
+                                <div class="services-wrapper">
+                                    <div class="service">
+                                        <img class='icon' src="https://eloboost24.eu/images/pages/boosting/duo_opt_regular.png">
+                                        <span>Test Text</span>
                                     </div>
-
-                                    <div class='options'>
-
+                                    <div class="service">
+                                        <img class='icon' src="https://eloboost24.eu/images/pages/boosting/duo_opt_regular.png">
+                                        <span>Test Text</span>
                                     </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li class='wow fadeInRight' data-wow-delay='1.8s'>
-                            <div class='name'><span>4</span>TYPE OF QUEUE</div>
-                            <div class='list-wrapper'>
-                                <div class='list'>
-                                    <div class='select wow fadeInUp' data-wow-delay='3s'>
-                                        <div class='control'>Choose</div>
-                                        <i class='material-icons'>keyboard_arrow_down</i>
-                                    </div>
-
-                                    <div class='options'>
-
+                                    <div class="service">
+                                        <img class='icon' src="https://eloboost24.eu/images/pages/boosting/duo_opt_regular.png">
+                                        <span>Test Text</span>
                                     </div>
                                 </div>
-                            </div>
-                        </li>
-                    </ul>
+                            </li>
+
+                            <li class='wow fadeInRight type-of-service' data-wow-delay='2s'>
+                                <div class='name'><span>4</span>YOUR SERVER</div>
+                                
+                                <div class='list-wrapper'>
+                                    <div class='list'>
+                                        <div class='select wow fadeInUp' data-wow-delay='1.8s'>
+                                            <div class='control'>Choose</div>
+                                            <i class='material-icons'>keyboard_arrow_down</i>
+                                        </div>
+
+                                        <div class='options'>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class='name'><span>5</span>AMOUNT OF HOURS</div>
+                                <div class="inc-dec">
+                                    <div class="inc">+</div>
+                                    <div class="val">10</div>
+                                    <div class="dec">-</div>
+                                </div>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+
+                <div id="duo-boosting">
+                    <h1 class='wow fadeIn' data-wow-delay='0.8s'>Duo Boosting</h1>
+                    <span class='wow fadeInUp' data-wow-delay='1s'>The booster will log on your account and will play in your account until reaching your desired division.</span>
+
+                    <div class='choose'>
+                        <ul>
+                            <li class='wow fadeInRight' data-wow-delay='1.2s'>
+                                <div class='name'><span>1</span>YOUR CURRENT LEAGUE</div>
+
+                                <div class='list-wrapper'>
+                                    <div class='list'>
+                                        <div class='select wow fadeInUp' data-wow-delay='1.8s'>
+                                            <div class='control'>Choose</div>
+                                            <i class='material-icons'>keyboard_arrow_down</i>
+                                        </div>
+
+                                        <div class='options'>
+
+                                        </div>
+                                    </div>
+
+                                    <div class='list'>
+                                        <div class='select wow fadeInUp' data-wow-delay='2s'>
+                                            <div class='control'>Choose</div>
+                                            <i class='material-icons'>keyboard_arrow_down</i>
+                                        </div>
+
+                                        <div class='options'>
+
+                                        </div>
+                                    </div>
+
+                                    <div class="badges">
+                                        <img src="https://eloboost24.eu/images/divisions/27.png" alt="">
+                                    </div>
+                                </div>
+                                
+                            </li>
+                            <li class='wow fadeInRight' data-wow-delay='1.4s'>
+                                <div class='name'><span>2</span>YOUR DESIRE LEAGUE</div>
+                                <div class='list-wrapper'>
+                                    <div class='list'>
+                                        <div class='select wow fadeInUp' data-wow-delay='2.4s'>
+                                            <div class='control'>Choose</div>
+                                            <i class='material-icons'>keyboard_arrow_down</i>
+                                        </div>
+
+                                        <div class='options'>
+
+                                        </div>
+                                    </div>
+                                    <div class='list'>
+                                        <div class='select wow fadeInUp' data-wow-delay='2.6s'>
+                                            <div class='control'>Choose</div>
+                                            <i class='material-icons'>keyboard_arrow_down</i>
+                                        </div>
+
+                                        <div class='options'>
+
+                                        </div>
+                                    </div>
+                                    <div class="badges">
+                                        <img src="https://eloboost24.eu/images/divisions/27.png" alt="">
+                                    </div>
+                                </div>
+                            </li>
+                            <li class='wow fadeInRight not-badges' data-wow-delay='1.6s'>
+                                <div class='name'><span>3</span>YOUR SERVER</div>
+                                <div class='list-wrapper'>
+                                    <div class='list'>
+                                        <div class='select wow fadeInUp' data-wow-delay='2.8s'>
+                                            <div class='control'>Choose</div>
+                                            <i class='material-icons'>keyboard_arrow_down</i>
+                                        </div>
+
+                                        <div class='options'>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class='wow fadeInRight not-badges' data-wow-delay='1.8s'>
+                                <div class='name'><span>4</span>TYPE OF QUEUE</div>
+                                <div class='list-wrapper'>
+                                    <div class='list'>
+                                        <div class='select wow fadeInUp' data-wow-delay='3s'>
+                                            <div class='control'>Choose</div>
+                                            <i class='material-icons'>keyboard_arrow_down</i>
+                                        </div>
+
+                                        <div class='options'>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li class='wow fadeInRight type-of-service' data-wow-delay='2s'>
+                                <div class='name'><span>5</span>TYPE OF SERVICE</div>
+                                
+                                <div class="services-wrapper">
+                                    <div class="service">
+                                        <img class='icon' src="https://eloboost24.eu/images/pages/boosting/duo_opt_regular.png">
+                                        <span>Test Text</span>
+                                    </div>
+                                    <div class="service">
+                                        <img class='icon' src="https://eloboost24.eu/images/pages/boosting/duo_opt_regular.png">
+                                        <span>Test Text</span>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div id="win-boosting">
+                    <h1 class='wow fadeIn' data-wow-delay='0.8s'>Win Boosting</h1>
+                    <span class='wow fadeInUp' data-wow-delay='1s'>The booster will log on your account and will play in your account until reaching your desired division.</span>
+
+                    <div class='choose'>
+                        <ul>
+                            <li class='wow fadeInRight' data-wow-delay='1.2s'>
+                                <div class='name'><span>1</span>YOUR CURRENT LEAGUE</div>
+
+                                <div class='list-wrapper'>
+                                    <div class='list'>
+                                        <div class='select wow fadeInUp' data-wow-delay='1.8s'>
+                                            <div class='control'>Choose</div>
+                                            <i class='material-icons'>keyboard_arrow_down</i>
+                                        </div>
+
+                                        <div class='options'>
+
+                                        </div>
+                                    </div>
+
+                                    <div class='list'>
+                                        <div class='select wow fadeInUp' data-wow-delay='2s'>
+                                            <div class='control'>Choose</div>
+                                            <i class='material-icons'>keyboard_arrow_down</i>
+                                        </div>
+
+                                        <div class='options'>
+
+                                        </div>
+                                    </div>
+
+                                    <div class="badges">
+                                        <img src="https://eloboost24.eu/images/divisions/27.png" alt="">
+                                    </div>
+                                </div>
+                                
+                            </li>
+                            <li class='wow fadeInRight not-badges' data-wow-delay='1.4s'>
+                                <div class='name'><span>2</span>YOUR DESIRE LEAGUE</div>
+                                <div class='list-wrapper'>
+                                    <div class='list'>
+                                        <div class='select wow fadeInUp' data-wow-delay='2.4s'>
+                                            <div class='control'>Choose</div>
+                                            <i class='material-icons'>keyboard_arrow_down</i>
+                                        </div>
+
+                                        <div class='options'>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </li>
+                            <li class='wow fadeInRight not-badges type-of-service' data-wow-delay='1.6s'>
+                                <div class='name'><span>3</span>YOUR SERVER</div>
+                                <div class='list-wrapper'>
+                                    <div class='list'>
+                                        <div class='select wow fadeInUp' data-wow-delay='2.8s'>
+                                            <div class='control'>Choose</div>
+                                            <i class='material-icons'>keyboard_arrow_down</i>
+                                        </div>
+
+                                        <div class='options'>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class='wow fadeInRight not-badges' data-wow-delay='1.8s'>
+                                <div class='name'><span>4</span>TYPE OF QUEUE</div>
+                                <div class='list-wrapper'>
+                                    <div class='list'>
+                                        <div class='select wow fadeInUp' data-wow-delay='3s'>
+                                            <div class='control'>Choose</div>
+                                            <i class='material-icons'>keyboard_arrow_down</i>
+                                        </div>
+
+                                        <div class='options'>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class='name'><span>6</span>AMOUNT OF HOURS</div>
+                                <div class="inc-dec">
+                                    <div class="inc">+</div>
+                                    <div class="val">10</div>
+                                    <div class="dec">-</div>
+                                </div>
+                            </li>
+
+                            <li class='wow fadeInRight type-of-service' data-wow-delay='2s'>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+
+                <div id="league-boosting">
+                    <h1 class='wow fadeIn' data-wow-delay='0.8s'>League Boosting</h1>
+                    <span class='wow fadeInUp' data-wow-delay='1s'>The booster will log on your account and will play in your account until reaching your desired division.</span>
+
+                    <div class='choose'>
+                        <ul>
+                            <li class='wow fadeInRight' data-wow-delay='1.2s'>
+                                <div class='name'><span>1</span>YOUR CURRENT LEAGUE</div>
+
+                                <div class='list-wrapper'>
+                                    <div class='list'>
+                                        <div class='select wow fadeInUp' data-wow-delay='1.8s'>
+                                            <div class='control'>Choose</div>
+                                            <i class='material-icons'>keyboard_arrow_down</i>
+                                        </div>
+
+                                        <div class='options'>
+
+                                        </div>
+                                    </div>
+
+                                    <div class='list'>
+                                        <div class='select wow fadeInUp' data-wow-delay='2s'>
+                                            <div class='control'>Choose</div>
+                                            <i class='material-icons'>keyboard_arrow_down</i>
+                                        </div>
+
+                                        <div class='options'>
+
+                                        </div>
+                                    </div>
+
+                                    <div class="badges">
+                                        <img src="https://eloboost24.eu/images/divisions/27.png" alt="">
+                                    </div>
+                                </div>
+                                
+                            </li>
+                            <li class='wow fadeInRight' data-wow-delay='1.4s'>
+                                <div class='name'><span>2</span>YOUR DESIRE LEAGUE</div>
+                                <div class='list-wrapper'>
+                                    <div class='list'>
+                                        <div class='select wow fadeInUp' data-wow-delay='2.4s'>
+                                            <div class='control'>Choose</div>
+                                            <i class='material-icons'>keyboard_arrow_down</i>
+                                        </div>
+
+                                        <div class='options'>
+
+                                        </div>
+                                    </div>
+                                    <div class='list'>
+                                        <div class='select wow fadeInUp' data-wow-delay='2.6s'>
+                                            <div class='control'>Choose</div>
+                                            <i class='material-icons'>keyboard_arrow_down</i>
+                                        </div>
+
+                                        <div class='options'>
+
+                                        </div>
+                                    </div>
+                                    <div class="badges">
+                                        <img src="https://eloboost24.eu/images/divisions/27.png" alt="">
+                                    </div>
+                                </div>
+                            </li>
+                            <li class='wow fadeInRight not-badges' data-wow-delay='1.6s'>
+                                <div class='name'><span>3</span>YOUR SERVER</div>
+                                <div class='list-wrapper'>
+                                    <div class='list'>
+                                        <div class='select wow fadeInUp' data-wow-delay='2.8s'>
+                                            <div class='control'>Choose</div>
+                                            <i class='material-icons'>keyboard_arrow_down</i>
+                                        </div>
+
+                                        <div class='options'>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class='wow fadeInRight not-badges' data-wow-delay='1.8s'>
+                                <div class='name'><span>4</span>TYPE OF QUEUE</div>
+                                <div class='list-wrapper'>
+                                    <div class='list'>
+                                        <div class='select wow fadeInUp' data-wow-delay='3s'>
+                                            <div class='control'>Choose</div>
+                                            <i class='material-icons'>keyboard_arrow_down</i>
+                                        </div>
+
+                                        <div class='options'>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li class='wow fadeInRight type-of-service' data-wow-delay='2s'>
+                                <div class='name'><span>5</span>TYPE OF SERVICE</div>
+                                
+                                <div class="services-wrapper">
+                                    <div class="service">
+                                        <img class='icon' src="https://eloboost24.eu/images/pages/boosting/duo_opt_regular.png">
+                                        <span>Test Text</span>
+                                    </div>
+                                    <div class="service">
+                                        <img class='icon' src="https://eloboost24.eu/images/pages/boosting/duo_opt_regular.png">
+                                        <span>Test Text</span>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
-
+    
     <section id='gallery'>
         <div class='middle'>
             <h1 class='wow fadeInDown' data-wow-delay='0.2s'>Elounion Gallery</h1>
@@ -418,13 +738,22 @@
                 <ul class='wow fadeInDown' data-wow-delay='0.7s'>
                     @foreach($gallerys as $gallery)
                     <li>
-                        @if($gallery->photo) <div class='img' style='background-image: url({{$gallery->photo->name ? URL::to('images') .'/'. $gallery->photo->name : URL::to('images') .'/'.'400x400.png'}});'></div> @endif
+                        @if($gallery->photo) <div class='img' url="{{$gallery->photo->name ? URL::to('images') .'/'. $gallery->photo->name : URL::to('images') .'/'.'400x400.png'}}" style='background-image: url({{$gallery->photo->name ? URL::to('images') .'/'. $gallery->photo->name : URL::to('images') .'/'.'400x400.png'}});'></div> @endif
                         <div class='inf'>@if($gallery->name) {{ $gallery->name }} @endif</div>
                     </li>
                     @endforeach
 
                 </ul>
                 <div class='btn wow fadeInUp' data-wow-delay='1s'>Show More</div>
+            </div>
+        </div>
+        <div class='popup-overlay'>
+            <div class='popup'>
+            <img src='{{ asset('css/assets/images/close.svg') }}' class='close'>
+
+                <div class="photo">
+                    
+                </div>
             </div>
         </div>
         <div class='overlay'></div>

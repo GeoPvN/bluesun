@@ -64,23 +64,27 @@ void function Init() {
         });
 
         $('header #login').on('click', function() {
+            $('body').css('overflow', 'hidden')
             $('.popup-overlay.signin').css('transform', 'translateY(0%)');
             $('#login_email,#login_password').val('');
             $('.signin .err-txt').html('');
         })
 
         $('header #registration').on('click', function() {
+            $('body').css('overflow', 'hidden')
             $('.popup-overlay.signup').css('transform', 'translateY(0%)');
             $('#reg_name,#reg_email,#reg_pass,#reg_pass_con').val('');
         })
 
         $('header #profile').on('click', function() {
+            $('body').css('overflow', 'hidden')
             $('.popup-overlay.my-account').css('transform', 'translateY(0%)');
             $('input[name="oldPassword"],.half input[name="password"],.half input[name="password_confirmation"]').val('');
             $('.half .err-txt').html('');
         })
 
-        $('header .popup .close').on('click', function() {
+        $('header .close').on('click', function() {
+            $('body').css('overflow', 'unset')
             $(this).parents('.popup-overlay').css('transform', 'translateY(100%)');
 
             if( $('.signin .popup').hasClass('forgot-password') ) $('.signin .popup').removeClass('forgot-password')
@@ -91,7 +95,6 @@ void function Init() {
                 $('.signup .popup').find('input:not([type="submit"])').val('');
                 checkInput($('.signup .popup'))
             }
-
         })
 
         $('input, textarea, select').on('focus', function() {
@@ -370,6 +373,28 @@ void function Init() {
             }
         })
 
+        $('#service .services-wrapper').on('click', '.service', function() {
+            var val = $(this).find('span').text()
+
+            if ($(this).parents('.type-of-service').hasClass('specific') ) {
+              $(this).toggleClass('active')
+            } else {
+                $(this).addClass('active').siblings().removeClass('active')
+            }
+        })
+
+        $('#gallery .photos').on('click', 'li', function() {
+            $('body').css('overflow', 'hidden')
+            $('#gallery .popup-overlay .popup .photo').html('')
+            $('#gallery .popup-overlay .popup .photo').append(`<img src='${$(this).find('.img').attr('url')}'>`)
+            $(this).parents('#gallery').find('.popup-overlay').addClass('visible')
+        })
+        
+        $('#gallery .popup-overlay').on('click', function() {
+            $(this).removeClass('visible')
+            $('body').css('overflow', 'unset')
+        })
+
 
         //
         // $('.faq-wrapper ul').on('click', 'li', function() {
@@ -385,5 +410,6 @@ void function Init() {
         var year = new Date().getFullYear();
         $('.copyright').html(`&copy; ${year} ${host}`)
     }()
+
     new WOW().init()
 }()
