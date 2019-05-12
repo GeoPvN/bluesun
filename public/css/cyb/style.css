@@ -363,7 +363,7 @@ header .popup-overlay .popup {
   box-sizing: border-box;
   box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
 }
-header .popup-overlay .popup img.close {
+header .popup-overlay .popup img.close, header .popup-overlay .popup img.close-terms {
   position: absolute;
   top: 15px;
   right: 15px;
@@ -371,7 +371,7 @@ header .popup-overlay .popup img.close {
   opacity: 0.4;
   transition: opacity 0.2s ease-in-out;
 }
-header .popup-overlay .popup img.close:hover {
+header .popup-overlay .popup img.close:hover, header .popup-overlay .popup img.close-terms:hover {
   opacity: 0.8;
 }
 header .popup-overlay .popup .title {
@@ -410,6 +410,7 @@ header .popup-overlay.signin .popup.forgot-password form.forgot-dialog {
   display: block;
 }
 header .popup-overlay.signup .popup {
+  overflow: hidden;
   width: 600px;
 }
 header .popup-overlay.signup .popup.success {
@@ -428,6 +429,23 @@ header .popup-overlay.signup .btn {
 }
 header .popup-overlay.signup .btn:hover {
   box-shadow: inset calc(465px) 0 10px #0072ff;
+}
+header .popup-overlay.signup .terms-and-conditions {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 25px;
+  background: rgba(255, 255, 255, 0.97);
+  height: 100%;
+  box-sizing: border-box;
+  transform: translateY(-100%);
+  transition: 0.3s;
+}
+header .popup-overlay.signup .terms-and-conditions .title {
+  margin-bottom: 15px;
+}
+header .popup-overlay.signup .terms-and-conditions.visible {
+  transform: translateY(0%);
 }
 header .popup-overlay.signup .success-dialog {
   display: none;
@@ -690,6 +708,12 @@ form ul li input[type=password],
 form ul li textarea[type=password] {
   padding-right: 65px;
 }
+form ul li input[type=checkbox], form ul li input[type=radio],
+form ul li textarea[type=checkbox],
+form ul li textarea[type=radio] {
+  height: auto;
+  width: auto;
+}
 form ul li input[type=submit],
 form ul li textarea[type=submit] {
   border: none;
@@ -753,6 +777,69 @@ form .err-txt {
   text-align: center;
   margin-top: -10px;
   animation: none;
+}
+form .check {
+  display: block;
+  position: relative;
+  padding-left: 30px;
+  line-height: 19px;
+  user-select: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  height: 18px;
+}
+form .check input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: auto;
+}
+form .check .checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 18px;
+  width: 18px;
+  background-color: #bfbfbf;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.2s;
+}
+form .check .checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+form .check:hover input ~ .checkmark {
+  opacity: 1;
+}
+form .check input:checked ~ .checkmark {
+  background: linear-gradient(90deg, #0072ff 0%, #00d4ff 100%);
+}
+form .check input:checked ~ .checkmark:after {
+  display: block;
+}
+form .check .checkmark:after {
+  margin-top: -1px;
+  width: 3px;
+  height: 8px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+form .check span {
+  font-family: "Roboto-Medium";
+}
+form .check span > span {
+  text-decoration: underline;
+  font-size: 14px;
+  transition: 0.2s;
+}
+form .check span > span:hover {
+  opacity: 0.8;
 }
 
 section {

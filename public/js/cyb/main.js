@@ -83,7 +83,7 @@ void function Init() {
             $('.half .err-txt').html('');
         })
 
-        $('header .close').on('click', function() {
+        $('header .popup .close').on('click', function() {
             $('body').css('overflow', 'unset')
             $(this).parents('.popup-overlay').css('transform', 'translateY(100%)');
 
@@ -97,7 +97,7 @@ void function Init() {
             }
         })
 
-        $('input, textarea, select').on('focus', function() {
+        $('input:not([name="TermsAccepted"]), textarea, select').on('focus', function() {
             $(this).siblings('span').addClass('fucused');
             $(this).siblings('label').addClass('active');
         })
@@ -261,6 +261,15 @@ void function Init() {
             });
         });
 
+        $('.signup form li span > span').on('click', function() {
+            $('.terms-and-conditions').addClass('visible');
+            $('input[name="TermsAccepted"]').prop('checked',true);
+        })
+
+        $('.signup .close-terms').on('click', function() {
+            $(this).parents('.terms-and-conditions').removeClass('visible');
+        })
+
         $('.changePassword').on('submit', function(ev) {
             ev.preventDefault();
             var thisForm = $(this)
@@ -393,7 +402,7 @@ void function Init() {
             }
         })
 
-        void function incDec() {
+        void function IncDec() {
             var number = 1
             $('.val').text(number)
             $('#service .inc-dec .inc').on('click', function() {
@@ -406,6 +415,15 @@ void function Init() {
                     number-=1
                     $(this).siblings('.val').text(number)
                 }
+            })
+        }()
+
+        void function SwitchService() {
+            $('#duo-boosting, #win-boosting, #league-boosting').hide()
+
+            $('#service .boosts ul li').on('click', function() {
+                var forId  = $(this).attr('for')
+                $(`#${forId}`).fadeIn().siblings().hide()
             })
         }()
 

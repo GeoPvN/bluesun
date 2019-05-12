@@ -424,7 +424,7 @@ header {
             box-sizing: border-box;
             box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
 
-            img.close {
+            img.close, img.close-terms {
                 position: absolute;
                 top: 15px;
                 right: 15px;
@@ -491,6 +491,7 @@ header {
 
         &.signup {
             .popup {
+                overflow: hidden;
                 width: 600px;
 
                 &.success {
@@ -510,6 +511,26 @@ header {
 
             .btn {
                 @include gradientHover(440px);
+            }
+            
+            .terms-and-conditions {
+                position: absolute;
+                top: 0;
+                left: 0;
+                padding: 25px;
+                background: rgba(255, 255, 255, 0.97);
+                height: 100%;
+                box-sizing: border-box;
+                transform: translateY(-100%);
+                transition: 0.3s;
+
+                .title {
+                    margin-bottom: 15px;
+                }
+
+                &.visible {
+                    transform: translateY(0%);
+                }
             }
 
             .success-dialog {
@@ -820,6 +841,11 @@ form {
                     padding-right: 65px;
                 }
 
+                &[type='checkbox'], &[type='radio'] {
+                    height: auto;
+                    width: auto;
+                }
+
                 &[type='submit'] {
                     border: none;
                     color: #fff;
@@ -890,6 +916,80 @@ form {
         text-align: center;
         margin-top: -10px;
         animation: none;
+    }
+
+    .check {
+        display: block;
+        position: relative;
+        padding-left: 30px;
+        line-height: 19px;
+        user-select: none;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        height: 18px;
+
+        input {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+            height: auto;
+        }
+
+        .checkmark {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 18px;
+            width: 18px;
+            background-color: #bfbfbf;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: 0.2s;
+
+            &:after {
+                content: '';
+                position: absolute;
+                display: none;
+            }
+        }
+
+        &:hover input ~ .checkmark {
+            opacity: 1;
+        }
+
+        input:checked ~ .checkmark {
+            background: $btnColor;
+        }
+
+        input:checked ~ .checkmark:after {
+            display: block;
+        }
+
+        .checkmark:after {
+            margin-top: -1px;
+            width: 3px;
+            height: 8px;
+            border: solid white;
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+        }
+
+        span { 
+            font-family: 'Roboto-Medium';
+            & > span {
+                text-decoration: underline;                
+                font-size: 14px;
+                transition: 0.2s;
+
+                &:hover {
+                    opacity: 0.8;
+                }
+            }
+
+        }
     }
 }
 
