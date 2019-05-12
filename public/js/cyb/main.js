@@ -393,6 +393,23 @@ void function Init() {
             }
         })
 
+        void function incDec() {
+            var number = 1
+            $('.val').text(number)
+            $('#service .inc-dec .inc').on('click', function() {
+                number+=1
+               $(this).siblings('.val').text(number)
+            })
+    
+            $('#service .inc-dec .dec').on('click', function() {
+                if (number > 1) {
+                    number-=1
+                    $(this).siblings('.val').text(number)
+                }
+            })
+    
+        }()
+
         $('#gallery .photos').on('click', 'li', function() {
             $('body').css('overflow', 'hidden')
             $('#gallery .popup-overlay .popup .photo').html('')

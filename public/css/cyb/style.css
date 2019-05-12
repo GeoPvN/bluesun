@@ -1187,6 +1187,9 @@ section .middle {
 #service .league-service #coaching .choose ul > li .list-wrapper {
   width: 100%;
 }
+#service .league-service #win-boosting ul {
+  justify-content: space-around;
+}
 
 #gallery {
   background-color: #cecece;

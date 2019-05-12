@@ -94,10 +94,6 @@
                                     <div class='desc'>Email</div>
                                     <div class='info profile_email'>@if (Auth::check()) {{Auth::user()->email}} @endif</div>
                                 </li>
-                                <li>
-                                    <div class='desc'>Account Status</div>
-                                    <div class='info profile_active'>@if (Auth::check()) @if(Auth::user()->active == 1) Active @else Deactive @endif @endif</div>
-                                </li>
                             </ul>
                         </div>
                         <div class='half'>
@@ -395,7 +391,7 @@
                                 <div class='name'><span>5</span>AMOUNT OF HOURS</div>
                                 <div class="inc-dec">
                                     <div class="inc">+</div>
-                                    <div class="val">10</div>
+                                    <div class="val">1</div>
                                     <div class="dec">-</div>
                                 </div>
                             </li>
@@ -602,15 +598,29 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class='name'><span>6</span>AMOUNT OF HOURS</div>
-                                <div class="inc-dec">
-                                    <div class="inc">+</div>
-                                    <div class="val">10</div>
-                                    <div class="dec">-</div>
+
+                            </li>
+                            <li class='wow fadeInRight type-of-service' data-wow-delay='2s'>
+                                <div class='name'><span>5</span>TYPE OF SERVICE</div>
+                                <div class="services-wrapper">
+                                    <div class="service">
+                                        <img class='icon' src="https://eloboost24.eu/images/pages/boosting/duo_opt_regular.png">
+                                        <span>Test Text</span>
+                                    </div>
+                                    <div class="service">
+                                        <img class='icon' src="https://eloboost24.eu/images/pages/boosting/duo_opt_regular.png">
+                                        <span>Test Text</span>
+                                    </div>
                                 </div>
                             </li>
 
-                            <li class='wow fadeInRight type-of-service' data-wow-delay='2s'>
+                            <li class='wow fadeInRight not-badges' data-wow-delay='1.8s'>
+                                <div class='name'><span>6</span>AMOUNT OF HOURS</div>
+                                <div class="inc-dec">
+                                    <div class="inc">+</div>
+                                    <div class="val">1</div>
+                                    <div class="dec">-</div>
+                                </div>
                             </li>
                         </ul>
                     </div>
