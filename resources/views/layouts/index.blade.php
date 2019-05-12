@@ -94,6 +94,10 @@
                                     <div class='desc'>Email</div>
                                     <div class='info profile_email'>@if (Auth::check()) {{Auth::user()->email}} @endif</div>
                                 </li>
+                                <li>
+                                    <div class='desc'>Account Status</div>
+                                    <div class='info profile_active'>@if (Auth::check()) @if(Auth::user()->active == 1) Active @else Deactive @endif @endif</div>
+                                </li>
                             </ul>
                         </div>
                         <div class='half'>
