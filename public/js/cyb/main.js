@@ -407,7 +407,6 @@ void function Init() {
                     $(this).siblings('.val').text(number)
                 }
             })
-    
         }()
 
         $('#gallery .photos').on('click', 'li', function() {
