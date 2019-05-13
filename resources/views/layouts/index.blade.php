@@ -326,7 +326,7 @@
             <div class='league-service'>
                 <div id="coaching">
                     <h1>Coaching</h1>
-                    <span>The booster will log on your account and will play in your account until reaching your desired division.</span>
+                    <span>If you're looking to improve your gameplay and yourself, we highly recommend you this service!</span>
 
                     <div class='choose'>
                         <ul>
@@ -336,11 +336,11 @@
                                 <div class="services-wrapper">
                                     <div class="service">
                                         <img class='icon' src="https://eloboost24.eu/images/pages/boosting/duo_opt_regular.png">
-                                        <span>Test Text</span>
+                                        <span>REGULAR</span>
                                     </div>
                                     <div class="service">
                                         <img class='icon' src="https://eloboost24.eu/images/pages/boosting/duo_opt_regular.png">
-                                        <span>Test Text</span>
+                                        <span>PREMIUM</span>
                                     </div>
                                 </div>
                             </li>
@@ -351,23 +351,23 @@
                                 <div class="services-wrapper">
                                     <div class="service">
                                         <img class='icon' src="https://eloboost24.eu/images/pages/boosting/duo_opt_regular.png">
-                                        <span>Test Text</span>
+                                        <span>TOP</span>
                                     </div>
                                     <div class="service">
                                         <img class='icon' src="https://eloboost24.eu/images/pages/boosting/duo_opt_regular.png">
-                                        <span>Test Text</span>
+                                        <span>MID</span>
                                     </div>
                                     <div class="service">
                                         <img class='icon' src="https://eloboost24.eu/images/pages/boosting/duo_opt_regular.png">
-                                        <span>Test Text</span>
+                                        <span>JUNGLE</span>
                                     </div>
                                     <div class="service">
                                         <img class='icon' src="https://eloboost24.eu/images/pages/boosting/duo_opt_regular.png">
-                                        <span>Test Text</span>
+                                        <span>ADC</span>
                                     </div>
                                     <div class="service">
                                         <img class='icon' src="https://eloboost24.eu/images/pages/boosting/duo_opt_regular.png">
-                                        <span>Test Text</span>
+                                        <span>SUPPORT</span>
                                     </div>
                                 </div>
                             </li>
@@ -378,15 +378,15 @@
                                 <div class="services-wrapper">
                                     <div class="service">
                                         <img class='icon' src="https://eloboost24.eu/images/pages/boosting/duo_opt_regular.png">
-                                        <span>Test Text</span>
+                                        <span>DIAMOND</span>
                                     </div>
                                     <div class="service">
                                         <img class='icon' src="https://eloboost24.eu/images/pages/boosting/duo_opt_regular.png">
-                                        <span>Test Text</span>
+                                        <span>MASTER</span>
                                     </div>
                                     <div class="service">
                                         <img class='icon' src="https://eloboost24.eu/images/pages/boosting/duo_opt_regular.png">
-                                        <span>Test Text</span>
+                                        <span>CHALLENGER</span>
                                     </div>
                                 </div>
                             </li>
@@ -402,7 +402,7 @@
                                         </div>
 
                                         <div class='options'>
-
+                                            <option>test</option>
                                         </div>
                                     </div>
                                 </div>
@@ -419,7 +419,7 @@
                 </div>
 
                 <div id="league-boosting">
-                    <h1>League Boosting</h1>
+                    <h1>Solo Boosting</h1>
                     <span>The booster will log on your account and will play in your account until reaching your desired division.</span>
 
                     <div class='choose'>
@@ -509,7 +509,11 @@
                                         </div>
 
                                         <div class='options'>
-
+                                            <ul>
+                                                <li>Flex Summoners Rift (5v5)</li>
+                                                <li>Solo/Duo (5v5)</li>
+                                                <li>Flex Twisted Treeline (3v3)</li>
+                                            </ul>
                                         </div>
                                     </div>
                                 </div>
@@ -521,11 +525,11 @@
                                 <div class="services-wrapper">
                                     <div class="service">
                                         <img class='icon' src="https://eloboost24.eu/images/pages/boosting/duo_opt_regular.png">
-                                        <span>Test Text</span>
+                                        <span>REGULAR</span>
                                     </div>
                                     <div class="service">
                                         <img class='icon' src="https://eloboost24.eu/images/pages/boosting/duo_opt_regular.png">
-                                        <span>Test Text</span>
+                                        <span>PREMIUM</span>
                                     </div>
                                 </div>
                             </li>
@@ -535,7 +539,7 @@
 
                 <div id="duo-boosting">
                     <h1>Duo Boosting</h1>
-                    <span>The booster will log on your account and will play in your account until reaching your desired division.</span>
+                    <span>You will play on your own account and our booster will play with you until you achieve your desired division.</span>
 
                     <div class='choose'>
                         <ul>
@@ -636,11 +640,11 @@
                                 <div class="services-wrapper">
                                     <div class="service">
                                         <img class='icon' src="https://eloboost24.eu/images/pages/boosting/duo_opt_regular.png">
-                                        <span>Test Text</span>
+                                        <span>REGULAR</span>
                                     </div>
                                     <div class="service">
                                         <img class='icon' src="https://eloboost24.eu/images/pages/boosting/duo_opt_regular.png">
-                                        <span>Test Text</span>
+                                        <span>PREMIUM</span>
                                     </div>
                                 </div>
                             </li>
@@ -650,7 +654,7 @@
 
                 <div id="win-boosting">
                     <h1>Win Boosting</h1>
-                    <span>The booster will log on your account and will play in your account until reaching your desired division.</span>
+                    <span>We will perform an elo boost on your account to raise your MMR and champion win rate.</span>
 
                     <div class='choose'>
                         <ul>
@@ -738,11 +742,11 @@
                                 <div class="services-wrapper">
                                     <div class="service">
                                         <img class='icon' src="https://eloboost24.eu/images/pages/boosting/duo_opt_regular.png">
-                                        <span>Test Text</span>
+                                        <span>REGULAR</span>
                                     </div>
                                     <div class="service">
                                         <img class='icon' src="https://eloboost24.eu/images/pages/boosting/duo_opt_regular.png">
-                                        <span>Test Text</span>
+                                        <span>PREMIUM</span>
                                     </div>
                                 </div>
                             </li>
@@ -766,7 +770,7 @@
     
     <section id='gallery'>
         <div class='middle'>
-            <h1 class='wow fadeInDown' data-wow-delay='0.2s'>Elounion Gallery</h1>
+            <h1 class='wow fadeInDown' data-wow-delay='0.2s'>Gallery</h1>
             <div class='photos'>
                 <ul class='wow fadeInDown' data-wow-delay='0.7s'>
                     @foreach($gallerys as $gallery)
