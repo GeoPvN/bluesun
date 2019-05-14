@@ -402,7 +402,9 @@
                                         </div>
 
                                         <div class='options'>
-                                            <option>test</option>
+                                            @foreach($servers as $server)
+                                                <div class="option" value="{{ $server["id"] }}">{{ $server["name"] }}</div>
+                                            @endforeach
                                         </div>
                                     </div>
                                 </div>
@@ -428,7 +430,20 @@
                                 <div class='name'><span>1</span>YOUR CURRENT LEAGUE</div>
 
                                 <div class='list-wrapper'>
-                                    <div class='list'>
+                                    <div class='list' id="league-l">
+                                        <div class='select'>
+                                            <div class='control'>Choose</div>
+                                            <i class='material-icons'>keyboard_arrow_down</i>
+                                        </div>
+
+                                        <div class='options'>
+                                            @foreach($leagues as $league)
+                                                <div class="option" value="{{ $league["id"] }}">{{ $league["name"] }}</div>
+                                            @endforeach
+                                        </div>
+                                    </div>
+
+                                    <div class='list' id="league-d">
                                         <div class='select'>
                                             <div class='control'>Choose</div>
                                             <i class='material-icons'>keyboard_arrow_down</i>
@@ -439,19 +454,8 @@
                                         </div>
                                     </div>
 
-                                    <div class='list'>
-                                        <div class='select'>
-                                            <div class='control'>Choose</div>
-                                            <i class='material-icons'>keyboard_arrow_down</i>
-                                        </div>
-
-                                        <div class='options'>
-
-                                        </div>
-                                    </div>
-
-                                    <div class="badges">
-                                        <img src="https://eloboost24.eu/images/divisions/27.png" alt="">
+                                    <div class="badges" id="league-i">
+                                        <img src="" alt="">
                                     </div>
                                 </div>
                                 
@@ -459,7 +463,19 @@
                             <li>
                                 <div class='name'><span>2</span>YOUR DESIRE LEAGUE</div>
                                 <div class='list-wrapper'>
-                                    <div class='list'>
+                                    <div class='list' id="league-l-n">
+                                        <div class='select'>
+                                            <div class='control'>Choose</div>
+                                            <i class='material-icons'>keyboard_arrow_down</i>
+                                        </div>
+
+                                        <div class='options'>
+                                            @foreach($leagues as $league)
+                                                <div class="option" value="{{ $league["id"] }}">{{ $league["name"] }}</div>
+                                            @endforeach
+                                        </div>
+                                    </div>
+                                    <div class='list' id="league-d-n">
                                         <div class='select'>
                                             <div class='control'>Choose</div>
                                             <i class='material-icons'>keyboard_arrow_down</i>
@@ -469,18 +485,8 @@
 
                                         </div>
                                     </div>
-                                    <div class='list'>
-                                        <div class='select'>
-                                            <div class='control'>Choose</div>
-                                            <i class='material-icons'>keyboard_arrow_down</i>
-                                        </div>
-
-                                        <div class='options'>
-
-                                        </div>
-                                    </div>
-                                    <div class="badges">
-                                        <img src="https://eloboost24.eu/images/divisions/27.png" alt="">
+                                    <div class="badges" id="league-i-n">
+                                        <img src="" alt="">
                                     </div>
                                 </div>
                             </li>
@@ -494,7 +500,9 @@
                                         </div>
 
                                         <div class='options'>
-
+                                            @foreach($servers as $server)
+                                                <div class="option" value="{{ $server["id"] }}">{{ $server["name"] }}</div>
+                                            @endforeach
                                         </div>
                                     </div>
                                 </div>
@@ -509,11 +517,9 @@
                                         </div>
 
                                         <div class='options'>
-                                            <ul>
-                                                <li>Flex Summoners Rift (5v5)</li>
-                                                <li>Solo/Duo (5v5)</li>
-                                                <li>Flex Twisted Treeline (3v3)</li>
-                                            </ul>
+                                            @foreach($queues as $queue)
+                                                <div class="option" value="{{ $queue["id"] }}">{{ $queue["name"] }}</div>
+                                            @endforeach
                                         </div>
                                     </div>
                                 </div>
@@ -547,7 +553,20 @@
                                 <div class='name'><span>1</span>YOUR CURRENT LEAGUE</div>
 
                                 <div class='list-wrapper'>
-                                    <div class='list'>
+                                    <div class='list' id="duo-l">
+                                        <div class='select'>
+                                            <div class='control'>Choose</div>
+                                            <i class='material-icons'>keyboard_arrow_down</i>
+                                        </div>
+
+                                        <div class='options'>
+                                            @foreach($leagues as $league)
+                                                <div class="option" value="{{ $league["id"] }}">{{ $league["name"] }}</div>
+                                            @endforeach
+                                        </div>
+                                    </div>
+
+                                    <div class='list' id="duo-d">
                                         <div class='select'>
                                             <div class='control'>Choose</div>
                                             <i class='material-icons'>keyboard_arrow_down</i>
@@ -558,19 +577,8 @@
                                         </div>
                                     </div>
 
-                                    <div class='list'>
-                                        <div class='select'>
-                                            <div class='control'>Choose</div>
-                                            <i class='material-icons'>keyboard_arrow_down</i>
-                                        </div>
-
-                                        <div class='options'>
-
-                                        </div>
-                                    </div>
-
-                                    <div class="badges">
-                                        <img src="https://eloboost24.eu/images/divisions/27.png" alt="">
+                                    <div class="badges" id="duo-i">
+                                        <img src="" alt="">
                                     </div>
                                 </div>
                                 
@@ -578,7 +586,19 @@
                             <li>
                                 <div class='name'><span>2</span>YOUR DESIRE LEAGUE</div>
                                 <div class='list-wrapper'>
-                                    <div class='list'>
+                                    <div class='list' id="duo-l-n">
+                                        <div class='select'>
+                                            <div class='control'>Choose</div>
+                                            <i class='material-icons'>keyboard_arrow_down</i>
+                                        </div>
+
+                                        <div class='options'>
+                                            @foreach($leagues as $league)
+                                                <div class="option" value="{{ $league["id"] }}">{{ $league["name"] }}</div>
+                                            @endforeach
+                                        </div>
+                                    </div>
+                                    <div class='list' id="duo-d-n">
                                         <div class='select'>
                                             <div class='control'>Choose</div>
                                             <i class='material-icons'>keyboard_arrow_down</i>
@@ -588,18 +608,8 @@
 
                                         </div>
                                     </div>
-                                    <div class='list'>
-                                        <div class='select'>
-                                            <div class='control'>Choose</div>
-                                            <i class='material-icons'>keyboard_arrow_down</i>
-                                        </div>
-
-                                        <div class='options'>
-
-                                        </div>
-                                    </div>
-                                    <div class="badges">
-                                        <img src="https://eloboost24.eu/images/divisions/27.png" alt="">
+                                    <div class="badges" id="duo-i-n">
+                                        <img src="" alt="">
                                     </div>
                                 </div>
                             </li>
@@ -613,7 +623,9 @@
                                         </div>
 
                                         <div class='options'>
-
+                                            @foreach($servers as $server)
+                                                <div class="option" value="{{ $server["id"] }}">{{ $server["name"] }}</div>
+                                            @endforeach
                                         </div>
                                     </div>
                                 </div>
@@ -628,7 +640,9 @@
                                         </div>
 
                                         <div class='options'>
-
+                                            @foreach($queues as $queue)
+                                                <div class="option" value="{{ $queue["id"] }}">{{ $queue["name"] }}</div>
+                                            @endforeach
                                         </div>
                                     </div>
                                 </div>
@@ -662,7 +676,20 @@
                                 <div class='name'><span>1</span>YOUR CURRENT LEAGUE</div>
 
                                 <div class='list-wrapper'>
-                                    <div class='list'>
+                                    <div class='list' id="win-l">
+                                        <div class='select'>
+                                            <div class='control'>Choose</div>
+                                            <i class='material-icons'>keyboard_arrow_down</i>
+                                        </div>
+
+                                        <div class='options'>
+                                            @foreach($leagues as $league)
+                                                <div class="option" value="{{ $league["id"] }}">{{ $league["name"] }}</div>
+                                            @endforeach
+                                        </div>
+                                    </div>
+
+                                    <div class='list' id="win-d">
                                         <div class='select'>
                                             <div class='control'>Choose</div>
                                             <i class='material-icons'>keyboard_arrow_down</i>
@@ -673,19 +700,8 @@
                                         </div>
                                     </div>
 
-                                    <div class='list'>
-                                        <div class='select'>
-                                            <div class='control'>Choose</div>
-                                            <i class='material-icons'>keyboard_arrow_down</i>
-                                        </div>
-
-                                        <div class='options'>
-
-                                        </div>
-                                    </div>
-
-                                    <div class="badges">
-                                        <img src="https://eloboost24.eu/images/divisions/27.png" alt="">
+                                    <div class="badges" id="win-i">
+                                        <img src="" alt="">
                                     </div>
                                 </div>
                                 
@@ -700,7 +716,9 @@
                                         </div>
 
                                         <div class='options'>
-
+                                            @foreach($leagues as $league)
+                                                <div class="option" value="{{ $league["id"] }}">{{ $league["name"] }}</div>
+                                            @endforeach
                                         </div>
                                     </div>
 
@@ -716,7 +734,9 @@
                                         </div>
 
                                         <div class='options'>
-
+                                            @foreach($servers as $server)
+                                                <div class="option" value="{{ $server["id"] }}">{{ $server["name"] }}</div>
+                                            @endforeach
                                         </div>
                                     </div>
                                 </div>
@@ -731,7 +751,9 @@
                                         </div>
 
                                         <div class='options'>
-
+                                            @foreach($queues as $queue)
+                                                <div class="option" value="{{ $queue["id"] }}">{{ $queue["name"] }}</div>
+                                            @endforeach
                                         </div>
                                     </div>
                                 </div>
@@ -871,16 +893,12 @@
     </div>
 </footer>
 
+<input type="hidden" value="{{ URL::to('images') }}" id="url">
+
 <script src='{{ asset('js/cyb/wow.js') }}'></script>
 <script src='{{ asset('js/cyb/jquery-3.4.0.min.js') }}' type='text/javascript'></script>
-<script>
-    $.ajaxSetup({
-        // headers: {
-        //     'X-CSRF-TOKEN': $('meta[name='csrf-token']').attr('content')
-        // }
-    });
-</script>
 <script src='{{ asset('js/cyb/main.js') }}' type='text/javascript'></script>
+<script src='{{ asset('js/cyb/request.js') }}' type='text/javascript'></script>
 <script>
 </script>
 

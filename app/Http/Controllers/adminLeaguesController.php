@@ -2,10 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Photo;
 use App\Leagues;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 
 class adminLeaguesController extends Controller
@@ -25,9 +23,7 @@ class adminLeaguesController extends Controller
 
         $validator = Validator::make($request->all(),[
 
-            'name' => 'required|string',
-            'division' => 'required|string',
-            'photo_id' => 'required'
+            'name' => 'required|string'
 
         ]);
 
@@ -39,18 +35,6 @@ class adminLeaguesController extends Controller
 
                 $input = $request->all();
 
-
-                if($file = $request->file('photo_id')){
-
-                   $name = time() . $file->getClientOriginalName();
-
-                   $file->move('images',$name);
-
-                   $photo = Photo::create(['name'=>$name]);
-
-                   $input['photo_id'] = $photo->id;
-
-                }
 
                 $user = Leagues::create($input);
 
@@ -73,8 +57,7 @@ class adminLeaguesController extends Controller
 
         $validator = Validator::make($request->all(),[
 
-            'name' => 'required|string',
-            'division' => 'required|string'
+            'name' => 'required|string'
 
         ]);
 
@@ -84,28 +67,6 @@ class adminLeaguesController extends Controller
         {
 
             if($request->ajax()) {
-
-                if ($file = $request->file('photo_id')) {
-
-                    if ($league->photo_id != 0) {
-
-                        $old_photo = Photo::findOrFail($league->photo_id);
-
-                        unlink(public_path() .'/images/'. $old_photo->name);
-
-                        Photo::findOrFail($league->photo_id)->delete();
-
-                    }
-
-                    $name = time() . $file->getClientOriginalName();
-
-                    $file->move('images', $name);
-
-                    $photo = Photo::create(['name' => $name]);
-
-                    $input['photo_id'] = $photo->id;
-
-                }
 
                 $league->update($input);
 
@@ -121,11 +82,7 @@ class adminLeaguesController extends Controller
     public function loadTable()
     {
 
-        $leagues = DB::table('leagues')
-            ->leftJoin('photos', 'leagues.photo_id', '=', 'photos.id')
-            ->select('leagues.*', 'photos.name as p_name')
-            ->orderBy('leagues.id','desc')
-            ->get();
+        $leagues = Leagues::get();
 
         return response($leagues);
 
@@ -134,11 +91,7 @@ class adminLeaguesController extends Controller
     public function edit(Request $request)
     {
 
-        $leagues = DB::table('leagues')
-            ->leftJoin('photos', 'leagues.photo_id', '=', 'photos.id')
-            ->select('leagues.*', 'photos.name as p_name')
-            ->where('leagues.id', '=', $request->id)
-            ->first();
+        $leagues = Leagues::where('id', '=', $request->id)->first();
 
         return response()->json($leagues);
 
@@ -147,9 +100,7 @@ class adminLeaguesController extends Controller
     public function delete(Request $request)
     {
         if($request->ajax()) {
-            DB::table('leagues')
-                ->whereIn('id', $request->id)
-                ->delete();
+            Leagues::whereIn('id', $request->id)->delete();
 
             return response()->json($request);
         }

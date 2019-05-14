@@ -170,6 +170,9 @@
                                 <a href="{{route('leagues')}}">Leagues</a>
                             </li>
                             <li>
+                                <a href="{{route('divisions')}}">Divisions</a>
+                            </li>
+                            <li>
                                 <a href="{{route('servers')}}">Servers</a>
                             </li>
                             <li>
