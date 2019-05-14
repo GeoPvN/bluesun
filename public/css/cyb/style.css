@@ -1058,7 +1058,6 @@ section .middle {
 }
 #service .league-service .choose ul {
   display: flex;
-  justify-content: flex-end;
   width: 1060px;
   flex-wrap: wrap;
 }
@@ -1274,8 +1273,21 @@ section .middle {
 #service .league-service #coaching .choose ul > li .list-wrapper {
   width: 100%;
 }
-#service .league-service #win-boosting ul {
-  justify-content: space-around;
+#service .league-service #win-boosting ul li:last-child {
+  margin-left: 40px;
+}
+#service .total {
+  display: flex;
+  align-items: center;
+  float: right;
+  padding-right: 150px;
+}
+#service .total .price p {
+  color: #5a5a5a;
+  font-size: 24px;
+}
+#service .total .btn {
+  margin-left: 20px;
 }
 
 #gallery {

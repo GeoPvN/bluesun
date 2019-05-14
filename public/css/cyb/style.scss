@@ -1250,7 +1250,6 @@ section {
 
             ul {
                 display: flex;
-                justify-content: flex-end;
                 width: 1060px;
                 flex-wrap: wrap;
 
@@ -1517,8 +1516,34 @@ section {
 
         #win-boosting {
             ul {
-                justify-content: space-around;
+                // justify-content: space-around;
+
+                li:last-child {
+                    margin-left: 40px;
+                }
             }
+        }
+    }
+    
+    .total {
+        display: flex;
+        align-items: center;
+        float: right;
+        padding-right: 150px;
+        
+        .price {
+            p {
+                color: #5a5a5a;
+                font-size: 24px;
+            }
+
+            h1 {
+
+            }
+        }
+
+        .btn {
+            margin-left: 20px;
         }
     }
 }

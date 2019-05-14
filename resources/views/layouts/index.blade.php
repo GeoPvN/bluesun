@@ -409,7 +409,6 @@
                                     <div class="dec">-</div>
                                 </div>
                             </li>
-
                         </ul>
                     </div>
                 </div>
@@ -756,6 +755,13 @@
                 </div>
 
 
+            </div>
+            <div class="total">
+                <div class="price">
+                    <p>Total Price</p>
+                    <h1>100.00 $</h1>
+                </div>
+                <div class="btn">PURCHASE</div>
             </div>
         </div>
     </section>
