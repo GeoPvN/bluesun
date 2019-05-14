@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\About;
 use App\Faq;
 use App\Gallery;
+use App\Leagues;
+use App\Queue;
+use App\Server;
 use App\User;
 use Illuminate\Http\Request;
 
@@ -19,13 +22,19 @@ class indexController extends Controller
             $this->activeUser($active_url);
         }
 
+        $servers = Server::all();
+
+        $leagues = Leagues::all();
+
+        $queues = Queue::all();
+
         $about = About::first();
 
         $gallerys = Gallery::all();
 
         $faqs = Faq::all();
 
-        return view('layouts.index', compact('gallerys','faqs', 'about'));
+        return view('layouts.index', compact('gallerys','faqs', 'about', 'servers', 'leagues', 'queues'));
 
     }
 

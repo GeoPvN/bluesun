@@ -1,13 +1,13 @@
 @extends('layouts.admin')
 
 @section('title')
-    Admin Panel - Leagues
+    Admin Panel - Divisions
 @stop
 
 @section('content')
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header">Leagues</h1>
+            <h1 class="page-header">Divisions</h1>
         </div>
         <!-- /.col-lg-12 -->
     </div>
@@ -17,24 +17,24 @@
         <div class="col-lg-12">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    League List (Add/Edit/Delet)
+                    Division List (Add/Edit/Delet)
                 </div>
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-lg-12">
 
                             <!-- Button trigger modal -->
-                            <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#league-dialog">Add</button>
+                            <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#division-dialog">Add</button>
 
-                            <button class="btn btn-danger btn-sm" id="delete-league">Delete</button>
+                            <button class="btn btn-danger btn-sm" id="delete-division">Delete</button>
 
-                            <button class="btn btn-success btn-sm pull-right" id="league-load-data">Refresh</button>
+                            <button class="btn btn-success btn-sm pull-right" id="division-load-data">Refresh</button>
 
-                            @include('admin.leagues.add')
+                            @include('admin.division.add')
 
-                            @include('admin.leagues.edit')
+                            @include('admin.division.edit')
 
-                            @include('admin.leagues.viwe')
+                            @include('admin.division.viwe')
 
                         </div>
                         <!-- /.col-lg-12 -->
@@ -59,7 +59,7 @@
     <script>
         $(document).ready(function() {
 
-            $('#league-table').DataTable({
+            $('#division-table').DataTable({
                 responsive: true
             });
 
@@ -70,22 +70,32 @@
             });
 
             $(".modal").on("hidden.bs.modal", function(){
-                document.getElementById('league-form').reset();
+                document.getElementById('division-form').reset();
             });
         });
 
         //------------ Load Table ----------------
-        $('#league-load-data').on('click',function (e) {
+        $('#division-load-data').on('click',function (e) {
 
-            $.get("{{ route('leagues-load-data') }}", function (data) {
+            $.get("{{ route('divisions-load-data') }}", function (data) {
                 $('#table-data').empty();
                 $.each(data, function (i, value) {
 
+                    if (value.p_name != null) {
+                        img_url = '{{ URL::to('images') .'/' }}' + value.p_name;
+                    } else {
+                        img_url = 'http://placehold.it/400x400';
+                    }
+                    var img = '<img height="50" src="' + img_url + '" alt="img">';
                     var tr = $('<tr/>', {
                         id: value.id
                     });
                     tr.append($('<td/>', {
                         text: value.id
+                    })).append($('<td/>', {
+                        html: img
+                    })).append($('<td/>', {
+                        text: value.league
                     })).append($('<td/>', {
                         text: value.name
                     })).append($('<td/>', {
@@ -101,8 +111,8 @@
 
         });
 
-        //------------ Add League ------------------
-        $("#league-form").on('submit', function(e){
+        //------------ Add Division ------------------
+        $("#division-form").on('submit', function(e){
             e.preventDefault();
             var url = $(this).attr('action');
             var post = $(this).attr('method');
@@ -120,26 +130,26 @@
                 success: function(msg){
                     if(msg.error)
                     {
-                        $('#league-error ul').empty();
-                        $('#league-error').css('display','block');
+                        $('#division-error ul').empty();
+                        $('#division-error').css('display','block');
                         $.each(msg.error, function (i, value) {
-                            $('#league-error ul').append("<li>"+value+"</li>") ;
+                            $('#division-error ul').append("<li>"+value+"</li>") ;
                         })
                         //console.log(msg.error);
                     }
                     else
                     {
-                        document.getElementById('league-form').reset();
-                        $('#league-dialog').modal('toggle');
-                        $('#league-load-data').click();
+                        document.getElementById('division-form').reset();
+                        $('#division-dialog').modal('toggle');
+                        $('#division-load-data').click();
                     }
 
                 }
             });
         });
 
-        //----------- Update League ------------------
-        $("#league-form-edit").on('submit', function(e){
+        //----------- Update Division ------------------
+        $("#division-form-edit").on('submit', function(e){
             e.preventDefault();
             var url = $(this).attr('action');
             var post = $(this).attr('method');
@@ -157,38 +167,58 @@
                 success: function(msg){
                     if(msg.error)
                     {
-                        $('#league-error-edit ul').empty();
-                        $('#league-error-edit').css('display','block');
+                        $('#division-error-edit ul').empty();
+                        $('#division-error-edit').css('display','block');
                         $.each(msg.error, function (i, value) {
-                            $('#league-error-edit ul').append("<li>"+value+"</li>") ;
+                            $('#division-error-edit ul').append("<li>"+value+"</li>") ;
                         });
                     }
                     else
                     {
-                        document.getElementById('league-form-edit').reset();
-                        $('#league-dialog-edit').modal('toggle');
-                        $('#league-load-data').click();
+                        document.getElementById('division-form-edit').reset();
+                        $('#division-dialog-edit').modal('toggle');
+                        $('#division-load-data').click();
                     }
 
                 }
             });
         });
 
+        //file type validation
+        $('input[name="photo_id"]').change(function() {
+            var file = this.files[0];
+            var imagefile = file.type;
+            var match= ["image/jpeg","image/png","image/jpg"];
+            if(!((imagefile==match[0]) || (imagefile==match[1]) || (imagefile==match[2]))){
+                alert('Please select a valid image file (JPEG/JPG/PNG).');
+                $('input[name="photo_id"]').val('');
+                return false;
+            }
+        });
 
-        //------------ Edit League Viwe -----------------
-        $(document).on('dblclick','#league-table #table-data tr',function (e) {
+        //------------ Edit Division Viwe -----------------
+        $(document).on('dblclick','#division-table #table-data tr',function (e) {
             var hidden_id = $(this).attr('id');
 
-            $.get("{{ route('leagues-edit') }}",{id:hidden_id},function (data) {
-                $('#league-dialog-edit').modal();
-                $('#league-form-edit #hidden_id').val(hidden_id);
-                $('#league-form-edit input[name="name"]').val(data.name);
+            $.get("{{ route('divisions-edit') }}",{id:hidden_id},function (data) {
+                $('#division-dialog-edit').modal();
+                $('#division-form-edit #hidden_id').val(hidden_id);
+                $('#division-form-edit input[name="name"]').val(data.name);
+                $('#division-form-edit select[name="league_id"] option[value="'+data.league_id+'"]').prop('selected', true);
+                if(data.p_name != null)
+                {
+                    $('#division-form-edit img[name="p_name"]').attr('src','{{ URL::to('images') .'/' }}' + data.p_name);
+                }
+                else
+                {
+                    $('#division-form-edit img[name="p_name"]').attr('src','{{ URL::to('images') .'/' }}400x400.png');
+                }
 
             })
         });
 
-        //------------ Delete League ----------------------
-        $(document).on('click','#delete-league',function (e) {
+        //------------ Delete Division ----------------------
+        $(document).on('click','#delete-division',function (e) {
             if ($('input[name="delete"]').is(':checked')) {
                 var sList = [];
                 $('input[name=delete]:checked').each(function (e,v) {
@@ -197,14 +227,14 @@
                 console.log(sList)
                 $.ajax({
                     type: 'POST',
-                    url: "{{ URL::to('admin/leagues/delete') }}",
+                    url: "{{ URL::to('admin/divisions/delete') }}",
                     data: {id:sList},
                     beforeSend: function(){
                         // $('.submitBtn').attr("disabled","disabled");
                         // $('#fupForm').css("opacity",".5");
                     },
                     success: function(msg){
-                        $('#league-load-data').click();
+                        $('#division-load-data').click();
                     }
                 });
 

@@ -13,23 +13,10 @@
                 <div class="modal-body">
 
                     <div class="row">
-                        <div class="col-sm-4">
-                            <div class="form-group">
-                                <img class="img-responsive" src="{{ URL::to('images') }}/400x400.png" alt="img" name="p_name">
-                            </div>
-                            <div class="form-group">
-                                <label>Chosse Photo</label>
-                                <input type="file" name="photo_id" >
-                            </div>
-                        </div>
-                        <div class="col-sm-8">
+                        <div class="col-sm-12">
                             <div class="form-group">
                                 <label>League</label>
                                 <input type="text" name="name" class="form-control" placeholder="Enter league" required="required">
-                            </div>
-                            <div class="form-group">
-                                <label>Division</label>
-                                <input type="text" name="division" class="form-control" placeholder="Enter division" required="required">
                             </div>
                         </div>
 

@@ -12,6 +12,8 @@ Route::post('resetMail', 'ResetPasswordController@resetMail')->name('resetMail')
 
 Route::post('paypal', 'PaymentController@payWithpaypal');
 
+Route::post('/division', 'divisionController@index')->name('division-get');
+
 Route::get('status', 'PaymentController@getPaymentStatus')->name('status');
 
 Route::get('refresh-csrf', function(){
@@ -53,6 +55,20 @@ Route::group(['middleware' => 'admin'], function() {
     Route::post('/admin/leagues/update', 'adminLeaguesController@update')->name('leagues-update');
 
     Route::post('/admin/leagues/delete', 'adminLeaguesController@delete')->name('leagues-delete');
+
+    // Divisions
+
+    Route::get('/admin/divisions', 'adminDivisionController@index')->name('divisions');
+
+    Route::get('/admin/divisions/load-data', 'adminDivisionController@loadTable')->name('divisions-load-data');
+
+    Route::get('/admin/divisions/edit', 'adminDivisionController@edit')->name('divisions-edit');
+
+    Route::post('/admin/divisions/store', 'adminDivisionController@store')->name('divisions-store');
+
+    Route::post('/admin/divisions/update', 'adminDivisionController@update')->name('divisions-update');
+
+    Route::post('/admin/divisions/delete', 'adminDivisionController@delete')->name('divisions-delete');
 
     // Servers
 
@@ -97,7 +113,7 @@ Route::group(['middleware' => 'admin'], function() {
     Route::post('/admin/prices/delete', 'adminPricesController@delete')->name('prices-delete');
 
     // End Service Components
-    
+
     // Gallery
 
     Route::get('/admin/gallery', 'adminGalleryController@index')->name('gallery');

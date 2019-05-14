@@ -174,18 +174,6 @@
             });
         });
 
-        //file type validation
-        $('input[name="photo_id"]').change(function() {
-            var file = this.files[0];
-            var imagefile = file.type;
-            var match= ["image/jpeg","image/png","image/jpg"];
-            if(!((imagefile==match[0]) || (imagefile==match[1]) || (imagefile==match[2]))){
-                alert('Please select a valid image file (JPEG/JPG/PNG).');
-                $('input[name="photo_id"]').val('');
-                return false;
-            }
-        });
-
         //------------ Edit Queue Viwe -----------------
         $(document).on('dblclick','#queue-table #table-data tr',function (e) {
             var hidden_id = $(this).attr('id');
