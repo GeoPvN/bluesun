@@ -23,6 +23,10 @@ class PaymentController extends Controller
 {
 	private $_api_context;
 
+	public function index(){
+        return view('welcome');
+    }
+
     public function __construct()
     {
 		/** PayPal api context **/

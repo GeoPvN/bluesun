@@ -791,12 +791,41 @@
 
 
             </div>
+
+
+            <div class='popup-overlay'>
+                <div class='popup'>
+                    <img src='{{ asset('css/assets/images/close.svg') }}' class='close'>
+
+                    @if ($message = Session::get('success'))
+                        <div class='success-dialog'>
+                            <div class='title'>Paypal</div>
+                            <p>{!! $message !!}</p>
+                        </div>
+                        <?php Session::forget('success');?>
+                    @endif
+
+                    @if ($message = Session::get('error'))
+                        <div class='success-dialog'>
+                            <div class='title'>Paypal</div>
+                            <p>{!! $message !!}</p>
+                        </div>
+                        <?php Session::forget('error');?>
+                    @endif
+                </div>
+            </div>
+
+
             <div class="total">
                 <div class="price">
                     <p>Total Price</p>
-                    <h1>100.00 $</h1>
+                    <h1>10.00 $</h1>
                 </div>
-                <div class="btn">PURCHASE</div>
+                <form method="POST" action="{!! URL::to('paypal') !!}">
+                    {{ csrf_field() }}
+                        <input type="hidden" name="amount" type="text" value="10">
+                    <button class="btn">PURCHASE</button></p>
+                </form>
             </div>
         </div>
     </section>
