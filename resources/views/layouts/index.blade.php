@@ -96,7 +96,12 @@
                                 </li>
                                 <li>
                                     <div class='desc'>Account Status</div>
-                                    <div class='info profile_active'>@if (Auth::check()) @if(Auth::user()->active == 1) Active @else Deactive @endif @endif</div>
+                                    <div class='info profile_active'>
+                                    @if (Auth::check()) @if(Auth::user()->active == 1)
+                                    <div class='status verified'><span>Verified</span><i class="material-icons">verified_user</i></div> 
+                                    @else 
+                                    <div class='status not-verified'><span>Not Verified</span><i class="material-icons">error_outline</i></div> 
+                                    @endif @endif</div>
                                 </li>
                             </ul>
                         </div>
@@ -410,9 +415,9 @@
                                 </div>
                                 <div class='name'><span>5</span>AMOUNT OF HOURS</div>
                                 <div class="inc-dec">
-                                    <div class="inc">+</div>
-                                    <div class="val">1</div>
                                     <div class="dec">-</div>
+                                    <div class="val">1</div>
+                                    <div class="inc">+</div>
                                 </div>
                             </li>
                         </ul>
@@ -775,9 +780,9 @@
                             <li class='not-badges'>
                                 <div class='name'><span>6</span>AMOUNT OF HOURS</div>
                                 <div class="inc-dec">
-                                    <div class="inc">+</div>
-                                    <div class="val">1</div>
                                     <div class="dec">-</div>
+                                    <div class="val">1</div>
+                                    <div class="inc">+</div>
                                 </div>
                             </li>
                         </ul>
