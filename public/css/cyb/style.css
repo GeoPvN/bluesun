@@ -598,22 +598,45 @@ header .popup-overlay.my-account .popup .body .controler .my-orders table {
   overflow: hidden;
 }
 header .popup-overlay.my-account .popup .body .controler .my-orders table thead {
-  background: #efefef;
+  background: #fff;
+  text-align: left;
+}
+header .popup-overlay.my-account .popup .body .controler .my-orders table thead th {
+  padding-bottom: 7px;
+  color: #2b2b2b;
 }
 header .popup-overlay.my-account .popup .body .controler .my-orders table td,
 header .popup-overlay.my-account .popup .body .controler .my-orders table th {
-  border: 1px solid #ddd;
-  padding: 9px;
+  padding: 14px;
   box-sizing: border-box;
 }
+header .popup-overlay.my-account .popup .body .controler .my-orders table tr td:first-child {
+  width: 10%;
+}
 header .popup-overlay.my-account .popup .body .controler .my-orders table tbody tr {
+  border-top: 1px solid #eaeaea;
   transition: 0.3s;
+}
+header .popup-overlay.my-account .popup .body .controler .my-orders table tbody tr:last-child {
+  border-bottom: 1px solid #eaeaea;
 }
 header .popup-overlay.my-account .popup .body .controler .my-orders table tbody tr:nth-child(even) {
   background: #f7f7f7;
 }
 header .popup-overlay.my-account .popup .body .controler .my-orders table tbody tr:hover {
   background: #e8e8e8 !important;
+}
+header .popup-overlay.paypal {
+  transform: translateY(0) !important;
+}
+header .popup-overlay.paypal .popup {
+  height: 110px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+header .popup-overlay.paypal .popup .information {
+  font-size: 30px;
 }
 
 form .title {
@@ -1306,6 +1329,8 @@ section .middle {
 }
 #service .total .btn {
   margin-left: 20px;
+  border: none;
+  outline: none;
   transition: 0.3s;
 }
 #service .total .btn:hover {
@@ -1316,6 +1341,7 @@ section .middle {
   background-color: #cecece;
   background-image: url("../assets/images/gallery-cover.jpg");
   background-position: top;
+  background-attachment: fixed;
   height: auto;
   color: #fff;
   text-align: center;
@@ -1623,427 +1649,6 @@ footer .middle ul li a {
 }
 footer .middle ul li a:hover {
   text-decoration: underline;
-}
-
-@media screen and (max-width: 1300px) {
-  .middle {
-    width: 100%;
-  }
-}
-@media screen and (max-width: 1024px) {
-  html {
-    font-size: 15px;
-  }
-
-  body {
-    font-size: 0.896rem;
-  }
-
-  .preloader-wrapper .preloader .name {
-    font-size: 4.48rem;
-  }
-
-  .spinner {
-    width: 4.48rem;
-  }
-  .spinner div {
-    width: 1.152rem;
-    height: 1.152rem;
-  }
-
-  .btn {
-    height: 2.88rem;
-    border-radius: 0.32rem;
-    min-width: 7.04rem;
-  }
-
-  header {
-    height: 7.68rem;
-    padding: 0 1.92rem;
-  }
-  header .middle .right nav {
-    margin-right: 1.28rem;
-  }
-  header .middle .right nav ul li {
-    margin: 0 1.28rem;
-  }
-  header .middle .right nav ul li a {
-    padding: 0.64rem 0.128rem;
-  }
-  header .middle .right nav ul li a::before {
-    height: 0.128rem;
-  }
-  header .middle .right #for-user {
-    min-width: 14.72rem;
-  }
-  header .middle .right #for-user .auth .btn {
-    width: 5.76rem;
-    height: 2.88rem;
-    border-radius: 0.32rem;
-    margin-right: 0.64rem;
-    transition: 0.3s;
-  }
-  header .middle .right #for-user .auth .btn:hover {
-    box-shadow: inset calc(7.36rem) 0 0.64rem #0072ff;
-  }
-  header .middle .right #for-user .authorized ul li {
-    margin-right: 1.28rem;
-  }
-  header .middle .right #for-user .authorized ul li .btn {
-    transition: 0.3s;
-  }
-  header .middle .right #for-user .authorized ul li .btn:hover {
-    box-shadow: inset calc(7.36rem) 0 0.64rem #0072ff;
-  }
-  header .middle .right #for-user .authorized ul li:first-child::before {
-    left: -1.28rem;
-    width: 0.064rem;
-  }
-  header .middle .right #for-user .authorized ul li span {
-    max-width: 3.84rem;
-    margin-left: 0.32rem;
-  }
-  header .middle .right #for-user .authorized ul li i {
-    font-size: 1.024rem;
-  }
-  header.fixed {
-    height: 3.84rem;
-    box-shadow: 0 0 0.64rem #909090;
-  }
-  header.fixed .btn {
-    height: 2.368rem !important;
-  }
-  header .popup-overlay.my-account .popup {
-    width: 64rem;
-    padding: 2.56rem;
-  }
-  header .popup-overlay.my-account .popup .bar {
-    border-radius: 0.32rem;
-  }
-  header .popup-overlay.my-account .popup .bar ul {
-    height: 2.56rem;
-  }
-  header .popup-overlay.my-account .popup .bar ul li {
-    padding: 0 2.56rem;
-  }
-  header .popup-overlay.my-account .popup .bar ul li.active {
-    background: linear-gradient(90deg, #0072ff 0%, #00d4ff 100%);
-  }
-  header .popup-overlay.my-account .popup .body .controler .my-profile .half {
-    margin-top: 1.92rem;
-  }
-  header .popup-overlay.my-account .popup .body .controler .my-profile .half .infos {
-    margin-top: 1.28rem;
-  }
-  header .popup-overlay.my-account .popup .body .controler .my-profile .half .infos li {
-    height: 2.88rem;
-    margin-bottom: 0.96rem;
-  }
-  header .popup-overlay.my-account .popup .body .controler .my-profile .half .infos li .desc {
-    width: 7.68rem;
-  }
-  header .popup-overlay.my-account .popup .body .controler .my-profile .half .infos li .info {
-    width: calc(100% - 140 * $rem);
-    background: #f7f7f7;
-    padding: 0 0.64rem;
-    border-radius: 0.32rem;
-    box-shadow: 0 0 0.64rem rgba(0, 0, 0, 0.04);
-  }
-  header .popup-overlay.my-account .popup .body .controler .my-profile .half h1 {
-    margin-bottom: 0.96rem;
-  }
-  header .popup-overlay.my-account .popup .body .controler .my-profile .half form ul li .btn {
-    transition: 0.3s;
-  }
-  header .popup-overlay.my-account .popup .body .controler .my-profile .half form ul li .btn:hover {
-    box-shadow: inset calc(25.92rem) 0 0.64rem #0072ff;
-  }
-  header .popup-overlay.my-account .popup .body .controler .my-profile .half:last-child {
-    padding-left: 4.48rem;
-  }
-  header .popup-overlay.my-account .popup .body .controler .my-orders h1 {
-    padding: 0.96rem 0;
-  }
-  header .popup-overlay.my-account .popup .body .controler .my-orders table td,
-header .popup-overlay.my-account .popup .body .controler .my-orders table th {
-    border: 0.064rem solid #ddd;
-    padding: 0.576rem;
-  }
-  header .popup-overlay .btn {
-    height: 2.688rem !important;
-    transition: 0.3s;
-  }
-  header .popup-overlay .btn:hover {
-    box-shadow: inset calc(24.192rem) 0 0.64rem #0072ff;
-  }
-  header .popup-overlay.signup .popup {
-    width: 38.4rem;
-  }
-  header .popup-overlay.signup .btn {
-    transition: 0.3s;
-  }
-  header .popup-overlay.signup .btn:hover {
-    box-shadow: inset calc(29.76rem) 0 0.64rem #0072ff;
-  }
-  header .popup-overlay .popup {
-    min-height: 23.04rem;
-    width: 33.28rem;
-    border-radius: 0.32rem;
-    padding: 1.28rem 1.92rem 1.92rem;
-    box-shadow: 0 0 1.28rem rgba(255, 255, 255, 0.4);
-  }
-  header .popup-overlay .popup img.close {
-    top: 0.96rem;
-    right: 0.96rem;
-  }
-  header .popup-overlay .popup .title {
-    font-size: 1.728rem;
-  }
-
-  form {
-    margin-top: 1.92rem;
-  }
-  form ul li {
-    width: calc(100% - 100 * $rem);
-    margin-bottom: 1.92rem;
-  }
-  form ul li a {
-    right: 0.256rem;
-  }
-  form ul li input,
-form ul li textarea {
-    border-bottom: 0.128rem solid rgba(119, 119, 119, 0.1);
-    padding-right: 0.192rem;
-    height: 2.88rem;
-    font-size: 1.024rem;
-  }
-  form ul li input:focus + label,
-form ul li textarea:focus + label {
-    top: -0.96rem;
-    font-size: 0.768rem;
-  }
-  form ul li input + label,
-form ul li textarea + label {
-    top: 0.96rem;
-    font-size: 0.896rem;
-  }
-  form ul li input + label.active,
-form ul li textarea + label.active {
-    top: -0.384rem;
-    font-size: 0.768rem;
-  }
-  form ul li input[type=password],
-form ul li textarea[type=password] {
-    padding-right: 4.16rem;
-  }
-  form ul li input[type=submit],
-form ul li textarea[type=submit] {
-    transition: 0.3s;
-  }
-  form ul li input[type=submit]:hover,
-form ul li textarea[type=submit]:hover {
-    box-shadow: inset calc(22.08rem) 0 0.64rem #0072ff;
-  }
-  form ul li textarea {
-    height: 11.52rem;
-    padding-top: 0.96rem !important;
-  }
-  form ul li textarea ~ span.border {
-    bottom: 0.256rem;
-  }
-  form ul li span.border {
-    height: 0.128rem;
-  }
-
-  section {
-    padding: 5.76rem 0;
-  }
-  section h1 {
-    font-size: 2.24rem;
-  }
-  section .social {
-    width: 4.48rem;
-    height: 13.44rem;
-    box-shadow: 0 0 1.28rem rgba(0, 0, 0, 0.1);
-    border: 0.064rem solid rgba(255, 255, 255, 0.05);
-  }
-  section .social ul li:not(:last-child) {
-    border-bottom: 0.064rem solid rgba(255, 255, 255, 0.05);
-  }
-  section .social ul li a {
-    padding: 1.92rem;
-    font-size: 1.216rem;
-    width: 4.48rem;
-    height: 4.48rem;
-  }
-
-  #aboutus .container {
-    height: calc(100vh - 120 * $rem);
-    top: 7.68rem;
-  }
-  #aboutus .container .btn {
-    height: 3.2rem;
-    width: 8.96rem;
-    transition: 0.3s;
-  }
-  #aboutus .container .btn:hover {
-    box-shadow: inset calc(10.56rem) 0 0.64rem #0072ff;
-  }
-  #aboutus .container .scroll-down .scroll {
-    bottom: 2.56rem;
-    width: 3.52rem;
-    font-size: 3.52rem;
-  }
-
-  #service .boosts ul li {
-    margin: 0 2.88rem 5.44rem;
-  }
-  #service .boosts ul li .icon {
-    width: 6.08rem;
-    height: 6.08rem;
-    box-shadow: 0 0.32rem 1.28rem 0 rgba(0, 0, 0, 0.1);
-    border-radius: 0.64rem;
-  }
-  #service .boosts ul li .icon img {
-    width: 3.52rem;
-  }
-  #service .boosts ul li p {
-    padding: 0.64rem 0;
-    font-size: 0.96rem;
-  }
-  #service .league-service h1 {
-    font-size: 2.24rem;
-    padding-bottom: 0.64rem;
-  }
-  #service .league-service span {
-    font-size: 1.088rem;
-  }
-  #service .league-service .choose {
-    margin-top: 3.456rem;
-  }
-  #service .league-service .choose ul {
-    width: calc(100% - 9.6rem);
-    flex-wrap: wrap;
-  }
-  #service .league-service .choose ul li {
-    width: calc(100%/2);
-    flex-shrink: 0;
-    margin-bottom: 2.5rem;
-  }
-  #service .league-service .choose ul li .name {
-    height: 2.56rem;
-    font-size: 0.96rem;
-  }
-  #service .league-service .choose ul li .name span {
-    height: 2.56rem;
-    width: 2.56rem;
-    border-radius: 0.64rem;
-    margin-right: 0.96rem;
-  }
-  #service .league-service .choose ul li .list-wrapper {
-    margin-top: 1.92rem;
-  }
-  #service .league-service .choose ul li .list-wrapper .list {
-    width: 18rem;
-    margin-bottom: 0.64rem;
-  }
-  #service .league-service .choose ul li .list-wrapper .list .select .control {
-    height: 2.56rem;
-    border-radius: 0.32rem;
-    padding: 0 0.64rem;
-  }
-  #service .league-service .choose ul li .list-wrapper .list .select i {
-    right: 0.64rem;
-    font-size: 1.536rem;
-  }
-  #service .league-service .choose ul li .list-wrapper .list .options {
-    top: 2.368rem;
-    max-height: calc(6 * 43 * $rem);
-    border: 0.064rem solid rgba(0, 0, 0, 0.1);
-  }
-  #service .league-service .choose ul li .list-wrapper .list .options .option {
-    height: 2.752rem;
-    padding: 0 0.64rem;
-    border-bottom: 0.064rem solid rgba(0, 0, 0, 0.1);
-  }
-
-  #gallery .photos {
-    margin-top: 3.84rem;
-  }
-  #gallery .photos ul li {
-    width: calc(100%/4 - 1.28rem);
-    margin: 0.64rem;
-    border-radius: 0.32rem;
-  }
-  #gallery .photos ul li .inf {
-    left: 0.64rem;
-    top: 0.64rem;
-    background: linear-gradient(90deg, #0072ff 0%, #00d4ff 100%);
-    padding: 0.448rem 0.896rem;
-    border-radius: 0.32rem;
-    min-width: 5.44rem;
-  }
-  #gallery .photos .btn {
-    margin: 3.2rem auto 0;
-    width: 8.96rem;
-    transition: 0.3s;
-  }
-  #gallery .photos .btn:hover {
-    box-shadow: inset calc(10.56rem) 0 0.64rem #0072ff;
-  }
-
-  #faq .faq-wrapper {
-    margin-top: 3.84rem;
-  }
-  #faq .faq-wrapper ul {
-    width: calc(100%/2 - 20 * $rem);
-  }
-  #faq .faq-wrapper ul:last-child {
-    margin-left: 1.28rem;
-  }
-  #faq .faq-wrapper ul li {
-    margin-bottom: 1.28rem;
-    border-radius: 0.32rem;
-    box-shadow: 0 0.128rem 1.6rem rgba(36, 36, 36, 0.15);
-    padding: 0 1.28rem;
-  }
-  #faq .faq-wrapper ul li .control {
-    height: 3.456rem;
-  }
-  #faq .faq-wrapper ul li .answer {
-    padding: 0.64rem 0 1.92rem;
-  }
-
-  #contact form {
-    border-radius: 0.64rem;
-    width: 44.8rem;
-    margin: 4.48rem auto;
-    padding: 2.56rem 1.28rem;
-  }
-  #contact form p {
-    font-size: 1.024rem;
-    margin-bottom: 1.28rem;
-  }
-  #contact form input[type=submit] {
-    transition: 0.3s;
-  }
-  #contact form input[type=submit]:hover {
-    box-shadow: inset calc(40rem) 0 0.64rem #0072ff;
-  }
-
-  footer {
-    padding: 1.92rem 0;
-    box-shadow: 0 0 0.768rem rgba(255, 255, 255, 0.3);
-  }
-  footer .middle ul li:not(:last-child) {
-    margin-right: 2.56rem;
-  }
-  footer .middle ul li i {
-    height: 2.56rem;
-    width: 2.56rem;
-    border-radius: 0.64rem;
-    margin-right: 0.64rem;
-  }
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -713,19 +713,33 @@ header {
                                 overflow: hidden;
 
                                 thead {
-                                    background: #efefef;
+                                    background: #fff;
+                                    text-align: left;
+
+                                    th {
+                                        padding-bottom: 7px;
+                                        color: #2b2b2b;
+                                    }
                                 }
 
                                 td,
                                 th {
-                                    border: 1px solid #ddd;
-                                    padding: 9px;
+                                    padding: 14px;
                                     box-sizing: border-box;
+                                }
+
+                                tr td:first-child {
+                                    width: 10%;
                                 }
 
                                 tbody {
                                     tr {
+                                        border-top: 1px solid #eaeaea;
                                         transition: 0.3s;
+
+                                        &:last-child {
+                                            border-bottom: 1px solid #eaeaea;
+                                        }
 
                                         &:nth-child(even) {
                                             background: #f7f7f7;
@@ -739,6 +753,20 @@ header {
                             }
                         }
                     }
+                }
+            }
+        }
+
+        &.paypal {
+            transform: translateY(0) !important;
+            .popup {
+                height: 110px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                
+                .information {
+                    font-size: 30px;
                 }
             }
         }
@@ -1566,6 +1594,8 @@ section {
 
         .btn {
             margin-left: 20px;
+            border: none;
+            outline: none;
 
             @include gradientHover(110px);
 
@@ -1577,6 +1607,7 @@ section {
     background-color: #cecece;
     background-image: url("../assets/images/gallery-cover.jpg");
     background-position: top;
+    background-attachment: fixed;
     height: auto;
     color: #fff;
     text-align: center;
@@ -1941,563 +1972,6 @@ footer {
 
                     &:hover {
                         text-decoration: underline;
-                    }
-                }
-            }
-        }
-    }
-}
-
-@media screen and (max-width: 1300px) {
-    .middle {
-        width: 100%;
-    }
-}
-
-@media screen and (max-width: 1024px) {
-    $rem: 1024rem / 1000 / 16;
-
-    html {
-        font-size: 15px;
-    }
-
-    body {
-        font-size: 14 * $rem;
-    }
-
-    $btnColor: linear-gradient(90deg, #0072ff 0%, #00d4ff 100%);
-
-    .preloader-wrapper {
-        .preloader {
-            .name {
-                font-size: 70 * $rem;
-            }
-        }
-    }
-
-    .spinner {
-        width: 70 * $rem;
-
-        div {
-            width: 18 * $rem;
-            height: 18 * $rem;
-        }
-    }
-
-    .btn {
-        height: 45 * $rem;
-        border-radius: 5 * $rem;
-        min-width: 110 * $rem;
-    }
-
-    @mixin gradientHover($width) {
-        &:hover {
-            box-shadow: inset calc(#{25 * $rem+$width}) 0 10 * $rem #0072ff;
-        }
-
-        transition: 0.3s;
-    }
-
-    header {
-        height: 120 * $rem;
-        padding: 0 30 * $rem;
-
-        .middle {
-            .right {
-                nav {
-                    margin-right: 20 * $rem;
-
-                    ul {
-                        li {
-                            margin: 0 20 * $rem;
-
-                            a {
-                                padding: 10 * $rem 2 * $rem;
-
-                                &::before {
-                                    height: 2 * $rem;
-                                }
-                            }
-                        }
-                    }
-                }
-
-                #for-user {
-                    min-width: 230 * $rem;
-
-                    .auth {
-                        .btn {
-                            width: 90 * $rem;
-                            height: 45 * $rem;
-                            border-radius: 5 * $rem;
-                            margin-right: 10 * $rem;
-                            @include gradientHover(90 * $rem);
-                        }
-                    }
-
-                    .authorized {
-                        ul {
-                            li {
-                                margin-right: 20 * $rem;
-
-                                .btn {
-                                    @include gradientHover(90 * $rem);
-                                }
-
-                                &:first-child::before {
-                                    left: -20 * $rem;
-                                    width: 1 * $rem;
-                                }
-
-                                span {
-                                    max-width: 60 * $rem;
-                                    margin-left: 5 * $rem;
-                                }
-
-                                i {
-                                    font-size: 16 * $rem;
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-
-        &.fixed {
-            height: 60 * $rem;
-            box-shadow: 0 0 10 * $rem #909090;
-
-            .btn {
-                height: 37 * $rem !important;
-            }
-        }
-
-        .popup-overlay {
-            &.my-account {
-                .popup {
-                    width: 1000 * $rem;
-                    padding: 40 * $rem;
-
-                    .bar {
-                        border-radius: 5 * $rem;
-
-                        ul {
-                            height: 40 * $rem;
-
-                            li {
-                                padding: 0 40 * $rem;
-
-                                &.active {
-                                    background: $btnColor;
-                                }
-                            }
-                        }
-                    }
-
-                    .body {
-                        .controler {
-                            .my-profile {
-                                .half {
-                                    margin-top: 30 * $rem;
-
-                                    .infos {
-                                        margin-top: 20 * $rem;
-
-                                        li {
-                                            height: 45 * $rem;
-                                            margin-bottom: 15 * $rem;
-
-                                            .desc {
-                                                width: 120 * $rem;
-                                            }
-
-                                            .info {
-                                                width: calc(100% - 140 * $rem);
-                                                background: #f7f7f7;
-                                                padding: 0 10 * $rem;
-                                                border-radius: 5 * $rem;
-                                                box-shadow: 0 0 10 * $rem rgba(0, 0, 0, 0.04);                                  
-                                            }
-                                        }
-                                    }
-
-                                    h1 {
-                                        margin-bottom: 15 * $rem;
-                                    }
-
-                                    form {
-                                        ul li {
-                                            .btn {
-                                                @include gradientHover(380 * $rem);
-                                            }
-                                        }
-                                    }
-
-                                    &:last-child {
-                                        padding-left: 70 * $rem;
-                                    }
-                                }
-                            }
-
-                            .my-orders {
-                                h1 {
-                                    padding: 15 * $rem 0;
-                                }
-
-                                table {
-
-                                    td,
-                                    th {
-                                        border: 1 * $rem solid #ddd;
-                                        padding: 9 * $rem;
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-
-            .btn {
-                height: 42 * $rem !important;
-                @include gradientHover(353 * $rem);
-            }
-
-            &.signup {
-                .popup {
-                    width: 600 * $rem;
-                }
-
-                .btn {
-                    @include gradientHover(440 * $rem);
-                }
-            }
-
-            .popup {
-                $size: 520 * $rem;
-                min-height: #{$size - 160 * $rem};
-                width: $size;
-                border-radius: 5 * $rem;
-                padding: 20 * $rem 30 * $rem 30 * $rem;
-                box-shadow: 0 0 20 * $rem rgba(255, 255, 255, 0.4);
-
-                img.close {
-                    top: 15 * $rem;
-                    right: 15 * $rem;
-                }
-
-                .title {
-                    font-size: 27 * $rem;
-                }
-            }
-        }
-    }
-
-    form {
-        margin-top: 30 * $rem;
-
-        ul {
-            li {
-                width: calc(100% - 100 * $rem);
-                margin-bottom: 30 * $rem;
-
-                a {
-                    right: 4 * $rem;
-                }
-
-                input,
-                textarea {
-                    border-bottom: 2 * $rem solid rgba(119, 119, 119, 0.1);
-                    padding-right: 3 * $rem;
-                    height: 45 * $rem;
-                    font-size: 16 * $rem;
-
-                    &:focus+label {
-                        top: -15 * $rem;
-                        font-size: 12 * $rem;
-                    }
-
-                    &+label {
-                        top: 15 * $rem;
-                        font-size: 14 * $rem;
-
-                        &.active {
-                            top: -6 * $rem;
-                            font-size: 12 * $rem;
-                        }
-                    }
-
-                    &[type='password'] {
-                        padding-right: 65 * $rem;
-                    }
-
-                    &[type='submit'] {
-                        @include gradientHover(320 * $rem);
-                    }
-                }
-
-                textarea {
-                    height: 180 * $rem;
-                    padding-top: 15 * $rem !important;
-
-                    &~span.border {
-                        bottom: 4 * $rem;
-                    }
-                }
-
-                span.border {
-                    height: 2 * $rem;
-                }
-            }
-        }
-    }
-
-    section {
-        padding: 90 * $rem 0;
-
-        h1 {
-            font-size: 35 * $rem;
-        }
-
-        .social {
-            width: 70 * $rem;
-            height: 210 * $rem;
-            box-shadow: 0 0 20 * $rem rgba(0, 0, 0, .1);
-            border: 1 * $rem solid rgba(255, 255, 255, 0.05);
-
-            ul {
-                li {
-                    &:not(:last-child) {
-                        border-bottom: 1 * $rem solid rgba(255, 255, 255, 0.05);
-                    }
-
-                    a {
-                        padding: 30 * $rem;
-                        font-size: 19 * $rem;
-                        width: 70 * $rem;
-                        height: 70 * $rem;
-                    }
-                }
-            }
-        }
-    }
-
-    #aboutus {
-        .container {
-            height: calc(100vh - 120 * $rem);
-            top: 120 * $rem;
-
-            .btn {
-                height: 50 * $rem;
-                width: 140 * $rem;
-                @include gradientHover(140 * $rem);
-            }
-
-            .scroll-down {
-                .scroll {
-                    bottom: 40 * $rem;
-                    width: 55 * $rem;
-                    font-size: 55 * $rem;
-                }
-            }
-        }
-    }
-
-    #service {
-        .boosts {
-            ul {
-                li {
-                    margin: 0 45 * $rem 85 * $rem;
-
-                    .icon {
-                        $size: 95 * $rem;
-                        width: $size;
-                        height: $size;
-                        box-shadow: 0 5 * $rem 20 * $rem 0 rgba(0, 0, 0, .1);
-                        border-radius: 10 * $rem;
-
-                        img {
-                            width: 55 * $rem;
-                        }
-                    }
-
-                    p {
-                        padding: 10 * $rem 0;
-                        font-size: 15 * $rem;
-                    }
-                }
-            }
-        }
-
-        .league-service {
-            h1 {
-                font-size: 35 * $rem;
-                padding-bottom: 10 * $rem;
-            }
-
-            span {
-                font-size: 17 * $rem;
-            }
-
-            .choose {
-                margin-top: 54 * $rem;
-
-                ul {
-                    width: calc(100% - #{150 * $rem});
-                    flex-wrap: wrap;
-
-                    li {
-                        width: calc(100%/2);
-                        flex-shrink: 0;
-                        margin-bottom: 2.5rem;
-
-                        .name {
-                            $size: 40 * $rem;
-                            height: $size;
-                            font-size: 15 * $rem;
-
-                            span {
-                                height: $size;
-                                width: $size;
-                                border-radius: 10 * $rem;
-                                margin-right: 15 * $rem;
-                            }
-                        }
-
-                        .list-wrapper {
-                            margin-top: 30 * $rem;
-
-                            .list {
-                                width: 18rem;
-                                margin-bottom: 10 * $rem;
-
-                                .select {
-                                    .control {
-                                        height: 40 * $rem;
-                                        border-radius: 5 * $rem;
-                                        padding: 0 10 * $rem;
-                                    }
-
-                                    i {
-                                        right: 10 * $rem;
-                                        font-size: 24 * $rem;
-                                    }
-                                }
-
-                                .options {
-                                    top: 37 * $rem;
-                                    max-height: calc(6 * 43 * $rem);
-                                    border: 1 * $rem solid rgba(0, 0, 0, 0.1);
-
-                                    .option {
-                                        height: 43 * $rem;
-                                        padding: 0 10 * $rem;
-                                        border-bottom: 1 * $rem solid rgba(0, 0, 0, 0.1);
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    #gallery {
-        .photos {
-            margin-top: 60 * $rem;
-
-            ul {
-                li {
-                    width: calc(100%/4 - #{20 * $rem});
-                    margin: 10 * $rem;
-                    border-radius: 5 * $rem;
-
-                    .inf {
-                        left: 10 * $rem;
-                        top: 10 * $rem;
-                        background: $btnColor;
-                        padding: 7 * $rem 14 * $rem;
-                        border-radius: 5 * $rem;
-                        min-width: 85 * $rem;
-                    }
-                }
-            }
-
-            .btn {
-                margin: 50 * $rem auto 0;
-                width: 140 * $rem;
-                @include gradientHover(140 * $rem);
-            }
-        }
-    }
-
-    #faq {
-        .faq-wrapper {
-            margin-top: 60 * $rem;
-
-            ul {
-                width: calc(100%/2 - 20 * $rem);
-
-                &:last-child {
-                    margin-left: 20 * $rem;
-                }
-
-                li {
-                    margin-bottom: 20 * $rem;
-                    border-radius: 5 * $rem;
-                    box-shadow: 0 2 * $rem 25 * $rem rgba(36, 36, 36, 0.15);
-                    padding: 0 20 * $rem;
-
-                    .control {
-                        height: 54 * $rem;
-                    }
-
-                    .answer {
-                        padding: 10 * $rem 0 30 * $rem;
-                    }
-                }
-            }
-        }
-    }
-
-    #contact {
-
-        form {
-            border-radius: 10 * $rem;
-            width: 700 * $rem;
-            margin: 70 * $rem auto;
-            padding: 40 * $rem 20 * $rem;
-
-            p {
-                font-size: 16 * $rem;
-                margin-bottom: 20 * $rem;
-            }
-
-            input[type='submit'] {
-                @include gradientHover(600 * $rem);
-            }
-        }
-    }
-
-    footer {
-        padding: 30 * $rem 0;
-        box-shadow: 0 0 12 * $rem rgba(255, 255, 255, 0.3);
-
-        .middle {
-            ul {
-                li {
-                    &:not(:last-child) {
-                        margin-right: 40 * $rem;
-                    }
-
-                    i {
-                        $size: 40 * $rem;
-                        height: $size;
-                        width: $size;
-                        border-radius: 10 * $rem;
-                        margin-right: 10 * $rem;
                     }
                 }
             }
