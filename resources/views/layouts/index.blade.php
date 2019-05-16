@@ -792,29 +792,21 @@
 
             </div>
 
-
-            <div class='popup-overlay'>
-                <div class='popup'>
-                    <img src='{{ asset('css/assets/images/close.svg') }}' class='close'>
-
-                    @if ($message = Session::get('success'))
-                        <div class='success-dialog'>
-                            <div class='title'>Paypal</div>
-                            <p>{!! $message !!}</p>
-                        </div>
-                        <?php Session::forget('success');?>
-                    @endif
-
-                    @if ($message = Session::get('error'))
-                        <div class='success-dialog'>
-                            <div class='title'>Paypal</div>
-                            <p>{!! $message !!}</p>
-                        </div>
-                        <?php Session::forget('error');?>
-                    @endif
+            @if ($message = Session::get('success'))
+                <div class='success-dialog'>
+                    <div class='title'>Paypal</div>
+                    <p>{!! $message !!}</p>
                 </div>
-            </div>
+                <?php Session::forget('success');?>
+            @endif
 
+            @if ($message = Session::get('error'))
+                <div class='success-dialog'>
+                    <div class='title'>Paypal</div>
+                    <p>{!! $message !!}</p>
+                </div>
+                <?php Session::forget('error');?>
+            @endif
 
             <div class="total">
                 <div class="price">
