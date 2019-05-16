@@ -627,10 +627,10 @@ header .popup-overlay.my-account .popup .body .controler .my-orders table tbody 
   background: #e8e8e8 !important;
 }
 header .popup-overlay.paypal {
-  transform: translateY(0) !important;
+  transform: translateY(0);
 }
 header .popup-overlay.paypal .popup {
-  height: 110px;
+  height: 130px;
   display: flex;
   align-items: center;
   justify-content: center;
