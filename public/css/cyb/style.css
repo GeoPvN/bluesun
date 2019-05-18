@@ -954,7 +954,6 @@ section .social ul li:nth-child(3):hover {
 }
 section .middle {
   position: relative;
-  z-index: 9;
 }
 
 #aboutus {
@@ -963,6 +962,9 @@ section .middle {
   color: #fff;
   font-family: "Roboto-Medium";
   padding: 0;
+}
+#aboutus .middle {
+  z-index: 9;
 }
 #aboutus .container {
   position: relative;
@@ -1320,8 +1322,11 @@ section .middle {
 #service .total {
   display: flex;
   align-items: center;
-  float: right;
-  padding-right: 150px;
+  width: 1060px;
+  margin: auto;
+  justify-content: flex-end;
+  padding-right: 30px;
+  box-sizing: border-box;
 }
 #service .total .price p {
   color: #5a5a5a;
@@ -1345,6 +1350,9 @@ section .middle {
   height: auto;
   color: #fff;
   text-align: center;
+}
+#gallery .middle {
+  z-index: 9;
 }
 #gallery .photos {
   margin-top: 60px;
@@ -1460,6 +1468,9 @@ section .middle {
 #faq {
   height: auto;
 }
+#faq .middle {
+  z-index: 9;
+}
 #faq .faq-wrapper {
   margin-top: 60px;
 }
@@ -1512,6 +1523,9 @@ section .middle {
   height: auto;
   color: #fff;
   text-align: center;
+}
+#contact .middle {
+  z-index: 9;
 }
 #contact:after {
   height: 100% !important;
@@ -1649,6 +1663,35 @@ footer .middle ul li a {
 }
 footer .middle ul li a:hover {
   text-decoration: underline;
+}
+
+@media screen and (max-width: 1350px) {
+  .middle {
+    width: 100%;
+  }
+
+  section .social {
+    position: absolute;
+  }
+
+  .scroll-top {
+    right: 50px;
+  }
+}
+@media screen and (max-width: 1150px) {
+  #service .league-service .choose ul {
+    justify-content: space-between;
+    width: 80%;
+  }
+  #service .league-service .choose ul > li {
+    width: calc(100%/2) !important;
+  }
+  #service .league-service .choose ul > li.not-badges:nth-child(3) .list-wrapper, #service .league-service .choose ul > li.not-badges:nth-child(4) .list-wrapper {
+    width: calc(100% - 128px);
+  }
+  #service .total {
+    width: 80%;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

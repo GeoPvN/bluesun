@@ -810,17 +810,6 @@
                 </div>
             </div>
 
-            <div class="total">
-                <div class="price">
-                    <p>Total Price</p>
-                    <h1>10.00 $</h1>
-                </div>
-                <form method="POST" action="{!! URL::to('paypal') !!}">
-                    {{ csrf_field() }}
-                        <input type="hidden" name="amount" type="text" value="10">
-                    <button class="btn">PURCHASE</button></p>
-                </form>
-            </div>
         </div>
     </section>
     

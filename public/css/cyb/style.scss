@@ -1129,7 +1129,6 @@ section {
 
     .middle {
         position: relative;
-        z-index: 9;
     }
 }
 
@@ -1139,6 +1138,10 @@ section {
     color: #fff;
     font-family: 'Roboto-Medium';
     padding: 0;
+
+    .middle {
+        z-index: 9;
+    }
 
     .container {
         position: relative;
@@ -1578,8 +1581,11 @@ section {
     .total {
         display: flex;
         align-items: center;
-        float: right;
-        padding-right: 150px;
+        width: 1060px;
+        margin: auto;
+        justify-content: flex-end;
+        padding-right: 30px;
+        box-sizing: border-box;
         
         .price {
             p {
@@ -1611,6 +1617,10 @@ section {
     height: auto;
     color: #fff;
     text-align: center;
+
+    .middle {
+        z-index: 9;
+    }
 
     // &::before {
     //     content: '';
@@ -1759,6 +1769,10 @@ section {
 #faq {
     height: auto;
 
+    .middle {
+        z-index: 9;
+    }
+
     .faq-wrapper {
         margin-top: 60px;
 
@@ -1820,6 +1834,10 @@ section {
     height: auto;
     color: #fff;
     text-align: center;
+
+    .middle {
+        z-index: 9;
+    }
 
     &:after {
         height: 100% !important;
@@ -1974,6 +1992,209 @@ footer {
                         text-decoration: underline;
                     }
                 }
+            }
+        }
+    }
+}
+
+
+@media screen and (max-width: 1350px) {
+    .middle {
+        width: 100%;
+    }
+
+    section .social {
+        position: absolute;
+    } 
+
+    .scroll-top {
+        right: 50px;
+    }
+}
+
+
+@media screen and (max-width: 1150px) {
+    #service {
+        .boosts {
+            ul {
+    
+                li {
+    
+                    &:active .icon {
+                    }
+    
+                    .icon {
+    
+                        img {
+                        }
+                    }
+    
+                    p {
+                    }
+    
+                    &.active,
+                    &:hover {
+                        .icon {
+    
+                        }
+                    }
+                }
+            }
+        }
+    
+        .league-service {
+    
+            h1 {
+            }
+    
+            span {
+            }
+    
+            .choose {
+    
+                ul {
+                    justify-content: space-between;
+                    width: 80%;
+                    
+                   &> li {
+                        width: calc(100%/2) !important;
+                        &:nth-child(1), &:nth-child(2) {
+                        }
+    
+                        &.not-badges {
+                            &:nth-child(3), &:nth-child(4) {
+    
+                                .list-wrapper {
+                                    width: calc(100% - 128px);
+                                }
+                            }
+                        }
+    
+                        .inc-dec {
+                            
+                            .inc, .dec, .val {
+                                
+                                &.inc, &.dec {
+    
+                                }
+    
+                                &.val {
+                                }
+                            }
+                        }
+    
+                        &.type-of-service {
+    
+                            .services-wrapper {
+                                
+                                .service {
+    
+                                    img.icon {
+                                    }
+    
+                                    span {
+
+                                    }
+                                    
+                                    &:hover {
+
+                                    }
+    
+                                    &.active {
+    
+                                        &:hover {
+                                        }
+                                    }
+    
+                                    &:active {
+                                    }
+                                }   
+                            }
+                        }
+    
+                        .name {
+    
+                            span {
+                            }
+                        }
+    
+                        .list-wrapper {
+    
+                            .list {
+    
+                                .select {
+    
+                                    &.active {
+                                        i {
+                                        }
+                                    }
+    
+                                    .control {
+    
+                                        &:hover {
+                                        }
+                                    }
+    
+                                    i {
+                                    }
+                                }
+    
+                                .options {
+    
+                                    .option {
+    
+                                    }
+                                }
+                            }
+    
+                            .badges {
+                    
+                                img {
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+    
+            #coaching {
+                
+                .choose ul > li {
+    
+                    .services-wrapper {
+    
+                        .service {
+                        }
+                    }
+    
+                    .list-wrapper {
+                    }
+                }
+            }
+    
+            #win-boosting {
+                ul {
+    
+                    li:last-child {
+                    }
+                }
+            }
+        }
+        
+        .total {
+            width: 80%;
+            
+            .price {
+                p {
+                }
+    
+                h1 {
+    
+                }
+            }
+    
+            .btn {
+    
             }
         }
     }
