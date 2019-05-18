@@ -731,25 +731,7 @@
                                 
                             </li>
                             <li class='not-badges'>
-                                <div class='name'><span>2</span>YOUR DESIRE LEAGUE</div>
-                                <div class='list-wrapper'>
-                                    <div class='list'>
-                                        <div class='select'>
-                                            <div class='control'>Choose</div>
-                                            <i class='material-icons'>keyboard_arrow_down</i>
-                                        </div>
-
-                                        <div class='options'>
-                                            @foreach($leagues as $league)
-                                                <div class="option" value="{{ $league["id"] }}">{{ $league["name"] }}</div>
-                                            @endforeach
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </li>
-                            <li class='not-badges type-of-service'>
-                                <div class='name'><span>3</span>YOUR SERVER</div>
+                                <div class='name'><span>2</span>YOUR SERVER</div>
                                 <div class='list-wrapper'>
                                     <div class='list'>
                                         <div class='select'>
@@ -766,7 +748,7 @@
                                 </div>
                             </li>
                             <li class='not-badges'>
-                                <div class='name'><span>4</span>TYPE OF QUEUE</div>
+                                <div class='name'><span>3</span>TYPE OF QUEUE</div>
                                 <div class='list-wrapper'>
                                     <div class='list'>
                                         <div class='select'>
@@ -781,7 +763,23 @@
                                         </div>
                                     </div>
                                 </div>
+                            </li>
+                            <li class='not-badges'>
+                                <div class='name'><span>4</span>TYPE OF GAME SERVICE</div>
+                                <div class='list-wrapper'>
+                                    <div class='list'>
+                                        <div class='select'>
+                                            <div class='control'>Choose</div>
+                                            <i class='material-icons'>keyboard_arrow_down</i>
+                                        </div>
 
+                                        <div class='options'>
+                                            <div class="option" value="solo">Solo</div>
+                                            <div class="option" value="duo">Duo</div>
+                                        </div>
+                                    </div>
+
+                                </div>
                             </li>
                             <li class='type-of-service'>
                                 <div class='name'><span>5</span>TYPE OF SERVICE</div>
@@ -798,7 +796,7 @@
                             </li>
 
                             <li class='not-badges'>
-                                <div class='name'><span>6</span>AMOUNT OF HOURS</div>
+                                <div class='name'><span>6</span>AMOUNT OF GAMES</div>
                                 <div class="inc-dec">
                                     <div class="dec">-</div>
                                     <div class="val">1</div>
@@ -818,6 +816,20 @@
                 <form method="POST" action="{!! URL::to('paypal') !!}">
                     {{ csrf_field() }}
                         <input type="hidden" name="amount" type="text" value="10">
+                        <input type="hidden" name="type" type="text" value="coaching">
+                        <input type="hidden" name="service" type="text" value="regular">
+                        <input type="hidden" name="line" type="text" value="top">
+                        <input type="hidden" name="rank" type="text" value="diamond">
+                        <input type="hidden" name="server_id" type="text" value="1">
+                        <input type="hidden" name="hours" type="text" value="10">
+                        <input type="hidden" name="now_league_id" type="text" value="1">
+                        <input type="hidden" name="now_division_id" type="text" value="1">
+                        <input type="hidden" name="next_league_id" type="text" value="2">
+                        <input type="hidden" name="next_division_id" type="text" value="2">
+                        <input type="hidden" name="queue_id" type="text" value="1">
+                        <input type="hidden" name="game_service" type="text" value="solo">
+                        <input type="hidden" name="games" type="text" value="3">
+                        <input type="hidden" name="price" type="text" value="10">
                     <button class="btn">PURCHASE</button></p>
                 </form>
             </div>

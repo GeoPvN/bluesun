@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Order;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Input;
 use PayPal\Api\Amount;
 use PayPal\Api\Details;
@@ -108,6 +110,9 @@ class PaymentController extends Controller
         Session::put('paypal_payment_id', $payment->getId());
 		if (isset($redirect_url)) {
 
+		    // Add Order
+            $this->addOrder($request, $payment->getId());
+
 			/** redirect to paypal **/
             return Redirect::away($redirect_url);
 
@@ -139,7 +144,9 @@ class PaymentController extends Controller
         $result = $payment->execute($execution, $this->_api_context);
  
         if ($result->getState() == 'approved') {
- 
+
+            Order::where('paypal_id', $payment_id)
+                ->update(['status' => 'process','pay_status' => 'yes']);
             \Session::put('success', 'Payment success');
             return Redirect::route('/');
  
@@ -148,5 +155,30 @@ class PaymentController extends Controller
         \Session::put('error', 'Payment failed');
         return Redirect::route('/');
  
+    }
+
+    public function addOrder($request, $paypal_id)
+    {
+        $user_id = Auth::id();
+        $order = new Order;
+
+        $order->user_id = $user_id;
+        $order->paypal_id = $paypal_id;
+        $order->type = $request->type;
+        $order->service = $request->service;
+        $order->line = $request->line;
+        $order->rank = $request->rank;
+        $order->server_id = $request->server_id;
+        $order->hours = $request->hours;
+        $order->now_league_id = $request->now_league_id;
+        $order->now_division_id = $request->now_division_id;
+        $order->next_league_id = $request->next_league_id;
+        $order->next_division_id = $request->next_division_id;
+        $order->queue_id = $request->queue_id;
+        $order->game_service = $request->game_service;
+        $order->games = $request->games;
+        $order->price = $request->price;
+
+        $order->save();
     }
 }
