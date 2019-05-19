@@ -6,10 +6,12 @@ use App\About;
 use App\Faq;
 use App\Gallery;
 use App\Leagues;
+use App\Order;
 use App\Queue;
 use App\Server;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class indexController extends Controller
 {
@@ -24,6 +26,9 @@ class indexController extends Controller
 
         $servers = Server::all();
 
+        $user_id = Auth::id();
+        $orders = Order::where('user_id', $user_id)->get();
+
         $leagues = Leagues::all();
 
         $queues = Queue::all();
@@ -34,7 +39,7 @@ class indexController extends Controller
 
         $faqs = Faq::all();
 
-        return view('layouts.index', compact('gallerys','faqs', 'about', 'servers', 'leagues', 'queues'));
+        return view('layouts.index', compact('gallerys','faqs', 'about', 'servers', 'leagues', 'queues', 'orders'));
 
     }
 

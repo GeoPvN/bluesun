@@ -147,22 +147,27 @@
                                 <th>ID</th>
                                 <th>Packet</th>
                                 <th>Price</th>
+                                <th>Pay Status</th>
+                                <th>Service Status</th>
                                 <th>Date</th>
                             </tr>
                             </thead>
                             <tbody>
+                            @if(empty($orders[0]->id))
+                                <tr>
+                                    <td colspan="6" align="center">No Records</td>
+                                </tr>
+                            @endif
+                            @foreach($orders as $order)
                             <tr>
-                                <td>test text</td>
-                                <td>test text</td>
-                                <td>test text</td>
-                                <td>test text</td>
+                                <td>{{ $order->id }}</td>
+                                <td>{{ $order->type }}</td>
+                                <td>{{ $order->price }}</td>
+                                <td>{{ $order->pay_status }}</td>
+                                <td>{{ $order->status }}</td>
+                                <td>{{ $order->created_at }}</td>
                             </tr>
-                            <tr>
-                                <td>test text</td>
-                                <td>test text</td>
-                                <td>test text</td>
-                                <td>test text</td>
-                            </tr>
+                            @endforeach
                             </tbody>
                         </table>
                     </div>

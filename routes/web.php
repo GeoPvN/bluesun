@@ -14,6 +14,8 @@ Route::post('paypal', 'PaymentController@payWithpaypal');
 
 Route::get('/p', 'PaymentController@index');
 
+Route::get('/getOrders', 'OrdersController@index');
+
 Route::post('/division', 'divisionController@index')->name('division-get');
 
 Route::get('status', 'PaymentController@getPaymentStatus')->name('status');

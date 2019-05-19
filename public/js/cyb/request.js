@@ -31,6 +31,8 @@ $('.login-dialog').on('submit', function(ev) {
                 active = 'Active';
             }
             $('.profile_active').html(active);
+            
+            getOrders();
 
             refresh_token();
         },
@@ -412,4 +414,49 @@ function notValid(li) {
     setTimeout(function() {
         li.removeClass('not-valid');
     }, 1500);
+}
+
+function getOrders() {
+    $.ajax({
+        method: "GET",
+        url: "getOrders",
+        data: {},
+        dataType: 'JSON',
+        headers: { 'X-CSRF-TOKEN': $('[name="csrf-token"]').attr('content') },
+        success: function(msg){
+            console.log(msg);
+            $('.my-orders table tbody').html('');
+            if(msg.length < 1){$('.my-orders table tbody').html('<tr><td colspan="6" align="center">No Records</td></tr>');}
+            $.each(msg, function (i, value) {
+                var tr = $('<tr/>', {
+                    id: value.id
+                });
+                tr.append($('<td/>', {
+                    text: value.id
+                })).append($('<td/>', {
+                    text: value.type
+                })).append($('<td/>', {
+                    text: value.price
+                })).append($('<td/>', {
+                    text: value.pay_status
+                })).append($('<td/>', {
+                    text: value.status
+                })).append($('<td/>', {
+                    text: value.created_at
+                }));
+                $('.my-orders table tbody').append(tr);
+
+            });
+
+
+
+
+
+            refresh_token();
+        },
+        error: function (error) {
+            console.log(error);
+            refresh_token();
+        }
+    });
 }
