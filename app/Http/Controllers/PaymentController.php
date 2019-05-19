@@ -106,6 +106,11 @@ class PaymentController extends Controller
 
 		}
 
+        if (!Auth::check()) {
+            \Session::put('error', 'You are not authorized. Please log in!');
+            return Redirect::route('/');
+        }
+
 		/** add payment ID to session **/
         Session::put('paypal_payment_id', $payment->getId());
 		if (isset($redirect_url)) {
