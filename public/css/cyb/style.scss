@@ -54,9 +54,17 @@
     font-feature-settings: 'liga';
 }
 
+$rem: 0.0625rem;
+
 * {
     margin: 0;
     padding: 0;
+    -webkit-touch-callout: none;
+    -webkit-tap-highlight-color: rgba(255,255,255,0);
+}
+
+html {
+    font-size: 16px;
 }
 
 li {
@@ -71,7 +79,7 @@ a {
 body {
     font-family: 'Roboto-Regular';
     color: #333;
-    font-size: 14px;
+    font-size: 14 * $rem;
     overflow: hidden;
     position: relative;
 }
@@ -101,8 +109,8 @@ body.preloader-site {
         align-items: center;
 
         .name {
-            letter-spacing: 3px;
-            font-size: 70px;
+            letter-spacing: 3 * $rem;
+            font-size: 70 * $rem;
             text-transform: uppercase;
             font-family: 'Roboto-Black';
             color: #fff;
@@ -112,12 +120,12 @@ body.preloader-site {
 }
 
 .spinner {
-    width: 70px;
+    width: 70 * $rem;
     text-align: center;
 
     div {
-        width: 18px;
-        height: 18px;
+        width: 18 * $rem;
+        height: 18 * $rem;
         background-color: #fff;
         border-radius: 100%;
         display: inline-block;
@@ -165,7 +173,7 @@ body.preloader-site {
 }
 
 .middle {
-    width: 1300px;
+    width: 1300 * $rem;
     margin: auto;
 }
 
@@ -173,18 +181,18 @@ body.preloader-site {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 45px;
+    height: 45 * $rem;
     background: $btnColor;
     color: #fff;
-    border-radius: 5px;
+    border-radius: 5 * $rem;
     transition: filter 0.3s;
-    min-width: 110px;
+    min-width: 110 * $rem;
     cursor: pointer;
 }
 
 @mixin gradientHover($width) {
     &:hover {
-        box-shadow: inset calc(#{25px+$width}) 0 10px #0072ff;
+        box-shadow: inset calc(#{25 * $rem+$width}) 0 10 * $rem #0072ff;
     }
 
     transition: 0.3s;
@@ -199,8 +207,8 @@ header {
     left: 0;
     top: 0;
     width: 100%;
-    height: 120px;
-    padding: 0 30px;
+    height: 120 * $rem;
+    padding: 0 30 * $rem;
     box-sizing: border-box;
     z-index: 99;
     transition: 0.3s;
@@ -213,7 +221,7 @@ header {
         align-items: center;
 
         .logo {
-            letter-spacing: 1px;
+            letter-spacing: 1 * $rem;
             background: $btnColor;
             background-clip: text;
             -webkit-background-clip: text;
@@ -226,20 +234,20 @@ header {
 
             nav {
                 overflow: hidden;
-                margin-right: 20px;
+                margin-right: 20 * $rem;
 
                 ul {
                     display: flex;
 
                     li {
-                        margin: 0 20px;
+                        margin: 0 20 * $rem;
 
                         a {
                             position: relative;
                             font-family: 'Roboto-Medium';
                             text-transform: uppercase;
                             display: block;
-                            padding: 10px 2px;
+                            padding: 10 * $rem 2 * $rem;
 
                             &::before {
                                 content: '';
@@ -248,7 +256,7 @@ header {
                                 right: 0;
                                 margin: auto;
                                 bottom: 0;
-                                height: 2px;
+                                height: 2 * $rem;
                                 width: 0;
                                 display: block;
                                 transition: all 0.15s 0.1s ease-out;
@@ -262,12 +270,12 @@ header {
                             }
                         }
                     }
-                }
+                }      
             }
 
             #for-user {
                 position: relative;
-                min-width: 230px;
+                min-width: 230 * $rem;
 
                 .auth {
                     position: relative;
@@ -275,12 +283,12 @@ header {
 
                     .btn {
                         font-family: 'Roboto-Medium';
-                        width: 90px;
-                        height: 45px;
-                        border-radius: 5px;
-                        margin-right: 10px;
+                        width: 90 * $rem;
+                        height: 45 * $rem;
+                        border-radius: 5 * $rem;
+                        margin-right: 10 * $rem;
                         transition: height 0.3s;
-                        @include gradientHover(90px);
+                        @include gradientHover(90 * $rem);
 
                         &:last-child {
                             margin-right: 0;
@@ -298,7 +306,7 @@ header {
 
                         li {
                             position: relative;
-                            margin-right: 20px;
+                            margin-right: 20 * $rem;
                             display: flex;
                             align-items: center;
                             font-family: 'Roboto-Medium';
@@ -308,15 +316,15 @@ header {
                             }
 
                             .btn {
-                                @include gradientHover(90px);
+                                @include gradientHover(90 * $rem);
                             }
 
                             &:first-child::before {
                                 content: "";
                                 position: absolute;
                                 top: 0;
-                                left: -20px;
-                                width: 1px;
+                                left: -20 * $rem;
+                                width: 1 * $rem;
                                 height: 100%;
                                 background: #fff;
                             }
@@ -325,14 +333,14 @@ header {
                                 font-family: "Roboto-Light";
                                 white-space: nowrap;
                                 overflow: hidden;
-                                max-width: 60px;
+                                max-width: 60 * $rem;
                                 text-overflow: ellipsis;
-                                margin-left: 5px;
+                                margin-left: 5 * $rem;
                             }
 
                             i {
                                 cursor: pointer;
-                                font-size: 16px;
+                                font-size: 16 * $rem;
 
                                 &:hover {
                                     filter: brightness(0.8);
@@ -363,13 +371,75 @@ header {
                     }
                 }
             }
+
+        }
+
+        .menu-icon {
+            display: none;
+            position: absolute;
+            right: 30 * $rem;
+            width: 25 * $rem;
+            height: 34 * $rem;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            z-index: 999;
+
+            span {
+                position: absolute;
+                display:block;
+                width: 23 * $rem;
+                height: 4 * $rem;
+                background: white;
+                left: 0.1 * $rem;
+                top: 14 * $rem;
+                border-radius: 1 * $rem;
+
+                &::before{
+                    content:" ";
+                    position:absolute;
+                    background: white;
+                    top: -7.8 * $rem;
+                    height: 4 * $rem;
+                    left: 0 * $rem;
+                    width: 23 * $rem;
+                    transition:.3s ease-out;
+                    border-radius: 1 * $rem;
+                }
+
+                &::after{
+                    content:" ";
+                    position:absolute;
+                    background: white;
+                    top: 7.6 * $rem;
+                    left:0 * $rem;
+                    height: 4 * $rem;
+                    width: 23 * $rem;
+                    transition:.3s ease-out;
+                    border-radius: 1 * $rem;
+                }
+                
+            }
+            &.toggle span{
+                background: transparent;
+
+                &::before{
+                    transform: rotate(45deg);
+                    top: 0 * $rem;
+                }
+
+                &::after{
+                    transform: rotate(-45deg);
+                    top: 0 * $rem;
+                }
+            }
         }
     }
 
     &.fixed {
-        height: 60px;
+        height: 60 * $rem;
         background: rgba(255, 255, 255, 0.95);
-        box-shadow: 0 0 10px #909090;
+        box-shadow: 0 0 10 * $rem #909090;
         color: #333;
 
         .middle * {
@@ -385,11 +455,42 @@ header {
         }
 
         .btn {
-            height: 37px !important;
+            height: 37 * $rem !important;
         }
 
         .preloader .spinner div {
             background: $btnColor !important;
+        }
+
+        .menu-icon {
+
+            span {
+                background: #5d5d5d;
+
+                &::before{
+                    background: #5d5d5d;
+                }
+
+                &::after{
+                    background: #5d5d5d;
+                }
+                
+            }
+
+            &.white {
+                span {
+                    background: transparent;
+    
+                    &::before{
+                        background: #fff;
+                    }
+    
+                    &::after{
+                        background: #fff;
+                    }
+                    
+                }
+            }
         }
     }
 
@@ -405,29 +506,31 @@ header {
         height: 100%;
         background: rgba(23, 129, 254, 0.35);
         transition: transform 0.4s;
+        padding: 0 20px;
+        box-sizing: border-box;
         transform: translateY(-100%);
 
         .btn {
-            height: 42px !important;
-            @include gradientHover(353px);
+            height: 42 * $rem !important;
+            @include gradientHover(353 * $rem);
         }
 
         .popup {
             position: relative;
-            $size: 520px;
-            min-height: #{$size - 160px};
+            $size: 520 * $rem;
+            min-height: #{$size - 160 * $rem};
             width: $size;
             background-color: #fff;
-            border-radius: 5px;
+            border-radius: 5 * $rem;
             color: #333;
-            padding: 20px 30px 30px;
+            padding: 20 * $rem 30 * $rem 30 * $rem;
             box-sizing: border-box;
-            box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+            box-shadow: 0 0 20 * $rem rgba(255, 255, 255, 0.4);
 
             img.close, img.close-terms {
                 position: absolute;
-                top: 15px;
-                right: 15px;
+                top: 15 * $rem;
+                right: 15 * $rem;
                 cursor: pointer;
                 opacity: 0.4;
                 transition: opacity 0.2s ease-in-out;
@@ -441,7 +544,7 @@ header {
                 text-transform: capitalize;
                 text-align: center;
                 font-family: 'Roboto-Black';
-                font-size: 27px;
+                font-size: 27 * $rem;
                 background: $btnColor;
                 background-clip: text;
                 -webkit-background-clip: text;
@@ -492,11 +595,11 @@ header {
         &.signup {
             .popup {
                 overflow: hidden;
-                width: 600px;
+                width: 600 * $rem;
 
                 &.success {
-                    min-height: 215px;
-                    width: 500px;
+                    min-height: 215 * $rem;
+                    width: 500 * $rem;
 
                     .title:not(:first-child),
                     form {
@@ -510,14 +613,14 @@ header {
             }
 
             .btn {
-                @include gradientHover(440px);
+                @include gradientHover(440 * $rem);
             }
             
             .terms-and-conditions {
                 position: absolute;
                 top: 0;
                 left: 0;
-                padding: 25px;
+                padding: 25 * $rem;
                 background: rgba(255, 255, 255, 0.97);
                 height: 100%;
                 box-sizing: border-box;
@@ -525,7 +628,7 @@ header {
                 transition: 0.3s;
 
                 .title {
-                    margin-bottom: 15px;
+                    margin-bottom: 15 * $rem;
                 }
 
                 &.visible {
@@ -537,32 +640,32 @@ header {
                 display: none;
 
                 .title {
-                    margin-bottom: 15px;
+                    margin-bottom: 15 * $rem;
                 }
             }
         }
 
         &.my-account {
             .popup {
-                width: 1000px;
-                padding: 40px;
+                width: 1000 * $rem;
+                padding: 40 * $rem;
 
                 .bar {
                     background: rgba(0, 0, 0, 0.03);
-                    border-radius: 5px;
+                    border-radius: 5 * $rem;
                     overflow: hidden;
-                    box-shadow: 0 0 10px rgba(0, 0, 0, 0.04);
+                    box-shadow: 0 0 10 * $rem rgba(0, 0, 0, 0.04);
 
                     ul {
                         display: flex;
                         align-items: center;
-                        height: 40px;
+                        height: 40 * $rem;
 
                         li {
                             display: flex;
                             align-items: center;
                             height: 100%;
-                            padding: 0 40px;
+                            padding: 0 40 * $rem;
                             transition: 0.1s;
                             cursor: pointer;
 
@@ -601,10 +704,10 @@ header {
                             .half {
                                 float: left;
                                 width: 50%;
-                                margin-top: 30px;
+                                margin-top: 30 * $rem;
 
                                 .infos {
-                                    margin-top: 20px;
+                                    margin-top: 20 * $rem;
                                     height: 100%;
                                     display: flex;
                                     flex-direction: column;
@@ -613,31 +716,31 @@ header {
 
                                     li {
                                         display: flex;
-                                        height: 45px;
+                                        height: 45 * $rem;
                                         box-sizing: border-box;
-                                        margin-bottom: 15px;
+                                        margin-bottom: 15 * $rem;
 
                                         .desc {
                                             height: 100%;
                                             display: flex;
                                             align-items: center;
-                                            width: 120px;
+                                            width: 120 * $rem;
                                             font-family: 'Roboto-Medium';
                                         }
 
                                         .info {
                                             height: 100%;
-                                            width: calc(100% - 140px);
+                                            width: calc(100% - 140 * #{$rem});
                                             display: flex;
                                             align-items: center;
                                             background: #f7f7f7;
-                                            padding: 0 10px;
-                                            border-radius: 5px;
-                                            box-shadow: 0 0 10px rgba(0, 0, 0, 0.04);
+                                            padding: 0 10 * $rem;
+                                            border-radius: 5 * $rem;
+                                            box-shadow: 0 0 10 * $rem rgba(0, 0, 0, 0.04);
                                             
                                             .status {
                                                 font-family: 'Roboto-Medium';
-                                                letter-spacing: 0.3px;
+                                                letter-spacing: 0.3 * $rem;
                                                 display: flex;
                                                 justify-content: space-between;
                                                 width: 100%;
@@ -653,7 +756,7 @@ header {
                                                 }
 
                                                 i {
-                                                    font-size: 22px;
+                                                    font-size: 22 * $rem;
                                                 }
                                             }
                                         }
@@ -662,7 +765,7 @@ header {
 
                                 h1 {
                                     text-align: center;
-                                    margin-bottom: 15px;
+                                    margin-bottom: 15 * $rem;
                                 }
 
                                 form {
@@ -672,7 +775,7 @@ header {
                                         width: 100%;
 
                                         .btn {
-                                            @include gradientHover(380px);
+                                            @include gradientHover(380 * $rem);
                                         }
                                     }
 
@@ -687,7 +790,7 @@ header {
 
                                 .success-dialog {
                                     display: none;
-                                    height: 180px;
+                                    height: 180 * $rem;
                                     align-items: center;
 
                                     &.visible {
@@ -696,7 +799,7 @@ header {
                                 }
 
                                 &:last-child {
-                                    padding-left: 70px;
+                                    padding-left: 70 * $rem;
                                     box-sizing: border-box;
                                 }
                             }
@@ -704,7 +807,7 @@ header {
 
                         .my-orders {
                             h1 {
-                                padding: 15px 0;
+                                padding: 15 * $rem 0;
                             }
 
                             table {
@@ -717,14 +820,14 @@ header {
                                     text-align: left;
 
                                     th {
-                                        padding-bottom: 7px;
+                                        padding-bottom: 7 * $rem;
                                         color: #2b2b2b;
                                     }
                                 }
 
                                 td,
                                 th {
-                                    padding: 14px;
+                                    padding: 14 * $rem;
                                     box-sizing: border-box;
                                 }
 
@@ -734,11 +837,11 @@ header {
 
                                 tbody {
                                     tr {
-                                        border-top: 1px solid #eaeaea;
+                                        border-top: 1 * $rem solid #eaeaea;
                                         transition: 0.3s;
 
                                         &:last-child {
-                                            border-bottom: 1px solid #eaeaea;
+                                            border-bottom: 1 * $rem solid #eaeaea;
                                         }
 
                                         &:nth-child(even) {
@@ -760,13 +863,13 @@ header {
         &.paypal {
             transform: translateY(0);
             .popup {
-                height: 130px;
+                height: 130 * $rem;
                 display: flex;
                 align-items: center;
                 justify-content: center;
                 
                 .information {
-                    font-size: 30px;
+                    font-size: 30 * $rem;
                 }
             }
         }
@@ -775,7 +878,7 @@ header {
 
 form {
     .title {
-        margin-bottom: 30px;
+        margin-bottom: 30 * $rem;
     }
 
     ul {
@@ -785,8 +888,8 @@ form {
 
         li {
             position: relative;
-            width: calc(100% - 100px);
-            margin-bottom: 30px;
+            width: calc(100% - 100 * #{$rem});
+            margin-bottom: 30 * $rem;
 
             &:last-child {
                 margin-bottom: 0;
@@ -795,7 +898,7 @@ form {
             .forgot {
                 position: absolute;
                 top: 0;
-                right: 4px;
+                right: 4 * $rem;
                 height: 100%;
                 display: flex;
                 align-items: center;
@@ -822,15 +925,15 @@ form {
                 &::after {
                     content: attr(information);
                     position: absolute;
-                    right: 20px;
+                    right: 20 * $rem;
                     display: flex;
                     align-items: center;
                     background: #f1f1f1;
-                    padding: 6px 10px;
-                    width: 130px;
+                    padding: 6 * $rem 10 * $rem;
+                    width: 130 * $rem;
                     font-family: 'Roboto-Regular';
-                    font-size: 11px;
-                    border-radius: 5px;
+                    font-size: 11 * $rem;
+                    border-radius: 5 * $rem;
                     display: none;
                 }
 
@@ -843,12 +946,12 @@ form {
             textarea {
                 border: none;
                 outline: none;
-                border-bottom: 2px solid rgba(119, 119, 119, 0.1);
-                padding-right: 3px;
+                border-bottom: 2 * $rem solid rgba(119, 119, 119, 0.1);
+                padding-right: 3 * $rem;
                 width: 100%;
                 color: #333;
-                height: 45px;
-                font-size: 16px;
+                height: 45 * $rem;
+                font-size: 16 * $rem;
                 font-family: 'Roboto-Medium';
                 background: transparent;
                 box-sizing: border-box;
@@ -858,8 +961,8 @@ form {
                 }
 
                 &:focus+label {
-                    top: -15px;
-                    font-size: 12px;
+                    top: -15 * $rem;
+                    font-size: 12 * $rem;
                     background: $btnColor;
                     background-clip: text;
                     -webkit-background-clip: text;
@@ -869,17 +972,17 @@ form {
                 &+label {
                     position: absolute;
                     left: 0;
-                    top: 15px;
+                    top: 15 * $rem;
                     color: #9a9a9a;
-                    font-size: 14px;
+                    font-size: 14 * $rem;
                     pointer-events: none;
                     transition: all 200ms ease-in-out;
                     text-transform: capitalize;
                     font-family: 'Roboto-Black';
 
                     &.active {
-                        top: -6px;
-                        font-size: 12px;
+                        top: -6 * $rem;
+                        font-size: 12 * $rem;
                         background: $btnColor;
                         background-clip: text;
                         -webkit-background-clip: text;
@@ -888,7 +991,7 @@ form {
                 }
 
                 &[type='password'] {
-                    padding-right: 65px;
+                    padding-right: 65 * $rem;
                 }
 
                 &[type='checkbox'], &[type='radio'] {
@@ -899,7 +1002,7 @@ form {
                 &[type='submit'] {
                     border: none;
                     color: #fff;
-                    @include gradientHover(320px);
+                    @include gradientHover(320 * $rem);
                     transition: 0.1s;
 
                     &:active {
@@ -910,11 +1013,11 @@ form {
 
             textarea {
                 resize: none;
-                height: 180px;
-                padding-top: 15px !important;
+                height: 180 * $rem;
+                padding-top: 15 * $rem !important;
 
                 &~span.border {
-                    bottom: 4px;
+                    bottom: 4 * $rem;
                 }
             }
 
@@ -925,7 +1028,7 @@ form {
                 left: 0;
                 bottom: 0;
                 margin: auto;
-                height: 2px;
+                height: 2 * $rem;
                 width: 0;
                 transition: width 0.3s;
 
@@ -940,7 +1043,7 @@ form {
 
                 input,
                 textarea {
-                    border-bottom: 2px solid $notValidColor;
+                    border-bottom: 2 * $rem solid $notValidColor;
 
                     &+label {
                         background: $notValidColor;
@@ -964,20 +1067,20 @@ form {
     .err-txt {
         color: $notValidColor;
         text-align: center;
-        margin-top: -10px;
+        margin-top: -10 * $rem;
         animation: none;
     }
 
     .check {
         display: block;
         position: relative;
-        padding-left: 30px;
-        line-height: 19px;
+        padding-left: 30 * $rem;
+        line-height: 19 * $rem;
         user-select: none;
         cursor: pointer;
         display: flex;
         align-items: center;
-        height: 18px;
+        height: 18 * $rem;
 
         input {
             position: absolute;
@@ -990,10 +1093,10 @@ form {
             position: absolute;
             top: 0;
             left: 0;
-            height: 18px;
-            width: 18px;
+            height: 18 * $rem;
+            width: 18 * $rem;
             background-color: #bfbfbf;
-            border-radius: 5px;
+            border-radius: 5 * $rem;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -1019,11 +1122,11 @@ form {
         }
 
         .checkmark:after {
-            margin-top: -1px;
-            width: 3px;
-            height: 8px;
+            margin-top: -1 * $rem;
+            width: 3 * $rem;
+            height: 8 * $rem;
             border: solid white;
-            border-width: 0 2px 2px 0;
+            border-width: 0 2 * $rem 2 * $rem 0;
             transform: rotate(45deg);
         }
 
@@ -1031,7 +1134,7 @@ form {
             font-family: 'Roboto-Medium';
             & > span {
                 text-decoration: underline;                
-                font-size: 14px;
+                font-size: 14 * $rem;
                 transition: 0.2s;
 
                 &:hover {
@@ -1046,13 +1149,14 @@ form {
 section {
     position: relative;
     overflow: hidden;
-    padding: 90px 0;
+    padding: 90 * $rem 0;
     box-sizing: border-box;
-
+    
     &.background-image {
         background-attachment: fixed;
         background-size: cover;
         background-repeat: no-repeat;
+        background-position: center;
 
         &::after {
             content: '';
@@ -1068,22 +1172,22 @@ section {
 
     h1 {
         font-family: 'Roboto-Bold';
-        font-size: 35px;
+        font-size: 35 * $rem;
         text-align: center;
     }
 
     .social {
         position: fixed;
-        width: 70px;
+        width: 70 * $rem;
         background: rgba(0, 0, 0, 0.24);
         left: 0;
         top: 0;
         bottom: 0;
-        height: 210px;
+        height: 210 * $rem;
         margin: auto;
         z-index: 9;
-        box-shadow: 0 0 20px rgba(0, 0, 0, .1);
-        border: 1px solid rgba(255, 255, 255, 0.05);
+        box-shadow: 0 0 20 * $rem rgba(0, 0, 0, .1);
+        border: 1 * $rem solid rgba(255, 255, 255, 0.05);
         border-left: 0;
 
         ul {
@@ -1091,18 +1195,18 @@ section {
                 transition: background 0.3s, color 0.3s;
 
                 &:not(:last-child) {
-                    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+                    border-bottom: 1 * $rem solid rgba(255, 255, 255, 0.05);
                 }
 
                 a {
                     display: flex;
                     align-items: center;
                     justify-content: center;
-                    padding: 30px;
+                    padding: 30 * $rem;
                     color: inherit;
-                    font-size: 19px;
-                    width: 70px;
-                    height: 70px;
+                    font-size: 19 * $rem;
+                    width: 70 * $rem;
+                    height: 70 * $rem;
                     box-sizing: border-box;
                 }
 
@@ -1146,12 +1250,13 @@ section {
     .container {
         position: relative;
         z-index: 0;
-        height: calc(100vh - 120px);
+        height: 99vh;
         display: flex;
         flex-direction: column;
         justify-content: space-around;
         align-items: center;
-        top: 120px;
+        padding-top: 7vw;
+        box-sizing: border-box;
 
         .text {
             text-align: center;
@@ -1164,25 +1269,25 @@ section {
             }
 
             h1 {
-                font-size: 4vw;
+                font-size: 4rem;
                 font-weight: 700;
-                margin-bottom: 1vw;
+                margin-bottom: 1rem;
             }
 
             p {
-                font-size: 1vw;
-                line-height: 1.6vw;
+                font-size: 1rem;
+                line-height: 1.6rem;
                 font-family: 'Roboto-Light';
                 text-align: center;
                 margin: auto;
-                width: 50vw;
+                width: 50%;
             }
         }
 
         .btn {
-            height: 50px;
-            width: 140px;
-            @include gradientHover(140px);
+            height: 50 * $rem;
+            width: 140 * $rem;
+            @include gradientHover(140 * $rem);
         }
 
         .scroll-down {
@@ -1192,17 +1297,17 @@ section {
                 position: absolute;
                 left: 0;
                 right: 0;
-                bottom: 40px;
+                bottom: 1vw;
                 color: white;
                 z-index: 9;
-                width: 55px;
+                width: 55 * $rem;
                 margin: auto;
-                font-size: 55px;
+                font-size: 55 * $rem;
                 animation: scroll 1.4s infinite;
 
                 @keyframes scroll {
                     0% {
-                        transform: translate(0, -20px);
+                        transform: translate(0, -20 * $rem);
                         opacity: 0;
                     }
 
@@ -1211,7 +1316,7 @@ section {
                     }
 
                     100% {
-                        transform: translate(0, 20px);
+                        transform: translate(0, 20 * $rem);
                         opacity: 0;
                     }
                 }
@@ -1223,16 +1328,20 @@ section {
 #service {
     .boosts {
         ul {
-            display: flex;
-            justify-content: center;
+            text-align: center;
+            overflow: auto;
+            white-space: nowrap;
+            margin-bottom: 85 * $rem;
 
             li {
-                display: block;
-                margin: 0 45px 85px;
+                margin: 0 45 * $rem;
                 cursor: pointer;
                 text-align: center;
                 transition: 0.3s;
                 user-select: none;
+                display: inline-block;
+                vertical-align: top;
+                transition: 0.5s ease-out;
 
                 &:active .icon {
                     transform: scale(0.8);
@@ -1240,29 +1349,29 @@ section {
 
                 .icon {
                     overflow: hidden;
-                    $size: 95px;
+                    $size: 95 * $rem;
                     width: $size;
                     height: $size;
                     display: flex;
                     justify-content: center;
                     align-items: center;
-                    box-shadow: 0 5px 20px 0 rgba(0, 0, 0, .1);
+                    box-shadow: 0 5 * $rem 20 * $rem 0 rgba(0, 0, 0, .1);
                     color: #9494a4;
                     background: #fff;
-                    border-radius: 10px;
+                    border-radius: 10 * $rem;
                     transition: all 0.2s ease-out;
 
                     img {
-                        width: 55px;
+                        width: 55 * $rem;
                         filter: invert(0.4);
                     }
                 }
 
                 p {
                     text-transform: uppercase;
-                    padding: 10px 0;
+                    padding: 10 * $rem 0;
                     font-family: 'Roboto-Bold';
-                    font-size: 15px;
+                    font-size: 15 * $rem;
                     color: #9494a4;
                 }
 
@@ -1286,24 +1395,24 @@ section {
 
         h1 {
             font-family: 'Roboto-Bold';
-            font-size: 35px;
-            padding-bottom: 10px;
+            font-size: 35 * $rem;
+            padding-bottom: 10 * $rem;
         }
 
         span {
             font-family: 'Roboto-Light';
-            font-size: 17px;
+            font-size: 17 * $rem;
             display: block;
         }
 
         .choose {
-            margin-top: 54px;
+            margin-top: 54 * $rem;
             display: flex;
             justify-content: center;
 
             ul {
                 display: flex;
-                width: 1060px;
+                width: 1060 * $rem;
                 flex-wrap: wrap;
 
                &> li {
@@ -1318,15 +1427,15 @@ section {
                             width: 20%;
 
                             .list-wrapper {
-                                width: calc(100% - 30px);
+                                width: calc(100% - 30 * #{$rem});
                             }
                         }
                     }
 
                     .inc-dec {
-                        $size: 48px;
-                        font-size: 16px;
-                        margin-top: 30px;
+                        $size: 48 * $rem;
+                        font-size: 16 * $rem;
+                        margin-top: 30 * $rem;
                         font-family: 'Roboto-Medium';
                         display: flex;
                         justify-content: space-between;
@@ -1338,15 +1447,15 @@ section {
                             justify-content: center;
                             align-items: center;
                             background: #fff;
-                            border-radius: 5px;
-                            border: 2px solid transparent;
-                            box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.1);
+                            border-radius: 5 * $rem;
+                            border: 2 * $rem solid transparent;
+                            box-shadow: 0 0 20 * $rem 0 rgba(0, 0, 0, 0.1);
                             transition: 120ms ease-in-out;
                             
                             &.inc, &.dec {
                                 user-select: none;
                                 cursor: pointer;
-                                font-size: 22px;
+                                font-size: 22 * $rem;
 
                                 &:active {
                                     background: #0072ff;
@@ -1354,7 +1463,7 @@ section {
                                 }
 
                                 &:hover {
-                                    border: 2px solid #0072ff;
+                                    border: 2 * $rem solid #0072ff;
                                 }
                             }
 
@@ -1368,7 +1477,7 @@ section {
                         width: 40%;
 
                         .services-wrapper {
-                            margin-top: 30px;
+                            margin-top: 30 * $rem;
                             text-align: left;
                             display: flex;
                             justify-content: space-between;
@@ -1377,39 +1486,39 @@ section {
                                 position: relative;
                                 width: 48%;
                                 cursor: pointer;
-                                font-size: 14px;
+                                font-size: 14 * $rem;
                                 user-select: none;
-                                height: 47px;
+                                height: 47 * $rem;
                                 display: flex;
                                 align-items: center;
                                 justify-content: center;
-                                border-radius: 5px;
+                                border-radius: 5 * $rem;
                                 background: #fff;
-                                border: 2px solid transparent;
-                                box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.1);
-                                padding: 0 10px;
+                                border: 2 * $rem solid transparent;
+                                box-shadow: 0 0 20 * $rem 0 rgba(0, 0, 0, 0.1);
+                                padding: 0 10 * $rem;
                                 box-sizing: border-box;
                                 font-family: 'Roboto-Medium';
                                 transition: 120ms ease-in-out;
 
                                 img.icon {
                                     position: absolute;
-                                    bottom: 5px;
-                                    left: 5px;
+                                    bottom: 5 * $rem;
+                                    left: 5 * $rem;
                                 }
 
                                 span {
                                     font-family: "Roboto-Medium";
-                                    font-size: 14px;
+                                    font-size: 14 * $rem;
                                 }
                                 
                                 &:hover {
                                     opacity: 0.9;
-                                    border: 2px solid #0072ff;
+                                    border: 2 * $rem solid #0072ff;
                                 }
 
                                 &.active {
-                                    border: 2px solid #fff;
+                                    border: 2 * $rem solid #fff;
                                     background: #0072ff;
                                     color: #fff;
 
@@ -1426,12 +1535,12 @@ section {
                     }
 
                     .name {
-                        $size: 40px;
+                        $size: 40 * $rem;
                         height: $size;
                         display: flex;
                         align-items: center;
                         font-family: 'Roboto-Black';
-                        font-size: 15px;
+                        font-size: 15 * $rem;
 
                         span {
                             height: $size;
@@ -1442,8 +1551,8 @@ section {
                             display: flex;
                             justify-content: center;
                             align-items: center;
-                            border-radius: 10px;
-                            margin-right: 15px;
+                            border-radius: 10 * $rem;
+                            margin-right: 15 * $rem;
                             font-weight: bold;
                         }
                     }
@@ -1451,15 +1560,15 @@ section {
                     .list-wrapper {
                         position: relative;
                         text-align: left;
-                        margin-top: 30px;
-                        padding-right: 22px;
-                        width: calc(100% - 128px);
-                        margin-bottom: 36px;
+                        margin-top: 30 * $rem;
+                        padding-right: 22 * $rem;
+                        width: calc(100% - 128 * #{$rem});
+                        margin-bottom: 36 * $rem;
 
                         .list {
                             position: relative;
                             width: 100%;
-                            margin-bottom: 10px;
+                            margin-bottom: 10 * $rem;
 
                             .select {
                                 position: relative;
@@ -1472,12 +1581,12 @@ section {
 
                                 .control {
                                     width: 100%;
-                                    height: 40px;
+                                    height: 40 * $rem;
                                     display: flex;
                                     align-items: center;
-                                    border-radius: 5px;
+                                    border-radius: 5 * $rem;
                                     background: #ececec;
-                                    padding: 0 10px;
+                                    padding: 0 10 * $rem;
                                     box-sizing: border-box;
                                     font-family: 'Roboto-Medium';
                                     cursor: pointer;
@@ -1490,12 +1599,12 @@ section {
 
                                 i {
                                     position: absolute;
-                                    right: 10px;
+                                    right: 10 * $rem;
                                     top: 0;
                                     display: flex;
                                     height: 100%;
                                     align-items: center;
-                                    font-size: 24px;
+                                    font-size: 24 * $rem;
                                     cursor: pointer;
                                     transition: transform 0.2s;
                                 }
@@ -1504,21 +1613,21 @@ section {
                             .options {
                                 display: none;
                                 position: absolute;
-                                top: 37px;
+                                top: 37 * $rem;
                                 width: 99%;
-                                max-height: calc(6 * 43px);
+                                max-height: calc(6 * 43 * #{$rem});
                                 overflow-y: scroll;
-                                border: 1px solid rgba(0, 0, 0, 0.1);
+                                border: 1 * $rem solid rgba(0, 0, 0, 0.1);
                                 background: #fff;
                                 z-index: 9;
 
                                 .option {
-                                    height: 43px;
-                                    padding: 0 10px;
+                                    height: 43 * $rem;
+                                    padding: 0 10 * $rem;
                                     display: flex;
                                     align-items: center;
                                     box-sizing: border-box;
-                                    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+                                    border-bottom: 1 * $rem solid rgba(0, 0, 0, 0.1);
                                     cursor: pointer;
                                     transition: background 0.3s ease-out;
 
@@ -1532,9 +1641,9 @@ section {
 
                         .badges {
                             position: absolute;
-                            right: -70px;
+                            right: -70 * $rem;
                             top: 0;
-                            width: 90px;
+                            width: 90 * $rem;
                 
                             img {
                                 width: 100%;
@@ -1549,7 +1658,7 @@ section {
             
             .choose ul > li {
                 width: calc(100%/4);
-                padding-right: 30px;
+                padding-right: 30 * $rem;
                 box-sizing: border-box;
 
                 .services-wrapper {
@@ -1557,7 +1666,7 @@ section {
 
                     .service {
                         width: 100%;
-                        margin-bottom: 28px;
+                        margin-bottom: 28 * $rem;
                     }
                 }
 
@@ -1572,7 +1681,7 @@ section {
                 // justify-content: space-around;
 
                 li:last-child {
-                    margin-left: 40px;
+                    margin-left: 40 * $rem;
                 }
             }
         }
@@ -1581,16 +1690,16 @@ section {
     .total {
         display: flex;
         align-items: center;
-        width: 1060px;
+        width: 1060 * $rem;
         margin: auto;
         justify-content: flex-end;
-        padding-right: 30px;
+        padding-right: 30 * $rem;
         box-sizing: border-box;
         
         .price {
             p {
                 color: #5a5a5a;
-                font-size: 24px;
+                font-size: 24 * $rem;
             }
 
             h1 {
@@ -1599,11 +1708,11 @@ section {
         }
 
         .btn {
-            margin-left: 20px;
+            margin-left: 20 * $rem;
             border: none;
             outline: none;
 
-            @include gradientHover(110px);
+            @include gradientHover(110 * $rem);
 
         }
     }
@@ -1627,7 +1736,7 @@ section {
     //     position: absolute;
     //     top: 0;
     //     left: 0;
-    //     border-top: 100px solid #fff;
+    //     border-top: 100 * $rem solid #fff;
     //     border-right: 100vw solid transparent;
     //     z-index: 9;
     // }
@@ -1637,11 +1746,11 @@ section {
     //     position: absolute;
     //     bottom: 0;
     //     right: 0;
-    //     border-bottom: 100px solid #fff;
+    //     border-bottom: 100 * $rem solid #fff;
     //     border-left: 100vw solid transparent;
     // }
     .photos {
-        margin-top: 60px;
+        margin-top: 60 * $rem;
 
         ul {
             width: 100%;
@@ -1649,10 +1758,10 @@ section {
 
             li {
                 position: relative;
-                width: calc(100%/4 - 20px);
-                margin: 10px;
+                width: calc(100%/4 - 20 * #{$rem});
+                margin: 10 * $rem;
                 float: left;
-                border-radius: 5px;
+                border-radius: 5 * $rem;
                 cursor: pointer;
                 overflow: hidden;
                 z-index: 9;
@@ -1671,14 +1780,14 @@ section {
 
                 .inf {
                     position: absolute;
-                    left: 10px;
-                    top: 10px;
+                    left: 10 * $rem;
+                    top: 10 * $rem;
                     display: block;
                     background: $btnColor;
-                    padding: 7px 14px;
-                    border-radius: 5px;
+                    padding: 7 * $rem 14 * $rem;
+                    border-radius: 5 * $rem;
                     text-transform: capitalize;
-                    min-width: 85px;
+                    min-width: 85 * $rem;
                     box-sizing: border-box;
                 }
             }
@@ -1686,9 +1795,9 @@ section {
 
         .btn {
             display: none;
-            margin: 50px auto 0;
-            width: 140px;
-            @include gradientHover(140px);
+            margin: 50 * $rem auto 0;
+            width: 140 * $rem;
+            @include gradientHover(140 * $rem);
         }
     }
 
@@ -1712,16 +1821,16 @@ section {
             width: 70%;
             background-color: #fff;
             overflow: hidden;
-            border-radius: 5px;
+            border-radius: 5 * $rem;
             color: #333;
             box-sizing: border-box;
-            box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+            box-shadow: 0 0 20 * $rem rgba(255, 255, 255, 0.4);
             z-index: 99;
 
             img.close {
                 position: absolute;
-                top: 15px;
-                right: 15px;
+                top: 15 * $rem;
+                right: 15 * $rem;
                 cursor: pointer;
                 opacity: 0.6;
                 transition: opacity 0.2s ease-in-out;
@@ -1774,29 +1883,29 @@ section {
     }
 
     .faq-wrapper {
-        margin-top: 60px;
+        margin-top: 60 * $rem;
 
         ul {
             width: 100%;
 
             li {
-                margin-bottom: 20px;
+                margin-bottom: 20 * $rem;
                 background-color: #fff;
-                border-radius: 5px;
-                box-shadow: 0 2px 25px rgba(36, 36, 36, 0.15);
-                padding: 0 20px;
+                border-radius: 5 * $rem;
+                box-shadow: 0 2 * $rem 25 * $rem rgba(36, 36, 36, 0.15);
+                padding: 0 20 * $rem;
                 float: left;
-                width: calc(100%/2 - 20px);
+                width: calc(100%/2 - 20 * #{$rem});
                 box-sizing: border-box;
 
                 &:nth-child(2n) {
                     float: right;
-                    margin-left: 20px;
+                    margin-left: 20 * $rem;
                 }
 
                 .control {
                     width: 100%;
-                    height: 54px;
+                    height: 54 * $rem;
                     display: flex;
                     align-items: center;
                     justify-content: space-between;
@@ -1818,7 +1927,7 @@ section {
 
                 .answer {
                     background: #fff;
-                    padding: 10px 0 30px;
+                    padding: 10 * $rem 0 30 * $rem;
                     box-sizing: border-box;
                     overflow: hidden;
                 }
@@ -1847,25 +1956,26 @@ section {
         position: relative;
         overflow: hidden;
         background: #fff;
-        border-radius: 10px;
-        width: 700px;
-        margin: 70px auto;
-        padding: 40px 20px;
+        border-radius: 10 * $rem;
+        width: 700 * $rem;
+        margin: 70 * $rem auto;
+        padding: 40 * $rem 20 * $rem;
+        box-sizing: border-box;
 
         p {
             text-transform: capitalize;
             text-align: center;
             font-family: 'Roboto-Black';
-            font-size: 16px;
+            font-size: 16 * $rem;
             background: $btnColor;
             background-clip: text;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            margin-bottom: 20px;
+            margin-bottom: 20 * $rem;
         }
 
         input[type='submit'] {
-            @include gradientHover(600px);
+            @include gradientHover(600 * $rem);
         }
 
         .spinner {
@@ -1894,7 +2004,7 @@ section {
                 text-transform: capitalize;
                 text-align: center;
                 font-family: 'Roboto-Black';
-                font-size: 30px;
+                font-size: 30 * $rem;
                 background: $btnColor;
                 background-clip: text;
                 -webkit-background-clip: text;
@@ -1913,20 +2023,20 @@ section {
 
 .scroll-top {
     position: fixed;
-    right: 110px;
-    bottom: 100px;
-    width: 40px;
-    height: 40px;
-    line-height: 40px;
+    right: 110 * $rem;
+    bottom: 100 * $rem;
+    width: 40 * $rem;
+    height: 40 * $rem;
+    line-height: 40 * $rem;
     background: $btnColor;
     text-align: center;
     color: #fff;
-    font-size: 24px;
+    font-size: 24 * $rem;
     font-weight: 700;
-    border-radius: 3px;
-    box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.1);
+    border-radius: 3 * $rem;
+    box-shadow: 0 5 * $rem 20 * $rem 0 rgba(0, 0, 0, 0.1);
     transition: 120ms ease-in;
-    border-radius: 5px;
+    border-radius: 5 * $rem;
     cursor: pointer;
     display: none;
 
@@ -1940,13 +2050,15 @@ section {
 }
 
 footer {
-    padding: 30px 0;
+    padding: 30 * $rem 0;
     box-sizing: border-box;
     position: absolute;
     bottom: 0;
     width: 100%;
     background: rgba(255, 255, 255, 0.05);
-    box-shadow: 0 0 12px rgba(255, 255, 255, 0.3);
+    box-shadow: 0 0 12 * $rem rgba(255, 255, 255, 0.3);
+    color: #fff;
+
 
     .middle {
         display: flex;
@@ -1954,7 +2066,6 @@ footer {
         align-items: center;
 
         p {
-            color: #fff;
             font-family: 'Roboto-Medium';
         }
 
@@ -1966,27 +2077,26 @@ footer {
                 align-items: center;
 
                 &:not(:last-child) {
-                    margin-right: 40px;
+                    margin-right: 40 * $rem;
                 }
 
                 i {
-                    $size: 40px;
+                    $size: 40 * $rem;
                     height: $size;
                     width: $size;
                     display: flex;
                     float: left;
+                    color: #fff;
                     justify-content: center;
                     align-items: center;
-                    border-radius: 10px;
-                    color: #fff;
+                    border-radius: 10 * $rem;
                     background: $btnColor;
-                    margin-right: 10px;
+                    margin-right: 10 * $rem;
                 }
 
                 a {
                     float: left;
                     font-family: 'Roboto-Medium';
-                    color: #fff;
 
                     &:hover {
                         text-decoration: underline;
@@ -2003,45 +2113,23 @@ footer {
         width: 100%;
     }
 
+    section .middle, footer .middle {
+        padding: 0 20 * $rem !important;
+        box-sizing: border-box;
+    }
+
     section .social {
         position: absolute;
     } 
 
     .scroll-top {
-        right: 50px;
+        right: 20 * $rem;
     }
 }
 
 
 @media screen and (max-width: 1150px) {
-    #service {
-        .boosts {
-            ul {
-    
-                li {
-    
-                    &:active .icon {
-                    }
-    
-                    .icon {
-    
-                        img {
-                        }
-                    }
-    
-                    p {
-                    }
-    
-                    &.active,
-                    &:hover {
-                        .icon {
-    
-                        }
-                    }
-                }
-            }
-        }
-    
+    #service {  
         .league-service {
     
             h1 {
@@ -2058,100 +2146,207 @@ footer {
                     
                    &> li {
                         width: calc(100%/2) !important;
-                        &:nth-child(1), &:nth-child(2) {
-                        }
     
                         &.not-badges {
                             &:nth-child(3), &:nth-child(4) {
-    
                                 .list-wrapper {
-                                    width: calc(100% - 128px);
+                                    width: calc(100% - 128 * #{$rem});
                                 }
                             }
                         }
-    
-                        .inc-dec {
-                            
-                            .inc, .dec, .val {
-                                
-                                &.inc, &.dec {
-    
-                                }
-    
-                                &.val {
-                                }
-                            }
-                        }
-    
-                        &.type-of-service {
-    
-                            .services-wrapper {
-                                
-                                .service {
-    
-                                    img.icon {
-                                    }
-    
-                                    span {
 
-                                    }
-                                    
-                                    &:hover {
-
-                                    }
-    
-                                    &.active {
-    
-                                        &:hover {
-                                        }
-                                    }
-    
-                                    &:active {
-                                    }
-                                }   
-                            }
-                        }
     
                         .name {
     
                             span {
                             }
                         }
-    
-                        .list-wrapper {
-    
-                            .list {
-    
-                                .select {
-    
-                                    &.active {
-                                        i {
-                                        }
-                                    }
-    
-                                    .control {
-    
-                                        &:hover {
-                                        }
-                                    }
-    
-                                    i {
-                                    }
-                                }
-    
-                                .options {
-    
-                                    .option {
-    
-                                    }
-                                }
-                            }
-    
-                            .badges {
+                    }
+                }
+            }
+        }
+        
+        .total {
+            margin-top: 40 * $rem;
+            width: 80%;
+        }
+    }
+
+    #service .league-service .choose ul > li.type-of-service .services-wrapper {
+        flex-direction: column;
+        
+        .service {
+           width: calc(100% - 128 * 0.0625rem);
+           margin-bottom: 1.75rem;
+        }
+    }
+
+    #service .league-service #win-boosting ul li:last-child {
+        margin-left: 0;
+    }
+
+    #gallery {
+
+        .popup-overlay .popup {
+            width: 90%;
+        }
+
+        .photos {
+            ul {
+                li {
+                    width: calc(100%/3 - 20 * #{$rem});
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 970px) {
+    .preloader-wrapper .preloader .name {
+        font-size: 8vw;
+        margin-bottom: 4vw;
+    }
+
+    header {
+        height: 60 * $rem;
+
+        .middle {
+            .menu-icon {
+                display: block;
+            }
+        
+            .right {
+                position: fixed;
+                z-index: 999;
+                background: rgba(23, 129, 254, 0.7);
+                height: 100%;
+                top: 0;
+                left: 0;
+                width: 100%;
+                transition: 0.3s ease-out;
+                transform: translateY(-100%);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                color: #fff;
+
+                nav {
+                    margin-right: 0;
                     
-                                img {
+                    ul {
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: center;
+
+                        li {
+                            margin-bottom: 20 * $rem;
+
+                            a {
+                                &::before {
+                                    background: #fff !important;
                                 }
                             }
+                        }
+                    }
+                }
+
+                &.visible {
+                    transform: translateY(0);
+                }
+            }
+        }
+    }
+
+    #service .boosts ul li {
+        margin: 0 1rem;
+    }
+
+    #aboutus .container .text {
+        h1 {
+            font-size: 6.1vw;
+            
+            &.logo {
+                font-size: 8.7vw;
+            }
+        }
+
+        p {
+            width: 70%;
+            font-size: 2vw;
+        }
+    } 
+}
+
+@media screen and (max-width: 768px) {
+
+    html {
+        font-size: 14px;
+    }
+
+    .preloader-wrapper .preloader .name {
+        font-size: 9vw;
+    }
+    
+    header .popup-overlay {
+        z-index: 99999;
+    }
+
+    header .popup-overlay.my-account .popup .bar ul li {
+        width: 100%;
+        justify-content: center;
+    }
+
+    header .popup-overlay.my-account {
+        padding: 0 0;
+        
+        .popup {
+            width: 62.5rem;
+            padding: 3rem 2.5rem;
+            overflow: auto;
+            height: 100%;
+            
+            .half {
+                width: 100% !important;
+
+                &:last-child {
+                    padding-left: 0 !important;
+                }
+            }
+        }
+    }
+        
+    section .social {
+        display: none;
+    }
+
+    #aboutus .container .text p {
+        width: 95%;
+        font-size: 2.5vw;
+        line-height: unset;
+    }
+
+    footer .middle {
+        flex-direction: column-reverse;
+
+        p {
+            margin-top: 30 * $rem;
+        }
+    }
+
+    #service {
+        .league-service {
+    
+            .choose {
+
+                ul {
+                    justify-content: space-between;
+                    width: 80%;
+                    
+                   &> li {
+                        width: 100% !important;
+
+                        .name {
+                            justify-content: center;
                         }
                     }
                 }
@@ -2182,7 +2377,21 @@ footer {
         }
         
         .total {
-            width: 80%;
+            position: fixed;
+            bottom: 0;
+            z-index: 99;
+            background: #fff;
+            left: 0;
+            width: 100%;
+            padding: 1.4rem;
+            box-sizing: border-box;
+            box-shadow: 0 0 1.25rem 0 rgba(0, 0, 0, 0.1);
+            transition: 0.3s ease-out;
+            transform: translateY(100%);
+
+            &.visible {
+                transform: translateY(0);
+            }
             
             .price {
                 p {
@@ -2197,5 +2406,124 @@ footer {
     
             }
         }
+    }
+
+    #gallery {
+        .photos {
+            ul {
+
+                li {
+                    width: calc(100%/2 - 20 * #{$rem});
+                }
+            }
+        }
+    }
+
+    #contact {
+        padding-bottom: 0;
+        form {
+            width: 100%;
+        }
+    } 
+    
+    .scroll-top {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 620px) {
+    #faq .faq-wrapper ul li {
+        width: 100%;
+        margin-left: 0 !important;
+    }
+
+    footer {
+        padding-top: 0;
+        background: #fff;
+        position: unset;
+        color: #777;
+
+        .middle {
+            
+            ul {
+                flex-wrap: wrap;
+                align-items: center;
+                justify-content: space-between;
+                
+                li {
+                    margin-top: 30 * $rem;
+
+                    &:last-child {
+                        margin-left: auto;
+                        margin-right: auto;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 560px) {
+    #aboutus .container .text p {
+        font-size: 3vw;
+    }
+
+    header .popup-overlay {
+        padding: 0 0;
+    }
+
+    header .popup-overlay .popup {
+        padding: 1.25rem 0;
+        border-radius: 0;
+        height: 100%;
+    }
+
+    #contact form {
+        padding: 2.5rem 0;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    #aboutus .container .text p {
+        font-size: 3.3vw;
+    }
+    
+    #gallery {
+        .photos {
+            ul {
+
+                li {
+                    width: 100%;
+                    margin: 10 * $rem 0;
+                }
+            }
+        }
+    }
+    
+    footer {
+
+        .middle {
+            
+            ul {
+                flex-direction: column;
+            
+                li {
+                    margin-left: auto;
+                    margin-right: auto !important;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 440px) {
+    form ul li {
+        width: calc(100% - 4rem);
+    }
+}
+
+@media screen and (max-height: 580px) {
+    .scroll {
+        display: none;
     }
 }

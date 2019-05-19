@@ -4,10 +4,10 @@
     <meta charset='UTF-8'>
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
     <meta http-equiv='X-UA-Compatible' content='ie=edge'>
-    <meta name='author' content='Davit Papalashvili'>
+    <meta name='author' content='Davit Papalashvili, Ucha Tsereteli'>
     <meta name='description' content='Trusted by Gamers. Proven Boosters. Track Progress, Spectate, Chat, Schedule & Pause Boost. Select Lines, Champions, Summoners & Stream Games. Choose between Regular and Test Text Duo. Select Between Solo/Duo. Encrypted VPN Connection. 24/7 Qualified Support.'>
     <meta name='keywords' content='lol boost, lol boosting, boost, cheap boost, league boosting'>
-
+    <meta name="theme-color" content="#0072ff">
     <!-- CSRF Token -->
     <meta name='csrf-token' content='{{ csrf_token() }}'>
 
@@ -43,7 +43,7 @@
                     <li class='wow fadeInDown' data-wow-delay='1.6s'><a href='#contact'>Contact</a></li>
                 </ul>
             </nav>
-
+            
             <div id='for-user'>
                 <div class='auth' @if (Auth::check()) style='display:none;' @endif>
                     <div class='btn wow fadeInRight' id='login' data-wow-delay='1.8s'>Login</div>
@@ -57,7 +57,7 @@
                         <li class='signout wow fadeInRight' data-wow-delay='2.2s'><i class='fas fa-sign-out-alt'></i></li>
                     </ul>
                 </div>
-
+                
                 <div class='preloader'>
                     <div class='spinner'>
                         <div class='bounce1'></div>
@@ -67,6 +67,7 @@
                 </div>
             </div>
         </div>
+        <div class="menu-icon"><span></span></div>
     </div>
 
     <div class='popup-overlay my-account'>
@@ -808,8 +809,6 @@
                 </div>
             </div>
 
-<<<<<<< HEAD
-=======
             <div class="total">
                 <div class="price">
                     <p>Total Price</p>
@@ -835,7 +834,6 @@
                     <button class="btn">PURCHASE</button></p>
                 </form>
             </div>
->>>>>>> 172fcb3b6c1412a484043832204fd9796a0fb695
         </div>
     </section>
     

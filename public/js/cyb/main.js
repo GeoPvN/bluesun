@@ -46,7 +46,36 @@ void function Init() {
             } else {
                 $(".scroll-top").fadeIn();
             }
+
+            if(window.innerWidth <= 768) {
+                var aboutHeight = $('#aboutus').innerHeight()
+                var serviceHeight = $('#service').innerHeight()
+                var totalHeight = $('.total').innerHeight()
+
+                if (scroll > aboutHeight && scroll < serviceHeight + totalHeight) {
+                    $('.total').addClass('visible')
+                } else {
+                    $('.total').removeClass('visible')
+                }
+            }
         });
+
+        $('header .menu-icon').on('click', function() {
+            $(this).toggleClass('toggle white')
+
+            if ( $(this).hasClass('toggle') ) {
+                $('.right').addClass('visible')
+            } else {
+                $('.right').removeClass('visible')
+            }
+        })
+
+        $('.right *').on('click', function() {
+            if(window.innerWidth <= 970) {
+                $('header .menu-icon').removeClass('toggle white')
+                $('.right').removeClass('visible')
+            }
+        })
 
         $('header #login').on('click', function() {
             $('body').css('overflow', 'hidden')
