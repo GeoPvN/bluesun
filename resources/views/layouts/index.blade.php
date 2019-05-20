@@ -268,7 +268,22 @@
             <div class="terms-and-conditions">
                 <img src='{{ asset('css/assets/images/close.svg') }}' class='close-terms'>
                 <div class='title'>Terms and Conditions</div>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores, asperiores accusantium temporibus animi doloremque dignissimos esse voluptatum? Labore, placeat ea. Nulla, enim ducimus animi eum optio sint possimus excepturi distinctio?</p>
+                <p>Please read these Terms and Conditions carefully before using the elouinon.com website.</p>
+
+                <p>Your access to and use of the service is conditioned on your acceptance of and compliance with these Terms. These Terms apply to all visitors, users and others who access or use the Service.</p>
+
+                <p>Elounion has the right either to accept or decline the order of the customer. On the other hand, we guarantee to fulfil every accepted order quickly and with maximal effectiveness.</p>
+                <p>Elounion guarantees personal data safety. Every information which will be provided to us by our customers will be used solely during the service period with the explicit agreement of the customer.</p>
+                <p>Our service may contain links to third-party web sites or services that are not owned or controlled by our Company. (For example payment services). Elounion has no control over, and assumes no responsibility for, the content, privacy policies, or practices of any third party web sites or services. (Including Riot Games).</p>
+                <p>You further acknowledge and agree that Elounion shall not be responsible or liable, directly or indirectly, for any damage or loss caused or alleged to be caused by or in connection with use of or reliance  on any such content, goods or services available on or through any such websites or services.</p>
+                <p>Elounion reserves the right to change pricing of its services at any time.  Of course, orders which were already placed will not be effected. Ever change will be visible on the website.</p>
+                <p>We reserve the right, at our sole discretion, to modify or replace these Terms at any time. If a revision is material we will try to provide at least 30 days notice prior to any new terms taking effect. What constitutes a material change will be determined at our sole discretion.</p>
+                <p>If you have any questions about these Terms, please contact us .</p>
+
+                <p>Sincerely,</p>
+
+                <p>Elounion Administration.</p>
+                </p>
             </div>
 
             <div class='success-dialog'>
@@ -327,25 +342,25 @@
         <div class='middle'>
             <div class='boosts'>
                 <ul>
-                    <li class='active wow fadeInRight' for='coaching' data-wow-delay='0s'>
+                    <li class='active wow fadeInRight' for='coaching' data-value="coaching" data-wow-delay='0s'>
                         <div class='icon'>
                             <img src='{{ asset('css/assets/images/coaching.svg') }}'>
                         </div>
                         <p>Coaching</p>
                     </li>
-                    <li class='wow fadeInRight' for='league-boosting' data-wow-delay='0.2s'>
+                    <li class='wow fadeInRight' for='league-boosting' data-value="solo" data-wow-delay='0.2s'>
                         <div class='icon'>
                             <img src='{{ asset('css/assets/images/solo.svg') }}'>
                         </div>
                         <p>Solo<br />service</p>
                     </li>
-                    <li class='wow fadeInRight' for='duo-boosting'  data-wow-delay='0.4s'>
+                    <li class='wow fadeInRight' for='duo-boosting' data-value="duo" data-wow-delay='0.4s'>
                         <div class='icon'>
                             <img src='{{ asset('css/assets/images/duo.svg') }}'>
                         </div>
                         <p>Duo<br />service</p>
                     </li>
-                    <li class='wow fadeInRight' for='win-boosting' data-wow-delay='0.6s'>
+                    <li class='wow fadeInRight' for='win-boosting' data-value="win" data-wow-delay='0.6s'>
                         <div class='icon'>
                             <img src='{{ asset('css/assets/images/coaching.svg') }}'>
                         </div>
@@ -364,12 +379,12 @@
                             <li class='type-of-service'>
                                 <div class='name'><span>1</span>TYPE OF SERVICE</div>
                                 
-                                <div class="services-wrapper">
-                                    <div class="service">
+                                <div class="services-wrapper serv">
+                                    <div class="service active" data-value="regular">
                                         <img class='icon' src="https://eloboost24.eu/images/pages/boosting/duo_opt_regular.png">
                                         <span>REGULAR</span>
                                     </div>
-                                    <div class="service">
+                                    <div class="service" data-value="premium">
                                         <img class='icon' src="https://eloboost24.eu/images/pages/boosting/duo_opt_regular.png">
                                         <span>PREMIUM</span>
                                     </div>
@@ -379,24 +394,24 @@
                             <li class='type-of-service specific'>
                                 <div class='name'><span>2</span>SPECIFIC LINES</div>
                                 
-                                <div class="services-wrapper">
-                                    <div class="service">
+                                <div class="services-wrapper line">
+                                    <div class="service active" data-value="top">
                                         <img class='icon' src="https://eloboost24.eu/images/pages/boosting/duo_opt_regular.png">
                                         <span>TOP</span>
                                     </div>
-                                    <div class="service">
+                                    <div class="service" data-value="mid">
                                         <img class='icon' src="https://eloboost24.eu/images/pages/boosting/duo_opt_regular.png">
                                         <span>MID</span>
                                     </div>
-                                    <div class="service">
+                                    <div class="service" data-value="jungle">
                                         <img class='icon' src="https://eloboost24.eu/images/pages/boosting/duo_opt_regular.png">
                                         <span>JUNGLE</span>
                                     </div>
-                                    <div class="service">
+                                    <div class="service" data-value="adc">
                                         <img class='icon' src="https://eloboost24.eu/images/pages/boosting/duo_opt_regular.png">
                                         <span>ADC</span>
                                     </div>
-                                    <div class="service">
+                                    <div class="service" data-value="support">
                                         <img class='icon' src="https://eloboost24.eu/images/pages/boosting/duo_opt_regular.png">
                                         <span>SUPPORT</span>
                                     </div>
@@ -406,16 +421,16 @@
                             <li class='type-of-service'>
                                 <div class='name'><span>3</span>RANK OF COACH</div>
                                 
-                                <div class="services-wrapper">
-                                    <div class="service">
+                                <div class="services-wrapper rank">
+                                    <div class="service active" data-value="diamond">
                                         <img class='icon' src="https://eloboost24.eu/images/pages/boosting/duo_opt_regular.png">
                                         <span>DIAMOND</span>
                                     </div>
-                                    <div class="service">
+                                    <div class="service" data-value="master">
                                         <img class='icon' src="https://eloboost24.eu/images/pages/boosting/duo_opt_regular.png">
                                         <span>MASTER</span>
                                     </div>
-                                    <div class="service">
+                                    <div class="service" data-value="challenger">
                                         <img class='icon' src="https://eloboost24.eu/images/pages/boosting/duo_opt_regular.png">
                                         <span>CHALLENGER</span>
                                     </div>
@@ -426,7 +441,7 @@
                                 <div class='name'><span>4</span>YOUR SERVER</div>
                                 
                                 <div class='list-wrapper'>
-                                    <div class='list'>
+                                    <div class='list server'>
                                         <div class='select'>
                                             <div class='control'>Choose</div>
                                             <i class='material-icons'>keyboard_arrow_down</i>
@@ -523,7 +538,7 @@
                             <li class='not-badges'>
                                 <div class='name'><span>3</span>YOUR SERVER</div>
                                 <div class='list-wrapper'>
-                                    <div class='list'>
+                                    <div class='list server'>
                                         <div class='select'>
                                             <div class='control'>Choose</div>
                                             <i class='material-icons'>keyboard_arrow_down</i>
@@ -540,7 +555,7 @@
                             <li class='not-badges'>
                                 <div class='name'><span>4</span>TYPE OF QUEUE</div>
                                 <div class='list-wrapper'>
-                                    <div class='list'>
+                                    <div class='list queue'>
                                         <div class='select'>
                                             <div class='control'>Choose</div>
                                             <i class='material-icons'>keyboard_arrow_down</i>
@@ -558,12 +573,12 @@
                             <li class='type-of-service'>
                                 <div class='name'><span>5</span>TYPE OF SERVICE</div>
                                 
-                                <div class="services-wrapper">
-                                    <div class="service">
+                                <div class="services-wrapper serv">
+                                    <div class="service active" data-value="regular">
                                         <img class='icon' src="https://eloboost24.eu/images/pages/boosting/duo_opt_regular.png">
                                         <span>REGULAR</span>
                                     </div>
-                                    <div class="service">
+                                    <div class="service" data-value="premium">
                                         <img class='icon' src="https://eloboost24.eu/images/pages/boosting/duo_opt_regular.png">
                                         <span>PREMIUM</span>
                                     </div>
@@ -646,7 +661,7 @@
                             <li class='not-badges'>
                                 <div class='name'><span>3</span>YOUR SERVER</div>
                                 <div class='list-wrapper'>
-                                    <div class='list'>
+                                    <div class='list server'>
                                         <div class='select'>
                                             <div class='control'>Choose</div>
                                             <i class='material-icons'>keyboard_arrow_down</i>
@@ -663,7 +678,7 @@
                             <li class='not-badges'>
                                 <div class='name'><span>4</span>TYPE OF QUEUE</div>
                                 <div class='list-wrapper'>
-                                    <div class='list'>
+                                    <div class='list queue'>
                                         <div class='select'>
                                             <div class='control'>Choose</div>
                                             <i class='material-icons'>keyboard_arrow_down</i>
@@ -681,12 +696,12 @@
                             <li class='type-of-service'>
                                 <div class='name'><span>5</span>TYPE OF SERVICE</div>
                                 
-                                <div class="services-wrapper">
-                                    <div class="service">
+                                <div class="services-wrapper serv">
+                                    <div class="service active" data-value="regular">
                                         <img class='icon' src="https://eloboost24.eu/images/pages/boosting/duo_opt_regular.png">
                                         <span>REGULAR</span>
                                     </div>
-                                    <div class="service">
+                                    <div class="service" data-value="premium">
                                         <img class='icon' src="https://eloboost24.eu/images/pages/boosting/duo_opt_regular.png">
                                         <span>PREMIUM</span>
                                     </div>
@@ -739,7 +754,7 @@
                             <li class='not-badges'>
                                 <div class='name'><span>2</span>YOUR SERVER</div>
                                 <div class='list-wrapper'>
-                                    <div class='list'>
+                                    <div class='list server'>
                                         <div class='select'>
                                             <div class='control'>Choose</div>
                                             <i class='material-icons'>keyboard_arrow_down</i>
@@ -756,7 +771,7 @@
                             <li class='not-badges'>
                                 <div class='name'><span>3</span>TYPE OF QUEUE</div>
                                 <div class='list-wrapper'>
-                                    <div class='list'>
+                                    <div class='list queue'>
                                         <div class='select'>
                                             <div class='control'>Choose</div>
                                             <i class='material-icons'>keyboard_arrow_down</i>
@@ -773,9 +788,9 @@
                             <li class='not-badges'>
                                 <div class='name'><span>4</span>TYPE OF GAME SERVICE</div>
                                 <div class='list-wrapper'>
-                                    <div class='list'>
+                                    <div class='list game_service'>
                                         <div class='select'>
-                                            <div class='control'>Choose</div>
+                                            <div class="control" value="solo">Solo</div>
                                             <i class='material-icons'>keyboard_arrow_down</i>
                                         </div>
 
@@ -789,12 +804,12 @@
                             </li>
                             <li class='type-of-service'>
                                 <div class='name'><span>5</span>TYPE OF SERVICE</div>
-                                <div class="services-wrapper">
-                                    <div class="service">
+                                <div class="services-wrapper serv">
+                                    <div class="service active" data-value="regular">
                                         <img class='icon' src="https://eloboost24.eu/images/pages/boosting/duo_opt_regular.png">
                                         <span>REGULAR</span>
                                     </div>
-                                    <div class="service">
+                                    <div class="service" data-value="premium">
                                         <img class='icon' src="https://eloboost24.eu/images/pages/boosting/duo_opt_regular.png">
                                         <span>PREMIUM</span>
                                     </div>
@@ -826,15 +841,15 @@
                         <input type="hidden" name="service" type="text" value="regular">
                         <input type="hidden" name="line" type="text" value="top">
                         <input type="hidden" name="rank" type="text" value="diamond">
-                        <input type="hidden" name="server_id" type="text" value="1">
-                        <input type="hidden" name="hours" type="text" value="10">
-                        <input type="hidden" name="now_league_id" type="text" value="1">
-                        <input type="hidden" name="now_division_id" type="text" value="1">
-                        <input type="hidden" name="next_league_id" type="text" value="2">
-                        <input type="hidden" name="next_division_id" type="text" value="2">
-                        <input type="hidden" name="queue_id" type="text" value="1">
+                        <input type="hidden" name="server_id" type="text" value="0">
+                        <input type="hidden" name="hours" type="text" value="1">
+                        <input type="hidden" name="now_league_id" type="text" value="0">
+                        <input type="hidden" name="now_division_id" type="text" value="0">
+                        <input type="hidden" name="next_league_id" type="text" value="0">
+                        <input type="hidden" name="next_division_id" type="text" value="0">
+                        <input type="hidden" name="queue_id" type="text" value="0">
                         <input type="hidden" name="game_service" type="text" value="solo">
-                        <input type="hidden" name="games" type="text" value="3">
+                        <input type="hidden" name="games" type="text" value="1">
                         <input type="hidden" name="price" type="text" value="10">
                     <button class="btn">PURCHASE</button></p>
                 </form>
