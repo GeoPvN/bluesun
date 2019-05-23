@@ -179,7 +179,18 @@
                                 <a href="{{route('queues')}}">Queues</a>
                             </li>
                             <li>
-                                <a href="{{route('prices')}}">Price</a>
+                                <a href="#"><i class="fa fa-wrench fa-fw"></i> Prices</a>
+                                <ul class="nav nav-second-level">
+                                    <li>
+                                        <a href="{{route('coaching_price')}}">Coaching Price</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{route('solo_price')}}">Solo Price</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{route('duo_price')}}">Duo Price</a>
+                                    </li>
+                                </ul>
                             </li>
                         </ul>
                     </li>

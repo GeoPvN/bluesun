@@ -102,19 +102,75 @@ Route::group(['middleware' => 'admin'], function() {
 
     Route::post('/admin/queues/delete', 'adminQueuesController@delete')->name('queues-delete');
 
-    // Prices
+    // Coaching Price
 
-    Route::get('/admin/prices', 'adminPricesController@index')->name('prices');
+    Route::get('/admin/coaching_price', 'CoachingPriceController@index')->name('coaching_price');
 
-    Route::get('/admin/prices/load-data', 'adminPricesController@loadTable')->name('prices-load-data');
+    Route::get('/admin/coaching_price/load-data', 'CoachingPriceController@loadTable')->name('coaching_price-load-data');
 
-    Route::get('/admin/prices/edit', 'adminPricesController@edit')->name('prices-edit');
+    Route::get('/admin/coaching_price/edit', 'CoachingPriceController@edit')->name('coaching_price-edit');
 
-    Route::post('/admin/prices/store', 'adminPricesController@store')->name('prices-store');
+    Route::post('/admin/coaching_price/store', 'CoachingPriceController@store')->name('coaching_price-store');
 
-    Route::post('/admin/prices/update', 'adminPricesController@update')->name('prices-update');
+    Route::post('/admin/coaching_price/update', 'CoachingPriceController@update')->name('coaching_price-update');
 
-    Route::post('/admin/prices/delete', 'adminPricesController@delete')->name('prices-delete');
+    Route::post('/admin/coaching_price/delete', 'CoachingPriceController@delete')->name('coaching_price-delete');
+
+    // Solo Price
+
+    Route::get('/admin/solo_price', 'SoloPriceController@index')->name('solo_price');
+
+    Route::get('/admin/solo_price/load-data', 'SoloPriceController@loadTable')->name('solo_price-load-data');
+
+    Route::get('/admin/solo_price/edit', 'SoloPriceController@edit')->name('solo_price-edit');
+
+    Route::post('/admin/solo_price/store', 'SoloPriceController@store')->name('solo_price-store');
+
+    Route::post('/admin/solo_price/update', 'SoloriceController@update')->name('solo_price-update');
+
+    Route::post('/admin/solo_price/delete', 'SoloPriceController@delete')->name('solo_price-delete');
+
+    // Duo Price
+
+    Route::get('/admin/duo_price', 'DuoPriceController@index')->name('duo_price');
+
+    Route::get('/admin/duo_price/load-data', 'DuoPriceController@loadTable')->name('duo_price-load-data');
+
+    Route::get('/admin/duo_price/edit', 'DuoPriceController@edit')->name('duo_price-edit');
+
+    Route::post('/admin/duo_price/store', 'DuoPriceController@store')->name('duo_price-store');
+
+    Route::post('/admin/duo_price/update', 'DuoriceController@update')->name('duo_price-update');
+
+    Route::post('/admin/duo_price/delete', 'DuoPriceController@delete')->name('duo_price-delete');
+
+    // Win Price
+
+    Route::get('/admin/win_price', 'WinPriceController@index')->name('win_price');
+
+    Route::get('/admin/win_price/load-data', 'WinPriceController@loadTable')->name('win_price-load-data');
+
+    Route::get('/admin/win_price/edit', 'WinPriceController@edit')->name('win_price-edit');
+
+    Route::post('/admin/win_price/store', 'WinPriceController@store')->name('win_price-store');
+
+    Route::post('/admin/win_price/update', 'WinriceController@update')->name('win_price-update');
+
+    Route::post('/admin/win_price/delete', 'WinPriceController@delete')->name('win_price-delete');
+
+    // Regular - Premium Price
+
+    Route::get('/admin/service_price', 'ServicePriceController@index')->name('service_price');
+
+    Route::get('/admin/service_price/load-data', 'ServicePriceController@loadTable')->name('service_price-load-data');
+
+    Route::get('/admin/service_price/edit', 'ServicePriceController@edit')->name('service_price-edit');
+
+    Route::post('/admin/service_price/store', 'ServicePriceController@store')->name('service_price-store');
+
+    Route::post('/admin/service_price/update', 'ServicericeController@update')->name('service_price-update');
+
+    Route::post('/admin/service_price/delete', 'ServicePriceController@delete')->name('service_price-delete');
 
     // End Service Components
 
