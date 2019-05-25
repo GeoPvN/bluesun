@@ -3,83 +3,136 @@
 namespace App\Http\Controllers;
 
 use App\CoachingPrice;
+use App\Leagues;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Validator;
 
 class CoachingPriceController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        //
+
+        $divisions = CoachingPrice::all();
+
+        $leagues = Leagues::all();
+
+        return view('admin.division.index', compact('divisions','leagues'));
+
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
+
+        $validator = Validator::make($request->all(),[
+
+            'name' => 'required|string',
+            'league_id' => 'required|string',
+            'photo_id' => 'required'
+
+        ]);
+
+        if($validator->passes())
+        {
+
+            if($request->ajax())
+            {
+
+                $input = $request->all();
+
+
+                if($file = $request->file('photo_id')){
+
+                    $name = time() . $file->getClientOriginalName();
+
+                    $file->move('images',$name);
+
+                    $photo = Photo::create(['name'=>$name]);
+
+                    $input['photo_id'] = $photo->id;
+
+                }
+
+                $user = CoachingPrice::create($input);
+
+
+                return response($user);
+
+            }
+
+        }
+
+        return response()->json(['error'=>$validator->errors()->all()]);
+
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\CoachingPrice  $coachingPrice
-     * @return \Illuminate\Http\Response
-     */
-    public function show(CoachingPrice $coachingPrice)
+    public  function  update(Request $request)
     {
-        //
+
+        $league = CoachingPrice::findOrFail($request->hidden_id);
+
+
+        $validator = Validator::make($request->all(),[
+
+            'name' => 'required|string',
+            'league_id' => 'required|string'
+
+        ]);
+
+        $input = $request->all();
+
+        if($validator->passes())
+        {
+
+            if($request->ajax()) {
+
+                $league->update($input);
+
+                return response($league);
+
+            }
+        }
+
+        return response()->json(['error' => $validator->errors()->all()]);
+
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\CoachingPrice  $coachingPrice
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(CoachingPrice $coachingPrice)
+    public function loadTable()
     {
-        //
+
+        $divisions = DB::table('divisions')
+            ->leftJoin('leagues', 'divisions.league_id', '=', 'leagues.id')
+            ->leftJoin('photos', 'divisions.photo_id', '=', 'photos.id')
+            ->select('divisions.*', 'photos.name as p_name', 'leagues.name as league')
+            ->orderBy('divisions.id','desc')
+            ->get();
+
+        return response($divisions);
+
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\CoachingPrice  $coachingPrice
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, CoachingPrice $coachingPrice)
+    public function edit(Request $request)
     {
-        //
+
+        $divisions = DB::table('divisions')
+            ->leftJoin('photos', 'divisions.photo_id', '=', 'photos.id')
+            ->select('divisions.*', 'photos.name as p_name')
+            ->where('divisions.id', '=', $request->id)
+            ->first();
+
+        return response()->json($divisions);
+
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\CoachingPrice  $coachingPrice
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(CoachingPrice $coachingPrice)
+    public function delete(Request $request)
     {
-        //
+        if($request->ajax()) {
+            DB::table('divisions')
+                ->whereIn('id', $request->id)
+                ->delete();
+
+            return response()->json($request);
+        }
+
     }
 }

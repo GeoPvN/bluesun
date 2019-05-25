@@ -15,6 +15,9 @@ class CreateWinPricesTable extends Migration
     {
         Schema::create('win_prices', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('now_league_id')->default(0);
+            $table->integer('now_division_id')->default(0);
+            $table->integer('games')->default(0);
             $table->timestamps();
         });
     }

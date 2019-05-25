@@ -52,7 +52,7 @@
 
                 <div class='authorized' @if (!Auth::check()) style='display:none;' @endif>
                     <ul>
-                        <li class='wow fadeInRight' data-wow-delay='1.8s'>Welcome, <span class='user'>@if (Auth::check()) {{Auth::user()->name}} @endif</span></li>
+                        <li class='wow fadeInRight' data-wow-delay='1.8s'>Welcome, <span class='user'>@if (Auth::check()) @if(Auth::user()->admin == 1) <a href="{{ route('admin') }}">{{Auth::user()->name}}</a>@else {{Auth::user()->name}} @endif @endif</span></li>
                         <li class='wow fadeInRight' data-wow-delay='2s'><div class='btn' id='profile' >My Profile</div></li>
                         <li class='signout wow fadeInRight' data-wow-delay='2.2s'><i class='fas fa-sign-out-alt'></i></li>
                     </ul>
