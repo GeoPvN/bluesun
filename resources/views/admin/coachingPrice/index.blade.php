@@ -30,11 +30,11 @@
 
                             <button class="btn btn-success btn-sm pull-right" id="coachingprice-load-data">Refresh</button>
 
-                            @include('admin.coachingprice.add')
+                            @include('admin.coachingPrice.add')
 
-                            @include('admin.coachingprice.edit')
+                            @include('admin.coachingPrice.edit')
 
-                            @include('admin.coachingprice.viwe')
+                            @include('admin.coachingPrice.viwe')
 
                         </div>
                         <!-- /.col-lg-12 -->
