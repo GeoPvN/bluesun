@@ -3,22 +3,24 @@
         <thead>
         <tr>
             <th>ID</th>
-            <th>League</th>
-            <th>Division</th>
+            <th>Rank</th>
+            <th>Hours</th>
+            <th>Price</th>
             <th>Add Date</th>
             <th>Up Date</th>
             <th>#</th>
         </tr>
         </thead>
         <tbody id="table-data">
-        @foreach($coachingprices as $coachingprice)
-            <tr id="{{ $coachingprice->id }}">
-                <td>{{ $coachingprice->id }}</td>
-                <td>{{ $coachingprice->league->name }}</td>
-                <td>{{ $coachingprice->name }}</td>
-                <td>{{ $coachingprice->created_at }}</td>
-                <td>{{ $coachingprice->updated_at }}</td>
-                <td><input type="checkbox" name="delete" value="{{ $coachingprice->id }}"></td>
+        @foreach($coachingPrices as $coachingPrice)
+            <tr id="{{ $coachingPrice->id }}">
+                <td>{{ $coachingPrice->id }}</td>
+                <td>{{ $coachingPrice->rank }}</td>
+                <td>{{ $coachingPrice->hours }}</td>
+                <td>{{ $coachingPrice->price }}</td>
+                <td>{{ $coachingPrice->created_at }}</td>
+                <td>{{ $coachingPrice->updated_at }}</td>
+                <td><input type="checkbox" name="delete" value="{{ $coachingPrice->id }}"></td>
             </tr>
         @endforeach
         </tbody>

@@ -3,9 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\CoachingPrice;
-use App\Leagues;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 
 class CoachingPriceController extends Controller
@@ -13,11 +11,9 @@ class CoachingPriceController extends Controller
     public function index()
     {
 
-        $divisions = CoachingPrice::all();
+        $coachingPrices = CoachingPrice::all();
 
-        $leagues = Leagues::all();
-
-        return view('admin.division.index', compact('divisions','leagues'));
+        return view('admin.coachingPrice.index', compact('coachingPrices'));
 
     }
 
@@ -26,9 +22,9 @@ class CoachingPriceController extends Controller
 
         $validator = Validator::make($request->all(),[
 
-            'name' => 'required|string',
-            'league_id' => 'required|string',
-            'photo_id' => 'required'
+            'price' => 'required|string',
+            'rank' => 'required|string',
+            'hours' => 'required'
 
         ]);
 
@@ -40,21 +36,7 @@ class CoachingPriceController extends Controller
 
                 $input = $request->all();
 
-
-                if($file = $request->file('photo_id')){
-
-                    $name = time() . $file->getClientOriginalName();
-
-                    $file->move('images',$name);
-
-                    $photo = Photo::create(['name'=>$name]);
-
-                    $input['photo_id'] = $photo->id;
-
-                }
-
                 $user = CoachingPrice::create($input);
-
 
                 return response($user);
 
@@ -74,8 +56,9 @@ class CoachingPriceController extends Controller
 
         $validator = Validator::make($request->all(),[
 
-            'name' => 'required|string',
-            'league_id' => 'required|string'
+            'hours' => 'required|string',
+            'rank' => 'required|string',
+            'price' => 'required|string'
 
         ]);
 
@@ -100,12 +83,7 @@ class CoachingPriceController extends Controller
     public function loadTable()
     {
 
-        $divisions = DB::table('divisions')
-            ->leftJoin('leagues', 'divisions.league_id', '=', 'leagues.id')
-            ->leftJoin('photos', 'divisions.photo_id', '=', 'photos.id')
-            ->select('divisions.*', 'photos.name as p_name', 'leagues.name as league')
-            ->orderBy('divisions.id','desc')
-            ->get();
+        $divisions = CoachingPrice::orderBy('id','desc')->get();
 
         return response($divisions);
 
@@ -114,11 +92,7 @@ class CoachingPriceController extends Controller
     public function edit(Request $request)
     {
 
-        $divisions = DB::table('divisions')
-            ->leftJoin('photos', 'divisions.photo_id', '=', 'photos.id')
-            ->select('divisions.*', 'photos.name as p_name')
-            ->where('divisions.id', '=', $request->id)
-            ->first();
+        $divisions = CoachingPrice::where('id', '=', $request->id)->first();
 
         return response()->json($divisions);
 
@@ -127,9 +101,8 @@ class CoachingPriceController extends Controller
     public function delete(Request $request)
     {
         if($request->ajax()) {
-            DB::table('divisions')
-                ->whereIn('id', $request->id)
-                ->delete();
+
+            CoachingPrice::whereIn('id', $request->id)->delete();
 
             return response()->json($request);
         }

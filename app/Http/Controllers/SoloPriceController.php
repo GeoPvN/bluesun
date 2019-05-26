@@ -2,84 +2,117 @@
 
 namespace App\Http\Controllers;
 
+use App\Leagues;
 use App\SoloPrice;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class SoloPriceController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        //
+
+        $soloPrices = SoloPrice::with('nowLeagues')->with('nowDivisions')->with('nextLeagues')->with('nextDivisions')->get();
+
+        $leagues = Leagues::all();
+
+        return view('admin.soloPrice.index', compact('soloPrices','leagues'));
+
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
+
+        $validator = Validator::make($request->all(),[
+
+            'now_league_id' => 'required',
+            'now_division_id' => 'required',
+            'next_league_id' => 'required',
+            'next_division_id' => 'required',
+            'price' => 'required'
+
+        ]);
+
+        if($validator->passes())
+        {
+
+            if($request->ajax())
+            {
+
+                $input = $request->all();
+
+                $user = SoloPrice::create($input);
+
+                return response($user);
+
+            }
+
+        }
+
+        return response()->json(['error'=>$validator->errors()->all()]);
+
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\SoloPrice  $soloPrice
-     * @return \Illuminate\Http\Response
-     */
-    public function show(SoloPrice $soloPrice)
+    public  function  update(Request $request)
     {
-        //
+
+        $league = SoloPrice::findOrFail($request->hidden_id);
+
+
+        $validator = Validator::make($request->all(),[
+
+            'now_league_id' => 'required',
+            'now_division_id' => 'required',
+            'next_league_id' => 'required',
+            'next_division_id' => 'required',
+            'price' => 'required'
+
+        ]);
+
+        $input = $request->all();
+
+        if($validator->passes())
+        {
+
+            if($request->ajax()) {
+
+                $league->update($input);
+
+                return response($league);
+
+            }
+        }
+
+        return response()->json(['error' => $validator->errors()->all()]);
+
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\SoloPrice  $soloPrice
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(SoloPrice $soloPrice)
+    public function loadTable()
     {
-        //
+
+        $soloPrices = SoloPrice::with('nowLeagues')->with('nowDivisions')->with('nextLeagues')->with('nextDivisions')->get();
+
+        return response($soloPrices);
+
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\SoloPrice  $soloPrice
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, SoloPrice $soloPrice)
+    public function edit(Request $request)
     {
-        //
+
+        $soloPrices = SoloPrice::where('id', '=', $request->id)->first();
+
+        return response()->json($soloPrices);
+
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\SoloPrice  $soloPrice
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(SoloPrice $soloPrice)
+    public function delete(Request $request)
     {
-        //
+        if($request->ajax()) {
+
+            SoloPrice::whereIn('id', $request->id)->delete();
+
+            return response()->json($request);
+        }
+
     }
 }

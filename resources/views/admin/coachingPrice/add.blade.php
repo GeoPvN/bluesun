@@ -13,27 +13,22 @@
                 <div class="modal-body">
 
                     <div class="row">
-                        <div class="col-sm-4">
+                        <div class="col-sm-12">
                             <div class="form-group">
-                                <img class="img-responsive" src="{{ URL::to('images') }}/400x400.png" alt="img" name="p_name">
-                            </div>
-                            <div class="form-group">
-                                <label>Chosse Photo</label>
-                                <input type="file" name="photo_id" >
-                            </div>
-                        </div>
-                        <div class="col-sm-8">
-                            <div class="form-group">
-                                <label>Coaching Price</label>
-                                <input type="text" name="name" class="form-control" placeholder="Enter coachingprice" required="required">
-                            </div>
-                            <div class="form-group">
-                                <label>League</label>
-                                <select class="form-control" name="league_id" required="required">
-                                    @foreach($leagues as $league)
-                                        <option value="{{ $league["id"] }}">{{ $league{"name"} }}</option>
-                                    @endforeach
+                                <label>Rank</label>
+                                <select class="form-control" name="rank" required="required">
+                                    <option value="diamond">Diamond</option>
+                                    <option value="master">Master</option>
+                                    <option value="challenger">Challenger</option>
                                 </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Hours</label>
+                                <input type="number" name="hours" class="form-control" placeholder="Enter hours" required="required">
+                            </div>
+                            <div class="form-group">
+                                <label>Price</label>
+                                <input type="float" name="price" class="form-control" placeholder="Enter price" required="required">
                             </div>
                         </div>
 

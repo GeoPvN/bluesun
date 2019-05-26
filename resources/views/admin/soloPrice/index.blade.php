@@ -1,13 +1,13 @@
 @extends('layouts.admin')
 
 @section('title')
-    Admin Panel - Coaching Price
+    Admin Panel - Solo Price
 @stop
 
 @section('content')
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header">Coaching Price</h1>
+            <h1 class="page-header">Solo Price</h1>
         </div>
         <!-- /.col-lg-12 -->
     </div>
@@ -17,24 +17,24 @@
         <div class="col-lg-12">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    Division List (Add/Edit/Delet)
+                    Solo Price List (Add/Edit/Delet)
                 </div>
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-lg-12">
 
                             <!-- Button trigger modal -->
-                            <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#coachingprice-dialog">Add</button>
+                            <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#soloprice-dialog">Add</button>
 
-                            <button class="btn btn-danger btn-sm" id="delete-coachingprice">Delete</button>
+                            <button class="btn btn-danger btn-sm" id="delete-soloprice">Delete</button>
 
-                            <button class="btn btn-success btn-sm pull-right" id="coachingprice-load-data">Refresh</button>
+                            <button class="btn btn-success btn-sm pull-right" id="soloprice-load-data">Refresh</button>
 
-                            @include('admin.coachingprice.add')
+                            @include('admin.soloprice.add')
 
-                            @include('admin.coachingprice.edit')
+                            @include('admin.soloprice.edit')
 
-                            @include('admin.coachingprice.viwe')
+                            @include('admin.soloprice.viwe')
 
                         </div>
                         <!-- /.col-lg-12 -->
@@ -59,7 +59,7 @@
     <script>
         $(document).ready(function() {
 
-            $('#coachingprice-table').DataTable({
+            $('#soloprice-table').DataTable({
                 responsive: true
             });
 
@@ -70,14 +70,14 @@
             });
 
             $(".modal").on("hidden.bs.modal", function(){
-                document.getElementById('coachingprice-form').reset();
+                document.getElementById('soloprice-form').reset();
             });
         });
 
         //------------ Load Table ----------------
-        $('#coachingprice-load-data').on('click',function (e) {
+        $('#soloprice-load-data').on('click',function (e) {
 
-            $.get("{{ route('coaching_price-load-data') }}", function (data) {
+            $.get("{{ route('solo_price-load-data') }}", function (data) {
                 $('#table-data').empty();
                 $.each(data, function (i, value) {
 
@@ -105,8 +105,8 @@
 
         });
 
-        //------------ Add Division ------------------
-        $("#coachingprice-form").on('submit', function(e){
+        //------------ Add Solo Price ------------------
+        $("#soloprice-form").on('submit', function(e){
             e.preventDefault();
             var url = $(this).attr('action');
             var post = $(this).attr('method');
@@ -124,26 +124,26 @@
                 success: function(msg){
                     if(msg.error)
                     {
-                        $('#coachingprice-error ul').empty();
-                        $('#coachingprice-error').css('display','block');
+                        $('#soloprice-error ul').empty();
+                        $('#soloprice-error').css('display','block');
                         $.each(msg.error, function (i, value) {
-                            $('#coachingprice-error ul').append("<li>"+value+"</li>") ;
+                            $('#soloprice-error ul').append("<li>"+value+"</li>") ;
                         })
                         //console.log(msg.error);
                     }
                     else
                     {
-                        document.getElementById('coachingprice-form').reset();
-                        $('#coachingprice-dialog').modal('toggle');
-                        $('#coachingprice-load-data').click();
+                        document.getElementById('soloprice-form').reset();
+                        $('#soloprice-dialog').modal('toggle');
+                        $('#soloprice-load-data').click();
                     }
 
                 }
             });
         });
 
-        //----------- Update Division ------------------
-        $("#coachingprice-form-edit").on('submit', function(e){
+        //----------- Update Solo Price ------------------
+        $("#soloprice-form-edit").on('submit', function(e){
             e.preventDefault();
             var url = $(this).attr('action');
             var post = $(this).attr('method');
@@ -161,39 +161,41 @@
                 success: function(msg){
                     if(msg.error)
                     {
-                        $('#coachingprice-error-edit ul').empty();
-                        $('#coachingprice-error-edit').css('display','block');
+                        $('#soloprice-error-edit ul').empty();
+                        $('#soloprice-error-edit').css('display','block');
                         $.each(msg.error, function (i, value) {
-                            $('#coachingprice-error-edit ul').append("<li>"+value+"</li>") ;
+                            $('#soloprice-error-edit ul').append("<li>"+value+"</li>") ;
                         });
                     }
                     else
                     {
-                        document.getElementById('coachingprice-form-edit').reset();
-                        $('#coachingprice-dialog-edit').modal('toggle');
-                        $('#coachingprice-load-data').click();
+                        document.getElementById('soloprice-form-edit').reset();
+                        $('#soloprice-dialog-edit').modal('toggle');
+                        $('#soloprice-load-data').click();
                     }
 
                 }
             });
         });
 
-        //------------ Edit Division Viwe -----------------
-        $(document).on('dblclick','#coachingprice-table #table-data tr',function (e) {
+        //------------ Edit Solo Price Viwe -----------------
+        $(document).on('dblclick','#soloprice-table #table-data tr',function (e) {
             var hidden_id = $(this).attr('id');
 
             $.get("{{ Auth::user()->name }}",{id:hidden_id},function (data) {
-                $('#coachingprice-dialog-edit').modal();
-                $('#coachingprice-form-edit #hidden_id').val(hidden_id);
-                $('#coachingprice-form-edit input[name="price"]').val(data.price);
-                $('#coachingprice-form-edit input[name="hours"]').val(data.hours);
-                $('#coachingprice-form-edit select[name="rank"] option[value="'+data.league_id+'"]').prop('selected', true);
+                $('#soloprice-dialog-edit').modal();
+                $('#soloprice-form-edit #hidden_id').val(hidden_id);
+                $('#soloprice-form-edit input[name="price"]').val(data.price);
+                $('#soloprice-form-edit select[name="now_league_id"] option[value="'+data.now_league_id+'"]').prop('selected', true);
+                $('#soloprice-form-edit select[name="now_division_id"] option[value="'+data.now_division_id+'"]').prop('selected', true);
+                $('#soloprice-form-edit select[name="next_league_id"] option[value="'+data.next_league_id+'"]').prop('selected', true);
+                $('#soloprice-form-edit select[name="next_division_id"] option[value="'+data.next_division_id+'"]').prop('selected', true);
 
             })
         });
 
-        //------------ Delete Division ----------------------
-        $(document).on('click','#delete-coachingprice',function (e) {
+        //------------ Delete Solo Price ----------------------
+        $(document).on('click','#delete-soloprice',function (e) {
             if ($('input[name="delete"]').is(':checked')) {
                 var sList = [];
                 $('input[name=delete]:checked').each(function (e,v) {
@@ -202,18 +204,56 @@
                 console.log(sList)
                 $.ajax({
                     type: 'POST',
-                    url: "{{ URL::to('admin/coaching_price/delete') }}",
+                    url: "{{ URL::to('admin/solo_price/delete') }}",
                     data: {id:sList},
                     beforeSend: function(){
                         // $('.submitBtn').attr("disabled","disabled");
                         // $('#fupForm').css("opacity",".5");
                     },
                     success: function(msg){
-                        $('#coachingprice-load-data').click();
+                        $('#soloprice-load-data').click();
                     }
                 });
 
             }
+        });
+
+        $(document).on('change','.now_league_id',function () {
+            var now_league_id = $(this).val();
+            $.ajax({
+                type: "POST",
+                url: "{{ route('division-get') }}",
+                data: { league_id: now_league_id},
+                success: function(msg){
+                    var option = '<option value="0">Chosse Current Division</option>';
+                    $.each(msg, function (key, val) {
+                        option += '<option value="'+val.id+'">'+val.name+'</option>';
+                    });
+
+                    $('.now_division_id').html(option);
+                },
+                error: function (error) {
+                }
+            });
+        });
+
+        $(document).on('change','.next_league_id',function () {
+            var now_league_id = $(this).val();
+            $.ajax({
+                type: "POST",
+                url: "{{ route('division-get') }}",
+                data: { league_id: now_league_id},
+                success: function(msg){
+                    var option = '<option value="0">Chosse Current Division</option>';
+                    $.each(msg, function (key, val) {
+                        option += '<option value="'+val.id+'">'+val.name+'</option>';
+                    });
+
+                    $('.next_division_id').html(option);
+                },
+                error: function (error) {
+                }
+            });
         });
 
 
