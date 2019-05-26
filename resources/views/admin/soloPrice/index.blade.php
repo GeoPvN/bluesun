@@ -30,11 +30,11 @@
 
                             <button class="btn btn-success btn-sm pull-right" id="soloprice-load-data">Refresh</button>
 
-                            @include('admin.soloprice.add')
+                            @include('admin.soloPrice.add')
 
-                            @include('admin.soloprice.edit')
+                            @include('admin.soloPrice.edit')
 
-                            @include('admin.soloprice.viwe')
+                            @include('admin.soloPrice.viwe')
 
                         </div>
                         <!-- /.col-lg-12 -->

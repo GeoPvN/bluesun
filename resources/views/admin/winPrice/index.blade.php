@@ -30,11 +30,11 @@
 
                             <button class="btn btn-success btn-sm pull-right" id="winprice-load-data">Refresh</button>
 
-                            @include('admin.winprice.add')
+                            @include('admin.winPrice.add')
 
-                            @include('admin.winprice.edit')
+                            @include('admin.winPrice.edit')
 
-                            @include('admin.winprice.viwe')
+                            @include('admin.winPrice.viwe')
 
                         </div>
                         <!-- /.col-lg-12 -->

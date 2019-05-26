@@ -30,11 +30,11 @@
 
                             <button class="btn btn-success btn-sm pull-right" id="serviceprice-load-data">Refresh</button>
 
-                            @include('admin.serviceprice.add')
+                            @include('admin.servicePrice.add')
 
-                            @include('admin.serviceprice.edit')
+                            @include('admin.servicePrice.edit')
 
-                            @include('admin.serviceprice.viwe')
+                            @include('admin.servicePrice.viwe')
 
                         </div>
                         <!-- /.col-lg-12 -->

@@ -30,11 +30,11 @@
 
                             <button class="btn btn-success btn-sm pull-right" id="duoprice-load-data">Refresh</button>
 
-                            @include('admin.duoprice.add')
+                            @include('admin.duoPrice.add')
 
-                            @include('admin.duoprice.edit')
+                            @include('admin.duoPrice.edit')
 
-                            @include('admin.duoprice.viwe')
+                            @include('admin.duoPrice.viwe')
 
                         </div>
                         <!-- /.col-lg-12 -->
