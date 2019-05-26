@@ -626,6 +626,8 @@ header {
                 box-sizing: border-box;
                 transform: translateY(-100%);
                 transition: 0.3s;
+                height: 100%;
+                overflow: auto;
 
                 .title {
                     margin-bottom: 15 * $rem;

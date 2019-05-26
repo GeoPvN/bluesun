@@ -268,22 +268,30 @@
             <div class="terms-and-conditions">
                 <img src='{{ asset('css/assets/images/close.svg') }}' class='close-terms'>
                 <div class='title'>Terms and Conditions</div>
+                <div class="content">
                 <p>Please read these Terms and Conditions carefully before using the elouinon.com website.</p>
-
+                </br>
+                </br>
                 <p>Your access to and use of the service is conditioned on your acceptance of and compliance with these Terms. These Terms apply to all visitors, users and others who access or use the Service.</p>
-
+                </br>
+                </br>
                 <p>Elounion has the right either to accept or decline the order of the customer. On the other hand, we guarantee to fulfil every accepted order quickly and with maximal effectiveness.</p>
+                </br>       
                 <p>Elounion guarantees personal data safety. Every information which will be provided to us by our customers will be used solely during the service period with the explicit agreement of the customer.</p>
+                </br>
                 <p>Our service may contain links to third-party web sites or services that are not owned or controlled by our Company. (For example payment services). Elounion has no control over, and assumes no responsibility for, the content, privacy policies, or practices of any third party web sites or services. (Including Riot Games).</p>
+                </br>
                 <p>You further acknowledge and agree that Elounion shall not be responsible or liable, directly or indirectly, for any damage or loss caused or alleged to be caused by or in connection with use of or reliance  on any such content, goods or services available on or through any such websites or services.</p>
+                </br>
                 <p>Elounion reserves the right to change pricing of its services at any time.  Of course, orders which were already placed will not be effected. Ever change will be visible on the website.</p>
+                </br>
                 <p>We reserve the right, at our sole discretion, to modify or replace these Terms at any time. If a revision is material we will try to provide at least 30 days notice prior to any new terms taking effect. What constitutes a material change will be determined at our sole discretion.</p>
+                </br>
                 <p>If you have any questions about these Terms, please contact us .</p>
-
+                </br>
                 <p>Sincerely,</p>
-
                 <p>Elounion Administration.</p>
-                </p>
+                </div>
             </div>
 
             <div class='success-dialog'>

@@ -520,6 +520,8 @@ header .popup-overlay.signup .terms-and-conditions {
   box-sizing: border-box;
   transform: translateY(-100%);
   transition: 0.3s;
+  height: 100%;
+  overflow: auto;
 }
 header .popup-overlay.signup .terms-and-conditions .title {
   margin-bottom: 0.9375rem;
