@@ -18,6 +18,7 @@ class CreateWinPricesTable extends Migration
             $table->integer('now_league_id')->default(0);
             $table->integer('now_division_id')->default(0);
             $table->integer('games')->default(0);
+            $table->float('price', 8, 2)->default(0);
             $table->timestamps();
         });
     }

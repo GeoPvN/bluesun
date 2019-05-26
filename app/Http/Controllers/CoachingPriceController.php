@@ -51,7 +51,7 @@ class CoachingPriceController extends Controller
     public  function  update(Request $request)
     {
 
-        $league = CoachingPrice::findOrFail($request->hidden_id);
+        $coachingPrice = CoachingPrice::findOrFail($request->hidden_id);
 
 
         $validator = Validator::make($request->all(),[
@@ -69,9 +69,9 @@ class CoachingPriceController extends Controller
 
             if($request->ajax()) {
 
-                $league->update($input);
+                $coachingPrice->update($input);
 
-                return response($league);
+                return response($coachingPrice);
 
             }
         }

@@ -190,6 +190,12 @@
                                     <li>
                                         <a href="{{route('duo_price')}}">Duo Price</a>
                                     </li>
+                                    <li>
+                                        <a href="{{route('win_price')}}">Win Price</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{route('service_price')}}">Service Price</a>
+                                    </li>
                                 </ul>
                             </li>
                         </ul>

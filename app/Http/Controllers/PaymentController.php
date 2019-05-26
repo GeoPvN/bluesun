@@ -2,7 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\CoachingPrice;
+use App\DuoPrice;
 use App\Order;
+use App\ServicePrice;
+use App\SoloPrice;
+use App\WinPrice;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Input;
@@ -43,6 +48,92 @@ class PaymentController extends Controller
 	public function payWithpaypal(Request $request)
     {
 
+        $servicePrice = ServicePrice::where('service',$request->service)
+            ->first();
+
+        if(!$servicePrice){
+            \Session::put('error', 'Chack all selector!');
+            return Redirect::route('paywithpaypal');
+        }
+
+        if($request->type == 'coaching')
+        {
+            $coachingPrice = CoachingPrice::where('rank',$request->rank)
+                ->where('hours',$request->hours)
+                ->first();
+
+            if(!$coachingPrice){
+                \Session::put('error', 'Chack all selector!');
+                return Redirect::route('paywithpaypal');
+            }
+
+            $price = $coachingPrice->price + ($coachingPrice->price * $servicePrice->price / 100);
+
+            if($price == 0){
+                \Session::put('error', 'Chack all selector!');
+                return Redirect::route('paywithpaypal');
+            }
+        }
+        else if($request->type == 'solo')
+        {
+            $soloPrice = SoloPrice::where('now_league_id',$request->now_league_id)
+                ->where('now_division_id',$request->now_division_id)
+                ->where('next_league_id',$request->next_league_id)
+                ->where('next_division_id',$request->next_division_id)
+                ->first();
+
+            if(!$soloPrice){
+                \Session::put('error', 'Chack all selector!');
+                return Redirect::route('paywithpaypal');
+            }
+
+            $price = $soloPrice->price + ($soloPrice->price * $servicePrice->price / 100);
+
+            if($price == 0){
+                \Session::put('error', 'Chack all selector!');
+                return Redirect::route('paywithpaypal');
+            }
+        }
+        else if($request->type == 'duo')
+        {
+            $duoPrice = DuoPrice::where('now_league_id',$request->now_league_id)
+                ->where('now_division_id',$request->now_division_id)
+                ->where('next_league_id',$request->next_league_id)
+                ->where('next_division_id',$request->next_division_id)
+                ->first();
+
+            if(!$duoPrice){
+                \Session::put('error', 'Chack all selector!');
+                return Redirect::route('paywithpaypal');
+            }
+
+            $price = $duoPrice->price + ($duoPrice->price * $servicePrice->price / 100);
+
+            if($price == 0){
+                \Session::put('error', 'Chack all selector!');
+                return Redirect::route('paywithpaypal');
+            }
+        }
+        else if($request->type == 'win')
+        {
+            $winPrice = WinPrice::where('now_league_id',$request->now_league_id)
+                ->where('now_division_id',$request->now_division_id)
+                ->where('games',$request->games)
+                ->first();
+
+            if(!$winPrice){
+                \Session::put('error', 'Chack all selector!');
+                return Redirect::route('paywithpaypal');
+            }
+
+            $price = $winPrice->price + ($winPrice->price * $servicePrice->price / 100);
+
+            if($price == 0){
+                \Session::put('error', 'Chack all selector!');
+                return Redirect::route('paywithpaypal');
+            }
+        }
+
 		$payer = new Payer();
         $payer->setPaymentMethod('paypal');
 
@@ -50,14 +141,14 @@ class PaymentController extends Controller
 		$item_1->setName('Item 1') /** item name **/
             ->setCurrency('USD')
             ->setQuantity(1)
-            ->setPrice($request->get('amount')); /** unit price **/
+            ->setPrice($price); /** unit price **/
 
 		$item_list = new ItemList();
         $item_list->setItems(array($item_1));
 
 		$amount = new Amount();
         $amount->setCurrency('USD')
-            ->setTotal($request->get('amount'));
+            ->setTotal($price);
 
 		$transaction = new Transaction();
         $transaction->setAmount($amount)
@@ -116,7 +207,7 @@ class PaymentController extends Controller
 		if (isset($redirect_url)) {
 
 		    // Add Order
-            $this->addOrder($request, $payment->getId());
+            $this->addOrder($request, $payment->getId(), $price);
 
 			/** redirect to paypal **/
             return Redirect::away($redirect_url);
@@ -162,7 +253,7 @@ class PaymentController extends Controller
  
     }
 
-    public function addOrder($request, $paypal_id)
+    public function addOrder($request, $paypal_id, $price)
     {
         $user_id = Auth::id();
         $order = new Order;
@@ -182,7 +273,7 @@ class PaymentController extends Controller
         $order->queue_id = $request->queue_id;
         $order->game_service = $request->game_service;
         $order->games = $request->games;
-        $order->price = $request->price;
+        $order->price = $price;
 
         $order->save();
     }

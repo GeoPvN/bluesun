@@ -16,6 +16,8 @@ Route::get('/p', 'PaymentController@index');
 
 Route::get('/getOrders', 'OrdersController@index');
 
+Route::post('/getPrice', 'getPrice@index')->name('getPrice');
+
 Route::post('/division', 'divisionController@index')->name('division-get');
 
 Route::get('status', 'PaymentController@getPaymentStatus')->name('status');
@@ -28,7 +30,19 @@ Auth::routes();
 
 Route::group(['middleware' => 'admin'], function() {
 
+    //Route::get('/admin', 'adminIndexController@index')->name('admin');
+
+    // Order
+
     Route::get('/admin', 'adminIndexController@index')->name('admin');
+
+    Route::get('/admin/order/load-data', 'adminIndexController@loadTable')->name('order-load-data');
+
+    Route::get('/admin/order/edit', 'adminIndexController@edit')->name('order-edit');
+
+    Route::post('/admin/order/update', 'adminIndexController@update')->name('order-update');
+
+    Route::post('/admin/order/delete', 'adminIndexController@delete')->name('order-delete');
 
     // Users
 
@@ -126,7 +140,7 @@ Route::group(['middleware' => 'admin'], function() {
 
     Route::post('/admin/solo_price/store', 'SoloPriceController@store')->name('solo_price-store');
 
-    Route::post('/admin/solo_price/update', 'SoloriceController@update')->name('solo_price-update');
+    Route::post('/admin/solo_price/update', 'SoloPriceController@update')->name('solo_price-update');
 
     Route::post('/admin/solo_price/delete', 'SoloPriceController@delete')->name('solo_price-delete');
 
@@ -140,7 +154,7 @@ Route::group(['middleware' => 'admin'], function() {
 
     Route::post('/admin/duo_price/store', 'DuoPriceController@store')->name('duo_price-store');
 
-    Route::post('/admin/duo_price/update', 'DuoriceController@update')->name('duo_price-update');
+    Route::post('/admin/duo_price/update', 'DuoPriceController@update')->name('duo_price-update');
 
     Route::post('/admin/duo_price/delete', 'DuoPriceController@delete')->name('duo_price-delete');
 
@@ -154,7 +168,7 @@ Route::group(['middleware' => 'admin'], function() {
 
     Route::post('/admin/win_price/store', 'WinPriceController@store')->name('win_price-store');
 
-    Route::post('/admin/win_price/update', 'WinriceController@update')->name('win_price-update');
+    Route::post('/admin/win_price/update', 'WinPriceController@update')->name('win_price-update');
 
     Route::post('/admin/win_price/delete', 'WinPriceController@delete')->name('win_price-delete');
 
@@ -168,7 +182,7 @@ Route::group(['middleware' => 'admin'], function() {
 
     Route::post('/admin/service_price/store', 'ServicePriceController@store')->name('service_price-store');
 
-    Route::post('/admin/service_price/update', 'ServicericeController@update')->name('service_price-update');
+    Route::post('/admin/service_price/update', 'ServicePriceController@update')->name('service_price-update');
 
     Route::post('/admin/service_price/delete', 'ServicePriceController@delete')->name('service_price-delete');
 

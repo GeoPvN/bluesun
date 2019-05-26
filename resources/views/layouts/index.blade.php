@@ -840,12 +840,11 @@
             <div class="total">
                 <div class="price">
                     <p>Total Price</p>
-                    <h1>10.00 $</h1>
+                    <h1>0.00 $</h1>
                 </div>
                 <form method="POST" action="{!! URL::to('paypal') !!}">
                     {{ csrf_field() }}
-                        <input type="hidden" name="amount" type="text" value="10">
-                        <input type="hidden" name="type" type="text" value="coaching">
+                        <input type="hidden" name="type" id="type" type="text" value="coaching">
                         <input type="hidden" name="service" type="text" value="regular">
                         <input type="hidden" name="line" type="text" value="top">
                         <input type="hidden" name="rank" type="text" value="diamond">
@@ -858,7 +857,6 @@
                         <input type="hidden" name="queue_id" type="text" value="0">
                         <input type="hidden" name="game_service" type="text" value="solo">
                         <input type="hidden" name="games" type="text" value="1">
-                        <input type="hidden" name="price" type="text" value="10">
                     <button class="btn">PURCHASE</button></p>
                 </form>
             </div>

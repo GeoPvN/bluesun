@@ -1,14 +1,14 @@
 
 <!-- Modal -->
-<div class="modal fade" id="soloprice-dialog-edit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel-edit" aria-hidden="true" style="display: none;">
+<div class="modal fade" id="duoprice-dialog-edit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel-edit" aria-hidden="true" style="display: none;">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h4 class="modal-title" id="myModalLabel-edit">Edit Solo Price</h4>
+                <h4 class="modal-title" id="myModalLabel-edit">Edit Duo Price</h4>
             </div>
 
-            <form action="{{ URL::to('admin/solo_price/update') }}" method="POST" role="form" id="soloprice-form-edit" enctype="multipart/form-data">
+            <form action="{{ URL::to('admin/duo_price/update') }}" method="POST" role="form" id="duoprice-form-edit" enctype="multipart/form-data">
                 <input type="hidden" name="hidden_id" value="" id="hidden_id">
                 <div class="modal-body">
 
@@ -49,7 +49,7 @@
                         </div>
 
                         <div class="col-sm-12">
-                            <div class="alert alert-danger" id="soloprice-error-edit" style="display: none;">
+                            <div class="alert alert-danger" id="duoprice-error-edit" style="display: none;">
                                 <ul>
 
                                 </ul>

@@ -41,9 +41,9 @@ class SoloPriceController extends Controller
 
                 $input = $request->all();
 
-                $user = SoloPrice::create($input);
+                $soloPrice = SoloPrice::create($input);
 
-                return response($user);
+                return response($soloPrice);
 
             }
 

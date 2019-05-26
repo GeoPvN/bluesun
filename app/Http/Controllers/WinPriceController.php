@@ -2,84 +2,115 @@
 
 namespace App\Http\Controllers;
 
+use App\Leagues;
 use App\WinPrice;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class WinPriceController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        //
+
+        $winPrices = WinPrice::with('nowLeagues')->with('nowDivisions')->get();
+
+        $leagues = Leagues::all();
+
+        return view('admin.winPrice.index', compact('winPrices','leagues'));
+
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
+
+        $validator = Validator::make($request->all(),[
+
+            'now_league_id' => 'required',
+            'now_division_id' => 'required',
+            'games' => 'required',
+            'price' => 'required'
+
+        ]);
+
+        if($validator->passes())
+        {
+
+            if($request->ajax())
+            {
+
+                $input = $request->all();
+
+                $winPrice = WinPrice::create($input);
+
+                return response($winPrice);
+
+            }
+
+        }
+
+        return response()->json(['error'=>$validator->errors()->all()]);
+
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\WinPrice  $winPrice
-     * @return \Illuminate\Http\Response
-     */
-    public function show(WinPrice $winPrice)
+    public  function  update(Request $request)
     {
-        //
+
+        $winPrice = WinPrice::findOrFail($request->hidden_id);
+
+
+        $validator = Validator::make($request->all(),[
+
+            'now_league_id' => 'required',
+            'now_division_id' => 'required',
+            'games' => 'required',
+            'price' => 'required'
+
+        ]);
+
+        $input = $request->all();
+
+        if($validator->passes())
+        {
+
+            if($request->ajax()) {
+
+                $winPrice->update($input);
+
+                return response($winPrice);
+
+            }
+        }
+
+        return response()->json(['error' => $validator->errors()->all()]);
+
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\WinPrice  $winPrice
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(WinPrice $winPrice)
+    public function loadTable()
     {
-        //
+
+        $winPrices = WinPrice::with('nowLeagues')->with('nowDivisions')->get();
+
+        return response($winPrices);
+
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\WinPrice  $winPrice
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, WinPrice $winPrice)
+    public function edit(Request $request)
     {
-        //
+
+        $winPrices = WinPrice::where('id', '=', $request->id)->first();
+
+        return response()->json($winPrices);
+
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\WinPrice  $winPrice
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(WinPrice $winPrice)
+    public function delete(Request $request)
     {
-        //
+        if($request->ajax()) {
+
+            WinPrice::whereIn('id', $request->id)->delete();
+
+            return response()->json($request);
+        }
+
     }
 }

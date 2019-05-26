@@ -15,6 +15,8 @@ class CreateServicePricesTable extends Migration
     {
         Schema::create('service_prices', function (Blueprint $table) {
             $table->increments('id');
+            $table->enum('service', ['regular', 'premium'])->default('regular');
+            $table->float('price', 8, 2)->default(0);
             $table->timestamps();
         });
     }

@@ -1,13 +1,13 @@
 @extends('layouts.admin')
 
 @section('title')
-    Admin Panel - Solo Price
+    Admin Panel - Win Price
 @stop
 
 @section('content')
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header">Solo Price</h1>
+            <h1 class="page-header">Win Price</h1>
         </div>
         <!-- /.col-lg-12 -->
     </div>
@@ -17,24 +17,24 @@
         <div class="col-lg-12">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    Solo Price List (Add/Edit/Delet)
+                    Win Price List (Add/Edit/Delet)
                 </div>
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-lg-12">
 
                             <!-- Button trigger modal -->
-                            <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#soloprice-dialog">Add</button>
+                            <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#winprice-dialog">Add</button>
 
-                            <button class="btn btn-danger btn-sm" id="delete-soloprice">Delete</button>
+                            <button class="btn btn-danger btn-sm" id="delete-winprice">Delete</button>
 
-                            <button class="btn btn-success btn-sm pull-right" id="soloprice-load-data">Refresh</button>
+                            <button class="btn btn-success btn-sm pull-right" id="winprice-load-data">Refresh</button>
 
-                            @include('admin.soloprice.add')
+                            @include('admin.winprice.add')
 
-                            @include('admin.soloprice.edit')
+                            @include('admin.winprice.edit')
 
-                            @include('admin.soloprice.viwe')
+                            @include('admin.winprice.viwe')
 
                         </div>
                         <!-- /.col-lg-12 -->
@@ -59,7 +59,7 @@
     <script>
         $(document).ready(function() {
 
-            $('#soloprice-table').DataTable({
+            $('#winprice-table').DataTable({
                 responsive: true
             });
 
@@ -70,14 +70,14 @@
             });
 
             $(".modal").on("hidden.bs.modal", function(){
-                document.getElementById('soloprice-form').reset();
+                document.getElementById('winprice-form').reset();
             });
         });
 
         //------------ Load Table ----------------
-        $('#soloprice-load-data').on('click',function (e) {
+        $('#winprice-load-data').on('click',function (e) {
 
-            $.get("{{ route('solo_price-load-data') }}", function (data) {
+            $.get("{{ route('win_price-load-data') }}", function (data) {
                 $('#table-data').empty();
                 $.each(data, function (i, value) {
 
@@ -91,9 +91,7 @@
                     })).append($('<td/>', {
                         text: value.now_divisions.name
                     })).append($('<td/>', {
-                        text: value.next_leagues.name
-                    })).append($('<td/>', {
-                        text: value.next_divisions.name
+                        text: value.games
                     })).append($('<td/>', {
                         text: value.price
                     })).append($('<td/>', {
@@ -109,8 +107,8 @@
 
         });
 
-        //------------ Add Solo Price ------------------
-        $("#soloprice-form").on('submit', function(e){
+        //------------ Add Win Price ------------------
+        $("#winprice-form").on('submit', function(e){
             e.preventDefault();
             var url = $(this).attr('action');
             var post = $(this).attr('method');
@@ -128,26 +126,26 @@
                 success: function(msg){
                     if(msg.error)
                     {
-                        $('#soloprice-error ul').empty();
-                        $('#soloprice-error').css('display','block');
+                        $('#winprice-error ul').empty();
+                        $('#winprice-error').css('display','block');
                         $.each(msg.error, function (i, value) {
-                            $('#soloprice-error ul').append("<li>"+value+"</li>") ;
+                            $('#winprice-error ul').append("<li>"+value+"</li>") ;
                         })
                         //console.log(msg.error);
                     }
                     else
                     {
-                        document.getElementById('soloprice-form').reset();
-                        $('#soloprice-dialog').modal('toggle');
-                        $('#soloprice-load-data').click();
+                        document.getElementById('winprice-form').reset();
+                        $('#winprice-dialog').modal('toggle');
+                        $('#winprice-load-data').click();
                     }
 
                 }
             });
         });
 
-        //----------- Update Solo Price ------------------
-        $("#soloprice-form-edit").on('submit', function(e){
+        //----------- Update Win Price ------------------
+        $("#winprice-form-edit").on('submit', function(e){
             e.preventDefault();
             var url = $(this).attr('action');
             var post = $(this).attr('method');
@@ -165,41 +163,40 @@
                 success: function(msg){
                     if(msg.error)
                     {
-                        $('#soloprice-error-edit ul').empty();
-                        $('#soloprice-error-edit').css('display','block');
+                        $('#winprice-error-edit ul').empty();
+                        $('#winprice-error-edit').css('display','block');
                         $.each(msg.error, function (i, value) {
-                            $('#soloprice-error-edit ul').append("<li>"+value+"</li>") ;
+                            $('#winprice-error-edit ul').append("<li>"+value+"</li>") ;
                         });
                     }
                     else
                     {
-                        document.getElementById('soloprice-form-edit').reset();
-                        $('#soloprice-dialog-edit').modal('toggle');
-                        $('#soloprice-load-data').click();
+                        document.getElementById('winprice-form-edit').reset();
+                        $('#winprice-dialog-edit').modal('toggle');
+                        $('#winprice-load-data').click();
                     }
 
                 }
             });
         });
 
-        //------------ Edit Solo Price Viwe -----------------
-        $(document).on('dblclick','#soloprice-table #table-data tr',function (e) {
+        //------------ Edit Win Price Viwe -----------------
+        $(document).on('dblclick','#winprice-table #table-data tr',function (e) {
             var hidden_id = $(this).attr('id');
 
-            $.get("{{ route('solo_price-edit') }}",{id:hidden_id},function (data) {
-                $('#soloprice-dialog-edit').modal();
-                $('#soloprice-form-edit #hidden_id').val(hidden_id);
-                $('#soloprice-form-edit input[name="price"]').val(data.price);
-                $('#soloprice-form-edit select[name="now_league_id"] option[value="'+data.now_league_id+'"]').prop('selected', true);
-                $('#soloprice-form-edit select[name="now_division_id"] option[value="'+data.now_division_id+'"]').prop('selected', true);
-                $('#soloprice-form-edit select[name="next_league_id"] option[value="'+data.next_league_id+'"]').prop('selected', true);
-                $('#soloprice-form-edit select[name="next_division_id"] option[value="'+data.next_division_id+'"]').prop('selected', true);
+            $.get("{{ route('win_price-edit') }}",{id:hidden_id},function (data) {
+                $('#winprice-dialog-edit').modal();
+                $('#winprice-form-edit #hidden_id').val(hidden_id);
+                $('#winprice-form-edit input[name="price"]').val(data.price);
+                $('#winprice-form-edit input[name="games"]').val(data.games);
+                $('#winprice-form-edit select[name="now_league_id"] option[value="'+data.now_league_id+'"]').prop('selected', true);
+                $('#winprice-form-edit select[name="now_division_id"] option[value="'+data.now_division_id+'"]').prop('selected', true);
 
             })
         });
 
-        //------------ Delete Solo Price ----------------------
-        $(document).on('click','#delete-soloprice',function (e) {
+        //------------ Delete Win Price ----------------------
+        $(document).on('click','#delete-winprice',function (e) {
             if ($('input[name="delete"]').is(':checked')) {
                 var sList = [];
                 $('input[name=delete]:checked').each(function (e,v) {
@@ -208,14 +205,14 @@
                 console.log(sList)
                 $.ajax({
                     type: 'POST',
-                    url: "{{ URL::to('admin/solo_price/delete') }}",
+                    url: "{{ URL::to('admin/win_price/delete') }}",
                     data: {id:sList},
                     beforeSend: function(){
                         // $('.submitBtn').attr("disabled","disabled");
                         // $('#fupForm').css("opacity",".5");
                     },
                     success: function(msg){
-                        $('#soloprice-load-data').click();
+                        $('#winprice-load-data').click();
                     }
                 });
 

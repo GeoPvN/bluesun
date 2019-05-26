@@ -29,17 +29,31 @@ class Order extends Model
         'status'
     ];
 
-    public function league()
+    public function cleague()
     {
 
-        return $this->belongsTo('App\Leagues');
+        return $this->belongsTo('App\Leagues','now_league_id');
 
     }
 
-    public function division()
+    public function nleague()
     {
 
-        return $this->belongsTo('App\Division');
+        return $this->belongsTo('App\Leagues','next_league_id');
+
+    }
+
+    public function cdivision()
+    {
+
+        return $this->belongsTo('App\Division','now_division_id');
+
+    }
+
+    public function ndivision()
+    {
+
+        return $this->belongsTo('App\Division','next_division_id');
 
     }
 

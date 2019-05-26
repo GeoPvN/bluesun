@@ -1,30 +1,25 @@
 
 <!-- Modal -->
-<div class="modal fade" id="coachingprice-dialog-edit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel-edit" aria-hidden="true" style="display: none;">
+<div class="modal fade" id="serviceprice-dialog-edit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel-edit" aria-hidden="true" style="display: none;">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h4 class="modal-title" id="myModalLabel-edit">Edit Coaching Price</h4>
+                <h4 class="modal-title" id="myModalLabel-edit">Edit Service Price</h4>
             </div>
 
-            <form action="{{ route('coaching_price-update') }}" method="POST" role="form" id="coachingprice-form-edit" enctype="multipart/form-data">
+            <form action="{{ route('service_price-update') }}" method="POST" role="form" id="serviceprice-form-edit" enctype="multipart/form-data">
                 <input type="hidden" name="hidden_id" value="" id="hidden_id">
                 <div class="modal-body">
 
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="form-group">
-                                <label>Rank</label>
-                                <select class="form-control" name="rank" required="required">
-                                    <option value="diamond">Diamond</option>
-                                    <option value="master">Master</option>
-                                    <option value="challenger">Challenger</option>
+                                <label>Service</label>
+                                <select class="form-control" name="service" required="required">
+                                    <option value="regular">Regular</option>
+                                    <option value="premium">Premium</option>
                                 </select>
-                            </div>
-                            <div class="form-group">
-                                <label>Hours</label>
-                                <input type="number" name="hours" class="form-control" placeholder="Enter hours" required="required">
                             </div>
                             <div class="form-group">
                                 <label>Price</label>
@@ -33,7 +28,7 @@
                         </div>
 
                         <div class="col-sm-12">
-                            <div class="alert alert-danger" id="coachingprice-error-edit" style="display: none;">
+                            <div class="alert alert-danger" id="serviceprice-error-edit" style="display: none;">
                                 <ul>
 
                                 </ul>

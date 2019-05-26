@@ -17,10 +17,10 @@
         @foreach($soloPrices as $soloPrice)
             <tr id="{{ $soloPrice->id }}">
                 <td>{{ $soloPrice->id }}</td>
-                <td>{{ $soloPrice->now_leagues }}</td>
-                <td>{{ $soloPrice->now_divisions }}</td>
-                <td>{{ $soloPrice->next_leagues }}</td>
-                <td>{{ $soloPrice->next_divisions }}</td>
+                <td>{{ $soloPrice->nowLeagues->name }}</td>
+                <td>{{ $soloPrice->nowDivisions->name }}</td>
+                <td>{{ $soloPrice->nextLeagues->name }}</td>
+                <td>{{ $soloPrice->nextDivisions->name }}</td>
                 <td>{{ $soloPrice->price }}</td>
                 <td>{{ $soloPrice->created_at }}</td>
                 <td>{{ $soloPrice->updated_at }}</td>

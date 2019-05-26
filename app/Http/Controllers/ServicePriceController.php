@@ -4,82 +4,106 @@ namespace App\Http\Controllers;
 
 use App\ServicePrice;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class ServicePriceController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        //
+
+        $servicePrices = ServicePrice::all();
+
+        return view('admin.servicePrice.index', compact('servicePrices'));
+
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
+
+        $validator = Validator::make($request->all(),[
+
+            'price' => 'required|string',
+            'service' => 'required|string'
+
+        ]);
+
+        if($validator->passes())
+        {
+
+            if($request->ajax())
+            {
+
+                $input = $request->all();
+
+                $user = ServicePrice::create($input);
+
+                return response($user);
+
+            }
+
+        }
+
+        return response()->json(['error'=>$validator->errors()->all()]);
+
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\ServicePrice  $servicePrice
-     * @return \Illuminate\Http\Response
-     */
-    public function show(ServicePrice $servicePrice)
+    public  function  update(Request $request)
     {
-        //
+
+        $servicePrice = ServicePrice::findOrFail($request->hidden_id);
+
+
+        $validator = Validator::make($request->all(),[
+
+            'price' => 'required|string',
+            'service' => 'required|string'
+
+        ]);
+
+        $input = $request->all();
+
+        if($validator->passes())
+        {
+
+            if($request->ajax()) {
+
+                $servicePrice->update($input);
+
+                return response($servicePrice);
+
+            }
+        }
+
+        return response()->json(['error' => $validator->errors()->all()]);
+
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\ServicePrice  $servicePrice
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(ServicePrice $servicePrice)
+    public function loadTable()
     {
-        //
+
+        $servicePrice = ServicePrice::orderBy('id','desc')->get();
+
+        return response($servicePrice);
+
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\ServicePrice  $servicePrice
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, ServicePrice $servicePrice)
+    public function edit(Request $request)
     {
-        //
+
+        $servicePrice = ServicePrice::where('id', '=', $request->id)->first();
+
+        return response()->json($servicePrice);
+
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\ServicePrice  $servicePrice
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(ServicePrice $servicePrice)
+    public function delete(Request $request)
     {
-        //
+        if($request->ajax()) {
+
+            ServicePrice::whereIn('id', $request->id)->delete();
+
+            return response()->json($request);
+        }
+
     }
 }

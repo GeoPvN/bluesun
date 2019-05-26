@@ -254,7 +254,7 @@ $(document).on('click','#league-l .option',function () {
             });
 
             $('#league-d .options').html(option);
-
+            getPrice();
             refresh_token();
         },
         error: function (error) {
@@ -270,6 +270,7 @@ $(document).on('click','#league-d .option',function () {
     $('input[name="now_division_id"]').val(division_id);
     var url = $('#url').val();
     $('#league-i img').attr('src',url+'/'+photo);
+    getPrice();
 });
 
 $(document).on('click','#league-l-n .option',function () {
@@ -289,7 +290,7 @@ $(document).on('click','#league-l-n .option',function () {
             });
 
             $('#league-d-n .options').html(option);
-
+            getPrice();
             refresh_token();
         },
         error: function (error) {
@@ -305,6 +306,7 @@ $(document).on('click','#league-d-n .option',function () {
     $('input[name="next_division_id"]').val(division_id);
     var url = $('#url').val();
     $('#league-i-n img').attr('src',url+'/'+photo);
+    getPrice();
 });
 
 // duo
@@ -326,7 +328,7 @@ $(document).on('click','#duo-l .option',function () {
             });
 
             $('#duo-d .options').html(option);
-
+            getPrice();
             refresh_token();
         },
         error: function (error) {
@@ -342,6 +344,7 @@ $(document).on('click','#duo-d .option',function () {
     $('input[name="now_division_id"]').val(division_id);
     var url = $('#url').val();
     $('#duo-i img').attr('src',url+'/'+photo);
+    getPrice();
 });
 
 $(document).on('click','#duo-l-n .option',function () {
@@ -361,7 +364,7 @@ $(document).on('click','#duo-l-n .option',function () {
             });
 
             $('#duo-d-n .options').html(option);
-
+            getPrice();
             refresh_token();
         },
         error: function (error) {
@@ -377,6 +380,7 @@ $(document).on('click','#duo-d-n .option',function () {
     $('input[name="next_division_id"]').val(division_id);
     var url = $('#url').val();
     $('#duo-i-n img').attr('src',url+'/'+photo);
+    getPrice();
 });
 
 // win
@@ -398,7 +402,7 @@ $(document).on('click','#win-l .option',function () {
             });
 
             $('#win-d .options').html(option);
-
+            getPrice();
             refresh_token();
         },
         error: function (error) {
@@ -414,27 +418,33 @@ $(document).on('click','#win-d .option',function () {
     $('input[name="now_division_id"]').val(division_id);
     var url = $('#url').val();
     $('#win-i img').attr('src',url+'/'+photo);
+    getPrice();
 });
 
 
 $(document).on('click','.boosts ul li',function () {
     $('input[name="type"]').val($(this).data('value'));
+    getPrice();
 });
 
 $(document).on('click','.serv div',function () {
     $('input[name="service"]').val($(this).data('value'));
+    getPrice();
 });
 
 $(document).on('click','.server .options div',function () {
     $('input[name="server_id"]').val($(this).attr('value'));
+    getPrice();
 });
 
 $(document).on('click','.queue .options div',function () {
     $('input[name="queue_id"]').val($(this).attr('value'));
+    getPrice();
 });
 
 $(document).on('click','.game_service .options div',function () {
     $('input[name="game_service"]').val($(this).attr('value'));
+    getPrice();
 });
 
 $(document).on('click','.line div',function () {
@@ -445,10 +455,12 @@ $(document).on('click','.line div',function () {
     if($('.line div').eq(3).hasClass( "active" )) {data += ',adc'}
     if($('.line div').eq(4).hasClass( "active" )) {data += ',support'}
     $('input[name="line"]').val(data);
+    getPrice();
 });
 
 $(document).on('click','.rank div',function () {
     $('input[name="rank"]').val($(this).data('value'));
+    getPrice();
 });
 
 function refresh_token(){
@@ -497,6 +509,45 @@ function getOrders() {
                 $('.my-orders table tbody').append(tr);
 
             });
+
+            refresh_token();
+        },
+        error: function (error) {
+            console.log(error);
+            refresh_token();
+        }
+    });
+}
+
+function getPrice(){
+    var type = $('input[name="type"]').val();
+    var service = $('input[name="service"]').val();
+    var rank = $('input[name="rank"]').val();
+    var hours = $('input[name="hours"]').val();
+    var now_league_id = $('input[name="now_league_id"]').val();
+    var now_division_id = $('input[name="now_division_id"]').val();
+    var next_league_id = $('input[name="next_league_id"]').val();
+    var next_division_id = $('input[name="next_division_id"]').val();
+    var games = $('input[name="games"]').val();
+
+    $.ajax({
+        method: "POST",
+        url: "getPrice",
+        data: { type: type,
+            service: service,
+            rank: rank,
+            hours: hours,
+            now_league_id: now_league_id,
+            now_division_id: now_division_id,
+            next_league_id: next_league_id,
+            next_division_id: next_division_id,
+            games: games
+        },
+        dataType: 'JSON',
+        headers: { 'X-CSRF-TOKEN': $('[name="csrf-token"]').attr('content') },
+        success: function(msg){
+            console.log(msg);
+            $('.price h1').html(parseFloat(msg).toFixed(2)+ ' $');
 
             refresh_token();
         },

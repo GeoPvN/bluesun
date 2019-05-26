@@ -1,6 +1,6 @@
 
 <!-- Modal -->
-<div class="modal fade" id="soloprice-dialog-edit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel-edit" aria-hidden="true" style="display: none;">
+<div class="modal fade" id="winprice-dialog-edit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel-edit" aria-hidden="true" style="display: none;">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -8,7 +8,7 @@
                 <h4 class="modal-title" id="myModalLabel-edit">Edit Solo Price</h4>
             </div>
 
-            <form action="{{ URL::to('admin/solo_price/update') }}" method="POST" role="form" id="soloprice-form-edit" enctype="multipart/form-data">
+            <form action="{{ URL::to('admin/win_price/update') }}" method="POST" role="form" id="winprice-form-edit" enctype="multipart/form-data">
                 <input type="hidden" name="hidden_id" value="" id="hidden_id">
                 <div class="modal-body">
 
@@ -29,27 +29,17 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label>Next League</label>
-                                <select class="form-control next_league_id" name="next_league_id" required="required">
-                                    @foreach($leagues as $league)
-                                        <option value="{{ $league["id"] }}">{{ $league{"name"} }}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label>Next Division</label>
-                                <select class="form-control next_division_id" name="next_division_id" required="required">
-                                    <option value="0">First Chosse Next League</option>
-                                </select>
+                                <label>Games</label>
+                                <input type="number" name="games" class="form-control" placeholder="Enter games" required="required">
                             </div>
                             <div class="form-group">
                                 <label>Price</label>
-                                <input type="float" name="price" class="form-control" placeholder="Enter price" required="required">
+                                <input type="text" name="price" class="form-control" placeholder="Enter price" required="required">
                             </div>
                         </div>
 
                         <div class="col-sm-12">
-                            <div class="alert alert-danger" id="soloprice-error-edit" style="display: none;">
+                            <div class="alert alert-danger" id="winprice-error-edit" style="display: none;">
                                 <ul>
 
                                 </ul>
