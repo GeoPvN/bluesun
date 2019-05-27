@@ -66,7 +66,7 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
 
-        $active_url = Hash::make(rand(10000000,99999999));
+        $active_url = sha1(rand(10000000,99999999));
 
         $data_v = array(
             'name'      => $data['name'],

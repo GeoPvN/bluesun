@@ -53,7 +53,7 @@ class PaymentController extends Controller
 
         if(!$servicePrice){
             \Session::put('error', 'Chack all selector!');
-            return Redirect::route('paywithpaypal');
+            return Redirect::route('/');
         }
 
         if($request->type == 'coaching')
@@ -64,14 +64,14 @@ class PaymentController extends Controller
 
             if(!$coachingPrice){
                 \Session::put('error', 'Chack all selector!');
-                return Redirect::route('paywithpaypal');
+                return Redirect::route('/');
             }
 
             $price = $coachingPrice->price + ($coachingPrice->price * $servicePrice->price / 100);
 
             if($price == 0){
                 \Session::put('error', 'Chack all selector!');
-                return Redirect::route('paywithpaypal');
+                return Redirect::route('/');
             }
         }
         else if($request->type == 'solo')
@@ -84,14 +84,14 @@ class PaymentController extends Controller
 
             if(!$soloPrice){
                 \Session::put('error', 'Chack all selector!');
-                return Redirect::route('paywithpaypal');
+                return Redirect::route('/');
             }
 
             $price = $soloPrice->price + ($soloPrice->price * $servicePrice->price / 100);
 
             if($price == 0){
                 \Session::put('error', 'Chack all selector!');
-                return Redirect::route('paywithpaypal');
+                return Redirect::route('/');
             }
         }
         else if($request->type == 'duo')
@@ -104,14 +104,14 @@ class PaymentController extends Controller
 
             if(!$duoPrice){
                 \Session::put('error', 'Chack all selector!');
-                return Redirect::route('paywithpaypal');
+                return Redirect::route('/');
             }
 
             $price = $duoPrice->price + ($duoPrice->price * $servicePrice->price / 100);
 
             if($price == 0){
                 \Session::put('error', 'Chack all selector!');
-                return Redirect::route('paywithpaypal');
+                return Redirect::route('/');
             }
         }
         else if($request->type == 'win')
@@ -123,14 +123,14 @@ class PaymentController extends Controller
 
             if(!$winPrice){
                 \Session::put('error', 'Chack all selector!');
-                return Redirect::route('paywithpaypal');
+                return Redirect::route('/');
             }
 
             $price = $winPrice->price + ($winPrice->price * $servicePrice->price / 100);
 
             if($price == 0){
                 \Session::put('error', 'Chack all selector!');
-                return Redirect::route('paywithpaypal');
+                return Redirect::route('/');
             }
         }
 
