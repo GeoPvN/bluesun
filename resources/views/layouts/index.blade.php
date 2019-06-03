@@ -330,6 +330,7 @@
                     <li><a href='#' class='fab fa-facebook-f'></a></li>
                     <li><a href='#' class='fab fa-instagram'></a></li>
                     <li><a href='#' class='fab fa-youtube'></a></li>
+                    <li><a href='#' class='fab fa-discord'></a></li>
                 </ul>
             </div>
             <div class='container'>
@@ -407,13 +408,13 @@
                                         <img class='icon' src="https://eloboost24.eu/images/pages/boosting/duo_opt_regular.png">
                                         <span>TOP</span>
                                     </div>
-                                    <div class="service" data-value="mid">
-                                        <img class='icon' src="https://eloboost24.eu/images/pages/boosting/duo_opt_regular.png">
-                                        <span>MID</span>
-                                    </div>
                                     <div class="service" data-value="jungle">
                                         <img class='icon' src="https://eloboost24.eu/images/pages/boosting/duo_opt_regular.png">
                                         <span>JUNGLE</span>
+                                    </div>
+                                    <div class="service" data-value="mid">
+                                        <img class='icon' src="https://eloboost24.eu/images/pages/boosting/duo_opt_regular.png">
+                                        <span>MID</span>
                                     </div>
                                     <div class="service" data-value="adc">
                                         <img class='icon' src="https://eloboost24.eu/images/pages/boosting/duo_opt_regular.png">
@@ -893,7 +894,7 @@
 
     <section id='faq'>
         <div class='middle'>
-            <h1 class='wow fadeInDown' data-wow-delay='0.2s'>Faq</h1>
+            <h1 class='wow fadeInDown' data-wow-delay='0.2s'>FAQ</h1>
 
             <div class='faq-wrapper'>
                 <ul class='wow fadeInUp' data-wow-delay='0.7s'>
