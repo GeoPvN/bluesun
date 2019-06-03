@@ -12,7 +12,7 @@ class adminIndexController extends Controller
     public function index()
     {
 
-        $order = Order::orderBy('id', 'desc')->get();
+        $order = Order::with('user')->orderBy('id', 'desc')->get();
 
         return view('admin.index', compact( 'order'));
 
@@ -49,7 +49,7 @@ class adminIndexController extends Controller
     public function loadTable()
     {
 
-        $order = Order::orderBy('id','desc')->get();
+        $order = Order::with('user')->orderBy('id','desc')->get();
 
         return response($order);
 
@@ -59,6 +59,7 @@ class adminIndexController extends Controller
     {
 
         $order = Order::where('id', '=', $request->id)
+            ->with('user')
             ->with('nleague')
             ->with('cleague')
             ->with('ndivision')

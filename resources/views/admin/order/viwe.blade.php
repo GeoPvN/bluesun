@@ -3,6 +3,8 @@
         <thead>
         <tr>
             <th>ID</th>
+            <th>Summoner Name</th>
+            <th>E-mail</th>
             <th>Type</th>
             <th>Service</th>
             <th>Price</th>
@@ -16,6 +18,8 @@
         @foreach($order as $o)
             <tr id="{{ $o->id }}">
                 <td>{{ $o->id }}</td>
+                <td>{{ $o->user->name }}</td>
+                <td>{{ $o->user->email }}</td>
                 <td>{{ $o->type }}</td>
                 <td>{{ $o->service }}</td>
                 <td>{{ $o->price }}</td>

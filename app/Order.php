@@ -70,4 +70,11 @@ class Order extends Model
         return $this->belongsTo('App\Queue');
 
     }
+
+    public function user()
+    {
+
+        return $this->belongsTo('App\User');
+
+    }
 }

@@ -15,6 +15,18 @@
 
                         <div class="col-sm-6">
                             <div class="form-group">
+                                <label>Summoner Name</label>
+                                <input type="text" name="name" class="form-control" disabled="disabled">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>E-mail</label>
+                                <input type="text" name="email" class="form-control" disabled="disabled">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
                                 <label>Type</label>
                                 <input type="hidden" name="hidden_id" value="" id="hidden_id">
                                 <input type="text" name="type" class="form-control" disabled="disabled">

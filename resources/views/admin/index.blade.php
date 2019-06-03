@@ -23,9 +23,8 @@
                         <div class="col-lg-12">
 
                             <!-- Button trigger modal -->
-                            <button class="btn btn-danger btn-sm" id="delete-order">Delete</button>
 
-                            <button class="btn btn-success btn-sm pull-right" id="order-load-data">Refresh</button>
+                            <button class="btn btn-success btn-sm" id="order-load-data">Refresh</button>
 
                             @include('admin.order.edit')
 
@@ -81,6 +80,10 @@
                     });
                     tr.append($('<td/>',{
                         text : value.id
+                    })).append($('<td/>',{
+                        text : value.user.name
+                    })).append($('<td/>',{
+                        text : value.user.email
                     })).append($('<td/>',{
                         text : value.type
                     })).append($('<td/>',{
@@ -157,6 +160,8 @@
                 $('#order-form-edit #hidden_id').val(hidden_id);
                 $('#order-form-edit input[name="type"]').val(data.type);
                 $('#order-form-edit input[name="service"]').val(data.service);
+                $('#order-form-edit input[name="name"]').val(data.user.name);
+                $('#order-form-edit input[name="email"]').val(data.user.email);
                 if(data.server != null){
                     $('#order-form-edit input[name="server"]').val(data.server.name);
                 }
