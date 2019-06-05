@@ -82,6 +82,10 @@ body {
     font-size: 14 * $rem;
     overflow: hidden;
     position: relative;
+
+    &.hidden {
+        overflow: hidden !important;
+    }
 }
 
 $btnColor: linear-gradient(90deg, #0072ff 0%, #00d4ff 100%);
@@ -1180,19 +1184,19 @@ section {
 
     .social {
         position: fixed;
-        width: 70 * $rem;
-        background: rgba(0, 0, 0, 0.24);
+        display: flex;
+        align-items: center;
+        height: 100%;
         left: 0;
         top: 0;
-        bottom: 0;
-        height: 210 * $rem;
-        margin: auto;
         z-index: 9;
-        box-shadow: 0 0 20 * $rem rgba(0, 0, 0, .1);
-        border: 1 * $rem solid rgba(255, 255, 255, 0.05);
-        border-left: 0;
-
+        
         ul {
+            background: rgba(0, 0, 0, 0.24);
+            box-shadow: 0 0 20 * $rem rgba(0, 0, 0, .1);
+            border: 1 * $rem solid rgba(255, 255, 255, 0.05);
+            border-left: 0;
+
             li {
                 transition: background 0.3s, color 0.3s;
 
@@ -1226,6 +1230,12 @@ section {
 
                 &:nth-child(3):hover {
                     $color: #cd201f;
+                    background: $color;
+                    color: #fff;
+                }
+
+                &:nth-child(4):hover {
+                    $color: #7289da;
                     background: $color;
                     color: #fff;
                 }
@@ -1507,6 +1517,7 @@ section {
                                     position: absolute;
                                     bottom: 5 * $rem;
                                     left: 5 * $rem;
+                                    height: 52 * $rem;
                                 }
 
                                 span {
@@ -2026,7 +2037,7 @@ section {
 .scroll-top {
     position: fixed;
     right: 110 * $rem;
-    bottom: 100 * $rem;
+    bottom: 8.25rem;
     width: 40 * $rem;
     height: 40 * $rem;
     line-height: 40 * $rem;
@@ -2054,12 +2065,11 @@ section {
 footer {
     padding: 30 * $rem 0;
     box-sizing: border-box;
-    position: absolute;
-    bottom: 0;
     width: 100%;
-    background: rgba(255, 255, 255, 0.05);
     box-shadow: 0 0 12 * $rem rgba(255, 255, 255, 0.3);
-    color: #fff;
+    background: #fff;
+    position: unset;
+    color: #777;
 
 
     .middle {
@@ -2071,37 +2081,77 @@ footer {
             font-family: 'Roboto-Medium';
         }
 
-        ul {
-            display: flex;
+        .social-resp {
+            display: none;
+            margin: 20 * $rem 0;
 
-            li {
+            ul {
                 display: flex;
-                align-items: center;
+                flex-direction: row;
 
-                &:not(:last-child) {
-                    margin-right: 40 * $rem;
+                li {    
+                    &:first-child {
+                        $color: #3b5999;
+                        color: $color;
+                    }
+    
+                    &:nth-child(2) {
+                        $color: #e4405f;
+                        color: $color;
+                    }
+    
+                    &:nth-child(3) {
+                        $color: #cd201f;
+                        color: $color;
+                    }
+    
+                    &:nth-child(4) {
+                        $color: #7289da;
+                        color: $color;
+                    }
+
+                    a {
+                        padding: 20 * $rem;
+                        display: block;
+                        font-size: 32 * $rem;
+                    }
                 }
+            }
+        }
 
-                i {
-                    $size: 40 * $rem;
-                    height: $size;
-                    width: $size;
+        .inf {
+            ul {
+                display: flex;
+    
+                li {
                     display: flex;
-                    float: left;
-                    color: #fff;
-                    justify-content: center;
                     align-items: center;
-                    border-radius: 10 * $rem;
-                    background: $btnColor;
-                    margin-right: 10 * $rem;
-                }
-
-                a {
-                    float: left;
-                    font-family: 'Roboto-Medium';
-
-                    &:hover {
-                        text-decoration: underline;
+    
+                    &:not(:last-child) {
+                        margin-right: 40 * $rem;
+                    }
+    
+                    i {
+                        $size: 40 * $rem;
+                        height: $size;
+                        width: $size;
+                        display: flex;
+                        float: left;
+                        color: #fff;
+                        justify-content: center;
+                        align-items: center;
+                        border-radius: 10 * $rem;
+                        background: $btnColor;
+                        margin-right: 10 * $rem;
+                    }
+    
+                    a {
+                        float: left;
+                        font-family: 'Roboto-Medium';
+    
+                        &:hover {
+                            text-decoration: underline;
+                        }
                     }
                 }
             }
@@ -2329,10 +2379,6 @@ footer {
 
     footer .middle {
         flex-direction: column-reverse;
-
-        p {
-            margin-top: 30 * $rem;
-        }
     }
 
     #service {
@@ -2427,9 +2473,15 @@ footer {
             width: 100%;
         }
     } 
+
+    footer {
+        .social-resp {
+            display: block !important;
+        }
+    }
     
     .scroll-top {
-        display: none;
+        display: none !important;
     }
 }
 
@@ -2447,17 +2499,19 @@ footer {
 
         .middle {
             
-            ul {
-                flex-wrap: wrap;
-                align-items: center;
-                justify-content: space-between;
-                
-                li {
-                    margin-top: 30 * $rem;
-
-                    &:last-child {
-                        margin-left: auto;
-                        margin-right: auto;
+            .inf {
+                ul {
+                    flex-wrap: wrap;
+                    align-items: center;
+                    justify-content: space-between;
+                    
+                    li {
+                        margin-top: 30 * $rem;
+    
+                        &:last-child {
+                            margin-left: auto;
+                            margin-right: auto;
+                        }
                     }
                 }
             }
@@ -2506,12 +2560,14 @@ footer {
 
         .middle {
             
-            ul {
-                flex-direction: column;
-            
-                li {
-                    margin-left: auto;
-                    margin-right: auto !important;
+            .inf {
+                ul {
+                    flex-direction: column;
+                
+                    li {
+                        margin-left: auto;
+                        margin-right: auto !important;
+                    }
                 }
             }
         }

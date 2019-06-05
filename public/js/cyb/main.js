@@ -65,6 +65,7 @@ void function Init() {
 
             if ( $(this).hasClass('toggle') ) {
                 $('.right').addClass('visible')
+                $('body').addClass('hidden')
             } else {
                 $('.right').removeClass('visible')
             }
@@ -74,6 +75,7 @@ void function Init() {
             if(window.innerWidth <= 970) {
                 $('header .menu-icon').removeClass('toggle white')
                 $('.right').removeClass('visible')
+                $('body').removeClass('hidden')
             }
         })
 
@@ -234,7 +236,7 @@ void function Init() {
     void function copyright() {
         var host = window.location.host;
         var year = new Date().getFullYear();
-        $('.copyright').html(`&copy; ${year} ${host}`)
+        $('.copyright').html(`&copy; Copyright ${year} ${host}, All Rights Reserved!`)
     }()
 
     new WOW().init()

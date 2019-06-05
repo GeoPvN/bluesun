@@ -74,6 +74,9 @@ body {
   overflow: hidden;
   position: relative;
 }
+body.hidden {
+  overflow: hidden !important;
+}
 
 body.preloader-site {
   overflow: hidden;
@@ -994,14 +997,15 @@ section h1 {
 }
 section .social {
   position: fixed;
-  width: 4.375rem;
-  background: rgba(0, 0, 0, 0.24);
+  display: flex;
+  align-items: center;
+  height: 100%;
   left: 0;
   top: 0;
-  bottom: 0;
-  height: 13.125rem;
-  margin: auto;
   z-index: 9;
+}
+section .social ul {
+  background: rgba(0, 0, 0, 0.24);
   box-shadow: 0 0 1.25rem rgba(0, 0, 0, 0.1);
   border: 0.0625rem solid rgba(255, 255, 255, 0.05);
   border-left: 0;
@@ -1033,6 +1037,10 @@ section .social ul li:nth-child(2):hover {
 }
 section .social ul li:nth-child(3):hover {
   background: #cd201f;
+  color: #fff;
+}
+section .social ul li:nth-child(4):hover {
+  background: #7289da;
   color: #fff;
 }
 section .middle {
@@ -1270,6 +1278,7 @@ section .middle {
   position: absolute;
   bottom: 0.3125rem;
   left: 0.3125rem;
+  height: 3.25rem;
 }
 #service .league-service .choose ul > li.type-of-service .services-wrapper .service span {
   font-family: "Roboto-Medium";
@@ -1682,7 +1691,7 @@ section .middle {
 .scroll-top {
   position: fixed;
   right: 6.875rem;
-  bottom: 6.25rem;
+  bottom: 8.25rem;
   width: 2.5rem;
   height: 2.5rem;
   line-height: 2.5rem;
@@ -1708,12 +1717,11 @@ section .middle {
 footer {
   padding: 1.875rem 0;
   box-sizing: border-box;
-  position: absolute;
-  bottom: 0;
   width: 100%;
-  background: rgba(255, 255, 255, 0.05);
   box-shadow: 0 0 0.75rem rgba(255, 255, 255, 0.3);
-  color: #fff;
+  background: #fff;
+  position: unset;
+  color: #777;
 }
 footer .middle {
   display: flex;
@@ -1723,17 +1731,42 @@ footer .middle {
 footer .middle p {
   font-family: "Roboto-Medium";
 }
-footer .middle ul {
+footer .middle .social-resp {
+  display: none;
+  margin: 1.25rem 0;
+}
+footer .middle .social-resp ul {
+  display: flex;
+  flex-direction: row;
+}
+footer .middle .social-resp ul li:first-child {
+  color: #3b5999;
+}
+footer .middle .social-resp ul li:nth-child(2) {
+  color: #e4405f;
+}
+footer .middle .social-resp ul li:nth-child(3) {
+  color: #cd201f;
+}
+footer .middle .social-resp ul li:nth-child(4) {
+  color: #7289da;
+}
+footer .middle .social-resp ul li a {
+  padding: 1.25rem;
+  display: block;
+  font-size: 2rem;
+}
+footer .middle .inf ul {
   display: flex;
 }
-footer .middle ul li {
+footer .middle .inf ul li {
   display: flex;
   align-items: center;
 }
-footer .middle ul li:not(:last-child) {
+footer .middle .inf ul li:not(:last-child) {
   margin-right: 2.5rem;
 }
-footer .middle ul li i {
+footer .middle .inf ul li i {
   height: 2.5rem;
   width: 2.5rem;
   display: flex;
@@ -1745,11 +1778,11 @@ footer .middle ul li i {
   background: linear-gradient(90deg, #0072ff 0%, #00d4ff 100%);
   margin-right: 0.625rem;
 }
-footer .middle ul li a {
+footer .middle .inf ul li a {
   float: left;
   font-family: "Roboto-Medium";
 }
-footer .middle ul li a:hover {
+footer .middle .inf ul li a:hover {
   text-decoration: underline;
 }
 
@@ -1913,9 +1946,6 @@ footer .middle ul li a:hover {
   footer .middle {
     flex-direction: column-reverse;
   }
-  footer .middle p {
-    margin-top: 1.875rem;
-  }
 
   #service .league-service .choose ul {
     justify-content: space-between;
@@ -1954,8 +1984,12 @@ footer .middle ul li a:hover {
     width: 100%;
   }
 
+  footer .social-resp {
+    display: block !important;
+  }
+
   .scroll-top {
-    display: none;
+    display: none !important;
   }
 }
 @media screen and (max-width: 620px) {
@@ -1970,15 +2004,15 @@ footer .middle ul li a:hover {
     position: unset;
     color: #777;
   }
-  footer .middle ul {
+  footer .middle .inf ul {
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
   }
-  footer .middle ul li {
+  footer .middle .inf ul li {
     margin-top: 1.875rem;
   }
-  footer .middle ul li:last-child {
+  footer .middle .inf ul li:last-child {
     margin-left: auto;
     margin-right: auto;
   }
@@ -2012,10 +2046,10 @@ footer .middle ul li a:hover {
     margin: 0.625rem 0;
   }
 
-  footer .middle ul {
+  footer .middle .inf ul {
     flex-direction: column;
   }
-  footer .middle ul li {
+  footer .middle .inf ul li {
     margin-left: auto;
     margin-right: auto !important;
   }

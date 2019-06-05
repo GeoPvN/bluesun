@@ -327,10 +327,10 @@
         <div class='middle'>
             <div class='social wow fadeInLeft' data-wow-delay='2s'>
                 <ul>
-                    <li><a href='#' class='fab fa-facebook-f'></a></li>
-                    <li><a href='#' class='fab fa-instagram'></a></li>
-                    <li><a href='#' class='fab fa-youtube'></a></li>
-                    <li><a href='#' class='fab fa-discord'></a></li>
+                    <li><a target="_blank" href='#' class='fab fa-facebook-f'></a></li>
+                    <li><a target="_blank" href='#' class='fab fa-instagram'></a></li>
+                    <li><a target="_blank" href='#' class='fab fa-youtube'></a></li>
+                    <li><a target="_blank" href='#' class='fab fa-discord'></a></li>
                 </ul>
             </div>
             <div class='container'>
@@ -390,11 +390,11 @@
                                 
                                 <div class="services-wrapper serv">
                                     <div class="service active" data-value="regular">
-                                        <img class='icon' src="https://eloboost24.eu/images/pages/boosting/duo_opt_regular.png">
+                                        <img class='icon' src="{{ asset('css/assets/images/regular.png') }}">
                                         <span>REGULAR</span>
                                     </div>
                                     <div class="service" data-value="premium">
-                                        <img class='icon' src="https://eloboost24.eu/images/pages/boosting/duo_opt_regular.png">
+                                        <img class='icon' src="{{ asset('css/assets/images/premium.png') }}">
                                         <span>PREMIUM</span>
                                     </div>
                                 </div>
@@ -405,23 +405,23 @@
                                 
                                 <div class="services-wrapper line">
                                     <div class="service active" data-value="top">
-                                        <img class='icon' src="https://eloboost24.eu/images/pages/boosting/duo_opt_regular.png">
+                                        <img class='icon' src="{{ asset('css/assets/images/top.png') }}">
                                         <span>TOP</span>
                                     </div>
                                     <div class="service" data-value="jungle">
-                                        <img class='icon' src="https://eloboost24.eu/images/pages/boosting/duo_opt_regular.png">
+                                        <img class='icon' src="{{ asset('css/assets/images/jungle.png') }}">
                                         <span>JUNGLE</span>
                                     </div>
                                     <div class="service" data-value="mid">
-                                        <img class='icon' src="https://eloboost24.eu/images/pages/boosting/duo_opt_regular.png">
+                                        <img class='icon' src="{{ asset('css/assets/images/mid.png') }}">
                                         <span>MID</span>
                                     </div>
                                     <div class="service" data-value="adc">
-                                        <img class='icon' src="https://eloboost24.eu/images/pages/boosting/duo_opt_regular.png">
+                                        <img class='icon' src="{{ asset('css/assets/images/adc.png') }}">
                                         <span>ADC</span>
                                     </div>
                                     <div class="service" data-value="support">
-                                        <img class='icon' src="https://eloboost24.eu/images/pages/boosting/duo_opt_regular.png">
+                                        <img class='icon' src="{{ asset('css/assets/images/support.png') }}">
                                         <span>SUPPORT</span>
                                     </div>
                                 </div>
@@ -432,15 +432,15 @@
                                 
                                 <div class="services-wrapper rank">
                                     <div class="service active" data-value="diamond">
-                                        <img class='icon' src="https://eloboost24.eu/images/pages/boosting/duo_opt_regular.png">
+                                        <img class='icon' src="{{ asset('css/assets/images/diamond.png') }}">
                                         <span>DIAMOND</span>
                                     </div>
                                     <div class="service" data-value="master">
-                                        <img class='icon' src="https://eloboost24.eu/images/pages/boosting/duo_opt_regular.png">
+                                        <img class='icon' src="{{ asset('css/assets/images/master.png') }}">
                                         <span>MASTER</span>
                                     </div>
                                     <div class="service" data-value="challenger">
-                                        <img class='icon' src="https://eloboost24.eu/images/pages/boosting/duo_opt_regular.png">
+                                        <img class='icon' src="{{ asset('css/assets/images/challenger.png') }}">
                                         <span>CHALLENGER</span>
                                     </div>
                                 </div>
@@ -584,11 +584,11 @@
                                 
                                 <div class="services-wrapper serv">
                                     <div class="service active" data-value="regular">
-                                        <img class='icon' src="https://eloboost24.eu/images/pages/boosting/duo_opt_regular.png">
+                                        <img class='icon' src="{{ asset('css/assets/images/regular.png') }}">
                                         <span>REGULAR</span>
                                     </div>
                                     <div class="service" data-value="premium">
-                                        <img class='icon' src="https://eloboost24.eu/images/pages/boosting/duo_opt_regular.png">
+                                        <img class='icon' src="{{ asset('css/assets/images/premium.png') }}">
                                         <span>PREMIUM</span>
                                     </div>
                                 </div>
@@ -707,11 +707,11 @@
                                 
                                 <div class="services-wrapper serv">
                                     <div class="service active" data-value="regular">
-                                        <img class='icon' src="https://eloboost24.eu/images/pages/boosting/duo_opt_regular.png">
+                                        <img class='icon' src="{{ asset('css/assets/images/regular.png') }}">
                                         <span>REGULAR</span>
                                     </div>
                                     <div class="service" data-value="premium">
-                                        <img class='icon' src="https://eloboost24.eu/images/pages/boosting/duo_opt_regular.png">
+                                        <img class='icon' src="{{ asset('css/assets/images/premium.png') }}">
                                         <span>PREMIUM</span>
                                     </div>
                                 </div>
@@ -815,11 +815,11 @@
                                 <div class='name'><span>5</span>TYPE OF SERVICE</div>
                                 <div class="services-wrapper serv">
                                     <div class="service active" data-value="regular">
-                                        <img class='icon' src="https://eloboost24.eu/images/pages/boosting/duo_opt_regular.png">
+                                        <img class='icon' src="{{ asset('css/assets/images/regular.png') }}">
                                         <span>REGULAR</span>
                                     </div>
                                     <div class="service" data-value="premium">
-                                        <img class='icon' src="https://eloboost24.eu/images/pages/boosting/duo_opt_regular.png">
+                                        <img class='icon' src="{{ asset('css/assets/images/premium.png') }}">
                                         <span>PREMIUM</span>
                                     </div>
                                 </div>
@@ -959,11 +959,19 @@
 <footer>
     <div class='middle'>
         <p class='copyright'></p>
-        <ul>
-            <li><i class='fas fa-map-marked-alt'></i><a href='#'>Tbilis, Georgia</a></li>
-            <li><i class='fas fa-phone'></i> <a href='#'>+995 555 555 555</a></li>
-            <li><i class='fas fa-envelope'></i> <a href='#'>support@Elounion.com</a></li>
-        </ul>
+            <div class='social-resp'>
+                <ul>
+                    <li><a target="_blank" href='https://www.facebook.com/EloUnion/' class='fab fa-facebook-f'></a></li>
+                    <li><a target="_blank" href='https://www.instagram.com/elounion/' class='fab fa-instagram'></a></li>
+                    <li><a target="_blank" href='#' class='fab fa-youtube'></a></li>
+                    <li><a target="_blank" href='#' class='fab fa-discord'></a></li>
+                </ul>
+            </div>
+        <div class="inf">
+            <ul>
+                <li><i class='fas fa-envelope'></i> <a href='#'>support@Elounion.com</a></li>
+            </ul>
+        </div>
     </div>
 </footer>
 
