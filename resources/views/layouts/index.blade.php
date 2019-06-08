@@ -330,7 +330,7 @@
                     <li><a target="_blank" href='https://www.facebook.com/EloUnion/' class='fab fa-facebook-f'></a></li>
                     <li><a target="_blank" href='https://www.instagram.com/elounion/' class='fab fa-instagram'></a></li>
                     <li><a target="_blank" href='#' class='fab fa-youtube'></a></li>
-                    <li><a target="_blank" href='#' class='fab fa-discord'></a></li>
+                    <li><a target="_blank" href='https://discordapp.com/invite/cKJF3a' class='fab fa-discord'></a></li>
                 </ul>
             </div>
             <div class='container'>
