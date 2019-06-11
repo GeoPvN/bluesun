@@ -1638,7 +1638,6 @@ section .middle {
   box-sizing: border-box;
 }
 #contact form p {
-  text-transform: capitalize;
   text-align: center;
   font-family: "Roboto-Black";
   font-size: 1rem;
