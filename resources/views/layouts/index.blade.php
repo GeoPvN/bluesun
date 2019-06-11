@@ -329,8 +329,8 @@
                 <ul>
                     <li><a target="_blank" href='https://www.facebook.com/EloUnion/' class='fab fa-facebook-f'></a></li>
                     <li><a target="_blank" href='https://www.instagram.com/EloUnion/' class='fab fa-instagram'></a></li>
-                    <li><a target="_blank" href='#' class='fab fa-youtube'></a></li>
-                    <li><a target="_blank" href='https://discordapp.com/invite/cKJF3a' class='fab fa-discord'></a></li>
+                    <li><a target="_blank" href='https://www.youtube.com/channel/UClUbDjBKPl3_kVdo3EwHB9w' class='fab fa-youtube'></a></li>
+                    <li><a target="_blank" href='https://discord.gg/UfJw2Gc' class='fab fa-discord'></a></li>
                 </ul>
             </div>
             <div class='container'>
@@ -401,7 +401,7 @@
                             </li>
 
                             <li class='type-of-service specific'>
-                                <div class='name'><span>2</span>SPECIFIC LINES</div>
+                                <div class='name'><span>2</span>SPECIFIC LANES</div>
                                 
                                 <div class="services-wrapper line">
                                     <div class="service active" data-value="top">
@@ -917,7 +917,7 @@
             <h1 class='wow fadeInDown' data-wow-delay='0.2s'>Contact</h1>
 
             <form class='wow fadeInUp' data-wow-delay='0.7s' method='POST' action='{{ route('contact') }}'>
-                <p>If you have any questions you can email us</p>
+                <p>If you have any further questions, feel free to contact us.</p>
 
                 <ul>
                     <li>
@@ -963,8 +963,8 @@
                 <ul>
                     <li><a target="_blank" href='https://www.facebook.com/EloUnion/' class='fab fa-facebook-f'></a></li>
                     <li><a target="_blank" href='https://www.instagram.com/EloUnion/' class='fab fa-instagram'></a></li>
-                    <li><a target="_blank" href='#' class='fab fa-youtube'></a></li>
-                    <li><a target="_blank" href='#' class='fab fa-discord'></a></li>
+                    <li><a target="_blank" href='https://www.youtube.com/channel/UClUbDjBKPl3_kVdo3EwHB9w' class='fab fa-youtube'></a></li>
+                    <li><a target="_blank" href='https://discord.gg/UfJw2Gc' class='fab fa-discord'></a></li>
                 </ul>
             </div>
         <div class="inf">
