@@ -26,9 +26,9 @@ $('.login-dialog').on('submit', function(ev) {
             $(thisForm.find('li.err-txt')).html('');
             $('.profile_name,.user').html(msg.name);
             $('.profile_email').html(msg.email);
-            active = 'Deactive';
+            active = '<div class="status not-verified"><span>Not Verified</span><i class="material-icons">error_outline</i></div>';
             if(msg.active == 1){
-                active = 'Active';
+                active = '<div class="status verified"><span>Verified</span><i class="material-icons">verified_user</i></div> ';
             }
             $('.profile_active').html(active);
             
