@@ -26,7 +26,7 @@
                             <div class="form-group">
                                 <label>Current Division</label>
                                 <select class="form-control now_division_id" name="now_division_id" required="required">
-                                    <option value="0">First Chosse Current League</option>
+                                    <option value="">First Chosse Current League</option>
                                 </select>
                             </div>
                             <div class="form-group">
