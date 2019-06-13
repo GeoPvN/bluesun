@@ -229,7 +229,7 @@
                 url: "{{ route('division-get') }}",
                 data: { league_id: now_league_id},
                 success: function(msg){
-                    var option = '<option value="0">Chosse Current Division</option>';
+                    var option = '<option value="">Chosse Current Division</option>';
                     $.each(msg, function (key, val) {
                         option += '<option value="'+val.id+'">'+val.name+'</option>';
                     });
@@ -248,7 +248,7 @@
                 url: "{{ route('division-get') }}",
                 data: { league_id: now_league_id},
                 success: function(msg){
-                    var option = '<option value="0">Chosse Current Division</option>';
+                    var option = '<option value="">Chosse Current Division</option>';
                     $.each(msg, function (key, val) {
                         option += '<option value="'+val.id+'">'+val.name+'</option>';
                     });
