@@ -10,6 +10,15 @@
     <meta name="theme-color" content="#0072ff">
     <!-- CSRF Token -->
     <meta name='csrf-token' content='{{ csrf_token() }}'>
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('images/favicon.ico') }}">
+
+    <meta property="fb:pages" content="2313322968925540"/>
+    <meta name="og:site_name" content="EloUnion.com"/>
+    <meta name="og:type" content="website"/>
+    <meta name="og:title" content="EloUnion.com / Boost Account / Cheap Boost"/>
+    <meta name="og:url" content="http://www.elounion.com"/>
+    <meta name="og:description" content="Trusted by Gamers. Proven Boosters. Track Progress, Spectate, Chat, Schedule & Pause Boost. Select Lines, Champions, Summoners & Stream Games. Choose between Regular and Test Text Duo. Select Between Solo/Duo. Encrypted VPN Connection. 24/7 Qualified Support."/>
+    <meta name="og:image" content="{{ asset('css/assets/images/bg.jpg') }}"/>
 
     <title>EloUnion</title>
     <link rel='stylesheet' href='{{ asset('css/cyb/style.css') }}'>
