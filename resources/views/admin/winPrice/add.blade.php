@@ -17,7 +17,7 @@
                             <div class="form-group">
                                 <label>Current League</label>
                                 <select class="form-control now_league_id" name="now_league_id" required="required">
-                                    <option value="0">Chosse Current League</option>
+                                    <option value="">Chosse Current League</option>
                                     @foreach($leagues as $league)
                                         <option value="{{ $league["id"] }}">{{ $league{"name"} }}</option>
                                     @endforeach
@@ -26,7 +26,7 @@
                             <div class="form-group">
                                 <label>Current Division</label>
                                 <select class="form-control now_division_id" name="now_division_id" required="required">
-                                    <option value="0">First Chosse Current League</option>
+                                    <option value="">First Chosse Current League</option>
                                 </select>
                             </div>
                             <div class="form-group">

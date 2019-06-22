@@ -185,11 +185,13 @@ void function Init() {
         void function IncDec() {
             $('.val').text(number)
             $('#service .inc-dec .inc').on('click', function() {
-                number+=1
-               $(this).siblings('.val').text(number)
-                $('input[name="hours"]').val(number);
-                $('input[name="games"]').val(number);
-                getPrice();
+                if(number < 10){
+                    number+=1
+                    $(this).siblings('.val').text(number)
+                    $('input[name="hours"]').val(number);
+                    $('input[name="games"]').val(number);
+                    getPrice();
+                }
             })
     
             $('#service .inc-dec .dec').on('click', function() {

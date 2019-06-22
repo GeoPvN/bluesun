@@ -136,8 +136,10 @@ class adminUsersController extends Controller
 
     public function delete(Request $request)
     {
+
         if($request->ajax()) {
-            $user = User::find($request->id)->delete();
+
+            $user = User::whereIn('id', $request->id)->delete();
 
             return response()->json($user);
         }

@@ -10,8 +10,17 @@
     <meta name="theme-color" content="#0072ff">
     <!-- CSRF Token -->
     <meta name='csrf-token' content='{{ csrf_token() }}'>
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('images/favicon.ico') }}">
 
-    <title>Elounion</title>
+    <meta property="fb:pages" content="2313322968925540"/>
+    <meta name="og:site_name" content="EloUnion.com"/>
+    <meta name="og:type" content="website"/>
+    <meta name="og:title" content="EloUnion.com / Boost Account / Cheap Boost"/>
+    <meta name="og:url" content="http://www.elounion.com"/>
+    <meta name="og:description" content="Trusted by Gamers. Proven Boosters. Track Progress, Spectate, Chat, Schedule & Pause Boost. Select Lines, Champions, Summoners & Stream Games. Choose between Regular and Test Text Duo. Select Between Solo/Duo. Encrypted VPN Connection. 24/7 Qualified Support."/>
+    <meta name="og:image" content="{{ asset('css/assets/images/bg.jpg') }}"/>
+
+    <title>EloUnion</title>
     <link rel='stylesheet' href='{{ asset('css/cyb/style.css') }}'>
     <link rel='stylesheet' href='{{ asset('css/cyb/all.min.css') }}'>
     <link rel='stylesheet' href='{{ asset('css/cyb/animate.css') }}' type='text/css'>
@@ -19,7 +28,7 @@
 <body>
 <div class='preloader-wrapper'>
     <div class='preloader'>
-        <div class='name'>Elounion</div>
+        <div class='name'>EloUnion</div>
         <div class='spinner'>
             <div class='bounce1'></div>
             <div class='bounce2'></div>
@@ -30,7 +39,7 @@
 <header>
     <div class='middle'>
         <a href='#' class='logo wow fadeInLeft' data-wow-delay='0.4s'>
-            <h1>Elounion</h1>
+            <h1>EloUnion</h1>
         </a>
 
         <div class='right'>
@@ -219,7 +228,7 @@
 
                 <div class='success-dialog'>
                     <div class='title'>Check Email</div>
-                    <p>In order to help maintain the security of your Elounion account, please check your email address!</p>
+                    <p>In order to help maintain the security of your EloUnion account, please check your email address!</p>
                 </div>
             </form>
         </div>
@@ -277,28 +286,28 @@
                 <p>Your access to and use of the service is conditioned on your acceptance of and compliance with these Terms. These Terms apply to all visitors, users and others who access or use the Service.</p>
                 </br>
                 </br>
-                <p>Elounion has the right either to accept or decline the order of the customer. On the other hand, we guarantee to fulfil every accepted order quickly and with maximal effectiveness.</p>
+                <p>EloUnion has the right either to accept or decline the order of the customer. On the other hand, we guarantee to fulfil every accepted order quickly and with maximal effectiveness.</p>
                 </br>       
-                <p>Elounion guarantees personal data safety. Every information which will be provided to us by our customers will be used solely during the service period with the explicit agreement of the customer.</p>
+                <p>EloUnion guarantees personal data safety. Every information which will be provided to us by our customers will be used solely during the service period with the explicit agreement of the customer.</p>
                 </br>
-                <p>Our service may contain links to third-party web sites or services that are not owned or controlled by our Company. (For example payment services). Elounion has no control over, and assumes no responsibility for, the content, privacy policies, or practices of any third party web sites or services. (Including Riot Games).</p>
+                <p>Our service may contain links to third-party web sites or services that are not owned or controlled by our Company. (For example payment services). EloUnion has no control over, and assumes no responsibility for, the content, privacy policies, or practices of any third party web sites or services. (Including Riot Games).</p>
                 </br>
-                <p>You further acknowledge and agree that Elounion shall not be responsible or liable, directly or indirectly, for any damage or loss caused or alleged to be caused by or in connection with use of or reliance  on any such content, goods or services available on or through any such websites or services.</p>
+                <p>You further acknowledge and agree that EloUnion shall not be responsible or liable, directly or indirectly, for any damage or loss caused or alleged to be caused by or in connection with use of or reliance  on any such content, goods or services available on or through any such websites or services.</p>
                 </br>
-                <p>Elounion reserves the right to change pricing of its services at any time.  Of course, orders which were already placed will not be effected. Ever change will be visible on the website.</p>
+                <p>EloUnion reserves the right to change pricing of its services at any time.  Of course, orders which were already placed will not be effected. Ever change will be visible on the website.</p>
                 </br>
                 <p>We reserve the right, at our sole discretion, to modify or replace these Terms at any time. If a revision is material we will try to provide at least 30 days notice prior to any new terms taking effect. What constitutes a material change will be determined at our sole discretion.</p>
                 </br>
                 <p>If you have any questions about these Terms, please contact us .</p>
                 </br>
                 <p>Sincerely,</p>
-                <p>Elounion Administration.</p>
+                <p>EloUnion Administration.</p>
                 </div>
             </div>
 
             <div class='success-dialog'>
                 <div class='title'>verify your email address</div>
-                <p>In order to help maintain the security of your Elounion account, please verify your email address!</p>
+                <p>In order to help maintain the security of your EloUnion account, please verify your email address!</p>
             </div>
         </div>
     </div>
@@ -330,14 +339,14 @@
             <div class='social wow fadeInLeft' data-wow-delay='2s'>
                 <ul>
                     <li><a target="_blank" href='https://www.facebook.com/EloUnion/' class='fab fa-facebook-f'></a></li>
-                    <li><a target="_blank" href='https://www.instagram.com/elounion/' class='fab fa-instagram'></a></li>
-                    <li><a target="_blank" href='#' class='fab fa-youtube'></a></li>
-                    <li><a target="_blank" href='#' class='fab fa-discord'></a></li>
+                    <li><a target="_blank" href='https://www.instagram.com/EloUnion/' class='fab fa-instagram'></a></li>
+                    <li><a target="_blank" href='https://www.youtube.com/channel/UClUbDjBKPl3_kVdo3EwHB9w' class='fab fa-youtube'></a></li>
+                    <li><a target="_blank" href='https://discord.gg/UfJw2Gc' class='fab fa-discord'></a></li>
                 </ul>
             </div>
             <div class='container'>
                 <div class='text'>
-                    <h1 class='logo wow zoomIn' data-wow-delay='2s'>Elounion</h1>
+                    <h1 class='logo wow zoomIn' data-wow-delay='2s'>EloUnion</h1>
                     <h1 class='wow fadeInUp' data-wow-delay='2.2s'>@if($about->name) {{ $about->name }} @endif</h1>
                     <p class='wow zoomInUp' data-wow-delay='2.4s'>@if($about->text) {{ $about->text }} @endif</p>
                 </div>
@@ -403,7 +412,7 @@
                             </li>
 
                             <li class='type-of-service specific'>
-                                <div class='name'><span>2</span>SPECIFIC LINES</div>
+                                <div class='name'><span>2</span>SPECIFIC LANES</div>
                                 
                                 <div class="services-wrapper line">
                                     <div class="service active" data-value="top">
@@ -919,7 +928,7 @@
             <h1 class='wow fadeInDown' data-wow-delay='0.2s'>Contact</h1>
 
             <form class='wow fadeInUp' data-wow-delay='0.7s' method='POST' action='{{ route('contact') }}'>
-                <p>If you have any questions you can email us</p>
+                <p>If you have any further questions, feel free to contact us.</p>
 
                 <ul>
                     <li>
@@ -964,14 +973,14 @@
             <div class='social-resp'>
                 <ul>
                     <li><a target="_blank" href='https://www.facebook.com/EloUnion/' class='fab fa-facebook-f'></a></li>
-                    <li><a target="_blank" href='https://www.instagram.com/elounion/' class='fab fa-instagram'></a></li>
-                    <li><a target="_blank" href='#' class='fab fa-youtube'></a></li>
-                    <li><a target="_blank" href='#' class='fab fa-discord'></a></li>
+                    <li><a target="_blank" href='https://www.instagram.com/EloUnion/' class='fab fa-instagram'></a></li>
+                    <li><a target="_blank" href='https://www.youtube.com/channel/UClUbDjBKPl3_kVdo3EwHB9w' class='fab fa-youtube'></a></li>
+                    <li><a target="_blank" href='https://discord.gg/UfJw2Gc' class='fab fa-discord'></a></li>
                 </ul>
             </div>
         <div class="inf">
             <ul>
-                <li><i class='fas fa-envelope'></i> <a href='#'>support@Elounion.com</a></li>
+                <li><i class='fas fa-envelope'></i> <a href='#'>support@EloUnion.com</a></li>
             </ul>
         </div>
     </div>

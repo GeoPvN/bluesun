@@ -48,6 +48,16 @@ class PaymentController extends Controller
 	public function payWithpaypal(Request $request)
     {
 
+        if (!Auth::check()) {
+            \Session::put('error', 'You are not authorized. Please log in!');
+            return Redirect::route('/');
+        }
+
+        if (Auth::user()->active == 0) {
+            \Session::put('error', 'You are not verified user, please verify your e-mail!');
+            return Redirect::route('/');
+        }
+
         $servicePrice = ServicePrice::where('service',$request->service)
             ->first();
 
@@ -196,11 +206,6 @@ class PaymentController extends Controller
 			}
 
 		}
-
-        if (!Auth::check()) {
-            \Session::put('error', 'You are not authorized. Please log in!');
-            return Redirect::route('/');
-        }
 
 		/** add payment ID to session **/
         Session::put('paypal_payment_id', $payment->getId());
