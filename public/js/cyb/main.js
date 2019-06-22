@@ -68,6 +68,7 @@ void function Init() {
                 $('body').addClass('hidden')
             } else {
                 $('.right').removeClass('visible')
+                $('body').removeClass('hidden')
             }
         })
 
@@ -180,8 +181,8 @@ void function Init() {
             }
         })
 
+        var number = 1
         void function IncDec() {
-            var number = 1
             $('.val').text(number)
             $('#service .inc-dec .inc').on('click', function() {
                 number+=1
@@ -204,8 +205,9 @@ void function Init() {
 
         void function SwitchService() {
             $('#duo-boosting, #win-boosting, #league-boosting').hide()
-
             $('#service .boosts ul li').on('click', function() {
+                number = 1
+                $('#service .inc-dec .val').text(number)
                 var forId  = $(this).attr('for')
                 $(`#${forId}`).fadeIn().siblings().hide()
             })

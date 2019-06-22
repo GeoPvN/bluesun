@@ -141,6 +141,7 @@
 
                     <div class='my-orders'>
                         <h1>My Orders</h1>
+                        <div class="table-wrapper" style='width: 100%; overflow: auto;'>
                         <table>
                             <thead>
                             <tr>
@@ -170,6 +171,7 @@
                             @endforeach
                             </tbody>
                         </table>
+                        </div>
                     </div>
                 </div>
             </div>
