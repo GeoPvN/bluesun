@@ -237,7 +237,7 @@
     <div class='popup-overlay signup'>
         <div class='popup'>
             <img src='{{ asset('css/assets/images/close.svg') }}' class='close'>
-            <form method='POST' action='{{ route('register') }}'>
+            <form method='POST' action='{{ route('new_register') }}'>
                 <div class='title'>Registration Form</div>
                 <ul>
                     <li>

@@ -26,6 +26,8 @@ Route::get('refresh-csrf', function(){
     return csrf_token();
 });
 
+Route::post('new_register', 'Auth\RegisterController@register')->name('new_register');
+
 Auth::routes();
 
 Route::group(['middleware' => 'admin'], function() {
