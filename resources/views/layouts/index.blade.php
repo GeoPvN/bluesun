@@ -312,6 +312,18 @@
         </div>
     </div>
 
+    @if($activeUser)
+    <div class='popup-overlay paypal'>
+        <div class='popup'>
+            <img src='{{ asset('css/assets/images/close.svg') }}' class='close'>
+            <div class='title information'>Your email has been successfully verified.<br> After a few seconds it will redirect</div>
+            <script>
+                setTimeout(function(){ window.location = 'https://elounion.com/'; }, 3000);
+            </script>
+        </div>
+    </div>
+    @endif
+
     @if ($message = Session::get('success'))
     <div class='popup-overlay paypal'>
         <div class='popup'>

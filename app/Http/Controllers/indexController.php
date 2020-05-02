@@ -20,8 +20,10 @@ class indexController extends Controller
     {
         $active_url = $request->route('id');
 
+        $activeUser = 0;
         if(!empty($active_url)){
             $this->activeUser($active_url);
+            $activeUser = 1;
         }
 
         $servers = Server::all();
@@ -39,7 +41,7 @@ class indexController extends Controller
 
         $faqs = Faq::all();
 
-        return view('layouts.index', compact('gallerys','faqs', 'about', 'servers', 'leagues', 'queues', 'orders'));
+        return view('layouts.index', compact('gallerys','faqs', 'about', 'servers', 'leagues', 'queues', 'orders', 'activeUser'));
 
     }
 
