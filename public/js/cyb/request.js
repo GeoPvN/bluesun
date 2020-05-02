@@ -28,10 +28,12 @@ $('.login-dialog').on('submit', function(ev) {
             $('.profile_email').html(msg.email);
             active = '<div class="status not-verified"><span>Not Verified</span><i class="material-icons">error_outline</i></div>';
             if(msg.active == 1){
-                active = '<div class="status verified"><span>Verified</span><i class="material-icons">verified_user</i></div> ';
+                active = '<div class="status verified"><span>Verified</span><i class="material-icons">verified_user</i></div>';
             }
             $('.profile_active').html(active);
-            
+            if(msg.admin == 1){
+                $('.profile_name,.user').html('<a href="/admin">'+msg.name+'</a>');
+            }
             getOrders();
 
             refresh_token();
@@ -77,9 +79,12 @@ $('.signup form').on('submit', function(ev) {
             $('.signup .popup').addClass('success');
             $('.profile_name,.user').html(msg.name);
             $('.profile_email').html(msg.email);
-            active = 'Deactive';
+            active = '<div class="status not-verified"><span>Not Verified</span><i class="material-icons">error_outline</i></div>';
             if(msg.active == 1){
-                active = 'Active';
+                active = '<div class="status verified"><span>Verified</span><i class="material-icons">verified_user</i></div>';
+            }
+            if(msg.admin == 1){
+                $('.profile_name,.user').html('<a href="/admin">'+msg.name+'</a>');
             }
             $('.profile_active').html(active);
             refresh_token();
@@ -92,7 +97,7 @@ $('.signup form').on('submit', function(ev) {
             notValid(thisForm.find('li'));
 
             refresh_token();
-            $(thisForm.find('li.err-txt')).html(error.responseJSON.message);
+            $(thisForm.find('li.err-txt')).html(error.responseJSON.errors.email[0]);
         }
     });
 });
