@@ -318,7 +318,7 @@
             <img src='{{ asset('css/assets/images/close.svg') }}' class='close'>
             <div class='title information' style="text-transform: none;">Your email has been successfully verified.</div>
             <script>
-                //setTimeout(function(){ window.location = 'https://elounion.com/'; }, 3000);
+                setTimeout(function(){ window.location = 'https://elounion.com/'; }, 3000);
             </script>
         </div>
     </div>
