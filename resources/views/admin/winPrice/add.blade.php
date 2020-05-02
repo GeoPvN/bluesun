@@ -19,7 +19,7 @@
                                 <select class="form-control now_league_id" name="now_league_id" required="required">
                                     <option value="">Chosse Current League</option>
                                     @foreach($leagues as $league)
-                                        <option value="{{ $league["id"] }}">{{ $league{"name"} }}</option>
+                                        <option value="{{ $league["id"] }}">{{ $league["name"] }}</option>
                                     @endforeach
                                 </select>
                             </div>

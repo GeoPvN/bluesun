@@ -18,7 +18,7 @@
                                 <label>Current League</label>
                                 <select class="form-control now_league_id" name="now_league_id" required="required">
                                     @foreach($leagues as $league)
-                                        <option value="{{ $league["id"] }}">{{ $league{"name"} }}</option>
+                                        <option value="{{ $league["id"] }}">{{ $league["name"] }}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -32,7 +32,7 @@
                                 <label>Next League</label>
                                 <select class="form-control next_league_id" name="next_league_id" required="required">
                                     @foreach($leagues as $league)
-                                        <option value="{{ $league["id"] }}">{{ $league{"name"} }}</option>
+                                        <option value="{{ $league["id"] }}">{{ $league["name"] }}</option>
                                     @endforeach
                                 </select>
                             </div>

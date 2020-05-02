@@ -16,15 +16,16 @@
         <div class="col-lg-12">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    Orders List (Edit)
+                    Orders List (Edit/Delet)
                 </div>
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-lg-12">
 
                             <!-- Button trigger modal -->
+                            <button class="btn btn-danger btn-sm" id="delete-order">Delete</button>
 
-                            <button class="btn btn-success btn-sm" id="order-load-data">Refresh</button>
+                            <button class="btn btn-success btn-sm pull-right" id="order-load-data">Refresh</button>
 
                             @include('admin.order.edit')
 

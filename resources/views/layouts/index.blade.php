@@ -294,7 +294,7 @@
                 </br>
                 <p>You further acknowledge and agree that EloUnion shall not be responsible or liable, directly or indirectly, for any damage or loss caused or alleged to be caused by or in connection with use of or reliance  on any such content, goods or services available on or through any such websites or services.</p>
                 </br>
-                <p>EloUnion reserves the right to change pricing of its services at any time.  Of course, orders which were already placed will not be effected. Ever change will be visible on the website.</p>
+                <p>EloUnion reserves the right to change pricing of its services at any time.  Of course, orders which were already placed will not be effected. Every change will be visible on the website.</p>
                 </br>
                 <p>We reserve the right, at our sole discretion, to modify or replace these Terms at any time. If a revision is material we will try to provide at least 30 days notice prior to any new terms taking effect. What constitutes a material change will be determined at our sole discretion.</p>
                 </br>
@@ -341,7 +341,7 @@
                     <li><a target="_blank" href='https://www.facebook.com/EloUnion/' class='fab fa-facebook-f'></a></li>
                     <li><a target="_blank" href='https://www.instagram.com/EloUnion/' class='fab fa-instagram'></a></li>
                     <li><a target="_blank" href='https://www.youtube.com/channel/UClUbDjBKPl3_kVdo3EwHB9w' class='fab fa-youtube'></a></li>
-                    <li><a target="_blank" href='https://discord.gg/UfJw2Gc' class='fab fa-discord'></a></li>
+                    <li><a target="_blank" href='https://discord.gg/h33CUmU' class='fab fa-discord'></a></li>
                 </ul>
             </div>
             <div class='container'>
@@ -411,7 +411,7 @@
                                 </div>
                             </li>
 
-                            <li class='type-of-service specific'>
+                            <li class='type-of-service'>
                                 <div class='name'><span>2</span>SPECIFIC LANES</div>
                                 
                                 <div class="services-wrapper line">
@@ -975,7 +975,7 @@
                     <li><a target="_blank" href='https://www.facebook.com/EloUnion/' class='fab fa-facebook-f'></a></li>
                     <li><a target="_blank" href='https://www.instagram.com/EloUnion/' class='fab fa-instagram'></a></li>
                     <li><a target="_blank" href='https://www.youtube.com/channel/UClUbDjBKPl3_kVdo3EwHB9w' class='fab fa-youtube'></a></li>
-                    <li><a target="_blank" href='https://discord.gg/UfJw2Gc' class='fab fa-discord'></a></li>
+                    <li><a target="_blank" href='https://discord.gg/h33CUmU' class='fab fa-discord'></a></li>
                 </ul>
             </div>
         <div class="inf">

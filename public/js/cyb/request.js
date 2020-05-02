@@ -449,11 +449,11 @@ $(document).on('click','.game_service .options div',function () {
 
 $(document).on('click','.line div',function () {
     data = '';
-    if($('.line div').eq(0).hasClass( "active" )) {data += 'top'}
-    if($('.line div').eq(1).hasClass( "active" )) {data += ',mid'}
-    if($('.line div').eq(2).hasClass( "active" )) {data += ',jungle'}
-    if($('.line div').eq(3).hasClass( "active" )) {data += ',adc'}
-    if($('.line div').eq(4).hasClass( "active" )) {data += ',support'}
+    if($('.line div').eq(0).hasClass( "active" )) {data = 'top'}
+    if($('.line div').eq(1).hasClass( "active" )) {data = 'mid'}
+    if($('.line div').eq(2).hasClass( "active" )) {data = 'jungle'}
+    if($('.line div').eq(3).hasClass( "active" )) {data = 'adc'}
+    if($('.line div').eq(4).hasClass( "active" )) {data = 'support'}
     $('input[name="line"]').val(data);
     getPrice();
 });

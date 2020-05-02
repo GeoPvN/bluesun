@@ -12,7 +12,10 @@ class adminIndexController extends Controller
     public function index()
     {
 
-        $order = Order::with('user')->orderBy('id', 'desc')->get();
+        $order = Order::with('user')
+            ->where('show', 'yes')
+            ->orderBy('id', 'asc')
+            ->get();
 
         return view('admin.index', compact( 'order'));
 
@@ -49,7 +52,10 @@ class adminIndexController extends Controller
     public function loadTable()
     {
 
-        $order = Order::with('user')->orderBy('id','desc')->get();
+        $order = Order::with('user')
+            ->where('show', 'yes')
+            ->orderBy('id','asc')
+            ->get();
 
         return response($order);
 
@@ -74,12 +80,13 @@ class adminIndexController extends Controller
 
     public function delete(Request $request)
     {
-        if($request->ajax()) {
-            $order = Order::find($request->id)->delete();
 
-            return response()->json($order);
+        if($request->ajax()) {
+
+            $user = Order::where('id', $request->id)->update(['show' => 'no']);
+
+            return response()->json($user);
         }
 
     }
-
 }

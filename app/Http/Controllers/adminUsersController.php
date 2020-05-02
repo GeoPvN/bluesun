@@ -13,7 +13,9 @@ class adminUsersController extends Controller
     public function index()
     {
 
-        $users = User::orderBy('id', 'desc')->get();
+        $users = User::orderBy('id', 'desc')
+                    ->where('show', 'yes')
+                    ->get();
 
         return view('admin.users.index', compact( 'users'));
 
@@ -119,7 +121,9 @@ class adminUsersController extends Controller
     public function loadTable()
     {
 
-        $users = User::orderBy('id','desc')->get();
+        $users = User::orderBy('id','asc')
+            ->where('show', 'yes')
+            ->get();
 
         return response($users);
 
@@ -139,7 +143,7 @@ class adminUsersController extends Controller
 
         if($request->ajax()) {
 
-            $user = User::whereIn('id', $request->id)->delete();
+            $user = User::where('id', $request->id)->update(['show' => 'no']);
 
             return response()->json($user);
         }

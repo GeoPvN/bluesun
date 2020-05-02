@@ -31,7 +31,7 @@
                                 <label>League</label>
                                 <select class="form-control" name="league_id" required="required">
                                     @foreach($leagues as $league)
-                                        <option value="{{ $league["id"] }}">{{ $league{"name"} }}</option>
+                                        <option value="{{ $league["id"] }}">{{ $league["name"] }}</option>
                                     @endforeach
                                 </select>
                             </div>
