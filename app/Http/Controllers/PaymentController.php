@@ -138,6 +138,10 @@ class PaymentController extends Controller
 
             $price = $winPrice->price + ($winPrice->price * $servicePrice->price / 100);
 
+            if ($request->game_service == 'duo') {
+                $price = $price * 2;
+            }
+
             if($price == 0){
                 \Session::put('error', 'Chack all selector!');
                 return Redirect::route('/');

@@ -72,7 +72,6 @@ $('.signup form').on('submit', function(ev) {
             $('#for-user .auth').hide();
         },
         success: function(msg){
-            console.log(msg);
             $('#for-user .authorized').show();
             $('#for-user .authorized span.user, .my-profile li:first-child .info, .my-profile .half:first-child h1 span').text('test');
             // $('.popup-overlay').css('transform', 'translateY(-100%)');
@@ -156,7 +155,6 @@ $('.changePassword').on('submit', function(ev) {
         headers: { 'X-CSRF-TOKEN': $('[name="csrf-token"]').attr('content') },
         success: function(msg){
             if(msg.error) {
-                console.log(msg);
                 refresh_token();
                 var d = '';
                 $.each(msg.error, function (i) {
@@ -194,7 +192,6 @@ $('#for-user .authorized .signout').on('click', function(ev) {
 
         },
         success: function(msg){
-            console.log(msg);
             refresh_token();
         },
         error: function (error) {
@@ -225,7 +222,6 @@ $('#contact form').on('submit', function(ev) {
         dataType: 'JSON',
         headers: { 'X-CSRF-TOKEN': $('[name="csrf-token"]').attr('content') },
         success: function(msg){
-            console.log(msg);
             thisForm.addClass('success')
             setTimeout(function() {
                 thisForm.removeClass('success');
@@ -252,7 +248,6 @@ $(document).on('click','#league-l .option',function () {
         dataType: 'JSON',
         headers: { 'X-CSRF-TOKEN': $('[name="csrf-token"]').attr('content') },
         success: function(msg){
-            console.log(msg);
             var option = '';
             $.each(msg, function (key, val) {
                 option += '<div class="option" value="'+val.id+'" photo="'+val.photo.name+'">'+val.name+'</div>';
@@ -288,7 +283,6 @@ $(document).on('click','#league-l-n .option',function () {
         dataType: 'JSON',
         headers: { 'X-CSRF-TOKEN': $('[name="csrf-token"]').attr('content') },
         success: function(msg){
-            console.log(msg);
             var option = '';
             $.each(msg, function (key, val) {
                 option += '<div class="option" value="'+val.id+'" photo="'+val.photo.name+'">'+val.name+'</div>';
@@ -326,7 +320,6 @@ $(document).on('click','#duo-l .option',function () {
         dataType: 'JSON',
         headers: { 'X-CSRF-TOKEN': $('[name="csrf-token"]').attr('content') },
         success: function(msg){
-            console.log(msg);
             var option = '';
             $.each(msg, function (key, val) {
                 option += '<div class="option" value="'+val.id+'" photo="'+val.photo.name+'">'+val.name+'</div>';
@@ -362,7 +355,6 @@ $(document).on('click','#duo-l-n .option',function () {
         dataType: 'JSON',
         headers: { 'X-CSRF-TOKEN': $('[name="csrf-token"]').attr('content') },
         success: function(msg){
-            console.log(msg);
             var option = '';
             $.each(msg, function (key, val) {
                 option += '<div class="option" value="'+val.id+'" photo="'+val.photo.name+'">'+val.name+'</div>';
@@ -400,7 +392,6 @@ $(document).on('click','#win-l .option',function () {
         dataType: 'JSON',
         headers: { 'X-CSRF-TOKEN': $('[name="csrf-token"]').attr('content') },
         success: function(msg){
-            console.log(msg);
             var option = '';
             $.each(msg, function (key, val) {
                 option += '<div class="option" value="'+val.id+'" photo="'+val.photo.name+'">'+val.name+'</div>';
@@ -491,7 +482,6 @@ function getOrders() {
         dataType: 'JSON',
         headers: { 'X-CSRF-TOKEN': $('[name="csrf-token"]').attr('content') },
         success: function(msg){
-            console.log(msg);
             $('.my-orders table tbody').html('');
             if(msg.length < 1){$('.my-orders table tbody').html('<tr><td colspan="6" align="center">No Records</td></tr>');}
             $.each(msg, function (i, value) {
@@ -534,6 +524,7 @@ function getPrice(){
     var next_league_id = $('input[name="next_league_id"]').val();
     var next_division_id = $('input[name="next_division_id"]').val();
     var games = $('input[name="games"]').val();
+    var game_service = $('input[name="game_service"]').val();
 
     $.ajax({
         method: "POST",
@@ -546,12 +537,12 @@ function getPrice(){
             now_division_id: now_division_id,
             next_league_id: next_league_id,
             next_division_id: next_division_id,
-            games: games
+            games: games,
+            game_service: game_service
         },
         dataType: 'JSON',
         headers: { 'X-CSRF-TOKEN': $('[name="csrf-token"]').attr('content') },
         success: function(msg){
-            console.log(msg);
             $('.price h1').html(parseFloat(msg).toFixed(2)+ ' $');
 
             refresh_token();
